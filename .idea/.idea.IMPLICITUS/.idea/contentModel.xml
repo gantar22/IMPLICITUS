@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Martin-Lof\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Martin-Lof\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_IMPLICITUS.-1206316257.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Martin-Lof\Documents\projects\MockingBird\IMPLICITUS" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Code" t="Include">
+          <e p="boilerplate" t="Include">
+            <e p="BoolEvent.cs" t="Include" />
+            <e p="BoolRef.cs" t="Include" />
+            <e p="eatmouse.cs" t="Include" />
+            <e p="EventHook.cs" t="Include" />
+            <e p="EventObject.cs" t="Include" />
+            <e p="FloatRef.cs" t="Include" />
+            <e p="IntEvent.cs" t="Include" />
+            <e p="IntRef.cs" t="Include" />
+            <e p="PlayerBoolRef.cs" t="Include" />
+            <e p="PlayerRef.cs" t="Include" />
+            <e p="Reference.cs" t="Include" />
+            <e p="Set_FloatAsset.cs" t="Include" />
+            <e p="Set_FloatPlayable.cs" t="Include" />
+            <e p="Set_FloatTrack.cs" t="Include" />
+            <e p="Set_IntAsset.cs" t="Include" />
+            <e p="Set_IntPlayable.cs" t="Include" />
+            <e p="Set_IntTrack.cs" t="Include" />
+            <e p="Set_StringAsset.cs" t="Include" />
+            <e p="Set_StringPlayable.cs" t="Include" />
+            <e p="Set_StringTrack.cs" t="Include" />
+            <e p="set_text.cs" t="Include" />
+            <e p="Shrub.cs" t="Include" />
+            <e p="StringRef.cs" t="Include" />
+            <e p="Sum.cs" t="Include" />
+            <e p="trigger_event_on_input.cs" t="Include" />
+            <e p="Unit.cs" t="Include" />
+            <e p="UnitEvent.cs" t="Include" />
+            <e p="Vector3Ref.cs" t="Include" />
+          </e>
+          <e p="Pure Logic" t="Include">
+            <e p="Combinator.cs" t="Include" />
+            <e p="Lambda.cs" t="Include" />
+          </e>
+          <e p="TestCombinators.cs" t="Include" />
+        </e>
+        <e p="LWRP" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="SimpleCameraController.cs" t="Include" />
+          </e>
+          <e p="TutorialInfo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ReadmeEditor.cs" t="Include" />
+              </e>
+              <e p="Readme.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="IMPLICITUS.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
