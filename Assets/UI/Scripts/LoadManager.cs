@@ -26,12 +26,7 @@ public class LoadManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         blackScreen = GetComponentInChildren<CanvasGroup>();
     }
-
-    private void Start()
-    {
-        blackScreen.enabled = false;
-    }
-
+ 
     //Scene loading functions
 
     public void LoadScene(string sceneName)

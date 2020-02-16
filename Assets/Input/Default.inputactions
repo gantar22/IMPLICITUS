@@ -15,7 +15,7 @@
                 },
                 {
                     "name": "Submit",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "9f7afcc9-6ac7-42a5-8dcc-01530fc17af5",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -23,16 +23,8 @@
                 },
                 {
                     "name": "Point",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "379efe90-6ab1-4809-b3ae-9674dee236c6",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Hover",
-                    "type": "Value",
-                    "id": "ac713c7a-1d45-4c59-9534-d6c773525a4d",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -164,7 +156,7 @@
                     "name": "",
                     "id": "f783e882-dd16-4b6e-903b-ac0a269f087c",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "K&M",
                     "action": "Submit",
@@ -175,7 +167,7 @@
                     "name": "",
                     "id": "d37c58ea-3d9e-49a4-8bac-35ea47d01674",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Submit",
@@ -186,7 +178,7 @@
                     "name": "",
                     "id": "53bbf01a-a9a4-4a86-9d81-7cabeef35811",
                     "path": "<Touchscreen>/press",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Touch",
                     "action": "Submit",
@@ -196,7 +188,7 @@
                 {
                     "name": "",
                     "id": "eade9834-9839-4156-859e-e1da8f4c1fd8",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "K&M",
@@ -207,33 +199,11 @@
                 {
                     "name": "",
                     "id": "04517bb0-3caa-4984-9414-3ac06863871e",
-                    "path": "<Touchscreen>/delta",
+                    "path": "<Touchscreen>/position",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Touch",
                     "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7fe7d554-7fbd-43f7-9bf2-a3012755c9ad",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "K&M",
-                    "action": "Hover",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6decfc60-d757-4ac4-8be0-d24ff3e2845f",
-                    "path": "<Touchscreen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Hover",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
