@@ -40,6 +40,7 @@
           </e>
           <e p="Game" t="Include">
             <e p="Spell.cs" t="Include" />
+            <e p="TempDrawTerm.cs" t="Include" />
           </e>
           <e p="Pure Logic" t="Include">
             <e p="Combinator.cs" t="Include" />
