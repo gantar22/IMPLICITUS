@@ -1,0 +1,1 @@
+Sending a message about how we are learning how to create text that is scrolling in unity and allow it to repeat once it disappears
