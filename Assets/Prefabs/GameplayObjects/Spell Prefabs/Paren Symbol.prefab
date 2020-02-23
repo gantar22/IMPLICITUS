@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3703696252354867988}
   - component: {fileID: 5145841829500452374}
   - component: {fileID: 5709629072322769283}
+  - component: {fileID: 2751481487029469432}
   m_Layer: 5
   m_Name: Paren Symbol
   m_TagString: Untagged
@@ -89,3 +90,15 @@ MonoBehaviour:
   root: {fileID: 0}
   index: 
   matchWidth: 1
+--- !u!114 &2751481487029469432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513709824908824545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f994003b732b0b48bdc6e5566dc892c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
