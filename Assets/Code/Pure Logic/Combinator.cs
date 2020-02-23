@@ -10,6 +10,7 @@ public struct CombinatorInfo
     public bool associator;
     public bool permutor;
     public bool recursive;
+    public bool annihilator;
     public CombinatorNameInfo nameInfo;
     [TextArea(3,10)] public string extraInfo;
 }
