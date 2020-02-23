@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spell : ScriptableObject
 {
     [SerializeField]
-    Combinator combinator;
+    public Combinator combinator;
 
-    [SerializeField] private Sprite sprite;
+    [SerializeField] public LayoutTracker prefab;
     
 }

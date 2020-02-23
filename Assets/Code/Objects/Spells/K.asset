@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: K
   m_EditorClassIdentifier: 
   combinator: {fileID: 11400000, guid: 5146c29473ebbad44a4e0de349f1dc46, type: 2}
-  sprite: {fileID: 21300000, guid: d0e9a04ad5aeb254f9f47eba4b29cf4f, type: 3}
+  prefab: {fileID: 4638010739479779862, guid: 06edd5e38f9aab141aaee4774b9f23c8, type: 3}

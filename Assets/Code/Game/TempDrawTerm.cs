@@ -22,6 +22,7 @@ public class TempDrawTerm : MonoBehaviour
 
     private Dictionary<Sum<Combinator, Lambda.Variable>, float> lookup_width;
 
+    //Good function, needs some extension for special cases
     Shrub<List<Path>> NewLocations(Term term, Lambda.ElimRule r)
     {
         if (r is CombinatorElim CElim)
@@ -32,7 +33,7 @@ public class TempDrawTerm : MonoBehaviour
                     u => throw new Exception(u.ToString())
                 );
             
-            return term.MapI<List<Path>>(new List<int>(),((val, path) =>
+            return term.MapI<List<Path>>(new Path(),((val, path) =>
             {
                 if (path.Count == 0)
                 {
@@ -43,7 +44,9 @@ public class TempDrawTerm : MonoBehaviour
                 if (path[0] > arity)
                 {
                     //after the arguments and function
-                    return new List<Path>();
+                    path = path.ToList();
+                    path[0] = path[0] - arity + debuijn.Match(l => l.Count, x => 1);
+                    return new List<Path>().Append(path).ToList();
                 }
                 else
                 {
@@ -118,6 +121,7 @@ public class TempDrawTerm : MonoBehaviour
     }
 
     Shrub<GameObject> TransferTerm(Term term, Shrub<GameObject> objs, ElimRule rule)
+    //REQUIRES: term and objs share a shape
     {
         var paths_shrub = NewLocations(term, rule);
         var new_term = rule.evaluate(term);
@@ -130,9 +134,10 @@ public class TempDrawTerm : MonoBehaviour
             {
                 if (targets.Exists(target => target.SequenceEqual(p)))
                 {
+                    //the shapes must match
                     if (targets.FindIndex(target => target.SequenceEqual(p)) == 0)
                     {
-                        objs.Access(source);
+                        go = objs.Access(source).Match(l => null,r => r);
                     }
                     else
                     {
