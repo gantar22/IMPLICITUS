@@ -179,8 +179,7 @@ namespace Lambda
 
 
             input = String.Concat(input.Where(ch => !char.IsWhiteSpace(ch)));
-            Debug.Log($"trimmed input \"{input}\"");
-            
+         
             char name = input[0];
             Dictionary<char,int> vars = new Dictionary<char,int>();
 
