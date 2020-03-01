@@ -83,38 +83,38 @@ public class SymbolManagerTester : MonoBehaviour
             
             if (elimRule is CombinatorElim CElim)
             {
-                if (CElim.path.Count == 0)
+                if (CElim.Target().Count == 0)
                 {
                     print($"    Combinator: {CElim.c} at top");
                 }
                 else
                 {
-                    print($"    Combinator: {CElim.c} at {CElim.path.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}");
+                    print($"    Combinator: {CElim.c} at {CElim.Target().Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}");
                 }
             } else if (elimRule is ParenElim PElim)
             {
-                if (PElim.path.Count == 0)
+                if (PElim.Target().Count == 0)
                 {
                     print("    Paren elim at top");
                 }
                 else
                 {
-                    print($"    Paren at {PElim.path.Select(i => i.ToString()).Aggregate((a,b) => $"{a} {b}")}");
+                    print($"    Paren at {PElim.Target().Select(i => i.ToString()).Aggregate((a,b) => $"{a} {b}")}");
                 }
             }
         }
 
-        if(rules.Count > 0 && rules[0] is ParenElim parenElim)
+        /*if(rules.Count > 0 && rules[0] is ParenElim parenElim)
         {
-            rules = Lambda.Util.CanEvaluate(rules[0].evaluate(term), new List<int>(), (_, rule) => rule);
             input = show(rules[0].evaluate(term));
             input = String.Concat(input.Skip(1).Take(input.Length - 2).ToList());
+            rules = Lambda.Util.CanEvaluate(rules[0].evaluate(term), new List<int>(), (_, rule) => rule);
             return;
-        }
+        }*/
 
         if (rules.Count == 0)
         {
-            
+            return;
         }
         else
         {

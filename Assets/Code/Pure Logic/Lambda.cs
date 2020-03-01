@@ -23,7 +23,7 @@ namespace Lambda
 
     public class ParenElim : ElimRule
     {
-        public readonly List<int> path;
+        private readonly List<int> path;
         
         public ParenElim(List<Term> term, List<Term> leftElement, List<int> path)
         {
@@ -46,7 +46,12 @@ namespace Lambda
                     leftelement => Shrub<T>.Node(leftelement.Concat(l.Skip(1)).ToList()),
                     x => throw new Exception() //doesn't begin with parens
                 ),
-                x => throw new Exception() //isn't even an application
+                x =>
+                {
+                    Debug.Log($" path: {path.Select(i => $"{i}").Aggregate((l,r) => $"{l},{r}")}");
+                    throw new Exception();
+                }
+//isn't even an application
             ),path);
         }
     }
@@ -56,7 +61,7 @@ namespace Lambda
     {
         public readonly Combinator c;
 
-        public readonly List<int> path;
+        private readonly List<int> path;
 
         public CombinatorElim(Combinator c, List<Term> term,List<int> path)
         {
@@ -114,7 +119,7 @@ namespace Lambda
 
                     List<T> EvalArgs = children
                         .Skip(1)
-                        .SelectMany((shrub,index) => CanEvaluate<T>(shrub,path.Append(index).ToList(), cont))
+                        .SelectMany((shrub,index) => CanEvaluate<T>(shrub,path.Append(index + 1).ToList(), cont))
                         .ToList();
                     //depth first ordering of argument evaluation
 

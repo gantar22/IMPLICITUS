@@ -102,14 +102,16 @@ public class SymbolManager : MonoBehaviour
         CreateSkeleton(newTerm,skeletonRoot);
         
         
+        
+        /********* Find symbol where rule applies ***********/
+        var index = rule.Target();
+        var affectedSymbol = AccessTransfrom(TopSymbol.transform, index).GetComponent<LayoutTracker>();
+        
         /********* case on the rule **********/
         if (rule is CombinatorElim CElim)
         {
-            /********* Find symbol where rule applies ***********/
-            var index = CElim.path;
-            var affectedSymbol = AccessTransfrom(TopSymbol.transform, index).GetComponent<LayoutTracker>();
 
-            
+            /********** unpack the elim rule ***********/
             {
                 
                 (var debruijn, var arity) = Util.ParseCombinator(CElim.c)
@@ -145,7 +147,7 @@ public class SymbolManager : MonoBehaviour
                     {
                         symbols[ind + 1].transform.SetParent(null,true);
                         symbols[ind + 1].index = path;
-    
+                        
                         IterateTransform(symbols[ind + 1].transform,
                             t => t.GetComponent<LayoutTracker>().index = path.Concat(t.GetComponent<LayoutTracker>().index.Skip(index.Count + 2)).ToList());
                          argumentsThatHaveBeenUsed[ind + 1] = true;
@@ -181,7 +183,7 @@ public class SymbolManager : MonoBehaviour
                         paren.root = skeletonRoot;
                         for (var i = 0; i < l.Count; i++)
                         {
-                            CreateParens(l[i], totalPath.Append(i).ToList()).SetParent(paren.transform);
+                            CreateParens(l[i], totalPath.Append(i).ToList()).SetParent(paren.transform,true);
                         }
 
                         return paren.transform;
@@ -224,7 +226,25 @@ public class SymbolManager : MonoBehaviour
 
         if (rule is ParenElim PElim)
         {
-            //TODO
+            affectedSymbol.gameObject.name = "affected boi";
+
+            var old_paren = affectedSymbol.transform.GetChild(0);
+            var children = new List<Transform>();
+            for (int i = old_paren.childCount - 1; i >= 0; i--)
+            {  
+                children.Add(old_paren.GetChild(i));
+            }
+
+            for(int child = 0; child < children.Count;child++)
+            {
+                LayoutTracker lt = children[child].GetComponent<LayoutTracker>();
+                lt.index.RemoveAt(lt.index.Count - 1);
+                lt.index[lt.index.Count - 1] += child;
+                children[child].SetParent(affectedSymbol.transform,true);
+                children[child].SetSiblingIndex(0); 
+            }
+
+            Destroy(old_paren.gameObject);
         }
 
         return null;
