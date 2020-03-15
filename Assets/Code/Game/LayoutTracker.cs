@@ -13,8 +13,10 @@ public class LayoutTracker : MonoBehaviour
     private RectTransform rt;
     private LayoutElement layoutElement;
     [SerializeField] private bool matchWidth = false;
-    private readonly bool debug = true;
+    private readonly bool debug = false;
+    private RectTransform dest = null;
 
+    
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
@@ -34,14 +36,16 @@ public class LayoutTracker : MonoBehaviour
     }
 
 
+
+    void TravelTo(Spell spell,int myArgIndex)
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        rt.position += (target(index).position - transform.position) * Time.deltaTime * 5;
-        if (matchWidth)
-        {
-            rt.sizeDelta = new Vector2(target(index).rect.width,rt.rect.height);
-        }
+
         //Carter's system just doesn't work and he's subverting it entirely
         if (debug)
         {
@@ -50,7 +54,7 @@ public class LayoutTracker : MonoBehaviour
             List<int> indices = new List<int>();
             foreach (var sib in index.Skip(1).Reverse())
             {
-                if (t.GetSiblingIndex() != sib)
+                if (t.GetSiblingIndex() != sib || t.GetComponent<LayoutTracker>() == null)
                 {
                     // Debug.LogError($"BAD INDEX AT {gameObject}");
                     readjust = true;
@@ -59,10 +63,28 @@ public class LayoutTracker : MonoBehaviour
                 t = t.parent;
             }
 
-            if (readjust)
+            if (readjust || t.GetComponent<LayoutTracker>() == null)
                 index = indices.Skip(0).Reverse().ToList().Prepend(0).ToList();
+        }
 
+        if (transform.hasChanged || dest == null)
+        {
+            Transform t = transform;
+            index = new List<int>();
+            while (t.parent != null && t.parent.GetComponent<LayoutTracker>() != null)
+            {
+                index.Add(t.GetSiblingIndex());
+                t = t.parent;
+            }
+            index.Add(0);
+            index.Reverse();
+            dest = target(index);
         }
         
+        rt.position += (dest.position - transform.position) * Time.deltaTime * 5;
+        if (matchWidth)
+        {
+            rt.sizeDelta = new Vector2(dest.rect.width,rt.rect.height);
+        }
     }
 }
