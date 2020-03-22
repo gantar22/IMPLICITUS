@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Menu : MonoBehaviour
 {
@@ -13,11 +14,28 @@ public class Menu : MonoBehaviour
 
 #pragma warning restore 0649
 
+    private Animator animator;
+    private bool onTitle = true;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Quit();
+        }
+    }
+
+    public void TitleToMain()
+    {
+        if (onTitle)
+        {
+            onTitle = false;
+            animator.SetTrigger("Next");
         }
     }
 
