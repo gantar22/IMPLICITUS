@@ -46,18 +46,18 @@ public class EventObject<T,TEventType> : ScriptableObject where TEventType : Uni
         Event.AddListener(temp);
     }
 
-	public UnityAction<T> AddRemovableListener(Action<T> f) {
+	public Action AddRemovableListener(Action<T> f) {
 		UnityAction<T> temp = null;
 		temp = t => f(t);
 		Event.AddListener(temp);
-		return temp;
+		return () => Event.RemoveListener(temp);
 	}
 
-	public UnityAction<T> AddRemovableListener<T2>(Func<T, T2> f) {
+	public Action AddRemovableListener<T2>(Func<T, T2> f) {
 		UnityAction<T> temp = null;
 		temp = t => f(t);
 		Event.AddListener(temp);
-		return temp;
+		return () => Event.RemoveListener(temp);
 	}
 
 	public void RemoveListener(UnityAction<T> listener) {

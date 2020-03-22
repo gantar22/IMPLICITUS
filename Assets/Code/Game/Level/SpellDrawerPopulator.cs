@@ -9,14 +9,14 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	public UnitEvent onLevelLoad;
 	public LevelLoader levelLoader;
 
-	private UnityAction<Unit> listener;
+	private System.Action onDestroy;
 
 
 	// ===== Functions =====
 
 	// Init
 	private void Awake() {
-		listener = onLevelLoad.AddRemovableListener(onLevelWasLoaded);
+		onDestroy = onLevelLoad.AddRemovableListener(onLevelWasLoaded);
 	}
 
 	// After the level has loaded, populate the spell drawer with all the spells in the basis.
@@ -30,6 +30,6 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
-		onLevelLoad.RemoveListener(listener);
+		onDestroy();
 	}
 }
