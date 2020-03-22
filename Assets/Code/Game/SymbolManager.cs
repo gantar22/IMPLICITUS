@@ -11,7 +11,7 @@ using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
 
 public class SymbolManager : MonoBehaviour
 {
-    [SerializeField] private RectTransform skeletonRoot;
+    [SerializeField] public RectTransform skeletonRoot;
     [SerializeField] private RectTransform skeletonParen;
     [SerializeField] private RectTransform skeletonAtom;
 
@@ -47,19 +47,26 @@ public class SymbolManager : MonoBehaviour
 
     public void Insert(List<int> path, Term x)
     {
-        foreach (int i in path)
-        {
-            print($"path contains: {i}");
-        }
 
         foreach (Transform t in skeletonRoot)
         {
             if(Application.isPlaying)
                 Destroy(t.gameObject);
         }
-        print($"term = {currentTerm}");
-        print($"inserted term = {currentTerm.Insert(path,x)}");
         CreateSkeleton(currentTerm.Insert(path, x),skeletonRoot);
+    }
+
+    public void Append(List<Term> x)
+    {
+        
+        foreach (Transform t in skeletonRoot)
+        {
+            if(Application.isPlaying)
+                Destroy(t.gameObject);
+        }
+        CreateSkeleton(currentTerm.Match(
+            l => Term.Node(l.Concat(x).ToList()),
+            _ => throw new Exception("current term not application")),skeletonRoot);
     }
 
     

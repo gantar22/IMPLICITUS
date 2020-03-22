@@ -34,6 +34,8 @@ public class SpawnTarget : MonoBehaviour
         onDestroy();
     }
 
+    
+    
     // Update is called once per frame
     void Update()
     {

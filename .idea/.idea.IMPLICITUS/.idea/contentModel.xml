@@ -51,11 +51,13 @@
             <e p="Vector3Ref.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
+            <e p="adhoc_cast_spell.cs" t="Include" />
             <e p="DraggableSpell.cs" t="Include" />
             <e p="LayoutTracker.cs" t="Include" />
             <e p="Level" t="Include">
               <e p="LevelLoader.cs" t="Include" />
               <e p="SpellDrawerPopulator.cs" t="Include" />
+              <e p="StartElementsPopulator.cs" t="Include" />
             </e>
             <e p="SpawnTarget.cs" t="Include" />
             <e p="Spell.cs" t="Include" />
