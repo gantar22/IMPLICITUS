@@ -7,6 +7,17 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="ABMContributions" t="Include">
+          <e p="LevelInfoABM" t="Include">
+            <e p="LevelObject.cs" t="Include" />
+          </e>
+          <e p="TextCreationABM" t="Include">
+            <e p="CreateText.cs" t="Include" />
+            <e p="LoopText.cs" t="Include" />
+            <e p="SampleScrollingText.txt" t="Include" />
+            <e p="TextObject.cs" t="Include" />
+          </e>
+        </e>
         <e p="Code" t="Include">
           <e p="boilerplate" t="Include">
             <e p="BoolEvent.cs" t="Include" />
@@ -39,13 +50,32 @@
             <e p="Vector3Ref.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
+            <e p="DraggableSpell.cs" t="Include" />
+            <e p="LayoutTracker.cs" t="Include" />
             <e p="Spell.cs" t="Include" />
+            <e p="SymbolManager.cs" t="Include" />
+            <e p="TempDrawTerm.cs" t="Include" />
           </e>
           <e p="Pure Logic" t="Include">
             <e p="Combinator.cs" t="Include" />
             <e p="Lambda.cs" t="Include" />
           </e>
-          <e p="TestCombinators.cs" t="Include" />
+          <e p="Spline Usage" t="Include">
+            <e p="WalkerFreePoints.cs" t="Include" />
+          </e>
+          <e p="Test" t="Include">
+            <e p="SymbolManagerTester.cs" t="Include" />
+            <e p="TestCombinators.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Data" t="Include">
+          <e p="Levels" t="Include">
+            <e p="Code" t="Include">
+              <e p="Chapter.cs" t="Include" />
+              <e p="ChapterList.cs" t="Include" />
+              <e p="Level.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="LWRP" t="Include">
           <e p="Scripts" t="Include">
@@ -58,6 +88,30 @@
               </e>
               <e p="Readme.cs" t="Include" />
             </e>
+          </e>
+        </e>
+        <e p="Prefabs" t="Include">
+          <e p="GameplayObjects" t="Include">
+            <e p="Spell Prefabs" t="Include">
+              <e p="SetVariablePrefab.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Spline Editor" t="Include">
+          <e p="Editor" t="Include">
+            <e p="BezierCurveInspector.cs" t="Include" />
+            <e p="BezierSplineInspector.cs" t="Include" />
+            <e p="LineInspector.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Bezier.cs" t="Include" />
+            <e p="BezierControlPointMode.cs" t="Include" />
+            <e p="BezierCurve.cs" t="Include" />
+            <e p="BezierSpline.cs" t="Include" />
+            <e p="Line.cs" t="Include" />
+            <e p="SplineDecorator.cs" t="Include" />
+            <e p="SplineWalker.cs" t="Include" />
+            <e p="SplineWalkerMode.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
@@ -86,6 +140,12 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="UI" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="LoadManager.cs" t="Include" />
+            <e p="Menu.cs" t="Include" />
           </e>
         </e>
       </e>
