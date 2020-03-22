@@ -57,6 +57,7 @@ public class LevelLoader : ScriptableObject {
 
 	// Once a level has been loaded, calls all the initialization events
 	private void onLevelLoaded(AsyncOperation obj) {
+		Debug.Log("loaded level");
 		onLevelLoad.Invoke();
 		onLevelLoadArity.Invoke(currentLevel.Goal.combinator.arity);
 		onLevelLoadLambda.Invoke(currentLevel.Goal.combinator.lambdaTerm);

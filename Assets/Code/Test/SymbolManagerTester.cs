@@ -26,9 +26,18 @@ public class SymbolManagerTester : MonoBehaviour
 
     public void reset()
     {
-       
         Destroy(currentLayout.gameObject);
         currentLayout = manager.Initialize(Term.Node(new List<Term>()));
+    }
+
+    public Term CreateTerm(string s)
+    {
+        string temp = input;
+        input = s;
+        CreateTerm();
+        Term result = GetTerm();
+        input = temp;
+        return result;
     }
     
     public string show(Term t)
@@ -39,7 +48,7 @@ public class SymbolManagerTester : MonoBehaviour
     [ContextMenu("CreateTerm")]
     public void CreateTerm()
     {
-        CreateTermHelper();
+        currentLayout = CreateTermHelper().Item2;
     }
 
 
@@ -53,9 +62,6 @@ public class SymbolManagerTester : MonoBehaviour
         {
             throw new ArgumentException();
         }
-        
-        
-       
         
         return Shrub<char>.Node(input_shrub).Map<Sum<Combinator,Lambda.Variable>>(
             ch =>

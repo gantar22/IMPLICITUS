@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: LevelLoader
   m_EditorClassIdentifier: 
   chapterList: {fileID: 11400000, guid: f2a3354bf08212746b6bad3e3f7e9ded, type: 2}
-  levelSceneBuildIndex: 1
+  levelSceneBuildIndex: 3
   onLevelLoad: {fileID: 11400000, guid: 76f275bb9fc8b2f48800fe5e25a1caf3, type: 2}
   onLevelLoadLambda: {fileID: 11400000, guid: 85fa393545e43544cb7ab4b9680bce18, type: 2}
   onLevelLoadArity: {fileID: 11400000, guid: a89c1a605264eb44698c40e455580033, type: 2}
-  currentLevel: {fileID: 0}
+  chapterIndex: 0
+  levelIndex: 0
+  currentLevel: {fileID: 11400000, guid: a25d1f6daabfd5446a7ab4b74f0fd93c, type: 2}
