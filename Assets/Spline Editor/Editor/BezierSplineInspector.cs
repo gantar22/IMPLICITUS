@@ -30,6 +30,13 @@ public class BezierSplineInspector : Editor {
             EditorUtility.SetDirty(spline);
             spline.Loop = loop;
         }
+        EditorGUI.BeginChangeCheck();
+        float editorVW_Duration = EditorGUILayout.FloatField("Editor Walker Duration", spline.editorVW_Duration);
+        if (EditorGUI.EndChangeCheck()) {
+            Undo.RecordObject(spline, "Change editorVW_Duration");
+            EditorUtility.SetDirty(spline);
+            spline.editorVW_Duration = editorVW_Duration;
+        }
         if (selectedIndex >= 0 && selectedIndex < spline.ControlPointCount) {
             DrawSelectedPointInspector();
         }

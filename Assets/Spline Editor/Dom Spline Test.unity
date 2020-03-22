@@ -218,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f994003b732b0b48bdc6e5566dc892c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testSpline: {fileID: 1031727657}
 --- !u!1001 &455490236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,7 +579,7 @@ PrefabInstance:
     - target: {fileID: 925462242581051986, guid: 7a53a327d99680249b0dc198f5a7a10e,
         type: 3}
       propertyPath: points.Array.data[2].y
-      value: 1.7247436
+      value: 1.8228307
       objectReference: {fileID: 0}
     - target: {fileID: 925462242581051986, guid: 7a53a327d99680249b0dc198f5a7a10e,
         type: 3}
@@ -591,6 +590,11 @@ PrefabInstance:
         type: 3}
       propertyPath: points.Array.data[2].z
       value: 1.4734459
+      objectReference: {fileID: 0}
+    - target: {fileID: 925462242581051986, guid: 7a53a327d99680249b0dc198f5a7a10e,
+        type: 3}
+      propertyPath: editorVW_Duration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 925462242581051987, guid: 7a53a327d99680249b0dc198f5a7a10e,
         type: 3}

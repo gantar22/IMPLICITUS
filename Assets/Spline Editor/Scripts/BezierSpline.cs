@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using System;
 
 /* Source - https://catlikecoding.com/unity/tutorials/curves-and-splines/ */
@@ -215,4 +216,28 @@ public class BezierSpline : MonoBehaviour {
 			BezierControlPointMode.Free
 		};
 	}
+
+
+
+	// Dom's visual in-editor spline-walker
+#if UNITY_EDITOR
+	public float editorVW_Duration = 3f;
+
+	BezierSpline() {
+		EditorApplication.update += MyEditorUpdate;
+	}
+
+	private void MyEditorUpdate() {
+		//HandleUtility.Repaint();
+		if (editorVW_Duration > 0) {
+			SceneView.RepaintAll();
+		}
+	}
+
+	private void OnDrawGizmosSelected() {
+		editorVW_Duration = Mathf.Max(0.01f, editorVW_Duration);
+		Vector3 position = this.GetPoint((float) (EditorApplication.timeSinceStartup % editorVW_Duration) / editorVW_Duration);
+		Gizmos.DrawWireSphere(position, 0.1f);
+	}
+#endif
 }
