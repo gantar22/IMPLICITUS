@@ -162,6 +162,24 @@ namespace TypeUtil
                 v => v.Match(Shrub<T2>.Node,Shrub<T2>.Leaf)
                 );
         }
+
+        public bool Equal(Shrub<T> input)
+        {
+            return Match<bool>(l1 => input.Match<bool>(l2 =>
+            {
+                if (l1.Count != l2.Count)
+                    return false;
+                for (int i = 0; i < l1.Count; i++)
+                {
+                    if (!l1[i].Equal(l2[i]))
+                        return false;
+                }
+
+                return true;
+            }, s2 => false), s1 => input.Match<bool>(l2 => false
+                , s2 => s1.Equals(s2)));
+        }
+
     }   
 
 }

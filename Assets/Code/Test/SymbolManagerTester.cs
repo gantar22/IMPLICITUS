@@ -21,9 +21,16 @@ public class SymbolManagerTester : MonoBehaviour
 
     private void Start()
     {
-        manager.Initialize(Term.Node(new List<Term>()));
+        currentLayout = manager.Initialize(Term.Node(new List<Term>()));
     }
 
+    public void reset()
+    {
+       
+        Destroy(currentLayout.gameObject);
+        currentLayout = manager.Initialize(Term.Node(new List<Term>()));
+    }
+    
     public string show(Term t)
     {
         return t.Map<string>(v => v.Match(c => c.ToString(), i => variables[(int) i].ToString())).ToString();

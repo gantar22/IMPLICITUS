@@ -42,6 +42,7 @@
             <e p="Set_StringTrack.cs" t="Include" />
             <e p="set_text.cs" t="Include" />
             <e p="Shrub.cs" t="Include" />
+            <e p="StringEvent.cs" t="Include" />
             <e p="StringRef.cs" t="Include" />
             <e p="Sum.cs" t="Include" />
             <e p="trigger_event_on_input.cs" t="Include" />
@@ -52,6 +53,10 @@
           <e p="Game" t="Include">
             <e p="DraggableSpell.cs" t="Include" />
             <e p="LayoutTracker.cs" t="Include" />
+            <e p="Level" t="Include">
+              <e p="LevelLoader.cs" t="Include" />
+            </e>
+            <e p="SpawnTarget.cs" t="Include" />
             <e p="Spell.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
             <e p="TempDrawTerm.cs" t="Include" />
@@ -64,6 +69,7 @@
             <e p="WalkerFreePoints.cs" t="Include" />
           </e>
           <e p="Test" t="Include">
+            <e p="domTest.cs" t="Include" />
             <e p="SymbolManagerTester.cs" t="Include" />
             <e p="TestCombinators.cs" t="Include" />
           </e>
