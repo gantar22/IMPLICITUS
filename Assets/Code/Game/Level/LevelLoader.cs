@@ -44,6 +44,11 @@ public class LevelLoader : ScriptableObject {
 
 	// Loads a particular level by chapter and level indices
 	public void loadLevel(int chapter, int level) {
+		if (chapter >= chapterList.Chapters.Length || chapter < 0 || level >= chapterList.Chapters[chapter].Levels.Length || level < 0) {
+			Debug.LogError($"Trying to load chapter {chapter}, level {level}, which does not exist. Defaulting to chapter 0 level 0.");
+			loadLevel(0, 0);
+			return;
+		}
 		chapterIndex = chapter;
 		levelIndex = level;
 		currentLevel = chapterList.Chapters[chapterIndex].Levels[levelIndex];
