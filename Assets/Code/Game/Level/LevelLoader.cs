@@ -22,15 +22,38 @@ public class LevelLoader : ScriptableObject {
 	// ===== Setters/Getters =====
 	public void setChapterIndex(int newIndex) {
 		chapterIndex = newIndex;
+		verifyChapterIndex();
 	}
 	public void setLevelIndex(int newIndex) {
 		levelIndex = newIndex;
 	}
 	public void decrChapterIndex() {
 		chapterIndex--;
+		verifyChapterIndex();
 	}
 	public void incrChapterIndex() {
 		chapterIndex++;
+		verifyChapterIndex();
+	}
+
+	// Ensures 0 <= chapterIndex < chapterList.Chapters.Length
+	private void verifyChapterIndex() {
+		if (chapterIndex < 0) {
+			Debug.LogError("Tried to set chapterIndex below 0...");
+			chapterIndex = 0;
+		}
+		if (chapterList.Chapters.Length <= chapterIndex) {
+			Debug.LogError("Tried to setChapterIndex too high... chapter " + chapterIndex + " (zero-indexed) does not exist.");
+			chapterIndex = chapterList.Chapters.Length - 1;
+		}
+	}
+
+	// Returns true iff chapterIndex is the minimum/maximum chapter, respectively
+	public bool atMinChapter() {
+		return chapterIndex == 0;
+	}
+	public bool atMaxChapter() {
+		return chapterIndex == chapterList.Chapters.Length - 1;
 	}
 
 

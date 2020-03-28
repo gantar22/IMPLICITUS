@@ -14,10 +14,16 @@ public class ChapterDisplay : MonoBehaviour {
 		if (!textMeshProUGUI) {
 			textMeshProUGUI = GetComponent<TextMeshProUGUI>();
 		}
+		refreshText();
 	}
 
 	// Update is called once per frame
 	void Update() {
+		refreshText();
+	}
+
+	// Refreshes the text according to the chapter index
+	private void refreshText() {
 		textMeshProUGUI.text = prefix + (levelLoader.chapterIndex + (zeroIndexed ? 0 : 1));
 	}
 }
