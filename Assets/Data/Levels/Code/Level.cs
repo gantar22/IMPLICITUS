@@ -9,7 +9,7 @@ public class Level : ScriptableObject
     [SerializeField] private string _name;
     [SerializeField] private string _description;
     [SerializeField] private Spell[] _basis;
-    [SerializeField] private Spell _goal;
+    [SerializeField] private Combinator _goal;
 
     public int Num
     {
@@ -43,7 +43,7 @@ public class Level : ScriptableObject
         }
     }
 
-    public Spell Goal
+    public Combinator Goal
     {
         get
         {

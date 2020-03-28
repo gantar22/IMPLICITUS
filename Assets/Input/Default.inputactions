@@ -200,7 +200,7 @@
                     "name": "",
                     "id": "04517bb0-3caa-4984-9414-3ac06863871e",
                     "path": "<Touchscreen>/position",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Touch",
                     "action": "Point",
