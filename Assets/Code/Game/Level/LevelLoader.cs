@@ -74,7 +74,7 @@ public class LevelLoader : ScriptableObject {
 	private void onLevelLoaded(AsyncOperation obj) {
 		Debug.Log("loaded level");
 		onLevelLoad.Invoke();
-		onLevelLoadArity.Invoke(currentLevel.Goal.combinator.arity);
-		onLevelLoadLambda.Invoke(currentLevel.Goal.combinator.lambdaTerm);
+		onLevelLoadArity.Invoke(currentLevel.Goal.arity);
+		onLevelLoadLambda.Invoke(currentLevel.Goal.lambdaTerm);
 	}
 }
