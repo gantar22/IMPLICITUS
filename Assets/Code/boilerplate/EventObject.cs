@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class EventObject<T,TEventType> : ScriptableObject where TEventType : UnityEvent<T>, new()
 {
+    
     [SerializeField]
     TEventType Event;
 
@@ -37,13 +38,7 @@ public class EventObject<T,TEventType> : ScriptableObject where TEventType : Uni
     
     public void AddListenerOneTime<T2>(Func<T,T2> f)
     {
-        UnityAction<T> temp = null;
-        temp = t =>
-        {
-            f(t);
-            Event.RemoveListener(temp);
-        };
-        Event.AddListener(temp);
+        AddListenerOneTime(t => { f(t); });
     }
 
 	public Action AddRemovableListener(Action<T> f) {
@@ -53,14 +48,43 @@ public class EventObject<T,TEventType> : ScriptableObject where TEventType : Uni
 		return () => Event.RemoveListener(temp);
 	}
 
-	public Action AddRemovableListener<T2>(Func<T, T2> f) {
-		UnityAction<T> temp = null;
-		temp = t => f(t);
-		Event.AddListener(temp);
-		return () => Event.RemoveListener(temp);
-	}
+	public Action AddRemovableListener<T2>(Func<T, T2> f)
+    {
+        return AddRemovableListener(t => { f(t); });
+    }
+	
+    public void AddRemovableListener(Action<T> f,MonoBehaviour responsible)
+    {
+        var cleanup = AddRemovableListener(f);
 
-	public void RemoveListener(UnityAction<T> listener) {
+        IEnumerator tillDestroy()
+        {
+            void Cleanup() => cleanup();
+            
+            var t = responsible.gameObject.AddComponent<OnDestroyTrigger>();
+            t.e.AddListener(Cleanup);
+            
+            yield return new WaitUntil(() => responsible == null);
+            
+            t.e.RemoveListener(Cleanup);
+            cleanup();
+        }
+
+        responsible.StartCoroutine(tillDestroy());
+    }
+
+    public void AddRemovableListener(Action<T> f, GameObject responsible)
+    {
+        var cleanup = AddRemovableListener(f);
+        responsible.AddComponent<OnDestroyTrigger>().e.AddListener(() => cleanup());
+    }
+    
+    public void AddRemovableListener<T2>(Func<T,T2> f,MonoBehaviour responsible)
+    {
+        AddRemovableListener(t => { f(t); }, responsible);
+    }
+
+	private void RemoveListener(UnityAction<T> listener) {
 		Event.RemoveListener(listener);
 	}
 

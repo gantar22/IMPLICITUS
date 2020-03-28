@@ -25,7 +25,19 @@ namespace TypeUtil
             }
             throw new Exception();
         }
-        
+
+        public void Match(Action<T1> l, Action<T2> r)
+        {
+            Match<Unit>(x =>
+            {
+                l(x);
+                return new Unit();
+            }, x =>
+            {
+                r(x);
+                return new Unit();
+            });
+        }
         
         
         public static Sum<T1, T2> Inr(T2 value)

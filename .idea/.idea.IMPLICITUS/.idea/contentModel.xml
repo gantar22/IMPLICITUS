@@ -23,9 +23,12 @@
             <e p="eatmouse.cs" t="Include" />
             <e p="EventHook.cs" t="Include" />
             <e p="EventObject.cs" t="Include" />
+            <e p="EventRetrigger.cs" t="Include" />
             <e p="FloatRef.cs" t="Include" />
             <e p="IntEvent.cs" t="Include" />
+            <e p="IntEventRetrigger.cs" t="Include" />
             <e p="IntRef.cs" t="Include" />
+            <e p="OnDestroyTrigger.cs" t="Include" />
             <e p="PlayerBoolRef.cs" t="Include" />
             <e p="PlayerRef.cs" t="Include" />
             <e p="Reference.cs" t="Include" />
@@ -153,6 +156,7 @@
         <e p="UI" t="Include">
           <e p="Scripts" t="Include">
             <e p="ChapterDisplay.cs" t="Include" />
+            <e p="ChapterSelect.cs" t="Include" />
             <e p="LoadManager.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
           </e>

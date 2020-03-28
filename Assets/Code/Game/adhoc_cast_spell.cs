@@ -39,6 +39,13 @@ public class adhoc_cast_spell : MonoBehaviour
         button.onClick.AddListener(Cast);
     }
 
+    public void UnCast()
+    {
+        button.onClick.RemoveListener(Step);
+        button.onClick.AddListener(Cast);
+        button_name.text = "Go";
+    }
+    
     public void Cast()
     {
         List<Term> args = Enumerable.Range(0, arity)
@@ -56,7 +63,6 @@ public class adhoc_cast_spell : MonoBehaviour
 
         foreach(Transform variable in ts)
         {
-            variable.name = "varrrrg";
             variable.GetComponent<LayoutTracker>().root = proposal.skeletonRoot;
             variable.SetParent(proposal.GetComponentInChildren<LayoutTracker>().transform,true);
         }

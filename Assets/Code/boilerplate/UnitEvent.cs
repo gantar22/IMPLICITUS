@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class UnitUnityEvent : UnityEvent<TypeUtil.Unit> {}
 
 [CreateAssetMenu(menuName = "Framework/Events/Unit")]
-public class UnitEvent : EventObject<TypeUtil.Unit, UnitUnityEvent>
+public class UnitEvent : EventObject<TypeUtil.Unit,UnitUnityEvent>
 {
     public void AddListener(System.Action a)
     {

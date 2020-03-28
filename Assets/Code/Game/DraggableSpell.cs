@@ -16,13 +16,15 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
     private Image duplicate;
     public Combinator myCombinator;
     public UnitEvent onApply;
+    public UnitEvent onUnapply;
 
     private void Start()
     {
         rt = GetComponent<RectTransform>();
         gr = GetComponentInParent<GraphicRaycaster>();
         es = GetComponentInParent<EventSystem>();
-        onApply.AddListener(() => { enabled = false; });
+        onApply.AddRemovableListener(_ => { enabled = false; },this);
+        onUnapply.AddRemovableListener(_ => { enabled = true; }, this);
     }
 
     public void OnDrag(PointerEventData eventData)

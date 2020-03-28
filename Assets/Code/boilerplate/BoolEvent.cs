@@ -2,7 +2,7 @@
 using System;
 
 [CreateAssetMenu(menuName = "Framework/Events/Bool")]
-public class BoolEvent : EventObject<bool, BoolUnityEvent>
+public class BoolEvent : EventObject<bool,BoolUnityEvent>
 {
     public void AddListener(Action trueCase, Action falseCase)
     {

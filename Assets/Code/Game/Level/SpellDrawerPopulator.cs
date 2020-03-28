@@ -9,6 +9,7 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	public UnitEvent onLevelLoad;
 	public LevelLoader levelLoader;
 	public UnitEvent onApplyProposal;
+	public UnitEvent onUnapplyProposal;
 	public LayoutTracker parenPrefab;
 	
 	private System.Action removeListener;
@@ -37,6 +38,7 @@ public class SpellDrawerPopulator : MonoBehaviour {
 		DraggableSpell draggable = newSpell.gameObject.AddComponent<DraggableSpell>();
 		draggable.myCombinator = combinator;
 		draggable.onApply = onApplyProposal;
+		draggable.onUnapply = onUnapplyProposal;
 	}
 	
 	private void OnDestroy() {
