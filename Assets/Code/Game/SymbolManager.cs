@@ -179,7 +179,7 @@ public class SymbolManager : MonoBehaviour
                 {
                     if (!argumentsThatHaveBeenUsed[ind + 1 /* +1 for recursion*/])
                     {
-                        symbols[ind + 1].transform.SetParent(null,true);
+                        symbols[ind + 1].transform.SetParent(GetComponentInParent<Canvas>().transform,true);
                         symbols[ind + 1].index = path;
                         
                         IterateTransform(symbols[ind + 1].transform,
@@ -212,7 +212,7 @@ public class SymbolManager : MonoBehaviour
                 {
                     return symbolShrub.Match<Transform>(l =>
                     {
-                        var paren = Instantiate(parenSymbol);
+                        var paren = Instantiate(parenSymbol.gameObject,GetComponentInParent<Canvas>().transform).GetComponent<LayoutTracker>();
                         paren.index = totalPath;
                         paren.root = skeletonRoot;
                         for (var i = 0; i < l.Count; i++)

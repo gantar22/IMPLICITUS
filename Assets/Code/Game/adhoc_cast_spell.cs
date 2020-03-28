@@ -6,6 +6,7 @@ using Lambda;
 using TMPro;
 using TypeUtil;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
 
@@ -15,8 +16,8 @@ public class adhoc_cast_spell : MonoBehaviour
     private Transform variable_symbols_here;
     [SerializeField]
     private SymbolManager proposal;
-    [SerializeField]
-    private SpawnTarget goal;
+    [FormerlySerializedAs("goal")] [SerializeField]
+    private SpawnTarget target;
     [SerializeField]
     private IntEvent arityEvent;
     private int arity;
@@ -80,10 +81,9 @@ public class adhoc_cast_spell : MonoBehaviour
         {
             proposal.Transition(term, rules[0], proposal.GetComponentInChildren<LayoutTracker>());
             term = rules[0].evaluate(term);
-            if (goal.goal.Equal(term))
+            if (target.goal.Equal(term))
             {
                 Success.Invoke();
-                print("wow");
             }
         }
     }

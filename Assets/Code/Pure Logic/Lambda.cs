@@ -194,11 +194,11 @@ namespace Lambda
         
         public static Sum<Term, Unit> BackApply(Term term, Combinator C, List<int> path)
         {
-            var targetShrub = term.Access(path);
-            var (debruijnShrub,arrity) = Lambda.Util.ParseCombinator(C).Match(p => p,_ => throw new ArgumentException());
+            var target = term.Access(path);
+            var (debruijn,arrity) = Lambda.Util.ParseCombinator(C).Match(p => p,_ => throw new ArgumentException());
 
-            var target = ToBinary(targetShrub);
-            var debruijn = ToBinary(debruijnShrub);
+           // var target = ToBinary(targetShrub);
+           // var debruijn = ToBinary(debruijnShrub);
 
             Sum<Term,Unit> UnifyMeta(Term t1, Term t2)
             {
@@ -253,16 +253,26 @@ namespace Lambda
                 ));
             }
             
-            bool UnifyDebruijn(BinaryTree<int> d, BinaryTree<Sum<Combinator,Variable>> t, Term[] subst)
+            bool UnifyDebruijn(Shrub<int> d, Term t, Term[] subst)
             {
                 //true if unification works
                 return d.Match<bool>(
-         (ld, rd) => t.Match<bool>((lt, rt) =>
-                    UnifyDebruijn(ld, lt, subst) && UnifyDebruijn(rd, rt, subst)
+             ds => t.Match<bool>(ts =>
+             {
+                 if (ds.Count != ts.Count)
+                     return false;
+                 for (int i = 0; i < ds.Count; i++)
+                 {
+                     if (!UnifyDebruijn(ds[i], ts[i], subst))
+                         return false;
+                 }
+    
+                 return true;
+             }
                 , xt => { return xt.Match<bool>(c => false, v => (int)v == -1); }), //unification with metavariable unnecesary
-            xd => t.Match<bool>((lt, rt) =>
+            xd => t.Match<bool>(ts =>
             {
-                return UnifyMeta(subst[xd], FromBinary(t)).Match(
+                return UnifyMeta(subst[xd], t).Match(
                     unified =>
                     {
                         subst[xd] = unified;
@@ -272,7 +282,7 @@ namespace Lambda
             {
                 return xt.Match<bool>(c =>
                     UnifyMeta(subst[xd],
-                        FromBinary(BinaryTree<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(c)))).Match(
+                        Term.Leaf(Sum<Combinator, Variable>.Inl(c))).Match(
                         unified =>
                         {
                             subst[xd] = unified;
@@ -287,8 +297,8 @@ namespace Lambda
                             else
                             {
                                 return UnifyMeta(subst[xd],
-                                    FromBinary(BinaryTree<Sum<Combinator, Variable>>.Leaf(
-                                        Sum<Combinator, Variable>.Inr(v)))).Match(
+                                    Term.Leaf(
+                                        Sum<Combinator, Variable>.Inr(v))).Match(
                                     unified =>
                                     {
                                         subst[xd] = unified;
@@ -301,23 +311,12 @@ namespace Lambda
             }));
             }
 
-
-            Sum<Term,Unit> subTerm = Sum<Term, Unit>.Inr(new Unit());
-            while (arrity < target.LeftDepth())
-            {
-                Term[] subst = new Term[arrity];
-                for(int i = 0; i < arrity;i++)
-                    subst[i] = Term.Leaf(Sum<Combinator,Variable>.Inr((Variable)(-1)));
-                if (UnifyDebruijn(debruijn, target, subst))
-                {
-                    subTerm = Sum<Term, Unit>.Inl(Term.Node(subst.ToList())); //return with the most extensions
-                }
-                debruijn = BinaryTree<int>.Node(debruijn, BinaryTree<int>.Leaf(arrity++)); //off by one TODO verify
-            }
-
-            return subTerm.Match(s => Sum<Term, Unit>.Inl(term.Update(s,path)), _ => Sum<Term, Unit>.Inr(new Unit()));
-
-            //binarify everything TODO don't do this
+            Term[] sub = new Term[arrity];
+            if (UnifyDebruijn(debruijn, target, sub))
+                return Sum<Term,Unit>.Inl(term.Update(Term.Node(sub.ToList()), path));
+            return Sum<Term, Unit>.Inr(new Unit());
+            
+            //binarify everything TODO don't do this or return a List<Term>
             //unify -- negative variables are metavariables (can be substituted by anything)
             //if unification fails retry with degenerate arity extensions until we hit the left depth of target
             //apply the unification to debruijn adding metavariablese
