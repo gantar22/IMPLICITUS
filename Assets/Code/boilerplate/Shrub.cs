@@ -108,6 +108,11 @@ namespace TypeUtil
             }
         }
 
+        public Shrub<T> Update(Shrub<T> s, List<int> path)
+        {
+            return ApplyAt(_ => s, path);
+        }
+
         public Shrub<T> Insert(List<int> path, Shrub<T> sub_shrub)
         {
             return ApplyAt(s =>
@@ -179,7 +184,10 @@ namespace TypeUtil
             }, s2 => false), s1 => input.Match<bool>(l2 => false
                 , s2 => s1.Equals(s2)));
         }
+        
+    
 
     }   
 
+    
 }

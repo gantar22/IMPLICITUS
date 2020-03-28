@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using TypeUtil;
+using UnityEditor;
+using UnityEditor.PackageManager;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
 
 namespace Lambda
 {
-
     public enum Variable : int {}
     
     
@@ -155,8 +157,177 @@ namespace Lambda
                 value => new List<T>()
             );
         }
+
+
+        public static BinaryTree<T> ToBinary<T>(Shrub<T> shrub)
+        {
+            return shrub.Match<BinaryTree<T>>(l =>
+            {
+                int n = l.Count;
+                if (n == 0)
+                {
+                    throw new Exception("Invalid shrub, empty parenthesis");
+                }
+
+                if (n == 1)
+                    return ToBinary<T>(l[0]);
+
+                return BinaryTree<T>.Node(ToBinary<T>(Shrub<T>.Node(l.Take(n - 1).ToList())), ToBinary<T>(l[n - 1]));
+
+            }, x => BinaryTree<T>.Leaf(x));
+        }
+
+        public static Shrub<T> FromBinary<T>(BinaryTree<T> tree)
+        {
+            return tree.Match<Shrub<T>>((l, r) =>
+            {
+                var (ll,rr) = (FromBinary<T>(l),FromBinary<T>(r));
+                return ll.Match<Shrub<T>>(
+                    ls => rr.Match(rs => Shrub<T>.Node(ls.Append(Shrub<T>.Node(rs)).ToList()),
+                                      xr => Shrub<T>.Node(ls.Append(Shrub<T>.Leaf(xr)).ToList())),
+                    xl => 
+                        rr.Match(rs => Shrub<T>.Node(rs.Prepend(Shrub<T>.Leaf(xl)).ToList()),
+                                 xr => Shrub<T>.Node(new List<Shrub<T>> {Shrub<T>.Leaf(xl),Shrub<T>.Leaf(xr)}) 
+                                 ));
+            }, Shrub<T>.Leaf);
+        }
         
-                public static Sum<Tuple<Shrub<int>,int>,Unit> ParseCombinator(Combinator c)
+        public static Sum<Term, Unit> BackApply(Term term, Combinator C, List<int> path)
+        {
+            var targetShrub = term.Access(path);
+            var (debruijnShrub,arrity) = Lambda.Util.ParseCombinator(C).Match(p => p,_ => throw new ArgumentException());
+
+            var target = ToBinary(targetShrub);
+            var debruijn = ToBinary(debruijnShrub);
+
+            Sum<Term,Unit> UnifyMeta(Term t1, Term t2)
+            {
+                return t1.Match<Sum<Term,Unit>>(l1 => t2.Match<Sum<Term,Unit>>(l2 =>
+                    {
+                        if(l1.Count != l2.Count)
+                            return Sum<Term, Unit>.Inr(new Unit());
+                        List<Term> result = new List<Term>();
+                        for (int i = 0; i < l1.Count; i++)
+                        {
+                            if (UnifyMeta(l1[i], l2[i]).Match(t =>
+                            {
+                                result.Add(t);
+                                return false;
+                            }, _ => true))
+                                return Sum<Term, Unit>.Inr(new Unit());
+                        }
+
+                        return Sum<Term, Unit>.Inl(Term.Node(result));
+                    }
+                , x2 => x2.Match(c2 => Sum<Term, Unit>.Inr(new Unit()), v2 =>
+                {
+                    if (((int) v2) == -1)
+                    {
+                        return Sum<Term, Unit>.Inl(t1);
+                    }
+                    else
+                    {
+                        return Sum<Term, Unit>.Inr(new Unit());
+                    }
+                })
+            ), x1 => t2.Match<Sum<Term,Unit>>(l2 =>  x1.Match(c1 => Sum<Term, Unit>.Inr(new Unit()), v1 =>
+                {
+                    if (((int) v1) == -1)
+                    {
+                        return Sum<Term, Unit>.Inl(t2);
+                    }
+                    else
+                    {
+                        return Sum<Term, Unit>.Inr(new Unit());
+                    }
+                }), x2 =>
+                    x1.Match<Sum<Term,Unit>>(
+                         c1 => x2.Match<Sum<Term,Unit>>(
+                             c2 => c1.Equals(c2) ? Sum<Term, Unit>.Inl(t1) : Sum<Term, Unit>.Inr(new Unit()),
+                             v2 => (int)v2 == -1 ? Sum<Term, Unit>.Inl(t1) : Sum<Term, Unit>.Inr(new Unit()))
+                        ,v1 => (int)v1 == -1 ? Sum<Term, Unit>.Inl(t2) : 
+                             x2.Match<Sum<Term,Unit>>(
+                             c2 => Sum<Term, Unit>.Inr(new Unit()),
+                             v2 => (int)v2 == -1 ? Sum<Term, Unit>.Inl(t1) : 
+                                 (v1 == v2 ? Sum<Term, Unit>.Inl(t1) : Sum<Term, Unit>.Inr(new Unit())) ))
+                ));
+            }
+            
+            bool UnifyDebruijn(BinaryTree<int> d, BinaryTree<Sum<Combinator,Variable>> t, Term[] subst)
+            {
+                //true if unification works
+                return d.Match<bool>(
+         (ld, rd) => t.Match<bool>((lt, rt) =>
+                    UnifyDebruijn(ld, lt, subst) && UnifyDebruijn(rd, rt, subst)
+                , xt => { return xt.Match<bool>(c => false, v => (int)v == -1); }), //unification with metavariable unnecesary
+            xd => t.Match<bool>((lt, rt) =>
+            {
+                return UnifyMeta(subst[xd], FromBinary(t)).Match(
+                    unified =>
+                    {
+                        subst[xd] = unified;
+                        return true;
+                    }, _ => false); //can't apply duplicator
+            }, xt =>
+            {
+                return xt.Match<bool>(c =>
+                    UnifyMeta(subst[xd],
+                        FromBinary(BinaryTree<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(c)))).Match(
+                        unified =>
+                        {
+                            subst[xd] = unified;
+                            return true;
+                        }, _ => false) //can't apply duplicator
+                        , v =>
+                        {
+                            if ((int) v == -1)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return UnifyMeta(subst[xd],
+                                    FromBinary(BinaryTree<Sum<Combinator, Variable>>.Leaf(
+                                        Sum<Combinator, Variable>.Inr(v)))).Match(
+                                    unified =>
+                                    {
+                                        subst[xd] = unified;
+                                        return true;
+                                    }, _ => false);
+                                //unify
+                            }
+                        }
+                    );
+            }));
+            }
+
+
+            Sum<Term,Unit> subTerm = Sum<Term, Unit>.Inr(new Unit());
+            while (arrity < target.LeftDepth())
+            {
+                Term[] subst = new Term[arrity];
+                for(int i = 0; i < arrity;i++)
+                    subst[i] = Term.Leaf(Sum<Combinator,Variable>.Inr((Variable)(-1)));
+                if (UnifyDebruijn(debruijn, target, subst))
+                {
+                    subTerm = Sum<Term, Unit>.Inl(Term.Node(subst.ToList())); //return with the most extensions
+                }
+                debruijn = BinaryTree<int>.Node(debruijn, BinaryTree<int>.Leaf(arrity++)); //off by one TODO verify
+            }
+
+            return subTerm.Match(s => Sum<Term, Unit>.Inl(term.Update(s,path)), _ => Sum<Term, Unit>.Inr(new Unit()));
+
+            //binarify everything TODO don't do this
+            //unify -- negative variables are metavariables (can be substituted by anything)
+            //if unification fails retry with degenerate arity extensions until we hit the left depth of target
+            //apply the unification to debruijn adding metavariablese
+            // \xyz => (y z) backapplied to ([X]) (where [X] is a metavariable) becomes [Y] [X_1] [X_2]
+            // [Y] is created because of the dropped argument and [X_i] gets created as we unify for [X] ~ (y z)
+            //unification returns an array of shrubs where each cell holds what needs to be subst in (initialized to new metavariables), and deals with replaces metavariables in the target which might be bad
+
+        }
+        
+        public static Sum<Tuple<Shrub<int>,int>,Unit> ParseCombinator(Combinator c)
         {
             //Rules for writing combinator definitions
             // 1. Write variables as their debruijn index [x is 0, y is 1, z is 2 ...]
