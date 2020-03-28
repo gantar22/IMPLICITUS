@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8853781094641062056}
   - component: {fileID: 9000394798675072165}
   - component: {fileID: 5345088939544842160}
-  - component: {fileID: 2571119799839560946}
   - component: {fileID: 7985173189521513909}
+  - component: {fileID: 5588027540688728943}
   m_Layer: 5
-  m_Name: Variable Symbol
+  m_Name: Variable Symbol Tester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2c360e9c5d14d6c4d9abb58fe20f56b3, type: 3}
+  m_Sprite: {fileID: -6402050212349721460, guid: b20d160668fa459438e91beec193bf2f,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -91,26 +92,6 @@ MonoBehaviour:
   root: {fileID: 0}
   index: 
   matchWidth: 0
---- !u!114 &2571119799839560946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2357421738931735512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 396963215a52a2c4ca4bc4c909fe91f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -6402050212349721460, guid: b20d160668fa459438e91beec193bf2f, type: 3}
-  - {fileID: -6824565644498731533, guid: b20d160668fa459438e91beec193bf2f, type: 3}
-  - {fileID: 3561722814289839605, guid: b20d160668fa459438e91beec193bf2f, type: 3}
-  - {fileID: 8656030899730325579, guid: b20d160668fa459438e91beec193bf2f, type: 3}
-  - {fileID: 2850879743192590569, guid: b20d160668fa459438e91beec193bf2f, type: 3}
-  - {fileID: -8936892514383541485, guid: b20d160668fa459438e91beec193bf2f, type: 3}
-  - {fileID: -741741990641021964, guid: b20d160668fa459438e91beec193bf2f, type: 3}
 --- !u!114 &7985173189521513909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +104,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f994003b732b0b48bdc6e5566dc892c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5588027540688728943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357421738931735512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8f3186c0b7b8e47b536766e2e157bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -6402050212349721460, guid: b20d160668fa459438e91beec193bf2f, type: 3}
+  - {fileID: -6824565644498731533, guid: b20d160668fa459438e91beec193bf2f, type: 3}
+  - {fileID: 3561722814289839605, guid: b20d160668fa459438e91beec193bf2f, type: 3}
+  - {fileID: 8656030899730325579, guid: b20d160668fa459438e91beec193bf2f, type: 3}
+  - {fileID: 2850879743192590569, guid: b20d160668fa459438e91beec193bf2f, type: 3}
+  - {fileID: -8936892514383541485, guid: b20d160668fa459438e91beec193bf2f, type: 3}
+  - {fileID: -741741990641021964, guid: b20d160668fa459438e91beec193bf2f, type: 3}
