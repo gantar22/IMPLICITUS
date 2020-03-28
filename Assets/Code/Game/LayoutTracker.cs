@@ -27,7 +27,8 @@ public class LayoutTracker : MonoBehaviour
         RectTransform t = root;
         foreach (int child in i)
         {
-            t = t.GetChild(child).GetComponent<RectTransform>();
+            if(child < t.childCount)
+                t = t.GetChild(child).GetComponent<RectTransform>();
         }
 
         return t;

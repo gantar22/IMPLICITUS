@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,10 +71,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1017">
+              <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+              <folding>
+                <marker date="1585412517358" expanded="false" signature="6:119" ph="..." />
+                <marker date="1585412517358" expanded="true" signature="205:2460" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="503:559" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="605:899" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="676:802" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="830:893" ph="/* oof performance ... */" />
+                <marker date="1585412517358" expanded="true" signature="948:969" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="1027:2458" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="1129:1818" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="1317:1658" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="1422:1564" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="1869:2245" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="2040:2146" ph="{...}" />
+                <marker date="1585412517358" expanded="true" signature="2360:2452" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="81" column="28" lean-forward="true" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+            <state relative-caret-position="345">
+              <caret line="85" column="33" lean-forward="true" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
               <folding>
                 <marker date="1585407430420" expanded="false" signature="6:280" ph="..." />
                 <marker date="1585407430420" expanded="true" signature="327:2484" ph="{...}" />
@@ -89,23 +112,6 @@
                 <marker date="1585407430420" expanded="true" signature="2149:2415" ph="{...}" />
                 <marker date="1585407430420" expanded="true" signature="2343:2405" ph="{...}" />
                 <marker date="1585407430420" expanded="true" signature="2451:2482" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
-              <folding>
-                <marker date="1584913032157" expanded="false" signature="6:141" ph="..." />
-                <marker date="1584913032157" expanded="true" signature="183:829" ph="{...}" />
-                <marker date="1584913032157" expanded="true" signature="441:512" ph="{...}" />
-                <marker date="1584913032157" expanded="true" signature="545:675" ph="{...}" />
-                <marker date="1584913032157" expanded="true" signature="705:738" ph="{...}" />
-                <marker date="1584913032157" expanded="true" signature="806:827" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -138,10 +144,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-199">
+            <state relative-caret-position="233">
               <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
               <folding>
                 <marker date="1584897634323" expanded="false" signature="6:181" ph="..." />
@@ -398,7 +404,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/Spell.cs" />
         <option value="$PROJECT_DIR$/Assets/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/../../sklacc/stumbling_rhino/Assets/Scripts/Ball.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/UnitEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs" />
@@ -412,6 +417,7 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
       </list>
     </option>
   </component>
@@ -513,12 +519,12 @@
       <workItem from="1584718154162" duration="16915000" />
       <workItem from="1584892083895" duration="24687000" />
       <workItem from="1585103848360" duration="539000" />
-      <workItem from="1585255925041" duration="27351000" />
+      <workItem from="1585255925041" duration="28242000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153990000" />
+    <option name="totallyTimeSpent" value="154881000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -775,29 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1168">
-          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
-          <folding>
-            <marker date="1583099123522" expanded="false" signature="6:119" ph="..." />
-            <marker date="1583099123522" expanded="true" signature="205:2419" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="503:559" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="605:858" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="676:761" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="789:852" ph="/* oof performance ... */" />
-            <marker date="1583099123522" expanded="true" signature="907:928" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="986:2417" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="1088:1777" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="1276:1617" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="1381:1523" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="1828:2204" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="1999:2105" ph="{...}" />
-            <marker date="1583099123522" expanded="true" signature="2319:2411" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1936">
@@ -959,26 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="81" column="28" lean-forward="true" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
-          <folding>
-            <marker date="1585407430420" expanded="false" signature="6:280" ph="..." />
-            <marker date="1585407430420" expanded="true" signature="327:2484" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="845:966" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="990:1952" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="1388:1461" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="1504:1741" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="1976:2421" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="2096:2136" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="2149:2415" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="2343:2405" ph="{...}" />
-            <marker date="1585407430420" expanded="true" signature="2451:2482" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -1106,7 +1069,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
+        <state relative-caret-position="233">
           <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
           <folding>
             <marker date="1584897634323" expanded="false" signature="6:181" ph="..." />
@@ -1122,6 +1085,49 @@
             <marker date="1584897634323" expanded="true" signature="2360:2435" ph="{...}" />
             <marker date="1584897634323" expanded="true" signature="3448:3562" ph="{...}" />
             <marker date="1584897634323" expanded="true" signature="3486:3537" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1017">
+          <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+          <folding>
+            <marker date="1585412517358" expanded="false" signature="6:119" ph="..." />
+            <marker date="1585412517358" expanded="true" signature="205:2460" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="503:559" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="605:899" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="676:802" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="830:893" ph="/* oof performance ... */" />
+            <marker date="1585412517358" expanded="true" signature="948:969" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="1027:2458" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="1129:1818" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="1317:1658" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="1422:1564" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="1869:2245" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="2040:2146" ph="{...}" />
+            <marker date="1585412517358" expanded="true" signature="2360:2452" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="85" column="33" lean-forward="true" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
+          <folding>
+            <marker date="1585407430420" expanded="false" signature="6:280" ph="..." />
+            <marker date="1585407430420" expanded="true" signature="327:2484" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="845:966" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="990:1952" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="1388:1461" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="1504:1741" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="1976:2421" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="2096:2136" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="2149:2415" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="2343:2405" ph="{...}" />
+            <marker date="1585407430420" expanded="true" signature="2451:2482" ph="{...}" />
           </folding>
         </state>
       </provider>
