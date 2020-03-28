@@ -19,6 +19,21 @@ public class LevelLoader : ScriptableObject {
 	[HideInInspector] public Level currentLevel;
 
 
+	// ===== Setters/Getters =====
+	public void setChapterIndex(int newIndex) {
+		chapterIndex = newIndex;
+	}
+	public void setLevelIndex(int newIndex) {
+		levelIndex = newIndex;
+	}
+	public void decrChapterIndex() {
+		chapterIndex--;
+	}
+	public void incrChapterIndex() {
+		chapterIndex++;
+	}
+
+
 	// ===== Functions =====
 
 	// Loads the next level in the sequence of levels
