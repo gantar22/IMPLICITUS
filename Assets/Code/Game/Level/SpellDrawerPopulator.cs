@@ -8,7 +8,9 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	// ===== Fields =====
 	public UnitEvent onLevelLoad;
 	public LevelLoader levelLoader;
-
+	public UnitEvent onApplyProposal;
+	public LayoutTracker parenPrefab;
+	
 	private System.Action removeListener;
 
 
@@ -22,13 +24,21 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	// After the level has loaded, populate the spell drawer with all the spells in the basis.
 	private void onLevelWasLoaded(Unit obj) {
 		foreach (Spell spell in levelLoader.currentLevel.Basis) {
-			LayoutTracker newSpell = Instantiate(spell.prefab, transform);
-			newSpell.enabled = false;
-			newSpell.gameObject.AddComponent<LayoutElement>();
-			newSpell.gameObject.AddComponent<DraggableSpell>().myCombinator = spell.combinator;
+			spawnSpell(spell.prefab,spell.combinator);
 		}
+		spawnSpell(parenPrefab,null); //null represents parens :(
 	}
 
+	private void spawnSpell(LayoutTracker prefab, Combinator combinator)
+	{
+		LayoutTracker newSpell = Instantiate(prefab, transform);
+		newSpell.enabled = false;
+		newSpell.gameObject.AddComponent<LayoutElement>();
+		DraggableSpell draggable = newSpell.gameObject.AddComponent<DraggableSpell>();
+		draggable.myCombinator = combinator;
+		draggable.onApply = onApplyProposal;
+	}
+	
 	private void OnDestroy() {
 		removeListener();
 	}

@@ -152,6 +152,7 @@
         </e>
         <e p="UI" t="Include">
           <e p="Scripts" t="Include">
+            <e p="ChapterDisplay.cs" t="Include" />
             <e p="LoadManager.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
           </e>
