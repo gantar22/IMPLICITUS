@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using Lambda;
 using UnityEngine;
 using TypeUtil;
 using UnityEngine.Experimental.TerrainAPI;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
 
+[RequireComponent(typeof(TermClickHandler))]
 public class SymbolManager : MonoBehaviour
 {
     [SerializeField] public RectTransform skeletonRoot;
@@ -56,6 +58,11 @@ public class SymbolManager : MonoBehaviour
         CreateSkeleton(currentTerm.Insert(path, x),skeletonRoot);
     }
 
+    public void HandleClick(List<int> path, LayoutTracker root)
+    {
+        GetComponent<TermClickHandler>()?.HandleClick(this,currentTerm, path,root);
+    }
+    
     public void Append(List<Term> x)
     {
         
@@ -113,6 +120,51 @@ public class SymbolManager : MonoBehaviour
         });
     }
 
+    public void RemoveAt(List<int> path, LayoutTracker root)
+    {
+        var index = path[path.Count - 1];
+        path = path.Take(path.Count - 1).ToList();
+        var new_term = currentTerm.ApplyAt(parenTerm => parenTerm.Match(l =>
+            {
+            l = l.ToList();
+            var RemovedTerm = l[index];
+            l.RemoveAt(index);
+            RemovedTerm.Match(children =>
+            {
+                children.Reverse();
+                foreach (Term child in children)
+                {
+                    l.Insert(index,child);
+                }
+            }, _ => { /* already removed */ });
+            return Term.Node(l);
+            }
+           
+            ,x => throw new Exception("Depth Exception")) , path);
+        
+        foreach (Transform t in skeletonRoot)
+        {
+            if(Application.isPlaying)
+                Destroy(t.gameObject);
+        }
+        CreateSkeleton(new_term,skeletonRoot);
+        var Paren = AccessTransfrom(root.transform, path);
+        var Removed = Paren.GetChild(index);
+       
+        List<Transform> ts = new List<Transform>();
+        foreach (Transform t in Removed.transform)
+            ts.Add(t);
+
+        ts.Reverse();
+        foreach (Transform t in ts)
+        {
+            t.SetParent(Paren);
+            t.SetSiblingIndex(index);
+        }
+        Destroy(Removed.gameObject);
+    }
+    
+    
     private Transform AccessTransfrom(Transform t,List<int> path)
     {
         foreach (int i in path)

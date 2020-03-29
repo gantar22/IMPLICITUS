@@ -4110,6 +4110,7 @@ GameObject:
   - component: {fileID: 1785886160}
   - component: {fileID: 1785886162}
   - component: {fileID: 1785886161}
+  - component: {fileID: 1785886163}
   m_Layer: 5
   m_Name: Input Sym Manager
   m_TagString: Untagged
@@ -4187,6 +4188,18 @@ MonoBehaviour:
   - {fileID: 5345088939544842160, guid: a82737b7b49845747b88af6ff27acbd3, type: 3}
   - {fileID: 5345088939544842160, guid: a82737b7b49845747b88af6ff27acbd3, type: 3}
   - {fileID: 5345088939544842160, guid: a82737b7b49845747b88af6ff27acbd3, type: 3}
+--- !u!114 &1785886163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785886159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6365e43fc5fbf634d8f41447d55c1ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1813328779
 GameObject:
   m_ObjectHideFlags: 0

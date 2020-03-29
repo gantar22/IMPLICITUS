@@ -86,6 +86,13 @@ public class SymbolManagerTester : MonoBehaviour
         return Tuple.Create(input_term,symbol);
     }
 
+    public void CreateTerm(Term t)
+    {
+        Destroy(currentLayout.gameObject);
+        currentLayout = manager.Initialize(t);
+    }
+    
+
 
     private LayoutTracker symbol;
 

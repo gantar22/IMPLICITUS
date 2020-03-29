@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
-public class LayoutTracker : MonoBehaviour
+public class LayoutTracker : MonoBehaviour, IPointerClickHandler
 {
     public RectTransform root;
 
@@ -87,5 +88,13 @@ public class LayoutTracker : MonoBehaviour
         {
             rt.sizeDelta = new Vector2(dest.rect.width,rt.rect.height);
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        LayoutTracker root = this;
+        for (int i = 0; i < index.Count - 1; i++)
+            root = root.transform.parent.GetComponent<LayoutTracker>();
+        GetComponentInParent<SymbolManager>().HandleClick(index.Skip(1).ToList(),root);
     }
 }

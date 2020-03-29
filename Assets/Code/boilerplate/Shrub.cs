@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace TypeUtil
 {
@@ -129,7 +130,7 @@ namespace TypeUtil
         {
             if (p.Count == 0)
                 return this;
-            return Match(l => l[p[0]].Access(p.Skip(0).ToList()), v => throw new IndexOutOfRangeException());
+            return Match(l => l[p[0]].Access(p.Skip(1).ToList()), v => throw new Exception("Depth out of range"));
         }
         
         public List<T> Preorder()
@@ -152,6 +153,11 @@ namespace TypeUtil
         public override string ToString()
         {
             return String.Join(" ",MapPreorder(t => t.ToString(), l => l.Prepend("(").Append(")").ToList()));
+        }
+
+        public bool isNull()
+        {
+            return val == null;
         }
 
         public bool IsNode()

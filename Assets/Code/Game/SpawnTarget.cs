@@ -29,6 +29,12 @@ public class SpawnTarget : MonoBehaviour
         goal = smt.CreateTerm(s);
     }
 
+    public void createTarget(Shrub<Sum<Combinator, Variable>> t)
+    {
+        goal = t;
+        smt.CreateTerm(goal);
+    }
+
     private void OnDestroy()
     {
         onDestroy();

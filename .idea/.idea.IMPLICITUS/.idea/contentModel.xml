@@ -64,6 +64,8 @@
             <e p="Spell.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
             <e p="TempDrawTerm.cs" t="Include" />
+            <e p="TermClickDelete.cs" t="Include" />
+            <e p="TermClickHandler.cs" t="Include" />
           </e>
           <e p="Pure Logic" t="Include">
             <e p="BinaryTree.cs" t="Include" />

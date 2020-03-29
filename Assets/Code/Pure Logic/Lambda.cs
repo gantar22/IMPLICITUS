@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using TypeUtil;
@@ -190,8 +191,15 @@ namespace Lambda
             }, Shrub<T>.Leaf);
         }
         
+        public static string show(Term t)
+        {
+            return t.Map<string>(v => v.Match(c => c.ToString(), i => i.ToString())).ToString();
+        }
+        
         public static Sum<Term, Unit> BackApply(Term term, Combinator C, List<int> path)
         {
+            if(path.Count > 0)
+                Debug.Log($"path: {path.Select(i => i.ToString()).Aggregate((a,b) => $"{a}, {b}")}\n term: {show(term)}");
             var target = term.Access(path);
             var (debruijn,arrity) = Lambda.Util.ParseCombinator(C).Match(p => p,_ => throw new ArgumentException());
 
@@ -203,8 +211,8 @@ namespace Lambda
                 return t1.Match<Sum<Term,Unit>>(l1 => t2.Match<Sum<Term,Unit>>(l2 =>
                     {
                         if(l1.Count != l2.Count)
-                            return Sum<Term, Unit>.Inr(new Unit());
-                        List<Term> result = new List<Term>();
+                            return Sum<Term, Unit>.Inr(new Unit()); 
+                        List<Term> result = new List<Term>(); 
                         for (int i = 0; i < l1.Count; i++)
                         {
                             if (UnifyMeta(l1[i], l2[i]).Match(t =>
@@ -214,7 +222,6 @@ namespace Lambda
                             }, _ => true))
                                 return Sum<Term, Unit>.Inr(new Unit());
                         }
-
                         return Sum<Term, Unit>.Inl(Term.Node(result));
                     }
                 , x2 => x2.Match(c2 => Sum<Term, Unit>.Inr(new Unit()), v2 =>
@@ -255,18 +262,17 @@ namespace Lambda
             {
                 //true if unification works
                 return d.Match<bool>(
-             ds => t.Match<bool>(ts =>
-             {
-                 if (ds.Count != ts.Count)
-                     return false;
-                 for (int i = 0; i < ds.Count; i++)
+            ds => t.Match<bool>(ts =>
                  {
-                     if (!UnifyDebruijn(ds[i], ts[i], subst))
+                     if (ds.Count != ts.Count)
                          return false;
+                     for (int i = 0; i < ds.Count; i++)
+                     {
+                         if (!UnifyDebruijn(ds[i], ts[i], subst))
+                             return false;
+                     }
+                     return true;
                  }
-    
-                 return true;
-             }
                 , xt => { return xt.Match<bool>(c => false, v => (int)v == -1); }), //unification with metavariable unnecesary
             xd => t.Match<bool>(ts =>
             {
@@ -310,8 +316,10 @@ namespace Lambda
             }
 
             Term[] sub = new Term[arrity];
+            for(int i = 0; i < arrity;i++)
+                sub[i] = Term.Leaf(Sum<Combinator, Variable>.Inr((Variable)(-1)));
             if (UnifyDebruijn(debruijn, target, sub))
-                return Sum<Term,Unit>.Inl(term.Update(Term.Node(sub.ToList()), path));
+                return Sum<Term,Unit>.Inl(term.Update(Term.Node(sub.Prepend(Term.Leaf(Sum<Combinator,Variable>.Inl(C))).ToList()), path));
             return Sum<Term, Unit>.Inr(new Unit());
             
             //binarify everything TODO don't do this or return a List<Term>
@@ -322,6 +330,21 @@ namespace Lambda
             // [Y] is created because of the dropped argument and [X_i] gets created as we unify for [X] ~ (y z)
             //unification returns an array of shrubs where each cell holds what needs to be subst in (initialized to new metavariables), and deals with replaces metavariables in the target which might be bad
 
+        }
+
+        public static Sum<Term,Unit> BackApplyParen(Term term, List<int> path, int size)
+        {
+            Term subterm = term.Access(path);
+            if(subterm.Match(l => size < 2 || l.Count < size,x => true))
+                return Sum<Term, Unit>.Inr(new Unit());
+            
+            
+            return Sum<Term, Unit>.Inl(term.ApplyAt(t => t.Match(l =>
+            {
+                List<Term> k = new List<Term> {Term.Node(l.Take(size).ToList())};
+                return Term.Node(k.Concat(l.Skip(size)).ToList());
+                
+            },Term.Leaf), path));
         }
         
         public static Sum<Tuple<Shrub<int>,int>,Unit> ParseCombinator(Combinator c)

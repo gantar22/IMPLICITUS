@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using Lambda;
 using TypeUtil;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -49,7 +51,16 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
         List<RaycastResult> L = new List<RaycastResult>();
         gr.Raycast(data,L);
 
-        while (L.Count > 0 && (!L[0].gameObject.CompareTag("ParenSymbol") || L[0].gameObject == gameObject))
+        bool GoodTarget(GameObject g)
+        {
+            char[] c = {'>'};
+            if (myCombinator == null || myCombinator.lambdaTerm.Split(c)[1].SkipWhile(char.IsWhiteSpace).Count() > 1)
+                return g.CompareTag("ParenSymbol") && g != gameObject;
+
+            return g.GetComponent<LayoutTracker>() && g.GetComponentInParent<SpawnTarget>();
+        }
+        
+        while (L.Count > 0 && !GoodTarget(L[0].gameObject))
         {
             L.RemoveAt(0);
         }
@@ -61,42 +72,83 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
         }
         else
         {
-             /* TODO check to see if the paren is in the build space and not the goal space */
+            /*      Insert yourself into the term       */
+
+            
+            
+            
+
+            var spawnTarget = L[0].gameObject.GetComponentInParent<SpawnTarget>();
+            foreach (var target in L.Where(l => GoodTarget(l.gameObject)).Select(l => l.gameObject.transform))
             {
-                /*      Insert yourself into the term       */
+                var parenTracker = target.GetComponent<LayoutTracker>();
                 
-                Transform paren = L[0].gameObject.transform;
-                var parenTracker = paren.GetComponent<LayoutTracker>();
-
-                
-                int my_index;
-                for (my_index = 0; my_index < paren.childCount; my_index++)
-                {
-                    if (transform.position.x < paren.GetChild(my_index).position.x)
-                    {
-                        break;
-                    }
-                }
-
-                List<int> paren_index = parenTracker.index;
+                List<int> index = parenTracker.index;
+            
                 var my_term = myCombinator == null
                     ? Shrub<Sum<Combinator, Variable>>.Node(new List<Shrub<Sum<Combinator, Variable>>>())
                     : Shrub<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(myCombinator));
-                var sm = paren.GetComponentInParent<SymbolManager>();
-                sm.Insert(paren_index.Skip(1).Append(my_index).ToList(),my_term);
-
                 
-               // paren = AccessTransfrom(topTracker, paren_index);
-                
-                transform.SetParent(paren,true);
-                transform.SetSiblingIndex(my_index);
-                GetComponent<LayoutTracker>().root = parenTracker.root;
-                GetComponent<LayoutTracker>().enabled = true;
-                this.enabled = false;
+                if(spawnTarget)
+                {
+                    if (myCombinator == null)
+                    {
+                        int my_index;
+                        for (my_index = 0; my_index < target.childCount; my_index++)
+                        {
+                            if (transform.position.x < target.GetChild(my_index).position.x)
+                            {
+                                break;
+                            }
+                        }
 
-            }
+                        if (Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
+                        {
+                            spawnTarget.createTarget(t);
+                            return true;
+                        }, _ => false))
+                            break;
+                    }
+                    else
+                    {
+                        if (Util.BackApply(spawnTarget.goal, myCombinator, index.Skip(1).ToList()).Match(t =>
+                        {
+                            spawnTarget.createTarget(t);
+                            return true;
+                        }, _ => false)) 
+                            break;
+                        
+                    }
+                    
+                }
+                else
+                {
+                    int my_index;
+                    for (my_index = 0; my_index < target.childCount; my_index++)
+                    {
+                        if (transform.position.x < target.GetChild(my_index).position.x)
+                        {
+                            break;
+                        }
+                    }
+                
+                    var sm = target.GetComponentInParent<SymbolManager>();
+                    sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
+
+                    // paren = AccessTransfrom(topTracker, paren_index);
+
+                    transform.SetParent(target, true);
+                    transform.SetSiblingIndex(my_index);
+                    GetComponent<LayoutTracker>().root = parenTracker.root;
+                    GetComponent<LayoutTracker>().enabled = true;
+                    this.enabled = false;
+                    
+                    duplicate.enabled = true;
+                    return;
+                }
+            } 
         }
-
+        Destroy(gameObject);
         duplicate.enabled = true;
     }
     
