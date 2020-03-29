@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="ABMCurrentWork" t="Include">
           <e p="CompletedLevel.cs" t="Include" />
+          <e p="SetVariablePrefab_Tester.cs" t="Include" />
           <e p="TextCreationABM" t="Include">
             <e p="CreateText.cs" t="Include" />
             <e p="LoopText.cs" t="Include" />
@@ -60,6 +61,7 @@
               <e p="SpellDrawerPopulator.cs" t="Include" />
               <e p="StartElementsPopulator.cs" t="Include" />
             </e>
+            <e p="SetNameToSiblingIndex.cs" t="Include" />
             <e p="SpawnTarget.cs" t="Include" />
             <e p="Spell.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
