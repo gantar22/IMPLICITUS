@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9c3f194617a50284c92ebef8a504ae80
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lokka Lite
+  fontNames:
+  - Lokka Lite
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 50d1991a764461c4b9bae3180491aa0f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
