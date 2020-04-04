@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Prefabs/GameplayObjects/Spell Prefabs/Scenes/Menu.unity
     guid: e73d9cb3f9f06154688a5445b3e1c7be
   - enabled: 1
-    path: Assets/Scenes/level_dom.unity
+    path: Assets/Prefabs/GameplayObjects/Spell Prefabs/Scenes/level_dom.unity
     guid: 9809a21cdd627274ebd6f57704b2e685
   - enabled: 1
     path: Assets/LWRP/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/ui-test Carter.unity
+    path: Assets/Prefabs/GameplayObjects/Spell Prefabs/Scenes/ui-test Carter.unity
     guid: 97c6ad0996b5fc749aa8296ca6dadc00
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 55f3d9a9d68f57d45a9c4590f01d97a9,
