@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using Lambda;
 using UnityEngine;
 using TypeUtil;
+using UnityEngine.Events;
 using UnityEngine.Experimental.TerrainAPI;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
 
@@ -21,12 +22,21 @@ public class SymbolManager : MonoBehaviour
     [SerializeField] private Spell[] spells;
     [SerializeField] private LayoutTracker[] Variables;
 
+
+    public List<Action<Term>> onCreateTerm;
+
+    
     private Term currentTerm;
 
+    public void Awake()
+    {
+        onCreateTerm = new List<Action<Term>>();
+    }
 
     private LayoutTracker GetSymbol(Sum<Combinator,Lambda.Variable> v)
     {
         //TODO use dictionary
+        print(v.Match(c => $"c: {c.ToString()}",x => $"x: {x} and vars.count = {Variables.Length}"));
         return v.Match(c => spells.First(s => s.combinator.Equals(c)).prefab, x => Variables[(int) x]);
     }
     
@@ -91,6 +101,8 @@ public class SymbolManager : MonoBehaviour
         }, v => Instantiate(skeletonAtom, parent));
         
         currentTerm = term;
+        if (parent == skeletonRoot)
+            onCreateTerm.ForEach(f => f(term));
     }
 
     private LayoutTracker CreateSymbols(Term term, Transform parent, List<int> path, int index)
@@ -120,7 +132,7 @@ public class SymbolManager : MonoBehaviour
         });
     }
 
-    public void RemoveAt(List<int> path, LayoutTracker root)
+    public LayoutTracker RemoveAtAndReturn(List<int> path, LayoutTracker root)
     {
         var index = path[path.Count - 1];
         path = path.Take(path.Count - 1).ToList();
@@ -147,7 +159,7 @@ public class SymbolManager : MonoBehaviour
             if(Application.isPlaying)
                 Destroy(t.gameObject);
         }
-        CreateSkeleton(new_term,skeletonRoot);
+        CreateSkeleton(new_term,skeletonRoot); //sets new term
         var Paren = AccessTransfrom(root.transform, path);
         var Removed = Paren.GetChild(index);
        
@@ -161,7 +173,7 @@ public class SymbolManager : MonoBehaviour
             t.SetParent(Paren);
             t.SetSiblingIndex(index);
         }
-        Destroy(Removed.gameObject);
+        return Removed.GetComponent<LayoutTracker>();
     }
     
     

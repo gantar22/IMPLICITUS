@@ -22,6 +22,7 @@ public class SymbolManagerTester : MonoBehaviour
     private void Start()
     {
         currentLayout = manager.Initialize(Term.Node(new List<Term>()));
+        Destroy(currentLayout.GetComponent<DraggableSpell>());
     }
 
     public void reset()
@@ -72,6 +73,7 @@ public class SymbolManagerTester : MonoBehaviour
                 }
                 else
                 {
+                    if(variables.IndexOf(ch) == -1) print($"variable: {ch}");
                     return Sum<Combinator, Variable>.Inr((Variable)variables.IndexOf(ch));
                 }
             }

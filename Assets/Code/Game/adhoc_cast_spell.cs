@@ -73,6 +73,11 @@ public class adhoc_cast_spell : MonoBehaviour
         button.onClick.AddListener(Step);
         button_name.text = "Step";
         
+        if (target.goal.Equal(term))
+        {
+            Success.Invoke();
+        }
+        Debug.Log(arg_paren);
         Destroy(arg_paren);
     }
 

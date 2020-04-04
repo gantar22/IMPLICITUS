@@ -35,10 +35,10 @@ public class SpellDrawerPopulator : MonoBehaviour {
 		LayoutTracker newSpell = Instantiate(prefab, transform);
 		newSpell.enabled = false;
 		newSpell.gameObject.AddComponent<LayoutElement>();
-		DraggableSpell draggable = newSpell.gameObject.AddComponent<DraggableSpell>();
-		draggable.myCombinator = combinator;
-		draggable.onApply = onApplyProposal;
-		draggable.onUnapply = onUnapplyProposal;
+		//DraggableSpell draggable = newSpell.gameObject.AddComponent<DraggableSpell>();
+		//draggable.myCombinator = combinator;
+		//draggable.onApply = onApplyProposal;
+		//draggable.onUnapply = onUnapplyProposal;
 	}
 	
 	private void OnDestroy() {

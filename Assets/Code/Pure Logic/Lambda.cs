@@ -315,11 +315,41 @@ namespace Lambda
             }));
             }
 
+            //Extend Combinator to fit the whole term
+            target.Match(l =>
+            {
+                debruijn.Match(d =>
+                {
+                    d = d.ToList();
+                    for (int i = d.Count; i < l.Count; i++)
+                    {
+                        d.Add(Shrub<int>.Leaf(arrity));
+                        arrity++;
+                    }
+
+                    debruijn = Shrub<int>.Node(d);
+                }, x =>
+                {
+                    var d = new List<Shrub<int>>();
+                    d.Add(Shrub<int>.Leaf(x));
+                    for (int i = d.Count; i < l.Count; i++)
+                    {
+                        d.Add(Shrub<int>.Leaf(arrity));
+                        arrity++;
+                    }
+
+                    debruijn = Shrub<int>.Node(d);
+                    
+                });
+            },_ => {});
+            
+            
             Term[] sub = new Term[arrity];
             for(int i = 0; i < arrity;i++)
                 sub[i] = Term.Leaf(Sum<Combinator, Variable>.Inr((Variable)(-1)));
             if (UnifyDebruijn(debruijn, target, sub))
-                return Sum<Term,Unit>.Inl(term.Update(Term.Node(sub.Prepend(Term.Leaf(Sum<Combinator,Variable>.Inl(C))).ToList()), path));
+               return Sum<Term,Unit>.Inl(term.Update(Term.Node(sub.Prepend(Term.Leaf(Sum<Combinator,Variable>.Inl(C))).ToList()), path));
+                
             return Sum<Term, Unit>.Inr(new Unit());
             
             //binarify everything TODO don't do this or return a List<Term>

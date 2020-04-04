@@ -10,7 +10,7 @@ public class SetVariablePrefab : MonoBehaviour
     public void Set(int i)
     {
         index = i;
-        GetComponent<UnityEngine.UI.Image>().sprite = sprites[i];
+        GetComponent<UnityEngine.UI.Image>().sprite = sprites[i + 1];
     }
     
     /* Prior Replaced Code \\CAN DELETE\\

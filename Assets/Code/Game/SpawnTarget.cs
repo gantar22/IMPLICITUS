@@ -19,7 +19,12 @@ public class SpawnTarget : MonoBehaviour
     void Awake()
     {
         onDestroy = lambda.AddRemovableListener(createTarget);
-}
+    }
+
+    private void Start()
+    {
+        smt.GetComponent<SymbolManager>().onCreateTerm.Add(t => goal = t);
+    }
 
     void createTarget(string s)
     {

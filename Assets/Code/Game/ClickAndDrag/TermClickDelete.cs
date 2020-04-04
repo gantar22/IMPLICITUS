@@ -20,6 +20,6 @@ public class TermClickDelete : MonoBehaviour, TermClickHandler
 
     public void HandleClick(SymbolManager manager, Shrub<Sum<Combinator, Variable>> term, List<int> path, LayoutTracker root)
     {
-        manager.RemoveAt(path,root);
+        Destroy(manager.RemoveAtAndReturn(path,root).gameObject);
     }
 }

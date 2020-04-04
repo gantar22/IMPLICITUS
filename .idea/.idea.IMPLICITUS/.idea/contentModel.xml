@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Martin-Lof\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Martin-Lof\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_IMPLICITUS.-1206316257.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Martin-Lof\Documents\projects\MockingBird\IMPLICITUS" t="IncludeRecursive">
+    <e p="C:\Users\Gantar\Documents\projects\IMPLICITUS" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -54,7 +52,12 @@
           </e>
           <e p="Game" t="Include">
             <e p="adhoc_cast_spell.cs" t="Include" />
-            <e p="DraggableSpell.cs" t="Include" />
+            <e p="ClickAndDrag" t="Include">
+              <e p="DraggableHolder.cs" t="Include" />
+              <e p="DraggableSpell.cs" t="Include" />
+              <e p="TermClickDelete.cs" t="Include" />
+              <e p="TermClickHandler.cs" t="Include" />
+            </e>
             <e p="LayoutTracker.cs" t="Include" />
             <e p="Level" t="Include">
               <e p="LevelLoader.cs" t="Include" />
@@ -66,8 +69,6 @@
             <e p="Spell.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
             <e p="TempDrawTerm.cs" t="Include" />
-            <e p="TermClickDelete.cs" t="Include" />
-            <e p="TermClickHandler.cs" t="Include" />
           </e>
           <e p="Pure Logic" t="Include">
             <e p="BinaryTree.cs" t="Include" />
@@ -167,12 +168,11 @@
         </e>
       </e>
       <e p="IMPLICITUS.sln" t="IncludeFlat" />
-      <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="I:\Users\Gantar\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="I:\Users\Gantar\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_IMPLICITUS.2090940554.00" t="ExcludeRecursive" />
   </component>
 </project>
