@@ -17,7 +17,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public Combinator myCombinator;
     public UnitEvent onApply;
     public UnitEvent onUnapply;
-    private DraggableHolder.DraggableType myDraggableType;
+	public TermEvent pushUndoGoalTerm;
+	private DraggableHolder.DraggableType myDraggableType;
     private bool evaluationMode = false;
     private bool hasBeenDragged = false;
 
@@ -167,7 +168,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     { //You not are a parenthesis
                         if(Util.BackApply(spawnTarget.goal, myCombinator, index.Skip(1).ToList()).Match(t =>
                         {
-                            spawnTarget.createTarget(t);
+							pushUndoGoalTerm.Invoke(spawnTarget.goal);
+							spawnTarget.createTarget(t);
                             return true;
                         }, _ => false))
                             break;

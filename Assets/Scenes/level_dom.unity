@@ -2662,6 +2662,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLevelLoad: {fileID: 11400000, guid: 76f275bb9fc8b2f48800fe5e25a1caf3, type: 2}
   levelLoader: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
+  onApplyProposal: {fileID: 0}
+  onUnapplyProposal: {fileID: 0}
+  parenPrefab: {fileID: 0}
 --- !u!1 &1185604081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLevelLoadArity: {fileID: 11400000, guid: a89c1a605264eb44698c40e455580033, type: 2}
   symbolManager: {fileID: 1538518026}
+  OnCastSpell: {fileID: 0}
 --- !u!1 &1541728284
 GameObject:
   m_ObjectHideFlags: 0
