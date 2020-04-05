@@ -15,7 +15,7 @@ public class SymbolManagerTester : MonoBehaviour
     [SerializeField] private SymbolManager manager;
     
     [SerializeField] private List<Combinator> combinators;
-    [SerializeField] private List<char> variables;
+    [field: SerializeField] public List<char> Variables { get; set; }
     private LayoutTracker currentLayout;
 
 
@@ -43,7 +43,7 @@ public class SymbolManagerTester : MonoBehaviour
     
     public string show(Term t)
     {
-        return t.Map<string>(v => v.Match(c => c.ToString(), i => variables[(int) i].ToString())).ToString();
+        return t.Map<string>(v => v.Match(c => c.ToString(), i => Variables[(int) i].ToString())).ToString();
     }
 
     [ContextMenu("CreateTerm")]
@@ -73,8 +73,8 @@ public class SymbolManagerTester : MonoBehaviour
                 }
                 else
                 {
-                    if(variables.IndexOf(ch) == -1) print($"variable: {ch}");
-                    return Sum<Combinator, Variable>.Inr((Variable)variables.IndexOf(ch));
+                    if(Variables.IndexOf(ch) == -1) print($"variable: {ch}, in term: {input_shrub}, vars: {Variables.Select(x => $"{x}").Aggregate((a,b) => $"{a}, {b}")}");
+                    return Sum<Combinator, Variable>.Inr((Variable)Variables.IndexOf(ch));
                 }
             }
         );

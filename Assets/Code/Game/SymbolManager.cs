@@ -36,8 +36,9 @@ public class SymbolManager : MonoBehaviour
     private LayoutTracker GetSymbol(Sum<Combinator,Lambda.Variable> v)
     {
         //TODO use dictionary
-        print(v.Match(c => $"c: {c.ToString()}",x => $"x: {x} and vars.count = {Variables.Length}"));
-        return v.Match(c => spells.First(s => s.combinator.Equals(c)).prefab, x => Variables[(int) x]);
+        var lt = v.Match(c => spells.First(s => s.combinator.Equals(c)).prefab, x => Variables[0]);
+        v.Match(c => {}, x => lt.GetComponent<SetVariablePrefab>().Set((int)x));
+        return lt;
     }
     
     public LayoutTracker Initialize(Term term)
@@ -121,11 +122,7 @@ public class SymbolManager : MonoBehaviour
         }, v =>
         {
             var symbol = Instantiate(GetSymbol(v),parent);
-            v.Match<Unit>(c => new Unit(), x =>
-            {
-                symbol.GetComponent<SetVariablePrefab>().Set((int)x);
-                return new Unit();
-            });
+            
             symbol.index = path.Append(index).ToList();
             symbol.root = skeletonRoot;
             return symbol;

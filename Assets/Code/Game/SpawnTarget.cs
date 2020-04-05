@@ -30,8 +30,11 @@ public class SpawnTarget : MonoBehaviour
     {
         print("spawn target");
         char[] c = {'>'};
-        s = s.Split(c)[1];
-        goal = smt.CreateTerm(s);
+        var split = s.Split(c);
+        var tmp = smt.Variables;
+        smt.Variables = split[0].Skip(1).Where(char.IsLetter).ToList();
+        goal = smt.CreateTerm(split[1]);
+        smt.Variables = tmp;
     }
 
     public void createTarget(Shrub<Sum<Combinator, Variable>> t)
