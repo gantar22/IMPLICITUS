@@ -26,7 +26,9 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/BoolEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/EventObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/QuitGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/Shrub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickStep.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/Reference.cs" root0="FORCE_HIGHLIGHTING" />
@@ -38,10 +40,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/Combinator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/EventRetrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/TempDrawTerm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/BinaryTree.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/UnitEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,7 +79,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/IntEventRetrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/OnDestroyTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/EventRetrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/boilerplate/EventObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/TermClickForwarder.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/TermClickDelete.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/TermClickHandler.cs" />
@@ -86,14 +89,16 @@
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/SpellDrawerPopulator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/boilerplate/QuitGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/boilerplate/EventObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
   </component>
@@ -162,7 +167,7 @@
       <workItem from="1585429297561" duration="20010000" />
       <workItem from="1585847664365" duration="345000" />
       <workItem from="1585927029577" duration="4415000" />
-      <workItem from="1585936146147" duration="17965000" />
+      <workItem from="1585936146147" duration="24837000" />
     </task>
     <servers />
   </component>

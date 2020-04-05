@@ -19,6 +19,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public UnitEvent onUnapply;
     private DraggableHolder.DraggableType myDraggableType;
     private bool evaluationMode = false;
+    private bool hasBeenDragged = false;
 
     private void Start()
     {
@@ -58,7 +59,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     
     public void OnDrag(PointerEventData eventData)
     {
-        if (NoDragging())
+        if (!hasBeenDragged)
             return;
         
         
@@ -69,6 +70,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     {
         if (NoDragging())
             return;
+        hasBeenDragged = true;
         
         //create duplicate and do some sibling index stuff and layout element stuff
         if (myDraggableType == DraggableHolder.DraggableType.LeftPane)
@@ -84,7 +86,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             SymbolManager sm = GetComponentInParent<SymbolManager>();
             var lt = sm.RemoveAtAndReturn(index.Skip(1).ToList(),sm.GetComponentInChildren<LayoutTracker>());
             lt.transform.SetParent(GetComponentInParent<Canvas>().transform,true);
-            lt.transform.SetSiblingIndex(0);
+            lt.transform.SetSiblingIndex(GetComponentInParent<Canvas>().transform.childCount - 1);
             lt.enabled = false;
         }
         
@@ -93,8 +95,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (NoDragging())
+        if (!hasBeenDragged)
             return;
+        hasBeenDragged = false;
         
         PointerEventData data = new PointerEventData(es);
         data.position = Input.mousePosition;
@@ -139,6 +142,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 {
                     if (myCombinator == null)
                     { //You are a parenthesis
+                        print("applying parens to goal");
                         int my_index;
                         for (my_index = 0; my_index < target.childCount; my_index++)
                         {
@@ -152,7 +156,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         {
                             spawnTarget.createTarget(t);
                             return true;
-                        }, _ => false))
+                        }, _ =>
+                        {
+                            print($"goal: {spawnTarget.GetComponent<SymbolManagerTester>().show(spawnTarget.goal)},myindex: {my_index}, path {index.Select(c => c.ToString()).Aggregate((a,b) => $"{a}, {b}")}");
+                            return false;
+                        }))
                             break;
                     }
                     else

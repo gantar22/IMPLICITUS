@@ -60,8 +60,13 @@ public class EventObject<T,TEventType> : ScriptableObject where TEventType : Uni
         IEnumerator tillDestroy()
         {
             void Cleanup() => cleanup();
+            OnDestroyTrigger t = null;
             
-            var t = responsible.gameObject.AddComponent<OnDestroyTrigger>();
+            if (responsible.gameObject.GetComponent<OnDestroyTrigger>())
+                t = responsible.gameObject.GetComponent<OnDestroyTrigger>();
+            else 
+                t = responsible.gameObject.AddComponent<OnDestroyTrigger>();
+            
             t.e.AddListener(Cleanup);
             
             yield return new WaitUntil(() => responsible == null);
