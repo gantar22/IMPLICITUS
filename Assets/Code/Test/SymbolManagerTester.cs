@@ -7,6 +7,7 @@ using Lambda;
 using TMPro;
 using TypeUtil;
 using UnityEngine;
+using UnityEngine.UI;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
 
 public class SymbolManagerTester : MonoBehaviour
@@ -21,7 +22,9 @@ public class SymbolManagerTester : MonoBehaviour
 
     private void Start()
     {
-        currentLayout = manager.Initialize(Term.Node(new List<Term>()));
+        currentLayout = manager.Initialize(Term.Node(new List<Term>())).GetComponentInChildren<LayoutTracker>(); 
+        currentLayout.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+        
         Destroy(currentLayout.GetComponent<DraggableSpell>());
     }
 

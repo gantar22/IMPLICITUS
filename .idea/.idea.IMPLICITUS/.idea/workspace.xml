@@ -92,13 +92,13 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/SpellDrawerPopulator.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/QuitGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/EventObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
       </list>
     </option>
   </component>
@@ -167,7 +167,7 @@
       <workItem from="1585429297561" duration="20010000" />
       <workItem from="1585847664365" duration="345000" />
       <workItem from="1585927029577" duration="4415000" />
-      <workItem from="1585936146147" duration="24837000" />
+      <workItem from="1585936146147" duration="27508000" />
     </task>
     <servers />
   </component>

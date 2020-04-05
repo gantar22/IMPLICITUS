@@ -17,4 +17,5 @@ MonoBehaviour:
   _description: 
   _basis:
   - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
+  - {fileID: 11400000, guid: fb0b90a367638874782de9af98203a79, type: 2}
   _goal: {fileID: 11400000, guid: 347a9243b4affa347bbb5e8d973c37a6, type: 2}
