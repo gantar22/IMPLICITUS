@@ -5,6 +5,7 @@ using System.Linq;
 using Lambda;
 using TypeUtil;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnTarget : MonoBehaviour
 {
@@ -35,6 +36,11 @@ public class SpawnTarget : MonoBehaviour
         smt.Variables = split[0].Skip(1).Where(char.IsLetter).ToList();
         goal = smt.CreateTerm(split[1]);
         smt.Variables = tmp;
+
+        LayoutTracker layout = GetComponentInChildren<LayoutTracker>();
+        layout.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+        Canvas.ForceUpdateCanvases();
     }
 
     public void createTarget(Shrub<Sum<Combinator, Variable>> t)

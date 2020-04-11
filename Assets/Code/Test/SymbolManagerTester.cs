@@ -20,11 +20,12 @@ public class SymbolManagerTester : MonoBehaviour
     private LayoutTracker currentLayout;
 
 
-    private void Start()
+    private void Awake()
     {
         currentLayout = manager.Initialize(Term.Node(new List<Term>())).GetComponentInChildren<LayoutTracker>(); 
         currentLayout.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
-        
+        Canvas.ForceUpdateCanvases();
+
         Destroy(currentLayout.GetComponent<DraggableSpell>());
     }
 
