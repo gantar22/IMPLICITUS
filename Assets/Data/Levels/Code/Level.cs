@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 [CreateAssetMenu(menuName = "Implicitus/New Level")]
 public class Level : ScriptableObject
@@ -10,7 +12,9 @@ public class Level : ScriptableObject
     [SerializeField] private string _description;
     [SerializeField] private Spell[] _basis;
     [SerializeField] private Combinator _goal;
-
+    [SerializeField] private LevelRestrictions _restrictions;
+    
+    
     public int Num
     {
         get
@@ -51,4 +55,13 @@ public class Level : ScriptableObject
         }
     }
 
+    public LevelRestrictions Restrictions => _restrictions;
+
+
+    [Serializable]
+    public struct LevelRestrictions
+    {
+        public bool noParens;
+        public bool noBackApp;
+    }
 }
