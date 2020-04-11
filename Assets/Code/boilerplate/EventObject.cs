@@ -97,6 +97,11 @@ public class EventObject<T,TEventType> : ScriptableObject where TEventType : Uni
     {
         Event.Invoke(t);
     }
+    
+    public void InvokeAsync(T t)
+    {
+        InvokeAsync(FindObjectOfType<MonoBehaviour>(),t);
+    }
 
     public void InvokeAsync(MonoBehaviour m, T t)
     {

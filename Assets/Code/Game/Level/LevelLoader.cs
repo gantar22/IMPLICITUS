@@ -1,6 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TypeUtil;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName ="levelLoader")]
@@ -14,10 +18,18 @@ public class LevelLoader : ScriptableObject {
 	[SerializeField] private StringEvent onLevelLoadLambda;
 	[SerializeField] private IntEvent onLevelLoadArity;
 
+	[SerializeField] private BoolRef NoParens;
+	[SerializeField] private BoolRef NoBackApp;
+	
 	[HideInInspector] public int chapterIndex = -1;
 	[HideInInspector] public int levelIndex = -1;
 	[HideInInspector] public Level currentLevel;
 
+	//Debug event
+	[System.Serializable]
+	private struct EventHolder { public UnityEvent e; }
+	[SerializeField] private EventHolder debugEvent;
+	private static LevelLoader instance;
 
 	// ===== Setters/Getters =====
 	public void setChapterIndex(int newIndex) {
@@ -35,6 +47,24 @@ public class LevelLoader : ScriptableObject {
 		chapterIndex++;
 		verifyChapterIndex();
 	}
+
+	private void Awake()
+	{
+		if (!instance)
+		{
+			instance = this;
+		}
+		else
+		{
+			name = name + " does not receive debug events";
+		}
+	}
+
+	private void OnEnable()
+	{
+		if (!instance) instance = this;
+	}
+
 
 	// Ensures 0 <= chapterIndex < chapterList.Chapters.Length
 	private void verifyChapterIndex() {
@@ -90,14 +120,29 @@ public class LevelLoader : ScriptableObject {
 		chapterIndex = chapter;
 		levelIndex = level;
 		currentLevel = chapterList.Chapters[chapterIndex].Levels[levelIndex];
-		SceneManager.LoadSceneAsync(levelSceneBuildIndex).completed += onLevelLoaded;
+		SceneManager.LoadSceneAsync(levelSceneBuildIndex).completed += onLevelLoaded(currentLevel);
 	}
 
+	
+	
 	// Once a level has been loaded, calls all the initialization events
-	private void onLevelLoaded(AsyncOperation obj) {
-		Debug.Log("loaded level");
-		onLevelLoad.Invoke();
-		onLevelLoadArity.Invoke(currentLevel.Goal.arity);
-		onLevelLoadLambda.Invoke(currentLevel.Goal.lambdaTerm);
+	private Action<AsyncOperation> onLevelLoaded(Level levelLoaded)
+	{ //Curried to ensure that the loaded level is the one which was intended
+		return _ =>
+		{
+			NoParens.val = levelLoaded.Restrictions.noParens;
+			NoBackApp.val = levelLoaded.Restrictions.noBackApp;
+			
+			onLevelLoad.InvokeAsync(new Unit());
+			onLevelLoadArity.InvokeAsync(levelLoaded.Goal.arity);
+			onLevelLoadLambda.InvokeAsync(levelLoaded.Goal.lambdaTerm);
+		};
+	}
+	
+	// Hook to trigger debug event, intended for jumping to specific levels
+	[MenuItem("Assets/IMPLICITUS/LoadSpecificLevel")]
+	public static void debugTrigger()
+	{
+		instance.debugEvent.e.Invoke();
 	}
 }

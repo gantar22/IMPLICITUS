@@ -11,6 +11,7 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	public UnitEvent onApplyProposal;
 	public UnitEvent onUnapplyProposal;
 	public LayoutTracker parenPrefab;
+	public BoolRef noParens;
 	
 	private System.Action removeListener;
 
@@ -27,7 +28,8 @@ public class SpellDrawerPopulator : MonoBehaviour {
 		foreach (Spell spell in levelLoader.currentLevel.Basis) {
 			spawnSpell(spell.prefab,spell.combinator);
 		}
-		spawnSpell(parenPrefab,null); //null represents parens :(
+		if(!noParens.val)
+			spawnSpell(parenPrefab,null); //null represents parens :(
 	}
 
 	private void spawnSpell(LayoutTracker prefab, Combinator combinator)
@@ -35,10 +37,7 @@ public class SpellDrawerPopulator : MonoBehaviour {
 		LayoutTracker newSpell = Instantiate(prefab, transform);
 		newSpell.enabled = false;
 		newSpell.gameObject.AddComponent<LayoutElement>();
-		//DraggableSpell draggable = newSpell.gameObject.AddComponent<DraggableSpell>();
-		//draggable.myCombinator = combinator;
-		//draggable.onApply = onApplyProposal;
-		//draggable.onUnapply = onUnapplyProposal;
+
 	}
 	
 	private void OnDestroy() {
