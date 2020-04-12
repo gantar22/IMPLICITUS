@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f11e88519c3eb842a98c07097e7507d, type: 3}
-  m_Name: TestFinishScreen
+  m_Script: {fileID: 11500000, guid: 9a82166b9711e8a4f97b4fc07a70e214, type: 3}
+  m_Name: ExplainTesting
   m_EditorClassIdentifier: 
-  Event:
-    m_PersistentCalls:
-      m_Calls: []
+  writtenText: {fileID: 4900000, guid: 7a36eeae27bbb27499853bec7c615a9f, type: 3}
+  scrollSpeed: 0
