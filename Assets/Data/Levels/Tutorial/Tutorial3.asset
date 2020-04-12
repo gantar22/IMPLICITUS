@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
-  m_Name: Level 2
+  m_Name: Tutorial3
   m_EditorClassIdentifier: 
   _num: 2
   _name: 
@@ -18,3 +18,7 @@ MonoBehaviour:
   _basis:
   - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
   _goal: {fileID: 11400000, guid: 2c054a39c96fe8f418de393d2bfe374f, type: 2}
+  _restrictions:
+    noParens: 0
+    noBackApp: 0
+    noForwardApp: 1

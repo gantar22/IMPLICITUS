@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,10 +18,28 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     private readonly bool debug = false;
     private RectTransform dest = null;
 
+
+    private float height;
     
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
+    }
+
+
+    private void Start()
+    {
+        Transform t = transform;
+        index = new List<int>();
+        while (t.parent != null && t.parent.GetComponent<LayoutTracker>() != null)
+        {
+            index.Add(t.GetSiblingIndex());
+            t = t.parent;
+        }
+        index.Add(0);
+        index.Reverse();
+        transform.position = target(index).position;
+        height = rt.sizeDelta.y;
     }
 
     public RectTransform target(List<int> i)
@@ -82,11 +101,13 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
             index.Reverse();
             dest = target(index);
         }
-        
-        rt.position += (dest.position - transform.position) * Time.deltaTime * 5;
+
+        var delt = (dest.position - transform.position);
+        if(delt.magnitude > .05f)
+            rt.position += 2f * Time.deltaTime * delt + Time.deltaTime * delt.normalized;
         if (matchWidth)
         {
-            rt.sizeDelta = new Vector2(dest.rect.width,rt.rect.height);
+            rt.sizeDelta = new Vector2(dest.rect.width,height + Mathf.Max(60 - index.Count * 10,60 / Mathf.Pow(2,index.Count)));
         }
     }
 

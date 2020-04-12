@@ -121,3 +121,4 @@ MonoBehaviour:
   pushUndoGoalTerm: {fileID: 11400000, guid: 7cb45476c3d8a1d45bf0bed08981258d, type: 2}
   pushUndoProposalTerm: {fileID: 11400000, guid: 9d1081ad5f64e96459c6b07cfd18133d,
     type: 2}
+  NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}

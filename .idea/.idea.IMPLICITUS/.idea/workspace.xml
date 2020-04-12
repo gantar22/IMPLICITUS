@@ -35,6 +35,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/Reference.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/fc/4b6d4421/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/SetVariablePrefab_Tester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/OnDestroyTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/IntEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -83,7 +84,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/TermClickForwarder.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/TermClickDelete.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/TermClickHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SetNameToSiblingIndex.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Shrub.cs" />
@@ -92,16 +92,18 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/QuitGame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/SpellDrawerPopulator.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/EventObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/LevelLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
   </component>
@@ -172,7 +174,8 @@
       <workItem from="1585927029577" duration="4415000" />
       <workItem from="1585936146147" duration="27508000" />
       <workItem from="1586531490911" duration="1734000" />
-      <workItem from="1586618980703" duration="2587000" />
+      <workItem from="1586618980703" duration="11649000" />
+      <workItem from="1586712766636" duration="4160000" />
     </task>
     <servers />
   </component>
