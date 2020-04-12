@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 2584714527273035001}
   - component: {fileID: 7627458801973742123}
   - component: {fileID: 1952315154975140540}
+  - component: {fileID: 4898130163595017076}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -740,6 +741,22 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &4898130163595017076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848338519844374755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5226afa0d7c9f4b99bf09f922f03fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNum: 0
+  levelLoader: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
+  numText: {fileID: 3100030916080669589}
+  descriptionText: {fileID: 4102808596689630847}
 --- !u!1 &7259870367436733808
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,4 +931,15 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 978327473079721085}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4898130163595017076}
+        m_MethodName: ButtonHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

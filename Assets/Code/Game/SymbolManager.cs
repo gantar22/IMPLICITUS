@@ -19,7 +19,7 @@ public class SymbolManager : MonoBehaviour
     [SerializeField] private RectTransform skeletonAtom;
 
     [SerializeField] private LayoutTracker parenSymbol;
-    [SerializeField] private Spell[] spells;
+	[SerializeField] private SpellList spellList;
     [SerializeField] private LayoutTracker[] Variables;
 
 
@@ -36,7 +36,7 @@ public class SymbolManager : MonoBehaviour
     private LayoutTracker GetSymbol(Sum<Combinator,Lambda.Variable> v)
     {
         //TODO use dictionary
-        var lt = v.Match(c => spells.First(s => s.combinator.Equals(c)).prefab, x => Variables[0]);
+        var lt = v.Match(c => spellList.spells.First(s => s.combinator.Equals(c)).prefab, x => Variables[0]);
         v.Match(c => {}, x => lt.GetComponent<SetVariablePrefab>().Set((int)x));
         return lt;
     }
