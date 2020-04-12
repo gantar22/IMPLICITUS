@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1549941312980163728}
   - component: {fileID: 3900780410436854274}
   - component: {fileID: 3466499031093437967}
-  - component: {fileID: 491239738782711066}
+  - component: {fileID: 107448790506781400}
   m_Layer: 5
   m_Name: Spell Codex Tab
   m_TagString: Untagged
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &491239738782711066
+--- !u!114 &107448790506781400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,9 +83,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7803497314173925746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086c337819aac634bb02ed5f1fc435d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c5906772ebb71f4588a7e47fb3ad59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 0}
-  index: 
-  matchWidth: 0
