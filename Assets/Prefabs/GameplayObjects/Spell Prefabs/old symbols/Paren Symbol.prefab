@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2751481487029469432}
   - component: {fileID: -5747932290929767337}
   - component: {fileID: -4863420347137907815}
+  - component: {fileID: 7472292892360649546}
   m_Layer: 5
   m_Name: Paren Symbol
   m_TagString: ParenSymbol
@@ -120,8 +121,10 @@ MonoBehaviour:
   onApply: {fileID: 11400000, guid: b8073ec4b88432d4dbc80e9a863f8cf5, type: 2}
   onUnapply: {fileID: 11400000, guid: 24c443450316cdc4982eb8ef667660d0, type: 2}
   pushUndoGoalTerm: {fileID: 0}
-  pushUndoProposalTerm: {fileID: 0}
-  NoForwardMode: {fileID: 0}
+  pushUndoProposalTerm: {fileID: 11400000, guid: 9d1081ad5f64e96459c6b07cfd18133d,
+    type: 2}
+  hasBeenDragged: 0
+  NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
 --- !u!114 &-4863420347137907815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,3 +145,16 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7472292892360649546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513709824908824545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63cc3cbf0b0c6f4bb6ba7f61b78e966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellCodexTabPrefab: {fileID: 0}

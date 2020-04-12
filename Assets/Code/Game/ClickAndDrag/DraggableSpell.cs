@@ -21,6 +21,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	public TermEvent pushUndoProposalTerm;
 	private DraggableHolder.DraggableType myDraggableType;
     private bool evaluationMode = false;
+	[HideInInspector]
     public bool hasBeenDragged = false;
     public BoolRef NoForwardMode;
     private const bool oneTry = true;
@@ -208,7 +209,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     }
                 
                     var sm = target.GetComponentInParent<SymbolManager>();
-					//pushUndoProposalTerm.Invoke(sm.readTerm());
+					//if (pushUndoProposalTerm) {
+					//	pushUndoProposalTerm.Invoke(sm.readTerm());
+					//} else {
+					//	Debug.LogError("pushUndoProposalTerm is null in DraggableSpell: " + this);
+					//}
 					sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
 
                     // paren = AccessTransfrom(topTracker, paren_index);
