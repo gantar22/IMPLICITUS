@@ -10465,6 +10465,8 @@ MonoBehaviour:
   levelSelect: {fileID: 1021544063}
   codex: {fileID: 0}
   credits: {fileID: 0}
+  effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+  songAudioEvent: {fileID: 11400000, guid: 551fdae84ee774a4ebdae3e4fe0941aa, type: 2}
 --- !u!225 &1978935837
 CanvasGroup:
   m_ObjectHideFlags: 0
