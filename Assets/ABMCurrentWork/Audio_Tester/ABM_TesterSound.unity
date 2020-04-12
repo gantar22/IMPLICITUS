@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -826,13 +826,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72e346d761f2d848895c7ba9e4cc204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioInt: {fileID: 11400000, guid: e10c1531ec8f64b4bb403ecbbbf6d629, type: 2}
-  audioPrefabsList:
-  - {fileID: 5636284144905017411, guid: dfbd738e21e9e794e9f053c10064c97d, type: 3}
-  - {fileID: 2958076754270763891, guid: ab394b544b65fd94bb3ebd68c9cb9f51, type: 3}
-  - {fileID: 6006442415129631835, guid: 53bac3a0c0e8f3646a1ee230d3f8ce9d, type: 3}
-  - {fileID: 3243276649428182819, guid: 8b2d53a0db7cda447b508943c38d8642, type: 3}
-  - {fileID: 3638697987521401039, guid: 325e12fa0164a5e4a9521868925dc261, type: 3}
+  effectInt: {fileID: 0}
+  songInt: {fileID: 0}
+  effectPrefabsList: []
+  songPrefabsList: []
 --- !u!4 &342978244
 Transform:
   m_ObjectHideFlags: 0
@@ -7484,6 +7481,7 @@ MonoBehaviour:
   leftButton: {fileID: 25740940}
   rightButton: {fileID: 21700111}
   levelLoader: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
+  levelSelect: {fileID: 0}
 --- !u!1001 &1425765056
 PrefabInstance:
   m_ObjectHideFlags: 0
