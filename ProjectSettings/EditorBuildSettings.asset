@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/LWRP/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 0
-    path: Assets/Scenes/testing/ui-undo test2.unity
+    path: Assets/Scenes/testing/OLD ui-undo test2.unity
     guid: 1fd3b4238e0cdaf40ba9f7a2b8d3d4e0
   - enabled: 0
     path: Assets/Scenes/ui-test Carter.unity
