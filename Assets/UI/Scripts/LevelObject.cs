@@ -26,7 +26,7 @@ public class LevelObject : MonoBehaviour
 
     public void SetCurrentLevel()
     {
-        levelLoader.setLevelIndex(levelNum - 1);
+        levelLoader.setLevelIndex(levelNum );
     }
 
     public void ButtonHit()

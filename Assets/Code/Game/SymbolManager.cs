@@ -10,6 +10,7 @@ using TypeUtil;
 using UnityEngine.Events;
 using UnityEngine.Experimental.TerrainAPI;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator,Lambda.Variable>>;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(TermClickHandler))]
 public class SymbolManager : MonoBehaviour
@@ -113,11 +114,13 @@ public class SymbolManager : MonoBehaviour
             LayoutTracker symbol = Instantiate(parenSymbol,parent);
             symbol.root = skeletonRoot;
             symbol.index = path.Append(index).ToList();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(parent.GetComponent<RectTransform>());
+            Canvas.ForceUpdateCanvases();
             for (var i = 0; i < l.Count; i++)
             {
                 CreateSymbols(l[i], symbol.transform, path.Append(index).ToList(), i);
             }
-
+            
             return symbol;
         }, v =>
         {
