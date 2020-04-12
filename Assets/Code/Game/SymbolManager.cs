@@ -114,7 +114,6 @@ public class SymbolManager : MonoBehaviour
             LayoutTracker symbol = Instantiate(parenSymbol,parent);
             symbol.root = skeletonRoot;
             symbol.index = path.Append(index).ToList();
-            symbol.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
             LayoutRebuilder.ForceRebuildLayoutImmediate(parent.GetComponent<RectTransform>());
             Canvas.ForceUpdateCanvases();
             for (var i = 0; i < l.Count; i++)

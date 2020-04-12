@@ -20,7 +20,7 @@ public class SymbolManagerTester : MonoBehaviour
     private LayoutTracker currentLayout;
 
 
-    private void Awake()
+    private void Start()
     {
         currentLayout = manager.Initialize(Term.Node(new List<Term>())).GetComponentInChildren<LayoutTracker>();
 
