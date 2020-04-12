@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff8492c58d574f4aac0af37e6911335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRoot: {fileID: 0}
+  skeletonRoot: {fileID: 759980878}
   skeletonParen: {fileID: 8164797706223174860, guid: 19e5939e53dba0e4bbd5b83c4e951524,
     type: 3}
   skeletonAtom: {fileID: 5816097885154279093, guid: c4b9c9a40e7d61f4bb5733e1f9ddd0dc,
