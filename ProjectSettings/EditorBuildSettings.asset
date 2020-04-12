@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: e73d9cb3f9f06154688a5445b3e1c7be
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/testing/level_dom.unity
     guid: 9809a21cdd627274ebd6f57704b2e685
   - enabled: 1
     path: Assets/LWRP/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 0
-    path: Assets/Scenes/testing/ui-undo test2.unity
+    path: Assets/Scenes/testing/OLD ui-undo test2.unity
     guid: 1fd3b4238e0cdaf40ba9f7a2b8d3d4e0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ui-test Carter.unity
     guid: 97c6ad0996b5fc749aa8296ca6dadc00
   - enabled: 1
