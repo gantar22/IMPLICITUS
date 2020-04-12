@@ -12,8 +12,12 @@
           <e p="TextCreationABM" t="Include">
             <e p="CreateText.cs" t="Include" />
             <e p="LoopText.cs" t="Include" />
-            <e p="SampleScrollingText.txt" t="Include" />
             <e p="TextObject.cs" t="Include" />
+          </e>
+          <e p="Tutorial_ABM_Implementation" t="Include">
+            <e p="EmphasizePaneMe.cs" t="Include" />
+            <e p="LevelIntroduction.cs" t="Include" />
+            <e p="SampleScrollingText.txt" t="Include" />
           </e>
         </e>
         <e p="Code" t="Include">
@@ -70,6 +74,7 @@
             <e p="SetNameToSiblingIndex.cs" t="Include" />
             <e p="SpawnTarget.cs" t="Include" />
             <e p="Spell.cs" t="Include" />
+            <e p="SpellList.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
             <e p="TempDrawTerm.cs" t="Include" />
             <e p="Undo" t="Include">
@@ -171,6 +176,8 @@
           <e p="Scripts" t="Include">
             <e p="ChapterDisplay.cs" t="Include" />
             <e p="ChapterSelect.cs" t="Include" />
+            <e p="LevelObject.cs" t="Include" />
+            <e p="LevelSelect.cs" t="Include" />
             <e p="LoadManager.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
           </e>
