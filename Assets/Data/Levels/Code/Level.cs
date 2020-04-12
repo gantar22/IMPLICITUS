@@ -63,5 +63,6 @@ public class Level : ScriptableObject
     {
         public bool noParens;
         public bool noBackApp;
+        public bool noForwardApp;
     }
 }

@@ -15,8 +15,9 @@ public class CompletedLevel : MonoBehaviour
 
     /* Functions */
     // Creates the Level Complete Screen
-    public void createLevelCompleteScreen()
+    public IEnumerator createLevelCompleteScreen()
     {
+        yield return new WaitForSeconds(1);
         GameObject completeScreen = (GameObject)Instantiate(completedScreenPrefab,
                                                             parentCanvasTransform);
     }
@@ -24,7 +25,7 @@ public class CompletedLevel : MonoBehaviour
     void Start()
     {
         //Initiate the Listener to create screen
-        complete.AddListener(createLevelCompleteScreen);
+        complete.AddRemovableListener(_ => StartCoroutine(createLevelCompleteScreen()),this);
     }
 
 }

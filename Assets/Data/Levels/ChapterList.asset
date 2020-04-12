@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ChapterList
   m_EditorClassIdentifier: 
   _chapters:
+  - {fileID: 11400000, guid: 0351fbf3949e87a4ca2c2bd23be2db67, type: 2}
   - {fileID: 11400000, guid: 9d1cd093f8aa60245a967a1d135b5b20, type: 2}
   - {fileID: 11400000, guid: a0d0d3f4cf4981249942ff4993919d48, type: 2}

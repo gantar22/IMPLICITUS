@@ -14,11 +14,18 @@ public class SpawnTarget : MonoBehaviour
 
     public Shrub<Sum<Combinator, Variable>> goal;
 
+    public BoolRef NoBackApplication;
+    public BoolRef NoForwardApplication;
+    public UnitEvent success;
+    private int arrity;
+    public IntEvent arrityEvent;
+    
     private Action onDestroy;
     // Start is called before the first frame update
     void Awake()
     {
         onDestroy = lambda.AddRemovableListener(createTarget);
+        arrityEvent.AddRemovableListener(i => arrity = i,this);
     }
 
     private void Start()
@@ -41,18 +48,54 @@ public class SpawnTarget : MonoBehaviour
     {
         goal = t;
         smt.CreateTerm(goal);
+        if (isFinished(t,arrity))
+            success.Invoke();
     }
 
+    bool isFinished(Shrub<Sum<Combinator,Variable>> t, int arrity)
+    {
+
+        bool isFinished(List<Shrub<Sum<Combinator, Variable>>> term,int arr, int i)
+        {
+            if (term.Count == 0)
+                return arr == i;
+
+            var tail = term.Skip(1).ToList(); //TODO test me
+            
+            return term[0].Match(l => isFinished(tail,arr,i),
+                v => v.Match(c => isFinished(tail,arr,i), x =>
+                {
+                    if ((int) x == i)
+                        return isFinished(tail, arr, i - 1);
+                    if ((int) x == -1)
+                        return isFinished(tail, arr, i - 1) || isFinished(tail, arr, i);
+                    return false;
+                })
+                );
+        }
+
+        t.Match(l => isFinished(l, arrity,0), v =>
+        {
+            if (arrity == 1)
+                return v.Match(_ => false, x => (int) x <= 0);
+            return false;
+        });
+        return t.Match<bool>(l =>
+        {
+            var ll = l.SkipWhile(s => s.Preorder().TrueForAll(v => v.Match(_ => true, x => false))); //ignore combinators at the start
+            
+            return ll.Select((s, i) => (s, i)).ToList()
+                .TrueForAll(pi => 
+                    pi.s.Match(_ => false,
+                               v => v.Match(_ => false,x => (int)x == pi.i))); //the rest is just the variables in order
+            //TODO verify off by ones
+        }, x => x.Match(_ => false,i => (int)i == 0));
+    }
+
+    
     private void OnDestroy()
     {
         onDestroy();
     }
 
-    
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -20,6 +20,7 @@ public class LevelLoader : ScriptableObject {
 
 	[SerializeField] private BoolRef NoParens;
 	[SerializeField] private BoolRef NoBackApp;
+	[SerializeField] private BoolRef NoForwardApp;
 	
 	[HideInInspector] public int chapterIndex = -1;
 	[HideInInspector] public int levelIndex = -1;
@@ -132,6 +133,7 @@ public class LevelLoader : ScriptableObject {
 		{
 			NoParens.val = levelLoaded.Restrictions.noParens;
 			NoBackApp.val = levelLoaded.Restrictions.noBackApp;
+			NoForwardApp.val = levelLoaded.Restrictions.noForwardApp;
 			
 			onLevelLoad.InvokeAsync(new Unit());
 			onLevelLoadArity.InvokeAsync(levelLoaded.Goal.arity);

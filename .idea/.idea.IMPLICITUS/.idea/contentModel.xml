@@ -72,6 +72,12 @@
             <e p="Spell.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
             <e p="TempDrawTerm.cs" t="Include" />
+            <e p="Undo" t="Include">
+              <e p="TermEvent.cs" t="Include" />
+              <e p="Undoable.cs" t="Include" />
+              <e p="UndoClickHandler.cs" t="Include" />
+              <e p="UndoManager.cs" t="Include" />
+            </e>
           </e>
           <e p="Pure Logic" t="Include">
             <e p="BinaryTree.cs" t="Include" />

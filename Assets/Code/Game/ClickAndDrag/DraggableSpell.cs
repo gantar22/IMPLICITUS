@@ -21,7 +21,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	private DraggableHolder.DraggableType myDraggableType;
     private bool evaluationMode = false;
     private bool hasBeenDragged = false;
-
+    public BoolRef NoForwardMode;
+    private const bool oneTry = true;
+    
     private void Start()
     {
         DraggableHolder dh = GetComponentInParent<DraggableHolder>();
@@ -139,7 +141,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     ? Shrub<Sum<Combinator, Variable>>.Node(new List<Shrub<Sum<Combinator, Variable>>>())
                     : Shrub<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(myCombinator));
                 
-                if(spawnTarget) //Back application
+                if(spawnTarget && !spawnTarget.NoBackApplication.val) //Back application
                 {
                     if (myCombinator == null)
                     { //You are a parenthesis
@@ -153,7 +155,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                             }
                         }
 
-                        if (Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
+
+                        if (my_index != target.childCount && Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
                         {
                             spawnTarget.createTarget(t);
                             return true;
@@ -173,11 +176,10 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                             return true;
                         }, _ => false))
                             break;
-                        
                     }
                     
                 }
-                else //forward application
+                else if(!spawnTarget && !NoForwardMode.val) //forward application
                 {
                     if (evaluationMode)
                     {
@@ -210,6 +212,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     myDraggableType = GetComponentInParent<DraggableHolder>().myType;
                     return;
                 }
+
+                if (oneTry)
+                    break;
             } 
         }
     

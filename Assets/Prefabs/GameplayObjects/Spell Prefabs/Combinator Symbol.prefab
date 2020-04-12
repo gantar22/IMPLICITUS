@@ -119,3 +119,4 @@ MonoBehaviour:
   onApply: {fileID: 11400000, guid: b8073ec4b88432d4dbc80e9a863f8cf5, type: 2}
   onUnapply: {fileID: 11400000, guid: 24c443450316cdc4982eb8ef667660d0, type: 2}
   pushUndoGoalTerm: {fileID: 11400000, guid: 7cb45476c3d8a1d45bf0bed08981258d, type: 2}
+  NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
