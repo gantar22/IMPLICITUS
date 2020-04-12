@@ -18,6 +18,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public UnitEvent onApply;
     public UnitEvent onUnapply;
 	public TermEvent pushUndoGoalTerm;
+	public TermEvent pushUndoProposalTerm;
 	private DraggableHolder.DraggableType myDraggableType;
     private bool evaluationMode = false;
     private bool hasBeenDragged = false;
@@ -185,7 +186,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         continue;
                     }
 
-                int my_index;
+					int my_index;
                     for (my_index = 0; my_index < target.childCount; my_index++)
                     {
                         if (transform.position.x < target.GetChild(my_index).position.x)
@@ -195,7 +196,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     }
                 
                     var sm = target.GetComponentInParent<SymbolManager>();
-                    sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
+					//pushUndoProposalTerm.Invoke(sm.readTerm());
+					sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
 
                     // paren = AccessTransfrom(topTracker, paren_index);
 
