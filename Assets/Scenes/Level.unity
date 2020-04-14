@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -518,8 +518,8 @@ RectTransform:
   m_Father: {fileID: 1185604082}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 1000, y: 0}
   m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 1, y: 1}
@@ -960,10 +960,10 @@ RectTransform:
   m_Father: {fileID: 476422671}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1000, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 930, y: 0}
+  m_SizeDelta: {x: 0, y: 441.0811}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &433886604
 MonoBehaviour:
@@ -1161,9 +1161,9 @@ RectTransform:
   m_Father: {fileID: 1185604082}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1000, y: -250}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &485635911
@@ -1873,9 +1873,9 @@ RectTransform:
   m_Father: {fileID: 992089710}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 800, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 800, y: -75}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &641909874
@@ -2117,6 +2117,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1746443467}
         m_MethodName: set_interactable
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2482,9 +2493,9 @@ RectTransform:
   m_Father: {fileID: 1608006944}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1000, y: -250}
   m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &826077937
@@ -2580,9 +2591,9 @@ RectTransform:
   m_Father: {fileID: 1608006944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1000, y: -75}
   m_SizeDelta: {x: 0, y: 75}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &838681985
@@ -3189,9 +3200,9 @@ RectTransform:
   m_Father: {fileID: 1229862444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -75}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1040590015
@@ -3360,6 +3371,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1746443467}
         m_MethodName: set_interactable
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3727,9 +3749,9 @@ RectTransform:
   m_Father: {fileID: 1481499469}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1000, y: -220.54054}
   m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1185604083
@@ -4325,7 +4347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1481499470
@@ -4731,6 +4753,8 @@ MonoBehaviour:
   completedScreenPrefab: {fileID: 6222010307619826807, guid: 2abda582cc3b20241ae041ed535ce9db,
     type: 3}
   parentCanvasTransform: {fileID: 27356208}
+  effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+  songAudioEvent: {fileID: 11400000, guid: 551fdae84ee774a4ebdae3e4fe0941aa, type: 2}
 --- !u!1 &1606772100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5081,7 +5105,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1717271467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1717271467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5368,6 +5403,17 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
         m_MethodName: loadSelectedLevel
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5852,6 +5898,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1873481749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5982,7 +6039,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1929250012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1929250012
 MonoBehaviour:
   m_ObjectHideFlags: 0

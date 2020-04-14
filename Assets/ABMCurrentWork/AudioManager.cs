@@ -56,6 +56,10 @@ public class AudioManager : MonoBehaviour
         songInt.AddListener(playSong);
         effectInt.AddListener(playEffect);
 
+        songInt.Invoke(0); //Plays Title Screen Track
+    
+        
+    
     }
 
     //Used dby listener of effectEvent
@@ -128,10 +132,29 @@ public class AudioManager : MonoBehaviour
     //Clears all effects prefab Objects 
     private void clearEffectPrefabs()
     {
+        //Saves effects that happen to still be playing when effects cleared!
+        List<AudioObject> effectListStillPlaying = new List<AudioObject>(); 
+
         foreach (AudioObject effect in effectPoolList)
         {
-            Destroy(effect.audioPrefab);
+            if (effect.audioPrefab.GetComponent<AudioSource>().isPlaying)
+            {
+                //if effect happens to be playing in some transition, do not destroy yet
+                effectListStillPlaying.Add(effect);
+            }
+            else
+            {
+                //Destroy if effect is no longer doing anything
+                Destroy(effect.audioPrefab);
+            }
         }
         effectPoolList.Clear(); //Clear whole list
+        
+        //Add all effects to pool list that happen to still be playing
+        foreach (AudioObject effect in effectListStillPlaying)
+        {
+                effectPoolList.Add(effect);
+        }
     }
+
 }
