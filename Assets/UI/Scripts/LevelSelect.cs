@@ -67,7 +67,7 @@ public class LevelSelect : MonoBehaviour
             LevelObject temp = Instantiate(levelPrefab, levelHolder);
             temp.SetLevelNum(i);
             temp.SetLevelSelect(this);
-            temp.SetData(currChap.Levels[i - 1].Num, currChap.Levels[i - 1].Description);
+            temp.SetData(i, currChap.Levels[i - 1].Description);
         }
     }
 

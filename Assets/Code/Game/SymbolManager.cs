@@ -103,7 +103,7 @@ public class SymbolManager : MonoBehaviour
         
         currentTerm = term;
         if (parent == skeletonRoot)
-            onCreateTerm.ForEach(f => f(term));
+            onCreateTerm?.ForEach(f => f?.Invoke(term)); //oncreateterm is null? something something serializable?
     }
 
     private LayoutTracker CreateSymbols(Term term, Transform parent, List<int> path, int index)
@@ -158,7 +158,12 @@ public class SymbolManager : MonoBehaviour
         }
         CreateSkeleton(new_term,skeletonRoot); //sets new term
         var Paren = AccessTransfrom(root.transform, path);
+        Paren.name = "shitboy";
+        Debug.Log(Paren);
+        
+        Debug.Log($"index {index}");
         var Removed = Paren.GetChild(index);
+        
        
         List<Transform> ts = new List<Transform>();
         foreach (Transform t in Removed.transform)
@@ -172,16 +177,23 @@ public class SymbolManager : MonoBehaviour
         }
         return Removed.GetComponent<LayoutTracker>();
     }
-    
-    
-    private Transform AccessTransfrom(Transform t,List<int> path)
+
+    private Transform AccessTransfrom(Transform t, List<int> path)
+    {
+        return AccessTransfrom(t, path, x => x,() => throw new IndexOutOfRangeException());
+    }
+    private T AccessTransfrom<T>(Transform t,List<int> path, Func<Transform,T> k, Func<T> F)
     {
         foreach (int i in path)
         {
+            if (t.childCount <= i)
+            {
+                return F();
+            }
             t = t.GetChild(i);
         }
 
-        return t;
+        return k(t);
     }
 
 
@@ -344,15 +356,47 @@ public class SymbolManager : MonoBehaviour
 
         return null;
     }
-    
-    /*
-     * Steps to get transistions working
-     * 1. replace the skeleton
-     * 2. Take in a rule and case on it
-     * 3. Find the symbol that correspond to term where the rule applies
-     * 3. find new locations for each symbol at that level
-     * 4. duplicate or delete symbols to match new quantity
-     * 5. set the symbols indicies
-     */
 
+    public void UnTransition(Term oldTerm, Combinator C, List<int> path, LayoutTracker TopSymbol)
+    {
+        /*
+         * Get transform at path
+         * Grab transforms at the first occurence of each debruijn index
+         * Delete everything else
+         * spawn metavariables
+         * order everything appropriately
+         */
+        Transform target = AccessTransfrom(TopSymbol.transform, path);
+        (var debruijn, var arity) = Util.ParseCombinator(C)
+            .Match(
+                pi => pi,
+                u => throw new Exception(u.ToString())
+            );
+        
+        Transform[] children = new Transform[arity];
+        debruijn.IterateI(new List<int>(), (i, p) =>
+        {
+            children[i] = AccessTransfrom(target, p,t => t,() => null);
+        });
+
+        var canvas = GetComponentInParent<Canvas>();
+        foreach (var child in children)
+        {
+            child?.SetParent(canvas.transform,true);
+        }
+
+        foreach (Transform t in target)
+        {
+            Destroy(t.gameObject);
+        }
+
+        foreach (var child in children)
+        {
+            if (child)
+                Instantiate(GetSymbol(Sum<Combinator, Variable>.Inr((Variable) (-1))),target);
+            else
+                child.SetParent(target,true);
+        }
+        
+    }
 }

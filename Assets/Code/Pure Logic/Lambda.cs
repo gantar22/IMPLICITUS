@@ -201,11 +201,9 @@ namespace Lambda
             if(path.Count > 0)
                 Debug.Log($"path: {path.Select(i => i.ToString()).Aggregate((a,b) => $"{a}, {b}")}\n term: {show(term)}");
             var target = term.Access(path);
-            var (debruijn,arrity) = Lambda.Util.ParseCombinator(C).Match(p => p,_ => throw new ArgumentException());
+            var (debruijn,arity) = Lambda.Util.ParseCombinator(C).Match(p => p,_ => throw new ArgumentException());
 
-           // var target = ToBinary(targetShrub);
-           // var debruijn = ToBinary(debruijnShrub);
-
+       
             Sum<Term,Unit> UnifyMeta(Term t1, Term t2)
             {
                 return t1.Match<Sum<Term,Unit>>(l1 => t2.Match<Sum<Term,Unit>>(l2 =>
@@ -273,7 +271,7 @@ namespace Lambda
                      }
                      return true;
                  }
-                , xt => { return xt.Match<bool>(c => false, v => (int)v == -1); }), //unification with metavariable unnecesary
+                , xt => { return xt.Match<bool>(c => false, v => (int)v == -1); }), //unification with metavariable unnecessary
             xd => t.Match<bool>(ts =>
             {
                 return UnifyMeta(subst[xd], t).Match(
@@ -285,8 +283,7 @@ namespace Lambda
             }, xt =>
             {
                 return xt.Match<bool>(c =>
-                    UnifyMeta(subst[xd],
-                        Term.Leaf(Sum<Combinator, Variable>.Inl(c))).Match(
+                    UnifyMeta(subst[xd],t).Match(
                         unified =>
                         {
                             subst[xd] = unified;
@@ -296,13 +293,11 @@ namespace Lambda
                         {
                             if ((int) v == -1)
                             {
-                                return true;
+                                return true; //unification unnecessary
                             }
                             else
                             {
-                                return UnifyMeta(subst[xd],
-                                    Term.Leaf(
-                                        Sum<Combinator, Variable>.Inr(v))).Match(
+                                return UnifyMeta(subst[xd],t).Match(
                                     unified =>
                                     {
                                         subst[xd] = unified;
@@ -323,8 +318,8 @@ namespace Lambda
                     d = d.ToList();
                     for (int i = d.Count; i < l.Count; i++)
                     {
-                        d.Add(Shrub<int>.Leaf(arrity));
-                        arrity++;
+                        d.Add(Shrub<int>.Leaf(arity));
+                        arity++;
                     }
 
                     debruijn = Shrub<int>.Node(d);
@@ -334,8 +329,8 @@ namespace Lambda
                     d.Add(Shrub<int>.Leaf(x));
                     for (int i = d.Count; i < l.Count; i++)
                     {
-                        d.Add(Shrub<int>.Leaf(arrity));
-                        arrity++;
+                        d.Add(Shrub<int>.Leaf(arity));
+                        arity++;
                     }
 
                     debruijn = Shrub<int>.Node(d);
@@ -344,8 +339,8 @@ namespace Lambda
             },_ => {});
             
             
-            Term[] sub = new Term[arrity];
-            for(int i = 0; i < arrity;i++)
+            Term[] sub = new Term[arity];
+            for(int i = 0; i < arity;i++)
                 sub[i] = Term.Leaf(Sum<Combinator, Variable>.Inr((Variable)(-1)));
             if (UnifyDebruijn(debruijn, target, sub))
                return Sum<Term,Unit>.Inl(term.Update(Term.Node(sub.Prepend(Term.Leaf(Sum<Combinator,Variable>.Inl(C))).ToList()), path));
