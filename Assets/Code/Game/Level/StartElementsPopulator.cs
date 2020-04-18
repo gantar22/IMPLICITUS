@@ -40,9 +40,6 @@ public class StartElementsPopulator : MonoBehaviour {
 		if(oldVariables)
 			Destroy(oldVariables.gameObject);
 		oldVariables = symbolManager.Initialize(Term.Node(variables));
-        LayoutTracker layout = GetComponentInChildren<LayoutTracker>();
-        layout.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
-        Canvas.ForceUpdateCanvases();
 
     }
 

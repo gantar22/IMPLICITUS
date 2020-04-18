@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 491239738782711066}
   - component: {fileID: 569136228320594244}
   - component: {fileID: -1926866578745841684}
+  - component: {fileID: 2564106021122486996}
   m_Layer: 5
   m_Name: Combinator Symbol
   m_TagString: Untagged
@@ -119,4 +120,21 @@ MonoBehaviour:
   onApply: {fileID: 11400000, guid: b8073ec4b88432d4dbc80e9a863f8cf5, type: 2}
   onUnapply: {fileID: 11400000, guid: 24c443450316cdc4982eb8ef667660d0, type: 2}
   pushUndoGoalTerm: {fileID: 11400000, guid: 7cb45476c3d8a1d45bf0bed08981258d, type: 2}
+  pushUndoProposalTerm: {fileID: 11400000, guid: 9d1081ad5f64e96459c6b07cfd18133d,
+    type: 2}
+  hasBeenDragged: 0
   NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
+--- !u!114 &2564106021122486996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803497314173925746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63cc3cbf0b0c6f4bb6ba7f61b78e966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellCodexTabPrefab: {fileID: 107448790506781400, guid: a542ef60431cb424ea56599be51b980d,
+    type: 3}

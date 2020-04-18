@@ -12,6 +12,9 @@ public class Menu : MonoBehaviour
     [SerializeField] private CanvasGroup codex;
     [SerializeField] private CanvasGroup credits;
 
+    [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
+    [SerializeField] IntEvent songAudioEvent; //Event Calls audio sounds
+
 #pragma warning restore 0649
 
     private Animator animator;
@@ -41,6 +44,10 @@ public class Menu : MonoBehaviour
 
     public void Play()
     {
+
+        effectAudioEvent.Invoke(0); //Button Press Sound
+        songAudioEvent.Invoke(1);   //Plays Level Select Track
+
         //=============================
         //TODO: Animate this transition
         //=============================
@@ -55,6 +62,10 @@ public class Menu : MonoBehaviour
 
     public void BackFromLevel()
     {
+
+        effectAudioEvent.Invoke(0); //Button Press Sound
+        songAudioEvent.Invoke(0);   //Play Title Screen Track
+
         //=============================
         //TODO: Animate this transition
         //=============================
@@ -70,17 +81,24 @@ public class Menu : MonoBehaviour
 
     public void Codex()
     {
+        effectAudioEvent.Invoke(0); //Button Press Sound
+
         //switch to codex
     }
 
     public void Credits()
     {
+        effectAudioEvent.Invoke(0); //Button Press Sound
+
         //switch to credits
     }
 
 
     public void Quit()
     {
+        songAudioEvent.Invoke(-1);   //Turns Off Music
+        effectAudioEvent.Invoke(1); //Quit Game Sound
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else 

@@ -24,8 +24,10 @@ public class adhoc_cast_spell : MonoBehaviour
     private Action cleanup;
     [SerializeField]
     private TMP_Text button_name;
+	[SerializeField]
+	private TermEvent pushUndoProposalTerm;
 
-    [SerializeField] private UnitEvent Success;
+	[SerializeField] private UnitEvent Success;
 
     [SerializeField]
     Button button;
@@ -89,8 +91,9 @@ public class adhoc_cast_spell : MonoBehaviour
             return;
         }
         else
-        {
-            proposal.Transition(term, rules[0], proposal.GetComponentInChildren<LayoutTracker>());
+		{
+			pushUndoProposalTerm.Invoke(term);
+			proposal.Transition(term, rules[0], proposal.GetComponentInChildren<LayoutTracker>());
             term = rules[0].evaluate(term);
             if (target.goal.Equal(term))
             {

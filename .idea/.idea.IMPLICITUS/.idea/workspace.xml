@@ -102,11 +102,11 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
         <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
   </component>
@@ -179,6 +179,7 @@
       <workItem from="1586531490911" duration="1734000" />
       <workItem from="1586618980703" duration="11649000" />
       <workItem from="1586712766636" duration="14890000" />
+      <workItem from="1587220783923" duration="1923000" />
     </task>
     <servers />
   </component>

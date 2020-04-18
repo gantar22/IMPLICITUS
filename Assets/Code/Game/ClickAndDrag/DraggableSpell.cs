@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
-{
+[RequireComponent(typeof(CodexOnSpell))]
+public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
     private Vector2 offset = Vector2.right;
     private RectTransform rt;
     private GraphicRaycaster gr;
@@ -18,13 +18,23 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public UnitEvent onApply;
     public UnitEvent onUnapply;
 	public TermEvent pushUndoGoalTerm;
+	public TermEvent pushUndoProposalTerm;
 	private DraggableHolder.DraggableType myDraggableType;
     private bool evaluationMode = false;
-    private bool hasBeenDragged = false;
+	[HideInInspector]
+    public bool hasBeenDragged = false;
     public BoolRef NoForwardMode;
     private const bool oneTry = true;
-    
-    private void Start()
+
+	private CodexOnSpell codexOnSpell;
+
+
+	// Init
+	private void Awake() {
+		codexOnSpell = GetComponent<CodexOnSpell>();
+	}
+
+	private void Start()
     {
         DraggableHolder dh = GetComponentInParent<DraggableHolder>();
         
@@ -60,24 +70,22 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
     }
     
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (!hasBeenDragged)
+    public void OnDrag(PointerEventData eventData) {
+		if (!hasBeenDragged)
             return;
         
         
         rt.position = Camera.main.ScreenToWorldPoint(Vector3.forward * 10 + Input.mousePosition);
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (NoDragging())
+    public void OnBeginDrag(PointerEventData eventData) {
+		if (NoDragging())
             return;
-        hasBeenDragged = true;
         
         //create duplicate and do some sibling index stuff and layout element stuff
         if (myDraggableType == DraggableHolder.DraggableType.LeftPane)
-        { 
+        {
+			codexOnSpell.deleteCodexTab();
             duplicate = Instantiate(gameObject,transform.parent).GetComponent<Image>();
             duplicate.transform.SetSiblingIndex(transform.GetSiblingIndex());
             duplicate.enabled = false;
@@ -94,11 +102,15 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
         
         offset = transform.position;
-    }
+		hasBeenDragged = true;
+	}
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (!hasBeenDragged)
+	// WARNING - this seems to not be getting called according to IEndDragHandler because
+	//   CodexOnSpell implements IPointerClickHandler, and when they're both on the same GameObject,
+	//   it will only call one of them. So instead, OnPointerClick() in CodexOnSpell will call this.
+	//   (If there's an issue with this tho, let Dom know)
+    public void OnEndDrag(PointerEventData eventData) {
+		if (!hasBeenDragged)
             return;
         hasBeenDragged = false;
         
@@ -140,6 +152,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 var my_term = myCombinator == null
                     ? Shrub<Sum<Combinator, Variable>>.Node(new List<Shrub<Sum<Combinator, Variable>>>())
                     : Shrub<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(myCombinator));
+                if (!target.GetComponentInParent<DraggableHolder>())
+                    continue;
                 
                 if(spawnTarget && !spawnTarget.NoBackApplication.val) //Back application
                 {
@@ -187,7 +201,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         continue;
                     }
 
-                int my_index;
+					int my_index;
                     for (my_index = 0; my_index < target.childCount; my_index++)
                     {
                         if (transform.position.x < target.GetChild(my_index).position.x)
@@ -197,7 +211,12 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     }
                 
                     var sm = target.GetComponentInParent<SymbolManager>();
-                    sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
+					//if (pushUndoProposalTerm) {
+					//	pushUndoProposalTerm.Invoke(sm.readTerm());
+					//} else {
+					//	Debug.LogError("pushUndoProposalTerm is null in DraggableSpell: " + this);
+					//}
+					sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
 
                     // paren = AccessTransfrom(topTracker, paren_index);
 
@@ -233,5 +252,4 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         return t;
     }
-
 }

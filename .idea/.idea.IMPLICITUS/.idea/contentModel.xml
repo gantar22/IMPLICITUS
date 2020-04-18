@@ -7,6 +7,7 @@
       <e p="Assets" t="Include">
         <e p="ABMCurrentWork" t="Include">
           <e p="AudioManager.cs" t="Include" />
+          <e p="AudioPlayer.cs" t="Include" />
           <e p="CompletedLevel.cs" t="Include" />
           <e p="SetVariablePrefab_Tester.cs" t="Include" />
           <e p="TextCreationABM" t="Include">
@@ -64,6 +65,10 @@
               <e p="TermClickDelete.cs" t="Include" />
               <e p="TermClickHandler.cs" t="Include" />
               <e p="TermClickStep.cs" t="Include" />
+            </e>
+            <e p="Codex" t="Include">
+              <e p="CodexOnSpell.cs" t="Include" />
+              <e p="SpellCodexTab.cs" t="Include" />
             </e>
             <e p="LayoutTracker.cs" t="Include" />
             <e p="Level" t="Include">
