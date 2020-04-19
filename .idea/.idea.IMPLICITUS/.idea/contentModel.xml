@@ -181,6 +181,7 @@
           <e p="Scripts" t="Include">
             <e p="ChapterDisplay.cs" t="Include" />
             <e p="ChapterSelect.cs" t="Include" />
+            <e p="DialogueManager.cs" t="Include" />
             <e p="LevelObject.cs" t="Include" />
             <e p="LevelSelect.cs" t="Include" />
             <e p="LoadManager.cs" t="Include" />
