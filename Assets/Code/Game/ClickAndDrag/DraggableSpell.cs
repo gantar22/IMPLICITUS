@@ -247,9 +247,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             }
             
         }
-        else if(!spawnTarget && !NoForwardMode.val && target.GetComponentInChildren<DraggableHolder>() && target.GetComponent<DraggableHolder>().myType == DraggableHolder.DraggableType.Proposal) //forward application
-        {
-            if (evaluationMode)
+        else if(!spawnTarget && !NoForwardMode.val && target.GetComponentInParent<DraggableHolder>() && target.GetComponentInParent<DraggableHolder>().myType == DraggableHolder.DraggableType.Proposal) //forward application
+		{
+			if (evaluationMode)
             {
                 return Sum<Action, Action>.Inl(DestroyMe);
             }

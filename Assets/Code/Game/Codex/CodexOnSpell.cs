@@ -37,10 +37,14 @@ public class CodexOnSpell : MonoBehaviour, IPointerClickHandler {
 
 	// Create a new codexTab for this spell.
 	public void createCodexTab() {
-		if (SpellCodexTabPrefab && transform && transform.parent) {
-			currentCodexTab = Instantiate(SpellCodexTabPrefab, transform.parent);
-			currentCodexTab.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
-			currentCodexTab.initialize(draggableSpell.myCombinator);
+		// Only create a codex tab within the left pane
+		DraggableHolder draggableHolder = GetComponentInParent<DraggableHolder>();
+		if (draggableHolder && draggableHolder.myType == DraggableHolder.DraggableType.LeftPane) {
+			if (SpellCodexTabPrefab && transform && transform.parent) {
+				currentCodexTab = Instantiate(SpellCodexTabPrefab, transform.parent);
+				currentCodexTab.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
+				currentCodexTab.initialize(draggableSpell.myCombinator);
+			}
 		}
 	}
 

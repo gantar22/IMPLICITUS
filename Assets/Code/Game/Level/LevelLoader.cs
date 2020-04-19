@@ -140,9 +140,11 @@ public class LevelLoader : ScriptableObject {
 			onLevelLoadLambda.InvokeAsync(levelLoaded.Goal.lambdaTerm);
 		};
 	}
-	
+
 	// Hook to trigger debug event, intended for jumping to specific levels
+#if UNITY_EDITOR
 	[MenuItem("Assets/IMPLICITUS/LoadSpecificLevel")]
+#endif
 	public static void debugTrigger()
 	{
 		instance.debugEvent.e.Invoke();
