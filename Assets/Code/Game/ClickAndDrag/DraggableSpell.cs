@@ -29,6 +29,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	private CodexOnSpell codexOnSpell;
 
 
+    private struct PreviewRedundantParenInfo
+    {
+        private List<int> path;
+    }
+
 	// Init
 	private void Awake() {
 		codexOnSpell = GetComponent<CodexOnSpell>();
@@ -172,24 +177,40 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
                         if (my_index != target.childCount && Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
                         {
-                            spawnTarget.createTarget(t);
+                            var lt = GetComponent<LayoutTracker>();
+                            lt.enabled = true;
+                            
+                            spawnTarget.addParens(index.Skip(1).ToList(),my_index,lt,t);
+                            lt.root = lt.GetComponentInParent<SymbolManager>().skeletonRoot;
+                            if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
+                                duplicate.enabled = true;
+                            
+                            myDraggableType = DraggableHolder.DraggableType.RedundantParens;
                             return true;
                         }, _ =>
                         {
                             print($"goal: {spawnTarget.GetComponent<SymbolManagerTester>().show(spawnTarget.goal)},myindex: {my_index}, path {index.Select(c => c.ToString()).Aggregate((a,b) => $"{a}, {b}")}");
                             return false;
                         }))
-                            break;
+                            return;
                     }
                     else
                     { //You not are a parenthesis
                         if(Util.BackApply(spawnTarget.goal, myCombinator, index.Skip(1).ToList()).Match(t =>
                         {
 							pushUndoGoalTerm.Invoke(spawnTarget.goal);
-							spawnTarget.createTarget(t);
+                            LayoutTracker lt = GetComponent<LayoutTracker>();
+                            lt.enabled = true;
+                            spawnTarget.unApply(t,lt,myCombinator,index.Skip(1).ToList());
+                            lt.root = GetComponentInParent<SymbolManager>().skeletonRoot;
+                            if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
+                                duplicate.enabled = true;
+                            
+                            
+                            myDraggableType = GetComponentInParent<DraggableHolder>().myType;
                             return true;
                         }, _ => false))
-                            break;
+                            return;
                     }
                     
                 }

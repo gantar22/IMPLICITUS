@@ -360,21 +360,49 @@ public class SymbolManager : MonoBehaviour
         return null;
     }
 
-    public void UnTransition(Term oldTerm, Combinator C, List<int> path, LayoutTracker TopSymbol)
+    public void UnTransition(Term newTerm, LayoutTracker lt, Combinator C, List<int> path, LayoutTracker TopSymbol)
     {
         /*
+         * REMEMBER, you've already "typechecked" this operation, you can assume that everything fits
          * Get transform at path
          * Grab transforms at the first occurence of each debruijn index
          * Delete everything else
          * spawn metavariables
          * order everything appropriately
          */
+        var oldTerm = currentTerm;
+        
         Transform target = AccessTransfrom(TopSymbol.transform, path);
         (var debruijn, var arity) = Util.ParseCombinator(C)
             .Match(
                 pi => pi,
                 u => throw new Exception(u.ToString())
             );
+        
+        debruijn.Match(d =>
+        {
+            d = d.ToList();
+            for (int i = d.Count; i < target.childCount; i++)
+            {
+                d.Add(Shrub<int>.Leaf(arity));
+                arity++;
+            }
+
+            debruijn = Shrub<int>.Node(d);
+        }, x =>
+        {
+            var d = new List<Shrub<int>>();
+            d.Add(Shrub<int>.Leaf(x));
+            for (int i = d.Count; i < target.childCount; i++)
+            {
+                d.Add(Shrub<int>.Leaf(arity));
+                arity++;
+            }
+
+            debruijn = Shrub<int>.Node(d);
+                    
+        });
+        
         
         Transform[] children = new Transform[arity];
         debruijn.IterateI(new List<int>(), (i, p) =>
@@ -388,18 +416,51 @@ public class SymbolManager : MonoBehaviour
             child?.SetParent(canvas.transform,true);
         }
 
+
         foreach (Transform t in target)
         {
             Destroy(t.gameObject);
         }
+        
+        lt.transform.SetParent(target,true);
 
         foreach (var child in children)
         {
-            if (child)
+            if (!child)
                 Instantiate(GetSymbol(Sum<Combinator, Variable>.Inr((Variable) (-1))),target);
             else
                 child.SetParent(target,true);
         }
+
+        foreach (Transform t in skeletonRoot)
+        {
+            Destroy(t.gameObject);
+        }
+        CreateSkeleton(newTerm,skeletonRoot);
+    }
+
+    public void backApplyParens(List<int> path, int size,LayoutTracker paren, LayoutTracker TopSymbol, Term newTerm)
+    {
+        var target = AccessTransfrom(TopSymbol.transform, path);
+
+
+        List<Transform> temp = new List<Transform>();
+        for (int i = 0; i < size; i++)
+            temp.Add(target.GetChild(i));
+
+        foreach (var t in temp)
+        {
+            t.SetParent(paren.transform,true);
+        }
         
+        paren.transform.SetParent(target,true);
+        paren.transform.SetSiblingIndex(0);
+        
+        
+        foreach (Transform t in skeletonRoot)
+        {
+            Destroy(t.gameObject);
+        }
+        CreateSkeleton(newTerm,skeletonRoot);
     }
 }

@@ -17,7 +17,7 @@ public class SymbolManagerTester : MonoBehaviour
     
     [SerializeField] private List<Combinator> combinators;
     [field: SerializeField] public List<char> Variables { get; set; }
-    private LayoutTracker currentLayout;
+    public LayoutTracker currentLayout;
 
 
     private void Start()
