@@ -15,6 +15,8 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private CanvasGroup levelPopup;
 #pragma warning restore 0649
 
+    private Coroutine routine;
+
     private void Awake()
     {
         if(unlockedChapter.val < 0)
@@ -74,6 +76,22 @@ public class LevelSelect : MonoBehaviour
     public int GetMaxUnlockedChapter()
     {
         return unlockedChapter.val;
+    }
+
+    public void OpenStory()
+    {
+        if(routine == null) routine = StartCoroutine(LoadStoryScene());
+    }
+
+    private IEnumerator LoadStoryScene()
+    {
+        LoadManager.instance.LoadSceneAsync("Dialogue");
+        while(DialogueManager.instance == null)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        DialogueManager.instance.PlayDialogue(chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text);
+        routine = null;
     }
 
     public void OpenPopup()
