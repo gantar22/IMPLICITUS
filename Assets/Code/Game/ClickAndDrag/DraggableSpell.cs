@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Lambda;
@@ -114,16 +115,180 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	//   CodexOnSpell implements IPointerClickHandler, and when they're both on the same GameObject,
 	//   it will only call one of them. So instead, OnPointerClick() in CodexOnSpell will call this.
 	//   (If there's an issue with this tho, let Dom know)
-    public void OnEndDrag(PointerEventData eventData) {
-		if (!hasBeenDragged)
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Drop();
+    }
+    
+    
+    public void Drop()
+    {
+    if (!hasBeenDragged)
             return;
         hasBeenDragged = false;
         
-        PointerEventData data = new PointerEventData(es);
-        data.position = Input.mousePosition;
-        List<RaycastResult> L = new List<RaycastResult>();
-        gr.Raycast(data,L);
+        (var spawnTarget,var L) = getTargets();
+        
+        if (L.Count == 0)
+        {
+            print("no hits");
+            DestroyMe();
+        }
+        else
+        {
+            /*      Insert yourself into the term       */
+            if (oneTry)
+            {
+                MakeDrop(spawnTarget, L[0]).Match(f => f(), s => s());
+                return;
+            }
 
+            Action endAction = null;
+            foreach (var target in L)
+            {
+                if (MakeDrop(spawnTarget, target).Match(failure =>
+                {
+                    endAction = failure;
+                    return false;
+                }, succ =>
+                {
+                    succ();
+                    return true;
+                }))
+                    return;
+            }
+            endAction?.Invoke();
+        }
+    
+    }
+    
+    void DestroyMe()
+    {
+        if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
+            duplicate.enabled = true;
+        Destroy(gameObject);
+    }
+
+    public Sum<Action,Action> MakeDrop(SpawnTarget spawnTarget, Transform target) //left is on failure, right is on success
+    {
+        void PlaceMe()
+        {
+            if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
+                duplicate.enabled = true;
+            
+            var lt = GetComponent<LayoutTracker>();
+            lt.enabled = true;
+            lt.root = lt.GetComponentInParent<SymbolManager>().skeletonRoot;
+        }
+
+        var parenTracker = target.GetComponent<LayoutTracker>();
+        
+        List<int> index = parenTracker.index;
+    
+        var my_term = myCombinator == null
+            ? Shrub<Sum<Combinator, Variable>>.Node(new List<Shrub<Sum<Combinator, Variable>>>())
+            : Shrub<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(myCombinator));
+        if (!target.GetComponentInParent<DraggableHolder>())
+        {
+            return Sum<Action,Action>.Inl(DestroyMe);
+        }
+        
+        if(spawnTarget && !spawnTarget.NoBackApplication.val) //Back application
+        {
+            if (myCombinator == null)
+            { //You are a parenthesis
+                print("applying parens to goal");
+                int my_index;
+                for (my_index = 0; my_index < target.childCount; my_index++)
+                {
+                    if (transform.position.x < target.GetChild(my_index).position.x)
+                    {
+                        break;
+                    }
+                }
+
+
+                if (my_index != target.childCount)
+                    return Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
+                    {
+                        return Sum<Action, Action>.Inr(() =>
+                        {
+
+                            spawnTarget.addParens(index.Skip(1).ToList(), my_index, GetComponent<LayoutTracker>(), t);
+
+                            PlaceMe();
+                            myDraggableType = DraggableHolder.DraggableType.RedundantParens;
+                        });
+                    }, _ =>
+                    {
+                        print(
+                            $"goal: {spawnTarget.GetComponent<SymbolManagerTester>().show(spawnTarget.goal)},myindex: {my_index}, path {index.Select(c => c.ToString()).Aggregate((a, b) => $"{a}, {b}")}");
+                        return Sum<Action, Action>.Inl(DestroyMe);
+                    });
+                else
+                    return Sum<Action, Action>.Inl(DestroyMe);
+            }
+            else
+            { //You not are a parenthesis
+                return Util.BackApply(spawnTarget.goal, myCombinator, index.Skip(1).ToList()).Match(t =>
+                    Sum<Action, Action>.Inr(() =>
+                    {
+
+                        pushUndoGoalTerm.Invoke(spawnTarget.goal);
+
+
+                        spawnTarget.unApply(t, GetComponent<LayoutTracker>(), myCombinator, index.Skip(1).ToList());
+
+                        PlaceMe();
+                        myDraggableType = DraggableHolder.DraggableType.NoDragging;
+
+                    })
+                , _ => Sum<Action, Action>.Inl(DestroyMe));
+            }
+            
+        }
+        else if(!spawnTarget && !NoForwardMode.val && target.GetComponentInChildren<DraggableHolder>() && target.GetComponent<DraggableHolder>().myType == DraggableHolder.DraggableType.Proposal) //forward application
+        {
+            if (evaluationMode)
+            {
+                return Sum<Action, Action>.Inl(DestroyMe);
+            }
+
+			int my_index;
+            for (my_index = 0; my_index < target.childCount; my_index++)
+            {
+                if (transform.position.x < target.GetChild(my_index).position.x)
+                {
+                    break;
+                }
+            }
+        
+            return Sum<Action, Action>.Inr(() =>
+            {
+            
+                var sm = target.GetComponentInParent<SymbolManager>();
+                //if (pushUndoProposalTerm) {
+                //	pushUndoProposalTerm.Invoke(sm.readTerm());
+                //} else {
+                //	Debug.LogError("pushUndoProposalTerm is null in DraggableSpell: " + this);
+                //}
+                sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
+
+                // paren = AccessTransfrom(topTracker, paren_index);
+
+                transform.SetParent(target, true);
+                transform.SetSiblingIndex(my_index);
+                PlaceMe();
+                myDraggableType = DraggableHolder.DraggableType.Proposal;
+                
+            });
+           
+        }
+        return Sum<Action, Action>.Inl(DestroyMe);
+    }
+    
+    private Tuple<SpawnTarget,List<Transform>> getTargets()
+    {
         bool GoodTarget(GameObject g)
         {
             char[] c = {'>'};
@@ -133,136 +298,18 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             return g.GetComponent<LayoutTracker>() && g.GetComponentInParent<SpawnTarget>();
         }
         
-        while (L.Count > 0 && !GoodTarget(L[0].gameObject))
-        {
-            L.RemoveAt(0);
-        }
+        PointerEventData data = new PointerEventData(es);
+        data.position = Input.mousePosition;
+        List<RaycastResult> L = new List<RaycastResult>();
+        gr.Raycast(data,L);
+
+        var Result = L.Select(l => l.gameObject).Where(GoodTarget).Select(l => l.transform).ToList();
+
+        if (Result.Count == 0)
+            return Tuple.Create((SpawnTarget)null, Result);
         
-        if (L.Count == 0)
-        {
-            print("no hits");
-        }
-        else
-        {
-            /*      Insert yourself into the term       */
-
-            
-            var spawnTarget = L[0].gameObject.GetComponentInParent<SpawnTarget>();
-            foreach (var target in L.Where(l => GoodTarget(l.gameObject)).Select(l => l.gameObject.transform))
-            {
-                var parenTracker = target.GetComponent<LayoutTracker>();
-                
-                List<int> index = parenTracker.index;
-            
-                var my_term = myCombinator == null
-                    ? Shrub<Sum<Combinator, Variable>>.Node(new List<Shrub<Sum<Combinator, Variable>>>())
-                    : Shrub<Sum<Combinator, Variable>>.Leaf(Sum<Combinator, Variable>.Inl(myCombinator));
-                if (!target.GetComponentInParent<DraggableHolder>())
-                    continue;
-                
-                if(spawnTarget && !spawnTarget.NoBackApplication.val) //Back application
-                {
-                    if (myCombinator == null)
-                    { //You are a parenthesis
-                        print("applying parens to goal");
-                        int my_index;
-                        for (my_index = 0; my_index < target.childCount; my_index++)
-                        {
-                            if (transform.position.x < target.GetChild(my_index).position.x)
-                            {
-                                break;
-                            }
-                        }
-
-
-                        if (my_index != target.childCount && Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
-                        {
-                            var lt = GetComponent<LayoutTracker>();
-                            lt.enabled = true;
-                            
-                            spawnTarget.addParens(index.Skip(1).ToList(),my_index,lt,t);
-                            lt.root = lt.GetComponentInParent<SymbolManager>().skeletonRoot;
-                            if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
-                                duplicate.enabled = true;
-                            
-                            myDraggableType = DraggableHolder.DraggableType.RedundantParens;
-                            return true;
-                        }, _ =>
-                        {
-                            print($"goal: {spawnTarget.GetComponent<SymbolManagerTester>().show(spawnTarget.goal)},myindex: {my_index}, path {index.Select(c => c.ToString()).Aggregate((a,b) => $"{a}, {b}")}");
-                            return false;
-                        }))
-                            return;
-                    }
-                    else
-                    { //You not are a parenthesis
-                        if(Util.BackApply(spawnTarget.goal, myCombinator, index.Skip(1).ToList()).Match(t =>
-                        {
-							pushUndoGoalTerm.Invoke(spawnTarget.goal);
-                            LayoutTracker lt = GetComponent<LayoutTracker>();
-                            lt.enabled = true;
-                            spawnTarget.unApply(t,lt,myCombinator,index.Skip(1).ToList());
-                            lt.root = GetComponentInParent<SymbolManager>().skeletonRoot;
-                            if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
-                                duplicate.enabled = true;
-                            
-                            
-                            myDraggableType = GetComponentInParent<DraggableHolder>().myType;
-                            return true;
-                        }, _ => false))
-                            return;
-                    }
-                    
-                }
-                else if(!spawnTarget && !NoForwardMode.val) //forward application
-                {
-                    if (evaluationMode)
-                    {
-                        Debug.Break();
-                        continue;
-                    }
-
-					int my_index;
-                    for (my_index = 0; my_index < target.childCount; my_index++)
-                    {
-                        if (transform.position.x < target.GetChild(my_index).position.x)
-                        {
-                            break;
-                        }
-                    }
-                
-                    var sm = target.GetComponentInParent<SymbolManager>();
-					//if (pushUndoProposalTerm) {
-					//	pushUndoProposalTerm.Invoke(sm.readTerm());
-					//} else {
-					//	Debug.LogError("pushUndoProposalTerm is null in DraggableSpell: " + this);
-					//}
-					sm.Insert(index.Skip(1).Append(my_index).ToList(), my_term);
-
-                    // paren = AccessTransfrom(topTracker, paren_index);
-
-                    transform.SetParent(target, true);
-                    transform.SetSiblingIndex(my_index);
-                    GetComponent<LayoutTracker>().root = parenTracker.root;
-                    GetComponent<LayoutTracker>().enabled = true;
-                    //this.enabled = false;
-                    
-                    if(myDraggableType == DraggableHolder.DraggableType.LeftPane)
-                        duplicate.enabled = true;
-                    myDraggableType = GetComponentInParent<DraggableHolder>().myType;
-                    return;
-                }
-
-                if (oneTry)
-                    break;
-            } 
-        }
-    
-        Destroy(gameObject);
-        if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
-            duplicate.enabled = true;
+        return Tuple.Create(Result[0].gameObject.GetComponentInParent<SpawnTarget>(),Result);
     }
-    
     
     private Transform AccessTransfrom(Transform t,List<int> path)
     {
