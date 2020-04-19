@@ -92,7 +92,9 @@ public class SymbolManagerTester : MonoBehaviour
 
     public void CreateTerm(Term t)
     {
-        Destroy(currentLayout.gameObject);
+		if (currentLayout && currentLayout.gameObject) {
+			Destroy(currentLayout.gameObject);
+		}
         currentLayout = manager.Initialize(t);
     }
     

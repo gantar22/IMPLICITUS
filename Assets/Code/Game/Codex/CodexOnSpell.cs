@@ -37,10 +37,11 @@ public class CodexOnSpell : MonoBehaviour, IPointerClickHandler {
 
 	// Create a new codexTab for this spell.
 	public void createCodexTab() {
-		// TODO - uncomment these and implement the Combinator display on the Spell Codex Tab prefab.
-		//   Currently disabled so that it doesn't mess with stuff while it's still in progress
-		//currentCodexTab = Instantiate(SpellCodexTabPrefab, transform.parent);
-		//currentCodexTab.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
+		if (SpellCodexTabPrefab && transform && transform.parent) {
+			currentCodexTab = Instantiate(SpellCodexTabPrefab, transform.parent);
+			currentCodexTab.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
+			currentCodexTab.initialize(draggableSpell.myCombinator);
+		}
 	}
 
 	// Delete the current codextTab for this spell (if it exists).
