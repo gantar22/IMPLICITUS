@@ -27,10 +27,13 @@ public class adhoc_cast_spell : MonoBehaviour
 	[SerializeField]
 	private TermEvent pushUndoProposalTerm;
 
-	[SerializeField] private UnitEvent Success;
+    [SerializeField] private UnitEvent Success;
 
     [SerializeField]
     Button button;
+
+
+    [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
 
     private Term term;
     
@@ -50,6 +53,9 @@ public class adhoc_cast_spell : MonoBehaviour
     
     public void Cast()
     {
+
+        effectAudioEvent.Invoke(7); //Cast Spell Sound
+
         List<Term> args = Enumerable.Range(0, arity)
             .Select(i => Term.Leaf(Sum<Combinator, Variable>.Inr((Variable) i))).ToList();
         proposal.Append(args);

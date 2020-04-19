@@ -45,7 +45,7 @@ public class Menu : MonoBehaviour
     public void Play()
     {
 
-        effectAudioEvent.Invoke(0); //Button Press Sound
+        effectAudioEvent.Invoke(3); //Title Select Sound
         songAudioEvent.Invoke(1);   //Plays Level Select Track
 
         //=============================
