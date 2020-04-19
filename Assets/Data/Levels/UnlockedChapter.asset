@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0b8e626b422e54fa461ef222336c16, type: 3}
   m_Name: UnlockedChapter
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1
   OnChange:
     m_PersistentCalls:
       m_Calls: []

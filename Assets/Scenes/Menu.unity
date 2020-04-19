@@ -9468,6 +9468,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   levelLoader: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
   levelSelect: {fileID: 1021544064}
+  unlockedChapter: {fileID: 0}
 --- !u!1 &1353192742
 GameObject:
   m_ObjectHideFlags: 0
@@ -10194,6 +10195,7 @@ MonoBehaviour:
   rightButton: {fileID: 486810167}
   levelLoader: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
   levelSelect: {fileID: 1021544064}
+  unlockedChapter: {fileID: 11400000, guid: d9b4950456a80a547ba4deef1b1829d1, type: 2}
 --- !u!114 &1554304015
 MonoBehaviour:
   m_ObjectHideFlags: 0
