@@ -12,6 +12,7 @@ public class Level : ScriptableObject
     [SerializeField] private Spell[] _basis;
     [SerializeField] private Combinator _goal;
     [SerializeField] private LevelRestrictions _restrictions;
+    [SerializeField] private TextAsset _dialogueScript;
     
     public string Name
     {
@@ -46,6 +47,7 @@ public class Level : ScriptableObject
     }
 
     public LevelRestrictions Restrictions => _restrictions;
+    public TextAsset DialogueScript => _dialogueScript;
 
 
     [Serializable]
