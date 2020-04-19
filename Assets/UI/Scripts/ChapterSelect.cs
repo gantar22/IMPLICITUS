@@ -8,16 +8,19 @@ public class ChapterSelect : MonoBehaviour {
 	public Button rightButton;
 	public LevelLoader levelLoader;
     public LevelSelect levelSelect;
+#pragma warning disable 0649
+    [SerializeField] private IntRef unlockedChapter;
+#pragma warning restore 0649
 
-	// Init
-	void Awake() {
+    // Init
+    void Awake() {
 		refreshButtons();
 	}
 
 	// Enables/disables the left & right buttons according to the current chapter
 	public void refreshButtons() {
 		leftButton.interactable = !levelLoader.atMinChapter();
-		rightButton.interactable = !levelLoader.atMaxChapter();
+		rightButton.interactable = !levelLoader.atMaxChapter() && levelLoader.chapterIndex < unlockedChapter.val;
         levelSelect.LoadLevels();
 	}
 }
