@@ -471,25 +471,51 @@ public class SymbolManager : MonoBehaviour
     //Figures out which Combinator Effect to play
     private void combinatorEffectPlay(CombinatorElim CElim)
     {
+        //Check to ensure that effectAudioEvent is not null
+        if (effectAudioEvent == null)
+        {
+            Debug.Log("UnitEvent \"effectAudioEvent\" missing from a script \"SymbolManager\"");
+            return;
+        }
+
         Debug.Log("Is Running Combinator Effect Play");
-        //if Combinator "B"
-        //effectAudioEvent.Invoke(8); //B Combinator Sound
 
-        //if Combinator "T"
-        //effectAudioEvent.Invoke(9); //T Combinator Sound
+        //Getting name of combinator to reference
+        char comb_name = CElim.c.info.nameInfo.name;
 
-        //if Combinator "Q"
-        //effectAudioEvent.Invoke(10); //Q Combinator Sound
+        //Figures out which sound to play for combinator families
 
-        //if Combinator "W"
-        //effectAudioEvent.Invoke(11); //W Combinator Sound
+        if (comb_name == 'B' || comb_name == 'D' || comb_name == 'E')
+        {
+            effectAudioEvent.Invoke(8); //B Combinator Sound
+        }
+        else if (comb_name == 'T' || comb_name == 'C' || comb_name == 'F' || comb_name == 'R' || comb_name == 'V')
+        {
+            effectAudioEvent.Invoke(9); //T Combinator Sound
+        }
+        else if (comb_name == 'Q')
+        {
+            effectAudioEvent.Invoke(10); //Q Combinator Sound
+        }
+        else if (comb_name == 'W' || comb_name == 'L')
+        {
+            effectAudioEvent.Invoke(11); //W Combinator Sound
+        }
+        else if (comb_name == 'K')
+        {
+            effectAudioEvent.Invoke(12); //K Combinator Sound
+        }
+        else if (comb_name == 'I')
+        {
+            effectAudioEvent.Invoke(13); //I Combinator Sound
+        }
+        else
+        {
+            //Combinator is not currently labeled, will play default button sound
+            Debug.Log("Combinator with Name" + comb_name + "seems to be missing from list in" +
+                      "script \"SymbolManager\" and function \"combinatorEffectPlay\"");
 
-        //if Combinator "K"
-        //effectAudioEvent.Invoke(12); //K Combinator Sound
-
-        //if Combinator "I"
-        //effectAudioEvent.Invoke(13); //I Combinator Sound
-
+            effectAudioEvent.Invoke(0); //Button Press Sound
+        }
     }
-
 }
