@@ -23,6 +23,7 @@ public class SymbolManager : MonoBehaviour
 	[SerializeField] private SpellList spellList;
     [SerializeField] private LayoutTracker[] Variables;
 
+    [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
 
     public List<Action<Term>> onCreateTerm;
 
@@ -221,9 +222,12 @@ public class SymbolManager : MonoBehaviour
         if (rule is CombinatorElim CElim)
         {
 
+            //Plays the appropriate combinator sound effect
+            combinatorEffectPlay(CElim); 
+
             /********** unpack the elim rule ***********/
             {
-                
+
                 (var debruijn, var arity) = Util.ParseCombinator(CElim.c)
                     .Match(
                         pi => pi,
@@ -462,5 +466,56 @@ public class SymbolManager : MonoBehaviour
             Destroy(t.gameObject);
         }
         CreateSkeleton(newTerm,skeletonRoot);
+    }
+
+    //Figures out which Combinator Effect to play
+    private void combinatorEffectPlay(CombinatorElim CElim)
+    {
+        //Check to ensure that effectAudioEvent is not null
+        if (effectAudioEvent == null)
+        {
+            Debug.Log("UnitEvent \"effectAudioEvent\" missing from a script \"SymbolManager\"");
+            return;
+        }
+
+        Debug.Log("Is Running Combinator Effect Play");
+
+        //Getting name of combinator to reference
+        char comb_name = CElim.c.info.nameInfo.name;
+
+        //Figures out which sound to play for combinator families
+
+        if (comb_name == 'B' || comb_name == 'D' || comb_name == 'E')
+        {
+            effectAudioEvent.Invoke(8); //B Combinator Sound
+        }
+        else if (comb_name == 'T' || comb_name == 'C' || comb_name == 'F' || comb_name == 'R' || comb_name == 'V')
+        {
+            effectAudioEvent.Invoke(9); //T Combinator Sound
+        }
+        else if (comb_name == 'Q')
+        {
+            effectAudioEvent.Invoke(10); //Q Combinator Sound
+        }
+        else if (comb_name == 'W' || comb_name == 'L')
+        {
+            effectAudioEvent.Invoke(11); //W Combinator Sound
+        }
+        else if (comb_name == 'K')
+        {
+            effectAudioEvent.Invoke(12); //K Combinator Sound
+        }
+        else if (comb_name == 'I')
+        {
+            effectAudioEvent.Invoke(13); //I Combinator Sound
+        }
+        else
+        {
+            //Combinator is not currently labeled, will play default button sound
+            Debug.Log("Combinator with Name" + comb_name + "seems to be missing from list in" +
+                      "script \"SymbolManager\" and function \"combinatorEffectPlay\"");
+
+            effectAudioEvent.Invoke(0); //Button Press Sound
+        }
     }
 }

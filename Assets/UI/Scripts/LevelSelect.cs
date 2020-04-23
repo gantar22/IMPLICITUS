@@ -28,7 +28,6 @@ public class LevelSelect : MonoBehaviour
 
     private void Start()
     {
-        UpdateProgress();
         LoadLevels();
     }
 
@@ -39,7 +38,7 @@ public class LevelSelect : MonoBehaviour
             unlockedChapter.val = levelLoader.chapterIndex;
             unlockedLevel.val = levelLoader.levelIndex;
         }
-        else if(levelLoader.chapterIndex == unlockedChapter.val)
+        else if(levelLoader.chapterIndex == unlockedChapter.val && levelLoader.levelIndex > unlockedLevel.val)
         {
             unlockedLevel.val = levelLoader.levelIndex;
         }
@@ -55,6 +54,8 @@ public class LevelSelect : MonoBehaviour
             }
         }
 
+        UpdateProgress();
+
         Chapter currChap = chapters.Chapters[levelLoader.chapterIndex];
 
         int maxLevels = currChap.Levels.Length;
@@ -69,7 +70,7 @@ public class LevelSelect : MonoBehaviour
             LevelObject temp = Instantiate(levelPrefab, levelHolder);
             temp.SetLevelNum(i);
             temp.SetLevelSelect(this);
-            temp.SetData(i, currChap.Levels[i].Description);
+            temp.SetData(i + 1, currChap.Levels[i].Description);
         }
     }
 

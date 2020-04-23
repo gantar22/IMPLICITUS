@@ -72,6 +72,7 @@
             </e>
             <e p="LayoutTracker.cs" t="Include" />
             <e p="Level" t="Include">
+              <e p="IgnoreLayoutAdjuster.cs" t="Include" />
               <e p="LevelLoader.cs" t="Include" />
               <e p="SpellDrawerPopulator.cs" t="Include" />
               <e p="StartElementsPopulator.cs" t="Include" />
