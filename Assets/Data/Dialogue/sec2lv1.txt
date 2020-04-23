@@ -1,0 +1,12 @@
+R: <sprite=2C><name=Lopika>Wait, THIS is where the shaman lives?;
+L:<sprite=PA><name=Gedun>Huh? Little girl, are your parents with you?;
+R:Nan told me this is the only place that practiced magic in this village, and this is it?;
+R:Where are the fire-breathing lions? Where are the water fairies??;
+L:This isn’t one of those big-city magic shows. I use magic to help people with their problems. I better bring you to the village office so you can be on your way...;
+R:<sprite=2A><animation=shocked>Wait, wait, I’m not done! Are you dismissing one of your clients? I want something from you!;
+L:<sprite=PB>You do?;
+R:<sprite=2C>You know, magic was only entertainment for me. My Father would bring magic performers and beast tamers home to perform for him, and after one of them attacked a servant, I’ve been having nightmares. In my dreams, a green tiger appears, and slowly walks toward me with his teeth showing.;
+L:Dreams? The previous shaman taught me spells that allowed people to take control of their nightly adventures.;
+R:What do you want for your help? A chest of gold? Silk fabrics?;
+L:<sprite=PA>I am still a beginner at my craft, and I cannot ask payment from a girl the same age as my grandchild. What is your name?;
+R:<sprite=2B><animation=happy>I am Princess Lopika, daughter of King Heakshith who rules over the city at the bottom of your mountain. I heard from Nan that you are Gedun.;

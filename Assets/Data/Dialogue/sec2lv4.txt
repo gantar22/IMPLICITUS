@@ -1,0 +1,10 @@
+R:<sprite=2A><name=Lopika><animation=happy>Gedun? I’m back again!;
+L:<sprite=PA><name=Gedun>Hello! Back for more butter tea?;
+R:<sprite=2B>If you can make some, that would be amazing. The taste of yak butter is so smooth...<animation=happy>It’s my favorite!;
+L:Very well! A farmer’s boy,Tashi, brought a fresh batch of butter yesterday.;
+L:So, how are your dreams progressing?;
+R:<sprite=2C>The nightmare is happening less often when I sleep, but it seems to have stopped progressing. When I entered my dream, the tiger just sat and  stared at me silently. Is there a way to end this dream once and for all?;
+L:<sprite=PB>Princess, I believe that the green tiger is a spiritual beast belonging to this village. Have you spoken to it before?;
+R:No? Now that you mention it, I have had this dream ever since coming to this village.;
+L:The legends say that this green tiger has spent his whole life protecting the well being of the villagers. If you tell him you are a travelling princess and have come in peace, I believe he will stop bothering you anymore.;
+R:<sprite=2B>Very well! Let me try speaking with your potion.;

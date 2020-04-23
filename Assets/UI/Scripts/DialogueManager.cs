@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image charR;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private IntEvent songPlay;
+    [SerializeField] private int songIdx;
 #pragma warning restore 0649
 
     private string leftName = "";
@@ -96,7 +98,7 @@ public class DialogueManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeIn());
         string[] lines = dialogueScript.Split(';');
-        for(int i = 0; i < lines.Length; i++)
+        for(int i = 0; i < lines.Length - 1; i++)
         {
             string[] data = lines[i].Split(':');
             bool isLeft = true;
@@ -113,8 +115,8 @@ public class DialogueManager : MonoBehaviour
                         dialogueQueue.Enqueue(new DialogueScriptObject(DialogueScriptAction.dialogue, txt));
                         txt = "";
                     }
-                    int len = data[1].IndexOf('>', j) - j;
-                    string action = data[1].Substring(j, len);
+                    int len = data[1].IndexOf('>', j) - j - 1;
+                    string action = data[1].Substring(j + 1, len);
                     string[] split = action.Split('=');
                     DialogueScriptAction act = DialogueScriptAction.dialogue;
                     switch (split[0].ToLower())
@@ -132,12 +134,14 @@ public class DialogueManager : MonoBehaviour
                             break;
                     }
                     dialogueQueue.Enqueue(new DialogueScriptObject(act, split[1]));
-                    j += len;
-                    continue;
+                    j += len + 1;
+                }
+                else
+                {
+                    txt += data[1][j];
                 }
 
-                txt += data[1][j];
-                if(j == data[1].Length - 1)
+                if(j == data[1].Length - 1 && txt.Length > 0)
                 {
                     dialogueQueue.Enqueue(new DialogueScriptObject(DialogueScriptAction.dialogue, txt));
                     txt = "";
@@ -149,6 +153,8 @@ public class DialogueManager : MonoBehaviour
 
         //unload scene
         yield return StartCoroutine(FadeOut());
+        songPlay.Invoke(songIdx);
+        LoadManager.instance.UnloadSceneAsync("Dialogue");
     }
 
     private IEnumerator PlayLine(Queue<DialogueScriptObject> line, bool isLeft)
@@ -176,7 +182,11 @@ public class DialogueManager : MonoBehaviour
                             charR.color = Color.white;
                             charL.color = deselectedColor;
                         }
+                        if (charR.sprite == null) charR.color = Color.clear;
+                        if (charL.sprite == null) charL.color = Color.clear;
                     }
+                    if (isLeft) nameText.text = leftName;
+                    else nameText.text = rightName;
                     yield return StartCoroutine(PlayText(o.data));
                     break;
                 case DialogueScriptAction.sprite:
@@ -209,11 +219,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (isLeft)
         {
-            charL.sprite = Resources.Load<Sprite>(sprite + ".png");
+            charL.sprite = Resources.Load<Sprite>(sprite);
         }
         else
         {
-            charR.sprite = Resources.Load<Sprite>(sprite + ".png");
+            charR.sprite = Resources.Load<Sprite>(sprite);
         }
     }
 
@@ -244,7 +254,7 @@ public class DialogueManager : MonoBehaviour
         while (timer < fadeTime * 1.5f)
         {
             dim.alpha = Mathf.Clamp01(timer / fadeTime);
-            dialogueGroup.alpha = Mathf.Clamp01((timer - fadeTime / 2) / (fadeTime * 1.5f));
+            dialogueGroup.alpha = Mathf.Clamp01((timer - fadeTime / 2) / fadeTime);
             yield return new WaitForEndOfFrame();
             timer += Time.deltaTime;
         }
@@ -259,7 +269,7 @@ public class DialogueManager : MonoBehaviour
         while (timer < fadeTime * 1.5f)
         {
             dialogueGroup.alpha = 1 - Mathf.Clamp01(timer / fadeTime);
-            dim.alpha = 1 - Mathf.Clamp01((timer - fadeTime / 2) / (fadeTime * 1.5f));
+            dim.alpha = 1 - Mathf.Clamp01((timer - fadeTime / 2) / fadeTime);
             yield return new WaitForEndOfFrame();
             timer += Time.deltaTime;
         }

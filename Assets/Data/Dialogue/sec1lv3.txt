@@ -1,0 +1,5 @@
+L:<sprite=PA><name=Gedun>Good day. You look high in spirits!;
+R:<sprite=1C><name=Tashi><animation=happy>Sir!! The other day, when I was making a fire for breakfast, my dog came by and sat next to me. I feel like our relationship is growing closer!;
+L:Good! Did you come by today just to tell me this great news?;
+R:<sprite=1B>Well, two days ago I built a small hut for the pup, but he’s scared of unfamiliar spaces. It took me a week to make him comfortable enough to step into my house.;
+L:I see. Since previous potions were specialized to cure the fear of strangers, I will make one for your pup to cure his fear of the unknown.;

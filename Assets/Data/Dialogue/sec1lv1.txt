@@ -1,0 +1,7 @@
+L:<sprite=PA><name=Gedun>;
+R:<sprite=1A><name=Tashi>Hello, is Gawa here? I hear she is a powerful shaman and I really need help.;
+L:Gawa unfortunately passed away last winter, but I am Gedun, her successor.;
+R:<sprite=1B><animation=sad>Oh, I am sorry...;
+R:<sprite=1A>My name is Tashi. I came to ask if you could make a potion of courage for the stray dog I rescued. His wounds have healed, but he is extremely scared of people.;
+L:<animation=happy>I can certainly try. When I was young, Gawa taught me a simple potion of courage that encouraged me when I was casting new spells.;
+L:You can stop by tomorrow to pick up the potion from that window over there. If your dog hasn’t recovered in three days, let me know.;

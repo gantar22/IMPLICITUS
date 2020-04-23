@@ -1,0 +1,8 @@
+R:<sprite=2A><name=Lopika><animation=happy>Gedun! Gedun!;
+L:<sprite=PA><name=Gedun>I think you are a little too young to call me by my first name, Princess Lopika.;
+R:<sprite=2C>I was able to run away from the green beast! But there was a locked door at the end of the path! Right when the tiger pounced toward me, I woke up screaming. I am afraid to go back to sleep again.;
+L:I see, child. Please sit at the table while I finish brewing this butter tea. You know, pulling objects like keys out of thin air within a dream requires another dream potion.;
+R:<sprite=2A><animation=shocked>Well, you should’ve told me! I thought I was going to be tiger food.;
+L:For some, it is a natural ability. You don’t have that ability, so I can assist with a crafting potion.;
+R:<sprite=2B>I’ll be waiting for your potion then! Also I’ll have you know that I’m pretty experienced at picking locks, so a lock picking kit is more useful to me than a stupid key.;
+L:<sprite=PB><animation=sad>That’s… good to know, Lopika.;

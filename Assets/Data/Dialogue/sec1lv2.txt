@@ -1,0 +1,6 @@
+R:<sprite=1C><name=Tashi>;
+L:<sprite=PA><name=Gedun>Welcome back. Want some tsampa porridge? It’s one of Gawa’s recipes.;
+R:<animation=happy>Yes, please! I’m starving from farmwork.;
+R:<sprite=1B>Speaking of food, the other day my pup ate the lamb meat I left out! It looks like he’s warming up to me!;
+R:But... <animation=sad>He still ran away from me when I approached him this morning.;
+L:<sprite=PB>Hmmm… I think a different preparation method for these herbs will be just what we need to increase the potency of this spell.;

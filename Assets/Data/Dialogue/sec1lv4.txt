@@ -1,0 +1,9 @@
+R:<sprite=1A><name=Tashi>Sir!;
+L:<sprite=PA><name=Gedun>Hello, Tashi. Is your dog doing ok?;
+L:<animation=happy>Oh! Is this fresh yak milk?;
+R:<sprite=1B>My father owns a yak farm, and I want to show my gratitude! My dog is doing much better because of your potions, but I feel ashamed that he still won’t let me hold him.;
+L:Hmm. I believe at this point your dog doesn’t need more courage. He needs love.;
+R:<animation=sad>But sir… what more can I do for him?;
+L:Come by tomorrow. But just know that this potion will take longer to work on than the others.;
+R:<sprite=1A>Thank you so much, Sir!;
+L:<sprite=PB>(whispers)Grouping the second herb with the rest will not change the function of the potion. But it will change its color, and hopefully give the boy some confidence to gain his dog’s trust with love.;

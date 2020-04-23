@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
   m_Name: Tutorial1
   m_EditorClassIdentifier: 
-  _num: 1
   _name: 
   _description: 
   _basis:
@@ -22,3 +21,4 @@ MonoBehaviour:
     noParens: 1
     noBackApp: 1
     noForwardApp: 0
+  _dialogueScript: {fileID: 4900000, guid: 40017b57c71248147ad9be21df63505c, type: 3}
