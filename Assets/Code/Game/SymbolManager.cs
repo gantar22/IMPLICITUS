@@ -23,6 +23,7 @@ public class SymbolManager : MonoBehaviour
 	[SerializeField] private SpellList spellList;
     [SerializeField] private LayoutTracker[] Variables;
 
+    [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
 
     public List<Action<Term>> onCreateTerm;
 
@@ -221,9 +222,12 @@ public class SymbolManager : MonoBehaviour
         if (rule is CombinatorElim CElim)
         {
 
+            //Plays the appropriate combinator sound effect
+            combinatorEffectPlay(CElim); 
+
             /********** unpack the elim rule ***********/
             {
-                
+
                 (var debruijn, var arity) = Util.ParseCombinator(CElim.c)
                     .Match(
                         pi => pi,
@@ -463,4 +467,29 @@ public class SymbolManager : MonoBehaviour
         }
         CreateSkeleton(newTerm,skeletonRoot);
     }
+
+    //Figures out which Combinator Effect to play
+    private void combinatorEffectPlay(CombinatorElim CElim)
+    {
+        Debug.Log("Is Running Combinator Effect Play");
+        //if Combinator "B"
+        //effectAudioEvent.Invoke(8); //B Combinator Sound
+
+        //if Combinator "T"
+        //effectAudioEvent.Invoke(9); //T Combinator Sound
+
+        //if Combinator "Q"
+        //effectAudioEvent.Invoke(10); //Q Combinator Sound
+
+        //if Combinator "W"
+        //effectAudioEvent.Invoke(11); //W Combinator Sound
+
+        //if Combinator "K"
+        //effectAudioEvent.Invoke(12); //K Combinator Sound
+
+        //if Combinator "I"
+        //effectAudioEvent.Invoke(13); //I Combinator Sound
+
+    }
+
 }

@@ -23,15 +23,17 @@ public class SymbolManagerTester : MonoBehaviour
     private void Start()
     {
         currentLayout = manager.Initialize(Term.Node(new List<Term>())).GetComponentInChildren<LayoutTracker>();
+		resetParensAlpha(currentLayout);
 
-        Destroy(currentLayout.GetComponent<DraggableSpell>());
+		Destroy(currentLayout.GetComponent<DraggableSpell>());
     }
 
     public void reset()
     {
         Destroy(currentLayout.gameObject);
         currentLayout = manager.Initialize(Term.Node(new List<Term>()));
-    }
+		resetParensAlpha(currentLayout);
+	}
 
     public Term CreateTerm(string s)
     {
@@ -87,14 +89,18 @@ public class SymbolManagerTester : MonoBehaviour
 
         var input_term = GetTerm();
         symbol = manager.Initialize(input_term);
-        return Tuple.Create(input_term,symbol);
+		resetParensAlpha(symbol);
+		return Tuple.Create(input_term,symbol);
     }
 
     public void CreateTerm(Term t)
     {
-        Destroy(currentLayout.gameObject);
+		if (currentLayout && currentLayout.gameObject) {
+			Destroy(currentLayout.gameObject);
+		}
         currentLayout = manager.Initialize(t);
-    }
+		resetParensAlpha(currentLayout);
+	}
     
 
 
@@ -155,4 +161,11 @@ public class SymbolManagerTester : MonoBehaviour
         }
 
     }
+
+	// Set the alpha of the currentLayout parens (top level parens) to 0
+	private void resetParensAlpha(LayoutTracker layoutTracker) {
+		Image image = layoutTracker.GetComponent<Image>();
+		Color c = image.color;
+		image.color = new Color(c.r, c.g, c.b, 0);
+	}
 }

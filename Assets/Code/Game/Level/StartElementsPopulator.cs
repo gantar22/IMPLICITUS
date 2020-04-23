@@ -41,7 +41,11 @@ public class StartElementsPopulator : MonoBehaviour {
 			Destroy(oldVariables.gameObject);
 		oldVariables = symbolManager.Initialize(Term.Node(variables));
 
-    }
+		// Set the alpha of the oldVariables parens (top level parens) to 0
+		Image image = oldVariables.GetComponent<Image>();
+		Color c = image.color;
+		image.color = new Color(c.r, c.g, c.b, 0);
+	}
 
 	// When this is destroyed, remove listener.
 	private void OnDestroy() {
