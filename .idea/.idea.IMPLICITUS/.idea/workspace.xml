@@ -37,6 +37,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/fc/4b6d4421/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/SetVariablePrefab_Tester.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../bsmod/CountersPlus/Counters+/Plugin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/OnDestroyTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/IntEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,7 +76,6 @@
         <option value="$PROJECT_DIR$/../../sklacc/stumbling_rhino/Assets/Scripts/Ball.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/BinaryTree.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_reset_proposal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/BoolEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/IntEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/StringEvent.cs" />
@@ -106,6 +106,7 @@
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
@@ -179,7 +180,7 @@
       <workItem from="1586531490911" duration="1734000" />
       <workItem from="1586618980703" duration="11649000" />
       <workItem from="1586712766636" duration="14890000" />
-      <workItem from="1587220783923" duration="23014000" />
+      <workItem from="1587220783923" duration="38546000" />
     </task>
     <servers />
   </component>

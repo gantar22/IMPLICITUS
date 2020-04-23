@@ -83,20 +83,36 @@ namespace TypeUtil
 
             throw new Exception();
         }
+
+        public void Match(Action<T1> f0, Action<T2> f1, Action<T3> f2)
+        {
+            Match<Unit>(x =>
+            {
+                f0(x);
+                return new Unit();
+            },x =>
+            {
+                f1(x);
+                return new Unit();
+            },x =>
+            {
+                f2(x);
+                return new Unit();
+            });
+        }
         
-        
+        public static Sum<T1, T2, T3> In0(T1 value)
+        {
+            return new Sum<T1, T2,T3>(value,0);
+        }
+
         
         public static Sum<T1, T2,T3> In1(T2 value)
         {
             return new Sum<T1,T2,T3>(value,1);
         }
 
-        public static Sum<T1, T2, T3> In0(T1 value)
-        {
-            return new Sum<T1, T2,T3>(value,0);
-        }
-
-        public static Sum<T1, T2, T3> In2(T2 value)
+        public static Sum<T1, T2, T3> In2(T3 value)
         {
             return new Sum<T1, T2, T3>(value,2);
         }
