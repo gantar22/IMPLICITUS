@@ -166,6 +166,6 @@ public class SymbolManagerTester : MonoBehaviour
 	private void resetParensAlpha(LayoutTracker layoutTracker) {
 		Image image = layoutTracker.GetComponent<Image>();
 		Color c = image.color;
-		image.color = new Color(c.r, c.g, c.b, 0);
+		image.color = new Color(c.r, c.g, c.b, .0f);
 	}
 }

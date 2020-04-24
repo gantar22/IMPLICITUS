@@ -106,6 +106,17 @@
           </e>
         </e>
         <e p="Data" t="Include">
+          <e p="Dialogue" t="Include">
+            <e p="ch1intro.txt" t="Include" />
+            <e p="sec1lv1.txt" t="Include" />
+            <e p="sec1lv2.txt" t="Include" />
+            <e p="sec1lv3.txt" t="Include" />
+            <e p="sec1lv4.txt" t="Include" />
+            <e p="sec2lv1.txt" t="Include" />
+            <e p="sec2lv2.txt" t="Include" />
+            <e p="sec2lv3.txt" t="Include" />
+            <e p="sec2lv4.txt" t="Include" />
+          </e>
           <e p="Levels" t="Include">
             <e p="Code" t="Include">
               <e p="Chapter.cs" t="Include" />
@@ -188,6 +199,7 @@
             <e p="LevelSelect.cs" t="Include" />
             <e p="LoadManager.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
+            <e p="Mode.cs" t="Include" />
           </e>
         </e>
       </e>
