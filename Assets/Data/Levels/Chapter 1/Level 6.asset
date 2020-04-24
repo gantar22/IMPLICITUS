@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
   m_Name: Level 6
   m_EditorClassIdentifier: 
-  _num: 6
   _name: 
   _description: 
   _basis:
   - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
   - {fileID: 11400000, guid: fb0b90a367638874782de9af98203a79, type: 2}
   _goal: {fileID: 11400000, guid: 1981c16304e1e9a40b43569410056139, type: 2}
+  _restrictions:
+    noParens: 0
+    noBackApp: 0
+    noForwardApp: 0
+  _dialogueScript: {fileID: 4900000, guid: ec9e6f086013bf34abc2478a18984c17, type: 3}

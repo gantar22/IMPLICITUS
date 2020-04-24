@@ -11,8 +11,6 @@ public class LevelObject : MonoBehaviour
     [SerializeField] private TextMeshProUGUI numText;
     [SerializeField] private TextMeshProUGUI descriptionText;
 
-    [SerializeField] IntEvent effectAudioEvent;
-
 #pragma warning restore 0649
 
     private LevelSelect levelSelect;
@@ -34,10 +32,14 @@ public class LevelObject : MonoBehaviour
 
     public void ButtonHit()
     {
-        effectAudioEvent.Invoke(0); //Plays Text Button Effect
-
         SetCurrentLevel();
-        levelSelect.OpenPopup();
+        levelLoader.loadSelectedLevel();
+    }
+
+    public void StoryButton()
+    {
+        SetCurrentLevel();
+        levelSelect.OpenStory();
     }
 
     public void SetData(int num, string description)

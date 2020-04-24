@@ -1,0 +1,3 @@
+L:<sprite=PA><name=Gedun>Hello Princess! Has the potion been helpful?;
+R:<sprite=1A><name=Lopika>Hm, it was very strange! Last night, I moved my fingers by my own will for the first time, but my feet still wouldn’t budge when I told them to.;
+L:Don’t worry. Even with the help of potions, controlling one’s dreams takes time. However, I can craft a mobility potion to push you a little further on your journey.;

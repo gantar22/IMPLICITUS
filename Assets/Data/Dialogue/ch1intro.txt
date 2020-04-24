@@ -1,0 +1,8 @@
+L:<sprite=PA><name=Gedun>That journey was draining for an old man like me. When I was young...;
+L:Well, no matter… I never have to climb down this snowy mountain ever again.;
+L:These village streets haven’t changed in fifty years...;
+L:<animation=shocked>Ah! I see Gawa’s magic shop. How I missed this place…;
+L:<sprite=PB>Oh? Why is this door unlocked?;
+L:<sprite=PA>I see a light flickering in the bedroom…;
+L:“Gawa! Are you there?”;
+L:<animation=sad>Oh no...;
