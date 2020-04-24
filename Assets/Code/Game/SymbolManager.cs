@@ -106,6 +106,7 @@ public class SymbolManager : MonoBehaviour
         currentTerm = term;
         if (parent == skeletonRoot)
             onCreateTerm?.ForEach(f => f?.Invoke(term)); //oncreateterm is null? something something serializable?
+        LayoutRebuilder.MarkLayoutForRebuild(parent);
     }
 
     private LayoutTracker CreateSymbols(Term term, Transform parent, List<int> path, int index)
@@ -162,7 +163,6 @@ public class SymbolManager : MonoBehaviour
         }
         CreateSkeleton(new_term,skeletonRoot); //sets new term
         var Paren = AccessTransfrom(root.transform, path);
-        Paren.name = "shitboy";
         Debug.Log(Paren);
         
         Debug.Log($"index {index}");
@@ -182,11 +182,11 @@ public class SymbolManager : MonoBehaviour
         return Removed.GetComponent<LayoutTracker>();
     }
 
-    private Transform AccessTransfrom(Transform t, List<int> path)
+    private static Transform AccessTransfrom(Transform t, List<int> path)
     {
         return AccessTransfrom(t, path, x => x,() => throw new IndexOutOfRangeException());
     }
-    private T AccessTransfrom<T>(Transform t,List<int> path, Func<Transform,T> k, Func<T> F)
+    private static T AccessTransfrom<T>(Transform t,List<int> path, Func<Transform,T> k, Func<T> F)
     {
         foreach (int i in path)
         {
@@ -452,6 +452,8 @@ public class SymbolManager : MonoBehaviour
         for (int i = 0; i < size; i++)
             temp.Add(target.GetChild(i));
 
+        var positions = temp.Select(t => t.position);
+
         foreach (var t in temp)
         {
             t.SetParent(paren.transform,true);
@@ -466,6 +468,11 @@ public class SymbolManager : MonoBehaviour
             Destroy(t.gameObject);
         }
         CreateSkeleton(newTerm,skeletonRoot);
+        foreach (var t in temp)
+        {
+            t.position = positions.First();
+            positions = positions.Skip(1);
+        }
     }
 
     //Figures out which Combinator Effect to play

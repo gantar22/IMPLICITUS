@@ -17,6 +17,8 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool matchWidth = false;
     private readonly bool debug = false;
     private RectTransform dest = null;
+    private IEnumerator loop;
+    private Vector3 anchor;
 
 
     private float height;
@@ -24,6 +26,7 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
+        loop = Loop();
     }
 
 
@@ -41,6 +44,19 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
         transform.position = target(index).position;
         height = rt.sizeDelta.y;
     }
+
+    private void OnEnable()
+    {
+        recalcIndex();
+        anchor = rt.position;
+        StartCoroutine(loop);
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(loop);
+    }
+
 
     public RectTransform target(List<int> i)
     {
@@ -63,52 +79,68 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void recalcIndex()
     {
-
-        //Carter's system just doesn't work and he's subverting it entirely
-        if (debug)
+        Transform t = transform;
+        index = new List<int>();
+        while (t.parent != null && t.parent.GetComponent<LayoutTracker>() != null)
         {
-            Transform t = transform;
-            bool readjust = false;
-            List<int> indices = new List<int>();
-            foreach (var sib in index.Skip(1).Reverse())
-            {
-                if (t.GetSiblingIndex() != sib || t.GetComponent<LayoutTracker>() == null)
-                {
-                    // Debug.LogError($"BAD INDEX AT {gameObject}");
-                    readjust = true;
-                }
-                indices.Add(t.GetSiblingIndex());
-                t = t.parent;
-            }
-
-            if (readjust || t.GetComponent<LayoutTracker>() == null)
-                index = indices.Skip(0).Reverse().ToList().Prepend(0).ToList();
+            index.Add(t.GetSiblingIndex());
+            t = t.parent;
         }
-
-        if (transform.hasChanged || dest == null)
+        index.Add(0);
+        index.Reverse();
+    }
+    
+    IEnumerator Loop()
+    {
+        anchor = rt.position;
+        while (true)
         {
-            Transform t = transform;
-            index = new List<int>();
-            while (t.parent != null && t.parent.GetComponent<LayoutTracker>() != null)
+            anchor = rt.position;
+            yield return null;
+            rt.position = anchor;
+            yield return new WaitForEndOfFrame();
+            rt.position = anchor;
+            //Carter's system just doesn't work and he's subverting it entirely
+
+            while (dest == null || dest.hasChanged)
             {
-                index.Add(t.GetSiblingIndex());
-                t = t.parent;
+                recalcIndex();
+                dest = target(index);
+                dest.hasChanged = false;
+                yield return null;
+                rt.position = anchor;
+                yield return null;
+                rt.position = anchor;
             }
-            index.Add(0);
-            index.Reverse();
+
+            var delt = (dest.position - transform.position);
+            bool parentMoving = transform.parent.GetComponent<LayoutTracker>() &&
+                                transform.parent.GetComponent<LayoutTracker>().Moving();
+            
+            if(!parentMoving && delt.magnitude > .05f)
+                rt.position += Vector3.ClampMagnitude((Time.deltaTime * 5f * delt.magnitude + Time.deltaTime * 3) * delt.normalized,Time.deltaTime * 15);
+            if (.01f < Mathf.Abs(delt.y))
+                rt.position += Vector3.ClampMagnitude((Time.deltaTime * 5f * delt.magnitude + Time.deltaTime * 25) * delt.normalized,Time.deltaTime * 20);
+            
+            if (matchWidth)
+            {
+                var newSize = new Vector2(dest.rect.width,height + Mathf.Max(60 - index.Count * 10,60 / Mathf.Pow(2,index.Count)));
+
+                rt.sizeDelta = Vector2.Lerp(rt.sizeDelta,newSize,Time.deltaTime * 20);
+            }
+        }
+    }
+
+    public bool Moving()
+    {
+        if (dest == null)
+        {
+            recalcIndex();
             dest = target(index);
-        }
-
-        var delt = (dest.position - transform.position);
-        if(delt.magnitude > .05f)
-            rt.position += 2f * Time.deltaTime * delt + Time.deltaTime * delt.normalized;
-        if (matchWidth)
-        {
-            rt.sizeDelta = new Vector2(dest.rect.width,height + Mathf.Max(60 - index.Count * 10,60 / Mathf.Pow(2,index.Count)));
-        }
+        } 
+        return .05f < (transform.position - dest.position).magnitude;
     }
 
     public void OnPointerClick(PointerEventData eventData)

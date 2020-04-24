@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/SetNameToSiblingIndex.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/SetNameToSiblingIndex.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ui-test Carter.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ui-test Carter.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/SetVariablePrefab_Tester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../bsmod/CountersPlus/Counters+/Plugin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/OnDestroyTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/IntEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" root0="FORCE_HIGHLIGHTING" />
@@ -102,14 +103,15 @@
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/EventObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/LevelLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
@@ -135,18 +137,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="30704">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="30704" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="18232">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="18232" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -183,7 +185,7 @@
       <workItem from="1586531490911" duration="1734000" />
       <workItem from="1586618980703" duration="11649000" />
       <workItem from="1586712766636" duration="14890000" />
-      <workItem from="1587220783923" duration="41211000" />
+      <workItem from="1587220783923" duration="72311000" />
     </task>
     <servers />
   </component>

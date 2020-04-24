@@ -27,7 +27,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	[HideInInspector]
     public bool hasBeenDragged = false;
     public BoolRef NoForwardMode;
-    private const bool oneTry = true;
+    private bool oneTry = true;
+    private bool shouldMove = false;
+    private Vector3 vel = Vector3.zero;
 
 	private CodexOnSpell codexOnSpell;
     private Sum<PreviewInfo,Unit> previewState = Sum<PreviewInfo,Unit>.Inr(new Unit());
@@ -37,11 +39,15 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         public List<int> path;
         public int my_index;
         public SpawnTarget spawnTarget;
+        public float timeFound;
+        public Vector2 mousePositionWhenFound;
         public Action place;
         public Action unplace;
 
-        public PreviewRedundantParenInfo(List<int> path, int myIndex, SpawnTarget spawnTarget, Action place, Action unplace)
+        public PreviewRedundantParenInfo(List<int> path, int myIndex, SpawnTarget spawnTarget, Action place, Action unplace, float timeFound, Vector2 mousePositionWhenFound)
         {
+            this.mousePositionWhenFound = mousePositionWhenFound;
+            this.timeFound = timeFound;
             this.path = path;
             my_index = myIndex;
             this.spawnTarget = spawnTarget;
@@ -57,9 +63,13 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         public LayoutTracker paren;
         private List<int> path;
         public Action place;
+        public Action highlight;
+        public Action unHighlight;
 
-        public PreviewBackCombinatorInfo(SpawnTarget spawnTarget, LayoutTracker paren, List<int> path, Action place)
+        public PreviewBackCombinatorInfo(SpawnTarget spawnTarget, LayoutTracker paren, List<int> path, Action place, Action highlight, Action unHighlight)
         {
+            this.highlight = highlight;
+            this.unHighlight = unHighlight;
             this.spawnTarget = spawnTarget;
             this.paren = paren;
             this.path = path;
@@ -128,17 +138,46 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 return false;
         }
     }
-    
+
+    private void Update()
+    {
+        if(shouldMove)
+            rt.position = Vector3.SmoothDamp(rt.position,Camera.main.ScreenToWorldPoint(Vector3.forward * 10 + Input.mousePosition),ref vel, .05f);
+
+    }
+
     public void OnDrag(PointerEventData eventData) {
+        shouldMove = false;
 		if (!hasBeenDragged)
             return;
-        
-        
-        rt.position = Camera.main.ScreenToWorldPoint(Vector3.forward * 10 + Input.mousePosition);
+
+
+        void move()
+        {
+            shouldMove = true;
+        }
 
         previewState.Match(
             //should I stop?
-            sum => sum.Match(forward => {/*within one*/  }, backward => {/*paren changed*/ }, redundant =>
+            sum => sum.Match(forward => {move();/*within one*/  }, backward =>
+            {
+                move();/*paren changed*/
+
+                void Fail()
+                {
+                    backward.unHighlight();
+                }
+                (var spawnTarget, var targets) = getTargets();
+                FreshPreview(spawnTarget, targets).Match(preview => preview.Match(forward => Fail(), newBackward =>
+                {
+                    if (newBackward.paren != backward.paren)
+                        Fail();
+                    else
+                        backward.highlight();
+                    //we'll wait a frame to re-highlight this way
+
+                },redundant => Fail()), _ => Fail());
+            }, redundant =>
             {
                 void Fail()
                 {
@@ -146,38 +185,69 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
                 }
 
-                (var spawnTarget, var targets) = getTargets();
-                /* path has chaned or index != 0*/
-                FreshPreview(spawnTarget,targets).Match(preview => preview.Match(_ => {/* fail*/}, _ => {/*fail*/}, state =>
+                if (Time.time - redundant.timeFound < .5f && Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 150)
+                    return;
+                if (Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 20)
+                    return;
+                
+                (var spawnTarget, var targets) = getTargets(includeSelf:true);
+                
+                /* path has changed or index != 0 */
+                FreshPreview(spawnTarget,targets).Match(preview => preview.Match(_ =>
+                {
+                    print("forward");
+                    Fail();
+                }, _ =>
+                {
+                    print("backward");
+                    Fail();
+                }, state =>
                 {
                     if (state.path.Count == redundant.path.Count && state.path.Select((x, i) => x == redundant.path[i]).All(x => x))
-                    {
+                    {//the path is the same
                         if (state.my_index == 0)
                         {
+                            print("same path");
                             /* do nothing */
                         }
                         else
                         {
+                            print("path same length, but differs");
                             Fail();
                         }
                     } else if (state.path.Count == redundant.path.Count + 1 &&
-                        redundant.path.Select((x, i) => state.path[i] == x).All(x => x))
+                        redundant.path.Select((x, i) => state.path[i] == x).All(x => x))// the new path is one lower
                     {
-                        if (state.my_index == targets[0].childCount)
+                        if (state.path.Last() == 0 && state.my_index == targets[0].childCount)//its directly to the right of the last child
                         {
+                            print("far right");
                             /* do nothing */
                         }
                         else
                         {
+                            print("path is longer, but it's not directly to the left of the right paren");
                             Fail();
                         }
                     } else
                     {
+                        print("path is just different");
                         Fail();
                     }
                 }), _ =>
                 {
-                    Fail();
+                    print("wouldn't count as a placement");
+                    if (GetComponent<RectTransform>().rect.max.x + 50 < Input.mousePosition.x)
+                        Fail();
+                    else if(possibleTargets().Any() && 15 < Mathf.Abs(Input.mousePosition.x - redundant.mousePositionWhenFound.x))
+                        Fail();
+                    else if (!possibleTargets().Any() &&
+                             25 < Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound))
+                        Fail();
+                    else
+                    {
+                        print("hasn't moved far enough");
+                        /* do nothing */
+                    }
                 });
             })
             , __ =>
@@ -185,7 +255,15 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             //Should I start?
             var (spawnTarget, targets) = getTargets();
             previewState = FreshPreview(spawnTarget,targets);
-            previewState.Match(sum => sum.Match(forward =>{/* place*/} , backward => {/* highlight*/}, redundant => redundant.place()),_ => { /* do nothing */ });
+            previewState.Match(sum => sum.Match(forward =>{/* place*/} , backward =>
+                {
+                    /* highlight*/
+                    backward.highlight();
+                }, redundant => redundant.place()),
+                _ =>
+                { //no preview from last frame, no preview for next frame
+                    move();
+                });
         });
 
 
@@ -227,9 +305,27 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         offset = transform.position;
 		hasBeenDragged = true;
 	}
-
+    
+    void DestroyMe()
+    {
+        if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
+            duplicate.enabled = true;
+        Destroy(gameObject);
+    }
+    
+    void PlaceMe()
+    {
+        if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
+            duplicate.enabled = true;
+            
+        var lt = GetComponent<LayoutTracker>();
+        lt.root = lt.GetComponentInParent<SymbolManager>().skeletonRoot;
+        lt.enabled = true;
+        LayoutRebuilder.MarkLayoutForRebuild(lt.GetComponentInParent<Canvas>().GetComponent<RectTransform>());
+    }
     void UnPlace()
     {
+        var pos = transform.position;
         if (duplicate) duplicate.enabled = true;
         List<int> index = GetComponent<LayoutTracker>().index;
         SymbolManager sm = GetComponentInParent<SymbolManager>();
@@ -237,6 +333,10 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         lt.transform.SetParent(GetComponentInParent<Canvas>().transform,true);
         lt.transform.SetSiblingIndex(GetComponentInParent<Canvas>().transform.childCount - 1);
         lt.enabled = false;
+        GetComponent<RectTransform>().sizeDelta = new Vector2(100,100);
+        transform.position = pos;
+        LayoutRebuilder.MarkLayoutForRebuild(sm.GetComponent<RectTransform>());
+
     }
     
 	// WARNING - this seems to not be getting called according to IEndDragHandler because
@@ -244,18 +344,23 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	//   it will only call one of them. So instead, OnPointerClick() in CodexOnSpell will call this.
 	//   (If there's an issue with this tho, let Dom know)
     public void OnEndDrag(PointerEventData eventData)
-    {
+    {        
+        shouldMove = false;
         Drop();
     }
     
     
     public void Drop()
     {
-    if (!hasBeenDragged)
-            return;
+        if (!hasBeenDragged)
+                return;
         hasBeenDragged = false;
 
-        
+        if (previewState.Match(sum => sum.Match(_ => false, _ => false, redundant => true), _ => false))
+        {
+            previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
+            return;
+        }
         (var spawnTarget,var L) = getTargets();
         
         if (L.Count == 0)
@@ -290,23 +395,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
     
     }
-    
-    void DestroyMe()
-    {
-        if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
-            duplicate.enabled = true;
-        Destroy(gameObject);
-    }
-    
-    void PlaceMe()
-    {
-        if(myDraggableType == DraggableHolder.DraggableType.LeftPane)    
-            duplicate.enabled = true;
-            
-        var lt = GetComponent<LayoutTracker>();
-        lt.enabled = true;
-        lt.root = lt.GetComponentInParent<SymbolManager>().skeletonRoot;
-    }
+
 
     private Sum<Action,PreviewInfo> MakeDrop(SpawnTarget spawnTarget, Transform target) //left is on failure, right is on success
     {
@@ -326,7 +415,6 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         {
             if (myCombinator == null)
             { //You are a parenthesis
-                print("applying parens to goal");
                 int my_index;
                 for (my_index = 0; my_index < target.childCount; my_index++)
                 {
@@ -347,13 +435,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
                             PlaceMe();
                             myDraggableType = DraggableHolder.DraggableType.RedundantParens;
-                        },UnPlace);
+                        },UnPlace,Time.time,Input.mousePosition);
                         return Sum<Action,PreviewInfo>.Inr(PreviewInfo.In2(prp));
                         
                     }, _ =>
                     {
-                        print(
-                            $"goal: {spawnTarget.GetComponent<SymbolManagerTester>().show(spawnTarget.goal)},myindex: {my_index}, path {index.Select(c => c.ToString()).Aggregate((a, b) => $"{a}, {b}")}");
                         return Sum<Action, PreviewInfo>.Inl(DestroyMe);
                     });
                 else
@@ -361,6 +447,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             }
             else
             { //You not are a parenthesis
+                HighlightParen hightligher = parenTracker.GetComponent<HighlightParen>();
                 return Util.BackApply(spawnTarget.goal, myCombinator, index.Skip(1).ToList()).Match(t =>
                         
                     Sum<Action,PreviewInfo>.Inr(PreviewInfo.In1(new PreviewBackCombinatorInfo(spawnTarget,parenTracker,index,() => {
@@ -371,9 +458,10 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         spawnTarget.unApply(t, GetComponent<LayoutTracker>(), myCombinator, index.Skip(1).ToList());
 
                         PlaceMe();
+                        hightligher.toggleOff();
                         myDraggableType = DraggableHolder.DraggableType.NoDragging;
 
-                    })))    
+                    },hightligher.toggleOn, hightligher.toggleOff)))    
                    
                 , _ => Sum<Action, PreviewInfo>.Inl(DestroyMe));
             }
@@ -418,24 +506,29 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
         return Sum<Action, PreviewInfo>.Inl(DestroyMe);
     }
+
+    private List<GameObject> possibleTargets()
+    {
+        PointerEventData data = new PointerEventData(es);
+        data.position = Input.mousePosition;
+        List<RaycastResult> L = new List<RaycastResult>();
+        gr.Raycast(data,L);
+        return L.Select(r => r.gameObject).ToList();
+    }
     
-    private Tuple<SpawnTarget,List<Transform>> getTargets()
+    private Tuple<SpawnTarget,List<Transform>> getTargets(bool includeSelf=false)
     {
         bool GoodTarget(GameObject g)
         {
             char[] c = {'>'};
             if (myCombinator == null || myCombinator.lambdaTerm.Split(c)[1].SkipWhile(char.IsWhiteSpace).Count() > 1)
-                return g.CompareTag("ParenSymbol") && g != gameObject;
+                return g.CompareTag("ParenSymbol") && (g != gameObject || includeSelf);
 
             return g.GetComponent<LayoutTracker>() && g.GetComponentInParent<SpawnTarget>();
         }
         
-        PointerEventData data = new PointerEventData(es);
-        data.position = Input.mousePosition;
-        List<RaycastResult> L = new List<RaycastResult>();
-        gr.Raycast(data,L);
 
-        var Result = L.Select(l => l.gameObject).Where(GoodTarget).Select(l => l.transform).ToList();
+        var Result = possibleTargets().Where(GoodTarget).Select(l => l.transform).ToList();
 
         if (Result.Count == 0)
             return Tuple.Create((SpawnTarget)null, Result);

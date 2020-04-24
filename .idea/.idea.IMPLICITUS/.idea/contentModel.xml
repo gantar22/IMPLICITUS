@@ -70,6 +70,7 @@
               <e p="CodexOnSpell.cs" t="Include" />
               <e p="SpellCodexTab.cs" t="Include" />
             </e>
+            <e p="HighlightParen.cs" t="Include" />
             <e p="LayoutTracker.cs" t="Include" />
             <e p="Level" t="Include">
               <e p="IgnoreLayoutAdjuster.cs" t="Include" />

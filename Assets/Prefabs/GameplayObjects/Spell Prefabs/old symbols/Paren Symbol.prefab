@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -5747932290929767337}
   - component: {fileID: -4863420347137907815}
   - component: {fileID: 7472292892360649546}
+  - component: {fileID: 3489860294374924336}
   m_Layer: 5
   m_Name: Paren Symbol
   m_TagString: ParenSymbol
@@ -158,3 +159,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellCodexTabPrefab: {fileID: 0}
+--- !u!114 &3489860294374924336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513709824908824545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af40a9cddc4f1e64e8018c9a8c588c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
