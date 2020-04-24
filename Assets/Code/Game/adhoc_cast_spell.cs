@@ -27,6 +27,9 @@ public class adhoc_cast_spell : MonoBehaviour
 	[SerializeField]
 	private TermEvent pushUndoProposalTerm;
 
+    [SerializeField] private UnitEvent onApply;
+    [SerializeField] private UnitEvent onUnapply;
+
     [SerializeField] private UnitEvent Success;
 
     [SerializeField]
@@ -46,6 +49,7 @@ public class adhoc_cast_spell : MonoBehaviour
 
     public void UnCast()
     {
+        onUnapply.Invoke();
         button.onClick.RemoveListener(Step);
         button.onClick.AddListener(Cast);
         button_name.text = "Go";
@@ -53,7 +57,7 @@ public class adhoc_cast_spell : MonoBehaviour
     
     public void Cast()
     {
-
+        onApply.Invoke();
         effectAudioEvent.Invoke(7); //Cast Spell Sound
 
         List<Term> args = Enumerable.Range(0, arity)
@@ -87,6 +91,10 @@ public class adhoc_cast_spell : MonoBehaviour
         }
         Debug.Log(arg_paren);
         Destroy(arg_paren);
+        foreach (var canvase in FindObjectsOfType<Canvas>())
+        {
+            LayoutRebuilder.MarkLayoutForRebuild(canvase.GetComponent<RectTransform>());
+        }
     }
 
     public void Step()

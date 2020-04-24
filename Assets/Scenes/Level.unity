@@ -2966,6 +2966,7 @@ GameObject:
   - component: {fileID: 992089715}
   - component: {fileID: 992089719}
   - component: {fileID: 992089720}
+  - component: {fileID: 992089721}
   m_Layer: 5
   m_Name: Input
   m_TagString: Untagged
@@ -3212,6 +3213,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   undoTermEvent: {fileID: 11400000, guid: 3ad64adfab34bf8498cbee69351a4705, type: 2}
   symbolManagerTester: {fileID: 992089717}
+--- !u!114 &992089721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992089709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffdc62e9558aad479f84cc571e384ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1040590013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,6 +5674,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1929250014}
+        m_MethodName: UnCast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1813328782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6335,6 +6359,8 @@ MonoBehaviour:
   button_name: {fileID: 844347998}
   pushUndoProposalTerm: {fileID: 11400000, guid: 9d1081ad5f64e96459c6b07cfd18133d,
     type: 2}
+  onApply: {fileID: 11400000, guid: b8073ec4b88432d4dbc80e9a863f8cf5, type: 2}
+  onUnapply: {fileID: 11400000, guid: 24c443450316cdc4982eb8ef667660d0, type: 2}
   Success: {fileID: 11400000, guid: 42c9ce90e31a06649b48c6f7bfe7570d, type: 2}
   button: {fileID: 1929250011}
   effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}

@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/IntEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/Combinator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/EventRetrigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -94,7 +94,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Shrub.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" />
@@ -106,13 +105,15 @@
         <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
+        <option value="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
       </list>
     </option>
   </component>
@@ -185,7 +186,7 @@
       <workItem from="1586531490911" duration="1734000" />
       <workItem from="1586618980703" duration="11649000" />
       <workItem from="1586712766636" duration="14890000" />
-      <workItem from="1587220783923" duration="73073000" />
+      <workItem from="1587220783923" duration="75368000" />
     </task>
     <servers />
   </component>

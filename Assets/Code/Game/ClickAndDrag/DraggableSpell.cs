@@ -122,6 +122,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             onUnapply.AddRemovableListener(_ => { enabled = true; }, this);
         }
 
+        if (myDraggableType == DraggableHolder.DraggableType.Proposal)
+            evaluationMode = true;
+        
         onApply.AddRemovableListener(_ => evaluationMode = true,this);
         onUnapply.AddRemovableListener(_ => evaluationMode = false, this);
     }
@@ -133,6 +136,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             case DraggableHolder.DraggableType.NoDragging:
             case DraggableHolder.DraggableType.RedundantParens when myCombinator != null:
             case DraggableHolder.DraggableType.RedundantParens when transform.GetSiblingIndex() != 0:
+                return true;
+            case DraggableHolder.DraggableType.Proposal when evaluationMode:
                 return true;
             default:
                 return false;
