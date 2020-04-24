@@ -102,7 +102,7 @@ public class DialogueManager : MonoBehaviour
         {
             string[] data = lines[i].Split(':');
             bool isLeft = true;
-            if (data[0].ToLower() == "r") isLeft = false;
+            if (data[0].ToLower().Contains("r")) isLeft = false;
             Queue<DialogueScriptObject> dialogueQueue = new Queue<DialogueScriptObject>();
             string txt = "";
 
