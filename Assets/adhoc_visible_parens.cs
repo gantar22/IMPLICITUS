@@ -16,8 +16,16 @@ public class adhoc_visible_parens : MonoBehaviour
     {
         var lts = GetComponentsInChildren<LayoutTracker>();
         if (lts.Length == 1)
-            lts[0].GetComponent<Image>().color = lts[0].GetComponent<Image>().color + new Color(0, 0, 0, 1);
-        else if(lts.Length > 1)
-            lts[0].GetComponent<Image>().color = lts[0].GetComponent<Image>().color - new Color(0, 0, 0, 1);
+        {
+            var c = lts[0].GetComponent<Image>().color;
+            lts[0].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 1);
+            lts[0].GetComponent<HighlightParen>().enabled = true;
+        }
+        else if (lts.Length > 1)
+        {
+            var c = lts[0].GetComponent<Image>().color;
+            lts[0].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0);
+            lts[0].GetComponent<HighlightParen>().enabled = false;
+        }
     }
 }

@@ -21,6 +21,7 @@
             <e p="SampleScrollingText.txt" t="Include" />
           </e>
         </e>
+        <e p="adhoc_toggleImage.cs" t="Include" />
         <e p="adhoc_visible_parens.cs" t="Include" />
         <e p="Code" t="Include">
           <e p="boilerplate" t="Include">

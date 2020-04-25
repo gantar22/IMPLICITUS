@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,20 +11,37 @@ public class HighlightParen : MonoBehaviour
     private Image im;
     private Color oldColor;
     private Color newColor = new Color(1f, 0.07f, 0.46f);
-    
+    private IEnumerator myloop;
+
+    private void Awake()
+    {
+        myloop = loop();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         im = GetComponent<Image>();
         oldColor = im.color;
-        StartCoroutine(loop());
         
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(loop());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(loop());
     }
 
     IEnumerator loop()
     {
         while (true)
         {
+            if (!im)
+                Start();
             if(0 < power)
                 im.color = Color.Lerp(im.color,newColor,Time.deltaTime * 10);
             if(power <= 0)

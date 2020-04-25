@@ -31,6 +31,7 @@ public class adhoc_cast_spell : MonoBehaviour
     [SerializeField] private UnitEvent onUnapply;
 
     [SerializeField] private UnitEvent Success;
+    [SerializeField] private BoolRef evalmode;
 
     [SerializeField]
     Button button;
@@ -45,10 +46,13 @@ public class adhoc_cast_spell : MonoBehaviour
     {
         cleanup = arityEvent.AddRemovableListener(i => arity = i);
         button.onClick.AddListener(Cast);
+        evalmode.val = false;
     }
 
     public void UnCast()
     {
+        evalmode.val = false;
+        variable_symbols_here.gameObject.SetActive(true);
         onUnapply.Invoke();
         button.onClick.RemoveListener(Step);
         button.onClick.AddListener(Cast);
@@ -57,6 +61,7 @@ public class adhoc_cast_spell : MonoBehaviour
     
     public void Cast()
     {
+        evalmode.val = true;
         onApply.Invoke();
         effectAudioEvent.Invoke(7); //Cast Spell Sound
 
@@ -91,6 +96,7 @@ public class adhoc_cast_spell : MonoBehaviour
         }
         Debug.Log(arg_paren);
         Destroy(arg_paren);
+        variable_symbols_here.gameObject.SetActive(false);
         foreach (var canvase in FindObjectsOfType<Canvas>())
         {
             LayoutRebuilder.MarkLayoutForRebuild(canvase.GetComponent<RectTransform>());

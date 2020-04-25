@@ -23,7 +23,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 	public TermEvent pushUndoGoalTerm;
 	public TermEvent pushUndoProposalTerm;
 	private DraggableHolder.DraggableType myDraggableType;
-    private bool evaluationMode = false;
+    [SerializeField]
+    private BoolRef evaluationMode;
 	[HideInInspector]
     public bool hasBeenDragged = false;
     public BoolRef NoForwardMode;
@@ -116,17 +117,13 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         gr = GetComponentInParent<GraphicRaycaster>();
         es = GetComponentInParent<EventSystem>();
 
-        if (myDraggableType != DraggableHolder.DraggableType.RedundantParens)
+        if (false && myDraggableType != DraggableHolder.DraggableType.RedundantParens)
         {
             onApply.AddRemovableListener(_ => { enabled = false; }, this);
             onUnapply.AddRemovableListener(_ => { enabled = true; }, this);
         }
 
-        if (myDraggableType == DraggableHolder.DraggableType.Proposal)
-            evaluationMode = true;
         
-        onApply.AddRemovableListener(_ => evaluationMode = true,this);
-        onUnapply.AddRemovableListener(_ => evaluationMode = false, this);
     }
 
     private bool NoDragging()
@@ -137,7 +134,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             case DraggableHolder.DraggableType.RedundantParens when myCombinator != null:
             case DraggableHolder.DraggableType.RedundantParens when transform.GetSiblingIndex() != 0:
                 return true;
-            case DraggableHolder.DraggableType.Proposal when evaluationMode:
+            case DraggableHolder.DraggableType.Proposal when evaluationMode.val:
                 return true;
             default:
                 return false;
@@ -474,7 +471,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
         else if(!spawnTarget && !NoForwardMode.val && target.GetComponentInParent<DraggableHolder>() && target.GetComponentInParent<DraggableHolder>().myType == DraggableHolder.DraggableType.Proposal) //forward application
         {
-            if (evaluationMode)
+            if (evaluationMode.val)
             {
                 return Sum<Action, PreviewInfo>.Inl(DestroyMe);
             }
