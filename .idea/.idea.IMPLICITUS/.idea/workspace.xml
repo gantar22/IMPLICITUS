@@ -129,9 +129,9 @@
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_toggleImage.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
-        <option value="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
+        <option value="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" />
       </list>
     </option>
   </component>
@@ -204,7 +204,7 @@
       <workItem from="1586531490911" duration="1734000" />
       <workItem from="1586618980703" duration="11649000" />
       <workItem from="1586712766636" duration="14890000" />
-      <workItem from="1587220783923" duration="79539000" />
+      <workItem from="1587220783923" duration="80915000" />
     </task>
     <servers />
   </component>
