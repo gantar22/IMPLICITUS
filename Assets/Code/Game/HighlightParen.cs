@@ -28,16 +28,17 @@ public class HighlightParen : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(loop());
+        StartCoroutine(myloop);
     }
 
     private void OnDisable()
     {
-        StopCoroutine(loop());
+        StopCoroutine(myloop);
     }
 
     IEnumerator loop()
     {
+        yield return null;
         while (true)
         {
             if (!im)
