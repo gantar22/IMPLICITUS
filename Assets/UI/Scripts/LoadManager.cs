@@ -22,6 +22,7 @@ public class LoadManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
+			return;
         }
         DontDestroyOnLoad(gameObject);
         blackScreen = GetComponentInChildren<CanvasGroup>();
