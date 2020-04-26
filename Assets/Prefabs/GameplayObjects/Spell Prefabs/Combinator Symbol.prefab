@@ -123,6 +123,7 @@ MonoBehaviour:
   pushUndoGoalTerm: {fileID: 11400000, guid: 7cb45476c3d8a1d45bf0bed08981258d, type: 2}
   pushUndoProposalTerm: {fileID: 11400000, guid: 9d1081ad5f64e96459c6b07cfd18133d,
     type: 2}
+  updateCodexEvent: {fileID: 11400000, guid: c081e35d256107e4485ea0f8c3a69945, type: 2}
   evaluationMode: {fileID: 11400000, guid: a041f7488fc1e404d9be7c0d19bd0177, type: 2}
   hasBeenDragged: 0
   NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
@@ -140,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellCodexTabPrefab: {fileID: 107448790506781400, guid: a542ef60431cb424ea56599be51b980d,
     type: 3}
+  updateCodexEvent: {fileID: 11400000, guid: c081e35d256107e4485ea0f8c3a69945, type: 2}
 --- !u!50 &-4489866350159819290
 Rigidbody2D:
   serializedVersion: 4

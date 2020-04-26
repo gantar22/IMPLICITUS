@@ -22,6 +22,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public UnitEvent onUnapply;
 	public TermEvent pushUndoGoalTerm;
 	public TermEvent pushUndoProposalTerm;
+	public CombinatorEvent updateCodexEvent;
 	private DraggableHolder.DraggableType myDraggableType;
     [SerializeField]
     private BoolRef evaluationMode;
@@ -33,7 +34,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     private Vector3 vel = Vector3.zero;
 
 	private CodexOnSpell codexOnSpell;
-    private Sum<PreviewInfo,Unit> previewState = Sum<PreviewInfo,Unit>.Inr(new Unit());
+	private Sum<PreviewInfo,Unit> previewState = Sum<PreviewInfo,Unit>.Inr(new Unit());
     
     public struct PreviewRedundantParenInfo
     {// keep as long as your index is the same
@@ -307,6 +308,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         
         offset = transform.position;
 		hasBeenDragged = true;
+
+		// Update the codex
+		if (updateCodexEvent) {
+			updateCodexEvent.Invoke(myCombinator);
+		}
 	}
     
     void DestroyMe()

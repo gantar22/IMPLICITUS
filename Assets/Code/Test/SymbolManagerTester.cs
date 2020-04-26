@@ -30,7 +30,9 @@ public class SymbolManagerTester : MonoBehaviour
 
     public void reset()
     {
-        Destroy(currentLayout.gameObject);
+		if (currentLayout) {
+			Destroy(currentLayout.gameObject);
+		}
         currentLayout = manager.Initialize(Term.Node(new List<Term>()));
 		resetParensAlpha(currentLayout);
 	}
