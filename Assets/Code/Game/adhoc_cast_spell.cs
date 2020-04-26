@@ -25,7 +25,6 @@ public class adhoc_cast_spell : MonoBehaviour
     [SerializeField]
     private IntEvent arityEvent;
     private int arity;
-    private Action cleanup;
     [SerializeField]
     private TMP_Text button_name;
 	[SerializeField]
@@ -48,7 +47,7 @@ public class adhoc_cast_spell : MonoBehaviour
     
     private void Awake()
     {
-        cleanup = arityEvent.AddRemovableListener(i => arity = i);
+        arityEvent.AddRemovableListener(i => arity = i, this);
         button.onClick.AddListener(Cast);
         SkipButton.onClick.AddListener(() => StartCoroutine(Skip()));
         evalmode.val = false;
@@ -171,10 +170,5 @@ public class adhoc_cast_spell : MonoBehaviour
                 Success.Invoke();
             }
         }
-    }
-
-    private void OnDestroy()
-    {
-        cleanup();
     }
 }
