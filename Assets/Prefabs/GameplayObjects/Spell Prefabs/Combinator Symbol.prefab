@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: -1926866578745841684}
   - component: {fileID: 2564106021122486996}
   - component: {fileID: -4489866350159819290}
+  - component: {fileID: -8820637682305271831}
+  - component: {fileID: 6267555740601606725}
   m_Layer: 5
   m_Name: Combinator Symbol
   m_TagString: Untagged
@@ -163,3 +165,96 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-8820637682305271831
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803497314173925746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bcad05c7793dd5f4585dbf52439f2fb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6267555740601606725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803497314173925746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5038b89f94f9446469bdc057aed4442a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combinatorList:
+  - {fileID: 11400000, guid: 8fe529e7735b8d94686b0ba9ef0f620e, type: 2}
+  - {fileID: 11400000, guid: 7918865ea04bf5145a6c53b3a971d1cb, type: 2}
+  - {fileID: 11400000, guid: a28d8250d46052744b1b6167eb1398bd, type: 2}
+  - {fileID: 11400000, guid: c64d4e93895518a47bcc88bf825869d6, type: 2}
+  - {fileID: 11400000, guid: 80c9682a84278074da15dec135825508, type: 2}
+  - {fileID: 11400000, guid: 00932cae7c9c1234786d9bc9368ea2e9, type: 2}
+  - {fileID: 11400000, guid: 74e2173c71cc4744c81023eb599f9806, type: 2}
+  - {fileID: 11400000, guid: 2c054a39c96fe8f418de393d2bfe374f, type: 2}
+  - {fileID: 11400000, guid: 1981c16304e1e9a40b43569410056139, type: 2}
+  - {fileID: 11400000, guid: 347a9243b4affa347bbb5e8d973c37a6, type: 2}
+  - {fileID: 11400000, guid: 82331e108766d2a46a68ff73b6079246, type: 2}
+  - {fileID: 11400000, guid: 31ab6ac1a6734344083793b0cbb00d71, type: 2}
+  - {fileID: 11400000, guid: 9858a96cc9757c1498540a3a95cd5895, type: 2}
+  - {fileID: 11400000, guid: 37df6f78ac58b804287e033d617923fb, type: 2}
+  - {fileID: 11400000, guid: e81f37652e8715f4ab5cd7427112d2d8, type: 2}
+  - {fileID: 11400000, guid: 597e89eb61a52e24ab9d474fff2baed6, type: 2}
+  - {fileID: 11400000, guid: 5146c29473ebbad44a4e0de349f1dc46, type: 2}
+  - {fileID: 11400000, guid: 04770ed3014a03a4997a3b0e00cf3085, type: 2}
+  - {fileID: 11400000, guid: 633eaf35bb561ce49aafc0991dfc1f1a, type: 2}
+  - {fileID: 11400000, guid: 7bbfa2ad75671004d922849727dacc66, type: 2}
+  - {fileID: 11400000, guid: 61ffd158873607f418af31ef9fcd23fc, type: 2}
+  - {fileID: 11400000, guid: 33588a8a403fb754a8876ceec8fa2f33, type: 2}
+  - {fileID: 11400000, guid: 1c27921998acf4f4fba87d34e4f078ac, type: 2}
+  - {fileID: 11400000, guid: 94502d6035bd57b42ad8bd8df0518ad3, type: 2}
+  - {fileID: 11400000, guid: 2c2aa52280478fe43afd7b424467a602, type: 2}
+  - {fileID: 11400000, guid: d8d9bf9c2d0eea741984e2d96ac95289, type: 2}
+  - {fileID: 11400000, guid: ed1b2cd5db35db242aab4ee08ddda238, type: 2}
+  - {fileID: 11400000, guid: 238cd673d0a24394eb5c527052648205, type: 2}
+  - {fileID: 11400000, guid: 909b87b77a01745478fc55f2deebc24a, type: 2}
+  - {fileID: 11400000, guid: da2ab3fce4cb69647b7dea6861f300d5, type: 2}
+  triggerName:
+  - B_T
+  - B1_T
+  - B2_T
+  - B3_T
+  - C_T
+  - C*_T
+  - C**_T
+  - D_T
+  - D1_T
+  - D2_T
+  - E_T
+  - E^_T
+  - F_T
+  - F*_T
+  - F**_T
+  - G_T
+  - K_T
+  - M_T
+  - Q_T
+  - Q1_T
+  - Q2_T
+  - Q3_T
+  - Q4_T
+  - R_T
+  - R*_T
+  - R**_T
+  - T_T
+  - V_T
+  - V*_T
+  - V**_T
