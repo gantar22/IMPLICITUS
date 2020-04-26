@@ -319,6 +319,11 @@ public class SymbolManager : MonoBehaviour
         } else if (rule is ParenElim pElim)
         {           
             var copy = Instantiate(AccessTransfrom(TopSymbol.transform, pElim.Target()).gameObject);
+            copy.transform.position = TopSymbol.transform.position;
+            foreach (Transform t in copy.transform)
+            {
+                Destroy(t.gameObject);
+            }
             copy.transform.SetParent(GetComponentInParent<Canvas>().transform.GetChild(0),true);
             copy.SetActive(false);
             int size = AccessTransfrom(TopSymbol.transform, pElim.Target()).childCount;
@@ -330,7 +335,7 @@ public class SymbolManager : MonoBehaviour
                     copy.transform.SetParent(AccessTransfrom(TopSymbol.transform, pElim.Target()));                    
                     copy.transform.localScale = Vector3.one;
                     return copy.GetComponent<LayoutTracker>();
-                },TopSymbol,pElim.evaluate(term)
+                },TopSymbol,term
             )));
         }
     }
