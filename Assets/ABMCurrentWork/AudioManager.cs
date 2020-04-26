@@ -81,11 +81,13 @@ public class AudioManager : MonoBehaviour
                     return;
                 }
             }
-            //Effect not found in list, so new one will be created and added
-            AudioObject audioObject = new AudioObject(num, (GameObject)Instantiate(effectPrefabsList[num], gameObject.transform));
-            effectPoolList.Add(audioObject);
-            audioObject.audioPrefab.GetComponent<AudioSource>().Play();
-        }
+			//Effect not found in list, so new one will be created and added
+			if (this && gameObject) {
+				AudioObject audioObject = new AudioObject(num, (GameObject)Instantiate(effectPrefabsList[num], gameObject.transform));
+				effectPoolList.Add(audioObject);
+				audioObject.audioPrefab.GetComponent<AudioSource>().Play();
+			}
+		}
     }
         
     //Used by listener of songInt Event
@@ -115,7 +117,9 @@ public class AudioManager : MonoBehaviour
             {
                 //Remove song previously playing, stop and destroy
                 song = songQueue.Dequeue();
-                song.GetComponent<AudioSource>().Stop();
+				if (song) {
+					song.GetComponent<AudioSource>().Stop();
+				}
                 Destroy(song);
 
                 //Clears effectsPoolList (assummed some scene change occurs with song change)
