@@ -59,7 +59,8 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
 
     private void OnDisable()
     {
-        StopCoroutine(loop);
+        if(gameObject.activeInHierarchy)
+            StopCoroutine(loop);
         if(gameObject.GetComponent<Image>()?.enabled != null && gameObject.activeInHierarchy)
             gameObject.GetComponent<Image>().StartCoroutine(antiloop);
     }
@@ -158,8 +159,8 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
             
             if(!scrolling && parentMoving)
                 rt.position = anchor;
-            if(!scrolling && delt.magnitude > .01f)
-                rt.position = Vector3.SmoothDamp(rt.position, dest.position, ref velocity, .4f, 25);
+            if(delt.magnitude > .001f)
+                rt.position = Vector3.SmoothDamp(rt.position, dest.position, ref velocity, .2f, 35);
 
 
             if (matchWidth)

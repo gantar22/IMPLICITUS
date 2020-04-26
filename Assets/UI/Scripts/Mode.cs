@@ -8,18 +8,19 @@ public class Mode : MonoBehaviour
 #pragma warning disable 0649
     [SerializeField] private CanvasGroup inputPane;
     [SerializeField] private CanvasGroup targetPane;
-    [SerializeField] private bool toggled = false;
+    //[SerializeField] private bool toggled = false;
+    [SerializeField] private BoolRef forwardMode;
 #pragma warning restore 0649
 
     private void Awake()
     {
-        toggled = !toggled;
+        forwardMode.val = false;
         Toggle();
     }
 
     public void Toggle()
     {
-        if (toggled)
+        if (!forwardMode.val)
         {
             //TODO animate
             targetPane.alpha = 0;
@@ -30,7 +31,6 @@ public class Mode : MonoBehaviour
             inputPane.blocksRaycasts = true;
             inputPane.interactable = true;
             inputPane.GetComponent<LayoutElement>().ignoreLayout = false;
-            toggled = false;
         }
         else
         {
@@ -43,7 +43,7 @@ public class Mode : MonoBehaviour
             targetPane.blocksRaycasts = true;
             targetPane.interactable = true;
             targetPane.GetComponent<LayoutElement>().ignoreLayout = false;
-            toggled = true;
         }
+        forwardMode.val = !forwardMode.val;
     }
 }

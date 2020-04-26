@@ -15,7 +15,7 @@ public class adhoc_toggleImage : MonoBehaviour
         if (GetComponent<Image>().sprite == first)
             GetComponent<Image>().sprite = second;
         else
-            GetComponent<Image>().sprite = second;
+            GetComponent<Image>().sprite = first;
     }
     
 }

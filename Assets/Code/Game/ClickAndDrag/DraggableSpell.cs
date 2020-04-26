@@ -145,7 +145,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     {
         if(shouldMove)
             rt.position = Vector3.SmoothDamp(rt.position,Camera.main.ScreenToWorldPoint(Vector3.forward * 10 + Input.mousePosition),ref vel, .05f);
-
+        
+        
     }
 
     public void OnDrag(PointerEventData eventData) {
@@ -330,13 +331,14 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         var pos = transform.position;
         List<int> index = GetComponent<LayoutTracker>().index;
         SymbolManager sm = GetComponentInParent<SymbolManager>();
+        SpawnTarget sp = GetComponentInParent<SpawnTarget>();
         var lt = sm.RemoveAtAndReturn(index.Skip(1).ToList(),sm.GetComponentInChildren<LayoutTracker>());
         lt.transform.SetParent(GetComponentInParent<Canvas>().transform,true);
         lt.transform.SetAsLastSibling();
         lt.enabled = false;
         transform.position = pos;
         LayoutRebuilder.MarkLayoutForRebuild(sm.GetComponent<RectTransform>());
-        GetComponentInParent<SpawnTarget>()?.CheckSuccess();
+        sp?.CheckSuccess();
 
     }
     

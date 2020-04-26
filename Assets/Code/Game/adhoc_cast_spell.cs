@@ -18,6 +18,8 @@ public class adhoc_cast_spell : MonoBehaviour
     [SerializeField] private Sprite castSymbol;
     [SerializeField] private Sprite stepSymbol;
     [SerializeField] private Button SkipButton;
+    [SerializeField] private Button SkipBackButton;
+    [SerializeField] private Button StepBackButton;
     [SerializeField]
     private SymbolManager proposal;
     [FormerlySerializedAs("goal")] [SerializeField]
@@ -50,6 +52,8 @@ public class adhoc_cast_spell : MonoBehaviour
         arityEvent.AddRemovableListener(i => arity = i, this);
         button.onClick.AddListener(Cast);
         SkipButton.onClick.AddListener(() => StartCoroutine(Skip()));
+        StepBackButton.onClick.AddListener(StepBack);
+        SkipBackButton.onClick.AddListener(() => StartCoroutine(SkipBack()));
         evalmode.val = false;
     }
 
@@ -70,6 +74,8 @@ public class adhoc_cast_spell : MonoBehaviour
         button.image.enabled = true;
         
         SkipButton.gameObject.SetActive(false);
+        SkipBackButton.gameObject.SetActive(false);
+        StepBackButton.gameObject.SetActive(false);
         LayoutRebuilder.MarkLayoutForRebuild(transform.parent.GetComponent<RectTransform>());
     }
     
@@ -104,6 +110,8 @@ public class adhoc_cast_spell : MonoBehaviour
         button.onClick.AddListener(Step);
         button.GetComponent<Image>().sprite = stepSymbol;
         SkipButton.gameObject.SetActive(true);
+        SkipBackButton.gameObject.SetActive(true);
+        StepBackButton.gameObject.SetActive(true);
         LayoutRebuilder.MarkLayoutForRebuild(transform.parent.GetComponent<RectTransform>());
         
         if (target.goal.Equal(term))
@@ -113,9 +121,9 @@ public class adhoc_cast_spell : MonoBehaviour
         Debug.Log(arg_paren);
         Destroy(arg_paren);
         variable_symbols_here.gameObject.SetActive(false);
-        foreach (var canvase in FindObjectsOfType<Canvas>())
+        foreach (var canvas in FindObjectsOfType<Canvas>())
         {
-            LayoutRebuilder.MarkLayoutForRebuild(canvase.GetComponent<RectTransform>());
+            LayoutRebuilder.MarkLayoutForRebuild(canvas.GetComponent<RectTransform>());
         }
     }
 
@@ -124,11 +132,13 @@ public class adhoc_cast_spell : MonoBehaviour
         IEnumerator succ()
         {
             yield return new WaitForSeconds(.6f);
-            if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
-                button.image.enabled = false;
-            else
+            if (Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
                 yield return Skip();
+            else
+                refreshButtons();
         }
+
+        SkipButton.interactable = false;
         yield return StepRoutine(succ(),() => {});
     }
 
@@ -136,20 +146,15 @@ public class adhoc_cast_spell : MonoBehaviour
     {
         IEnumerator succ()
         {
-            if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
-                button.image.enabled = false;
             yield return new WaitForSeconds(.15f);
-            button.interactable = true;
+            refreshButtons();
             yield return null;
         }
         
         button.interactable = false;
-        StartCoroutine(StepRoutine(succ(), () =>
-        {
-            //TODO (<<) reverse all the way here
-        }));
+        StartCoroutine(StepRoutine(succ(), refreshButtons));
     }
-    public IEnumerator StepRoutine(IEnumerator succ, Action fail)
+    IEnumerator StepRoutine(IEnumerator succ, Action fail)
     {
         var rules = Lambda.Util.CanEvaluate(term,new List<int>(),(v,rule) => rule);
         if (rules.Count == 0)
@@ -170,5 +175,51 @@ public class adhoc_cast_spell : MonoBehaviour
                 Success.Invoke();
             }
         }
+    }
+
+    IEnumerator SkipBack()
+    {
+        IEnumerator succ()
+        {
+            yield return new WaitForSeconds(.5f);
+            if (proposal.HasBackStack())
+                yield return SkipBack();
+            else
+                refreshButtons();
+        }
+
+        StepBackButton.interactable = false;
+        yield return StepBackRoutine(succ(), refreshButtons);
+    }
+    
+    public void StepBack()
+    {
+        IEnumerator succ()
+        {
+            yield return new WaitForSeconds(.15f);
+            refreshButtons();
+        }
+
+        StepBackButton.interactable = false;
+        StartCoroutine(StepBackRoutine(succ(), () => { }));
+    }
+
+    IEnumerator StepBackRoutine(IEnumerator succ, Action fail)
+    {
+        if (!proposal.HasBackStack())
+        {
+            fail();
+            yield break;
+        }
+        yield return proposal.popBackwards();
+        yield return succ;
+    }
+
+    void refreshButtons()
+    {
+        StepBackButton.interactable = proposal.HasBackStack();
+        SkipBackButton.interactable = proposal.HasBackStack();
+        button.interactable = Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any();
+        SkipButton.interactable = Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any();
     }
 }
