@@ -388,9 +388,10 @@ public class SymbolManager : MonoBehaviour
         /********* case on the rule **********/
         if (rule is CombinatorElim CElim)
         {
-
+            //Play the combinator Animation with usecombinator function
+            affectedSymbol.transform.GetChild(0).GetComponent<AnimateCombinator>().UseCombinator();
             //Plays the appropriate combinator sound effect
-            combinatorEffectPlay(CElim); 
+            combinatorEffectPlay(CElim);
 
             /********** unpack the elim rule ***********/
             {
