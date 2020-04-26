@@ -36,7 +36,6 @@ public class SpawnTarget : MonoBehaviour
 
     void createTarget(string s)
     {
-        print("spawn target");
         char[] c = {'>'};
         var split = s.Split(c);
         var tmp = smt.Variables;

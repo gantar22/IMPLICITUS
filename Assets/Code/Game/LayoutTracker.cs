@@ -18,7 +18,9 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     private readonly bool debug = false;
     private RectTransform dest = null;
     private IEnumerator loop;
+    private IEnumerator antiloop;
     private Vector3 anchor;
+    private Vector3 velocity;
 
 
     private float height;
@@ -27,6 +29,7 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     {
         rt = GetComponent<RectTransform>();
         loop = Loop();
+        antiloop = resize();
     }
 
 
@@ -49,14 +52,30 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     {
         recalcIndex();
         anchor = rt.position;
+        if(gameObject.GetComponent<Image>()?.enabled != null && gameObject.activeInHierarchy)
+            gameObject.GetComponent<Image>().StopCoroutine(antiloop);
         StartCoroutine(loop);
     }
 
     private void OnDisable()
     {
         StopCoroutine(loop);
+        if(gameObject.GetComponent<Image>()?.enabled != null && gameObject.activeInHierarchy)
+            gameObject.GetComponent<Image>().StartCoroutine(antiloop);
     }
 
+
+    IEnumerator resize()
+    {
+        while (true)
+        {
+            yield return null;
+            if (matchWidth)
+            {
+                rt.sizeDelta = Vector2.Lerp(rt.sizeDelta,new Vector2(100,100),Time.deltaTime * 20);
+            }
+        }
+    }
 
     public RectTransform target(List<int> i)
     {
@@ -73,6 +92,13 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     }
 
 
+    public List<Transform> parents(Transform t)
+    {
+        if (t.parent != null)
+            return parents(t.parent).Prepend(t).ToList();
+        else 
+            return new List<Transform>().Prepend(t).ToList();
+    }
 
     void TravelTo(Spell spell,int myArgIndex)
     {
@@ -95,35 +121,47 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     IEnumerator Loop()
     {
         anchor = rt.position;
-        while (true)
+        while(true)
         {
             anchor = rt.position;
-            yield return null;
-            rt.position = anchor;
-            yield return new WaitForEndOfFrame();
-            rt.position = anchor;
+            yield return null;          
+            
+            bool scrolling = parents(transform).First(t => !t.GetComponent<LayoutTracker>()).hasChanged;
+            bool parentMoving = transform.parent.GetComponent<LayoutTracker>() &&
+                                transform.parent.GetComponent<LayoutTracker>().Moving();
+
+            parents(transform).First(t => !t.GetComponent<LayoutTracker>()).hasChanged = false;
+            
             //Carter's system just doesn't work and he's subverting it entirely
 
-            while (dest == null || dest.hasChanged)
+            if(dest == null || dest.hasChanged)
             {
                 recalcIndex();
                 dest = target(index);
                 dest.hasChanged = false;
-                yield return null;
-                rt.position = anchor;
-                yield return null;
-                rt.position = anchor;
+                while (dest == null || dest.hasChanged )
+                {
+                    recalcIndex();
+                    dest = target(index);
+                    dest.hasChanged = false;
+                    print("$");
+                    yield return null;
+                    rt.position = anchor;
+                    yield return null;
+                    rt.position = anchor;
+                }
             }
+            //rt.position = anchor;
 
             var delt = (dest.position - transform.position);
-            bool parentMoving = transform.parent.GetComponent<LayoutTracker>() &&
-                                transform.parent.GetComponent<LayoutTracker>().Moving();
+
             
-            if(!parentMoving && delt.magnitude > .05f)
-                rt.position += Vector3.ClampMagnitude((Time.deltaTime * 5f * delt.magnitude + Time.deltaTime * 3) * delt.normalized,Time.deltaTime * 15);
-            if (.01f < Mathf.Abs(delt.y))
-                rt.position += Vector3.ClampMagnitude((Time.deltaTime * 5f * delt.magnitude + Time.deltaTime * 25) * delt.normalized,Time.deltaTime * 20);
-            
+            if(!scrolling && parentMoving)
+                rt.position = anchor;
+            if(!scrolling && delt.magnitude > .05f)
+                rt.position = Vector3.SmoothDamp(rt.position, dest.position, ref velocity, .4f, 25);
+
+
             if (matchWidth)
             {
                 var newSize = new Vector2(dest.rect.width,height + Mathf.Max(60 - index.Count * 10,60 / Mathf.Pow(2,index.Count)));
@@ -137,12 +175,26 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     {
         if (dest == null)
         {
-            recalcIndex();
-            dest = target(index);
+            return true;
         } 
-        return .05f < (transform.position - dest.position).magnitude;
+        return .25f < (transform.position - dest.position).magnitude;
     }
 
+
+    public void LockDown(float t)
+    {
+        StartCoroutine(lockDown(t));
+    }
+
+    IEnumerator lockDown(float t)
+    {
+        for(float dur = t; 0 < dur; dur -= Time.deltaTime)
+        {
+            var pos = transform.position;
+            yield return null;
+            transform.position = pos;
+        }
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         LayoutTracker root = this;

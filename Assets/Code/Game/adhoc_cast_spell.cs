@@ -14,6 +14,10 @@ public class adhoc_cast_spell : MonoBehaviour
 {
     [SerializeField]
     private Transform variable_symbols_here;
+
+    [SerializeField] private Sprite castSymbol;
+    [SerializeField] private Sprite stepSymbol;
+    [SerializeField] private Button SkipButton;
     [SerializeField]
     private SymbolManager proposal;
     [FormerlySerializedAs("goal")] [SerializeField]
@@ -46,7 +50,14 @@ public class adhoc_cast_spell : MonoBehaviour
     {
         cleanup = arityEvent.AddRemovableListener(i => arity = i);
         button.onClick.AddListener(Cast);
+        SkipButton.onClick.AddListener(() => StartCoroutine(Skip()));
         evalmode.val = false;
+    }
+
+    public void Update()
+    {
+        if(!evalmode.val)
+            button.interactable = 1 < proposal.GetComponentsInChildren<LayoutTracker>().Length;
     }
 
     public void UnCast()
@@ -56,7 +67,11 @@ public class adhoc_cast_spell : MonoBehaviour
         onUnapply.Invoke();
         button.onClick.RemoveListener(Step);
         button.onClick.AddListener(Cast);
-        button_name.text = "Go";
+        button.image.sprite = castSymbol;
+        button.image.enabled = true;
+        
+        SkipButton.gameObject.SetActive(false);
+        LayoutRebuilder.MarkLayoutForRebuild(transform.parent.GetComponent<RectTransform>());
     }
     
     public void Cast()
@@ -88,7 +103,9 @@ public class adhoc_cast_spell : MonoBehaviour
         
         button.onClick.RemoveListener(Cast);
         button.onClick.AddListener(Step);
-        button_name.text = "Step";
+        button.GetComponent<Image>().sprite = stepSymbol;
+        SkipButton.gameObject.SetActive(true);
+        LayoutRebuilder.MarkLayoutForRebuild(transform.parent.GetComponent<RectTransform>());
         
         if (target.goal.Equal(term))
         {
@@ -103,22 +120,54 @@ public class adhoc_cast_spell : MonoBehaviour
         }
     }
 
+    public IEnumerator Skip()
+    {  
+        IEnumerator succ()
+        {
+            yield return new WaitForSeconds(.5f);
+            yield return Skip();
+            if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
+                button.image.enabled = false;
+        }
+        yield return StepRoutine(succ(),() => {});
+    }
+
     public void Step()
+    {
+        IEnumerator succ()
+        {
+            yield return new WaitForSeconds(1);
+            button.interactable = true;
+            yield return null;
+        }
+        
+        button.interactable = false;
+        StartCoroutine(StepRoutine(succ(), () =>
+        {
+            //TODO (<<) reverse all the way here
+        }));
+        if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
+            button.image.enabled = false;
+    }
+    public IEnumerator StepRoutine(IEnumerator succ, Action fail)
     {
         var rules = Lambda.Util.CanEvaluate(term,new List<int>(),(v,rule) => rule);
         if (rules.Count == 0)
         {
-            return;
+            fail();
+            yield break;
         }
         else
 		{
 			pushUndoProposalTerm.Invoke(term);
-			proposal.Transition(term, rules[0], proposal.GetComponentInChildren<LayoutTracker>());
+            yield return proposal.Transition(term, rules[0], proposal.GetComponentInChildren<LayoutTracker>());
             term = rules[0].evaluate(term);
             if (target.goal.Equal(term))
             {
                 Success.Invoke();
             }
+
+            yield return succ;
         }
     }
 

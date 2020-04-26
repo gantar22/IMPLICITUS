@@ -163,9 +163,7 @@ public class SymbolManager : MonoBehaviour
         }
         CreateSkeleton(new_term,skeletonRoot); //sets new term
         var Paren = AccessTransfrom(root.transform, path);
-        Debug.Log(Paren);
-        
-        Debug.Log($"index {index}");
+
         var Removed = Paren.GetChild(index);
         
        
@@ -201,7 +199,7 @@ public class SymbolManager : MonoBehaviour
     }
 
 
-    public LayoutTracker Transition(Term oldTerm, ElimRule rule, LayoutTracker TopSymbol)
+    public IEnumerator Transition(Term oldTerm, ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
     {
         /********* replace skeleton ***********/
         Term newTerm = rule.evaluate(oldTerm);
@@ -217,6 +215,18 @@ public class SymbolManager : MonoBehaviour
         /********* Find symbol where rule applies ***********/
         var index = rule.Target();
         var affectedSymbol = AccessTransfrom(TopSymbol.transform, index).GetComponent<LayoutTracker>();
+        var leftmostchild = affectedSymbol.transform.GetChild(0).position;
+        
+        
+        void IterateTransform(Transform t,Action<Transform> f)
+        {
+            foreach (Transform t2 in t)
+            {
+                f(t2);
+                IterateTransform(t2,f);
+            }
+        }
+
         
         /********* case on the rule **********/
         if (rule is CombinatorElim CElim)
@@ -245,15 +255,7 @@ public class SymbolManager : MonoBehaviour
                 }
 
                 /**************** map over transforms to adjust indices ***************/
-                void IterateTransform(Transform t,Action<Transform> f)
-                {
-                    foreach (Transform t2 in t)
-                    {
-                        f(t2);
-                        IterateTransform(t2,f);
-                    }
-                }
-                
+
                 /******* find the new symbols to replace the arguments with   ***********/
                 var detatchedSymbols = debruijn.MapI(index.Append(0).ToList(), (ind, path) =>
                 {
@@ -276,7 +278,7 @@ public class SymbolManager : MonoBehaviour
                         return newSymbol;
                     }
                 });
-                
+
                 /************** Cleanup unused argument symbols **************/
                 for (var i = 0; i < argumentsThatHaveBeenUsed.Length; i++)
                 {
@@ -292,7 +294,7 @@ public class SymbolManager : MonoBehaviour
                 {
                     return symbolShrub.Match<Transform>(l =>
                     {
-                        var paren = Instantiate(parenSymbol.gameObject,GetComponentInParent<Canvas>().transform).GetComponent<LayoutTracker>();
+                        var paren = Instantiate(parenSymbol,leftmostchild,Quaternion.identity,GetComponentInParent<Canvas>().transform);
                         paren.index = totalPath;
                         paren.root = skeletonRoot;
                         for (var i = 0; i < l.Count; i++)
@@ -319,6 +321,8 @@ public class SymbolManager : MonoBehaviour
                 {
                     t.SetParent(affectedSymbol.transform,true);
                     t.SetSiblingIndex(0);
+                    t.GetComponent<LayoutTracker>().LockDown(.15f);
+
                 }
                 Destroy(dummyParen.gameObject);
                 
@@ -327,7 +331,7 @@ public class SymbolManager : MonoBehaviour
                 /****** adjust unused symbols indices ********/
 
                 
-                for (int i = arity + 1; i < symbols.Count; i++)
+                for (int i = arity + 1;false; i++)
                 {
                     int new_pos = i - arity - 1 + detatchedSymbols.Match(l => l.Count, v => 1);
                     symbols[i].index[symbols[i].index.Count - 1] = new_pos;
@@ -357,11 +361,22 @@ public class SymbolManager : MonoBehaviour
                 children[child].SetParent(affectedSymbol.transform,true);
                 children[child].SetSiblingIndex(0); 
             }
-
+            //TODO fade these out
             Destroy(old_paren.gameObject);
         }
+        
+        
+        yield return new WaitUntil(() =>
+        {
+            bool moving = false;
+            IterateTransform(TopSymbol.transform, t =>
+            {
+                if (t.GetComponent<LayoutTracker>())
+                    moving |= t.GetComponent<LayoutTracker>().Moving();
+            });
+            return !moving;
+        });
 
-        return null;
     }
 
     public void UnTransition(Term newTerm, LayoutTracker lt, Combinator C, List<int> path, LayoutTracker TopSymbol)
@@ -426,7 +441,9 @@ public class SymbolManager : MonoBehaviour
             Destroy(t.gameObject);
         }
         
+        lt.LockDown(.1f);
         lt.transform.SetParent(target,true);
+        
 
         foreach (var child in children)
         {
@@ -461,8 +478,8 @@ public class SymbolManager : MonoBehaviour
         
         paren.transform.SetParent(target,true);
         paren.transform.SetSiblingIndex(0);
-        
-        
+
+
         foreach (Transform t in skeletonRoot)
         {
             Destroy(t.gameObject);
@@ -470,6 +487,7 @@ public class SymbolManager : MonoBehaviour
         CreateSkeleton(newTerm,skeletonRoot);
         foreach (var t in temp)
         {
+            t.GetComponent<LayoutTracker>().LockDown(.1f);
             t.position = positions.First();
             positions = positions.Skip(1);
         }

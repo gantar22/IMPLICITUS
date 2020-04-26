@@ -186,7 +186,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     redundant.unplace();
                     previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
                 }
-
+//call unplace then reverse it
                 if (Time.time - redundant.timeFound < .5f && Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 150)
                     return;
                 if (Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 20)
@@ -328,14 +328,12 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     void UnPlace()
     {
         var pos = transform.position;
-        if (duplicate) duplicate.enabled = true;
         List<int> index = GetComponent<LayoutTracker>().index;
         SymbolManager sm = GetComponentInParent<SymbolManager>();
         var lt = sm.RemoveAtAndReturn(index.Skip(1).ToList(),sm.GetComponentInChildren<LayoutTracker>());
         lt.transform.SetParent(GetComponentInParent<Canvas>().transform,true);
         lt.transform.SetSiblingIndex(GetComponentInParent<Canvas>().transform.childCount - 1);
         lt.enabled = false;
-        GetComponent<RectTransform>().sizeDelta = new Vector2(100,100);
         transform.position = pos;
         LayoutRebuilder.MarkLayoutForRebuild(sm.GetComponent<RectTransform>());
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 [RequireComponent(typeof(Image))]
 public class HighlightParen : MonoBehaviour
@@ -10,11 +11,13 @@ public class HighlightParen : MonoBehaviour
     private float power;
     private Image im;
     private Color oldColor;
-    private Color newColor = new Color(1f, 0.07f, 0.46f);
+    private readonly Color highlightColor = new Color(1f, 0.63f, 0.15f);
+    private Color newColor;
     private IEnumerator myloop;
 
     private void Awake()
     {
+        newColor = highlightColor;
         myloop = loop();
     }
 
@@ -22,7 +25,7 @@ public class HighlightParen : MonoBehaviour
     void Start()
     {
         im = GetComponent<Image>();
-        oldColor = im.color;
+        oldColor = Color.white; // yuck hard coding
         
     }
 
@@ -50,6 +53,14 @@ public class HighlightParen : MonoBehaviour
             
             
             yield return null;
+            if (!transform.parent.GetComponent<LayoutTracker>() && GetComponentsInChildren<LayoutTracker>().Any(lt => lt.gameObject != gameObject))
+            {
+                oldColor = Color.Lerp(oldColor,  new Color(1,1,1,0),  Time.deltaTime * 40);
+            }
+            else
+            {
+                oldColor = Color.Lerp(oldColor,Color.white, Time.deltaTime * 40);
+            }
         }
     }
 
