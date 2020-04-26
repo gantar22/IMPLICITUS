@@ -158,7 +158,7 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
             
             if(!scrolling && parentMoving)
                 rt.position = anchor;
-            if(!scrolling && delt.magnitude > .05f)
+            if(!scrolling && delt.magnitude > .01f)
                 rt.position = Vector3.SmoothDamp(rt.position, dest.position, ref velocity, .4f, 25);
 
 

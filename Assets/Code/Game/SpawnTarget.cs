@@ -48,23 +48,29 @@ public class SpawnTarget : MonoBehaviour
     {
         goal = t;
         smt.CreateTerm(goal);
-        if (isFinished(t,arrity))
-            success.Invoke();
+        CheckSuccess();
     }
 
     public void unApply(Shrub<Sum<Combinator,Variable>> newTerm,LayoutTracker lt, Combinator C, List<int> path)
     {
         smt.GetComponent<SymbolManager>().UnTransition(newTerm, lt,C,path,smt.currentLayout);
-        if (isFinished(newTerm,arrity))
-            success.Invoke();
+        goal = newTerm;
+        CheckSuccess();
     }
 
     public void addParens(List<int> path, int size, LayoutTracker paren,Shrub<Sum<Combinator,Variable>> newTerm)
     {
         smt.GetComponent<SymbolManager>().backApplyParens(path,size,paren,smt.currentLayout,newTerm);
     }
+
+    public void CheckSuccess()
+    {
+        
+        if (isFinished())
+            success.Invoke();
+    }
     
-    bool isFinished(Shrub<Sum<Combinator,Variable>> t, int arrity)
+    bool isFinished()
     {
 
         bool isFinished(List<Shrub<Sum<Combinator, Variable>>> term,int arr, int i)
@@ -86,13 +92,13 @@ public class SpawnTarget : MonoBehaviour
                 );
         }
 
-        t.Match(l => isFinished(l, arrity,0), v =>
+        goal.Match(l => isFinished(l, arrity,0), v =>
         {
             if (arrity == 1)
                 return v.Match(_ => false, x => (int) x <= 0);
             return false;
         });
-        return t.Match<bool>(l =>
+        return goal.Match<bool>(l =>
         {
             var ll = l.SkipWhile(s => s.Preorder().TrueForAll(v => v.Match(_ => true, x => false))); //ignore combinators at the start
             

@@ -199,11 +199,13 @@ public class SymbolManager : MonoBehaviour
     }
 
 
-    public IEnumerator Transition(Term oldTerm, ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
+    public IEnumerator Transition( ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
     {
+        var oldTerm = currentTerm;
         /********* replace skeleton ***********/
         Term newTerm = rule.evaluate(oldTerm);
-
+        currentTerm = newTerm;
+        
         foreach (Transform t in skeletonRoot)
         {
             Destroy(t.gameObject);
@@ -469,15 +471,16 @@ public class SymbolManager : MonoBehaviour
         for (int i = 0; i < size; i++)
             temp.Add(target.GetChild(i));
 
-        var positions = temp.Select(t => t.position);
 
+        paren.transform.parent = target;//.SetParent(target,true); //this is the problem line
+        
+        paren.transform.SetAsFirstSibling();
+        
         foreach (var t in temp)
         {
             t.SetParent(paren.transform,true);
         }
-        
-        paren.transform.SetParent(target,true);
-        paren.transform.SetSiblingIndex(0);
+
 
 
         foreach (Transform t in skeletonRoot)
@@ -485,12 +488,7 @@ public class SymbolManager : MonoBehaviour
             Destroy(t.gameObject);
         }
         CreateSkeleton(newTerm,skeletonRoot);
-        foreach (var t in temp)
-        {
-            t.GetComponent<LayoutTracker>().LockDown(.1f);
-            t.position = positions.First();
-            positions = positions.Skip(1);
-        }
+
     }
 
     //Figures out which Combinator Effect to play

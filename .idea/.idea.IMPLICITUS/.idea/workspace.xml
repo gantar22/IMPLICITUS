@@ -4,37 +4,17 @@
     <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/B.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/B.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/B.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/B.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/K.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/K.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/K.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/K.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/M.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/M.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/M.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/M.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/T.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/T.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/T.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/T.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/B  Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/B  Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/B1 Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/B1 Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/C Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/C Symbol.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Combinator Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Combinator Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/D Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/D Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/E Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/E Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/F Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/F Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/K Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/K Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/M Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/M Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/R Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/R Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/T Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/T Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Drawer Paren Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Drawer Paren Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Variable Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Variable Symbol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/old symbols/Paren Symbol.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,13 +119,13 @@
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_toggleImage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
       </list>
     </option>
@@ -219,7 +199,7 @@
       <workItem from="1586531490911" duration="1734000" />
       <workItem from="1586618980703" duration="11649000" />
       <workItem from="1586712766636" duration="14890000" />
-      <workItem from="1587220783923" duration="107696000" />
+      <workItem from="1587220783923" duration="115093000" />
     </task>
     <servers />
   </component>

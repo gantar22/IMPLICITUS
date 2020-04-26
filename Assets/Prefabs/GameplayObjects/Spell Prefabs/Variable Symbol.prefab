@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5345088939544842160}
   - component: {fileID: 2571119799839560946}
   - component: {fileID: 7985173189521513909}
+  - component: {fileID: -5803720880542904291}
   m_Layer: 5
   m_Name: Variable Symbol
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1621061447538603423, guid: a3f806e2f3ede0f488af8b58ca95a0e7,
+  m_Sprite: {fileID: 2045302541216556439, guid: a3f806e2f3ede0f488af8b58ca95a0e7,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -125,3 +126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f994003b732b0b48bdc6e5566dc892c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-5803720880542904291
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357421738931735512}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

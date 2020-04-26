@@ -154,7 +154,7 @@ public class SymbolManagerTester : MonoBehaviour
         }
         else
         {
-            StartCoroutine(manager.Transition(term, rules[0], symbol));
+            StartCoroutine(manager.Transition(rules[0], symbol));
             input = show(rules[0].evaluate(term));
             input = String.Concat(input.Skip(1).Take(input.Length - 2).ToList());
             

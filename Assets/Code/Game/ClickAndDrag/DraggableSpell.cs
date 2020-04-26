@@ -186,7 +186,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     redundant.unplace();
                     previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
                 }
-//call unplace then reverse it
+//call unplace then reverse it TODO
                 if (Time.time - redundant.timeFound < .5f && Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 150)
                     return;
                 if (Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 20)
@@ -332,10 +332,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         SymbolManager sm = GetComponentInParent<SymbolManager>();
         var lt = sm.RemoveAtAndReturn(index.Skip(1).ToList(),sm.GetComponentInChildren<LayoutTracker>());
         lt.transform.SetParent(GetComponentInParent<Canvas>().transform,true);
-        lt.transform.SetSiblingIndex(GetComponentInParent<Canvas>().transform.childCount - 1);
+        lt.transform.SetAsLastSibling();
         lt.enabled = false;
         transform.position = pos;
         LayoutRebuilder.MarkLayoutForRebuild(sm.GetComponent<RectTransform>());
+        GetComponentInParent<SpawnTarget>()?.CheckSuccess();
 
     }
     
@@ -431,6 +432,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         PreviewRedundantParenInfo prp = new PreviewRedundantParenInfo(index,my_index,spawnTarget, () =>
                         {
 
+                            
+                            
                             spawnTarget.addParens(index.Skip(1).ToList(), my_index, GetComponent<LayoutTracker>(), t);
 
                             PlaceMe();

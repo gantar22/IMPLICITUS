@@ -124,10 +124,11 @@ public class adhoc_cast_spell : MonoBehaviour
     {  
         IEnumerator succ()
         {
-            yield return new WaitForSeconds(.5f);
-            yield return Skip();
+            yield return new WaitForSeconds(.6f);
             if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
                 button.image.enabled = false;
+            else
+                yield return Skip();
         }
         yield return StepRoutine(succ(),() => {});
     }
@@ -136,7 +137,9 @@ public class adhoc_cast_spell : MonoBehaviour
     {
         IEnumerator succ()
         {
-            yield return new WaitForSeconds(1);
+            if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
+                button.image.enabled = false;
+            yield return new WaitForSeconds(.15f);
             button.interactable = true;
             yield return null;
         }
@@ -146,8 +149,6 @@ public class adhoc_cast_spell : MonoBehaviour
         {
             //TODO (<<) reverse all the way here
         }));
-        if (!Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
-            button.image.enabled = false;
     }
     public IEnumerator StepRoutine(IEnumerator succ, Action fail)
     {
@@ -160,14 +161,15 @@ public class adhoc_cast_spell : MonoBehaviour
         else
 		{
 			pushUndoProposalTerm.Invoke(term);
-            yield return proposal.Transition(term, rules[0], proposal.GetComponentInChildren<LayoutTracker>());
+            yield return proposal.Transition(rules[0], proposal.GetComponentInChildren<LayoutTracker>());
             term = rules[0].evaluate(term);
+
+
+            yield return succ;            
             if (target.goal.Equal(term))
             {
                 Success.Invoke();
             }
-
-            yield return succ;
         }
     }
 
