@@ -61,6 +61,7 @@
           </e>
           <e p="Game" t="Include">
             <e p="adhoc_cast_spell.cs" t="Include" />
+            <e p="adhoc_copy_active.cs" t="Include" />
             <e p="ClickAndDrag" t="Include">
               <e p="DraggableHolder.cs" t="Include" />
               <e p="DraggableSpell.cs" t="Include" />
@@ -72,6 +73,8 @@
               <e p="CodexOnSpell.cs" t="Include" />
               <e p="SpellCodexTab.cs" t="Include" />
             </e>
+            <e p="DimDuringEval.cs" t="Include" />
+            <e p="GoalUndoRedoButtons.cs" t="Include" />
             <e p="HighlightParen.cs" t="Include" />
             <e p="LayoutTracker.cs" t="Include" />
             <e p="Level" t="Include">

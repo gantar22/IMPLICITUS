@@ -53,14 +53,14 @@ public class SpawnTarget : MonoBehaviour
 
     public void unApply(Shrub<Sum<Combinator,Variable>> newTerm,LayoutTracker lt, Combinator C, List<int> path)
     {
-        smt.GetComponent<SymbolManager>().UnTransition(newTerm, lt,C,path,smt.currentLayout);
+        StartCoroutine(smt.GetComponent<SymbolManager>().UnTransition(newTerm, lt,C,path,smt.currentLayout));
         goal = newTerm;
         CheckSuccess();
     }
 
     public void addParens(List<int> path, int size, LayoutTracker paren,Shrub<Sum<Combinator,Variable>> newTerm)
     {
-        smt.GetComponent<SymbolManager>().backApplyParens(path,size,paren,smt.currentLayout,newTerm);
+        StartCoroutine(smt.GetComponent<SymbolManager>().BackApplyParens(path,size,paren,smt.currentLayout,newTerm));
     }
 
     public void CheckSuccess()

@@ -15,6 +15,56 @@ using UnityEngine.UI;
 [RequireComponent(typeof(TermClickHandler))]
 public class SymbolManager : MonoBehaviour
 {
+    private struct ForwardData
+    {
+        public ElimRule rule;
+        public LayoutTracker TopSymbol;
+
+        public ForwardData(ElimRule rule, LayoutTracker topSymbol)
+        {
+            this.rule = rule;
+            TopSymbol = topSymbol;
+        }
+    }
+
+    private struct BackwardTermData
+    {
+        public Term newTerm;
+        public Func<LayoutTracker> lt;
+        public Combinator C;
+        public List<int> path;
+        public LayoutTracker TopSymbol;
+
+        public BackwardTermData(Term newTerm, Func<LayoutTracker> lt, Combinator c, List<int> path, LayoutTracker topSymbol)
+        {
+            this.newTerm = newTerm;
+            this.lt = lt;
+            C = c;
+            this.path = path;
+            TopSymbol = topSymbol;
+        }
+    }
+
+    private struct BackwardParenData
+    {
+        public List<int> path;
+        public int size;
+        public Func<LayoutTracker> paren;
+        public LayoutTracker TopSymbol;
+        public Term newTerm;
+
+        public BackwardParenData(List<int> path, int size, Func<LayoutTracker> paren, LayoutTracker topSymbol, Term newTerm)
+        {
+            this.path = path;
+            this.size = size;
+            this.paren = paren;
+            TopSymbol = topSymbol;
+            this.newTerm = newTerm;
+        }
+    }
+    
+    
+    
     [SerializeField] public RectTransform skeletonRoot;
     [SerializeField] private RectTransform skeletonParen;
     [SerializeField] private RectTransform skeletonAtom;
@@ -26,6 +76,11 @@ public class SymbolManager : MonoBehaviour
     [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
 
     public List<Action<Term>> onCreateTerm;
+    
+    
+    private Stack<ForwardData> forwardUndoStack = new Stack<ForwardData>();
+    private Stack<Sum<BackwardTermData,BackwardParenData>> backwardUndoStack = new Stack<Sum<BackwardTermData, BackwardParenData>>();
+    
 
     
     private Term currentTerm;
@@ -199,8 +254,112 @@ public class SymbolManager : MonoBehaviour
     }
 
 
-    public IEnumerator Transition( ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
+    public IEnumerator popBackwards()
     {
+        if (backwardUndoStack.Any())
+        {
+            yield return backwardUndoStack.Pop().Match(_ => _UnTransition(_.newTerm,_.lt(),_.C,_.path,_.TopSymbol),
+                _ =>_BackApplyParens(_.path,_.size,_.paren(),_.TopSymbol,_.newTerm));
+        }
+        else
+        {
+            Debug.Log("no moves available");
+        }
+    }
+
+    public bool HasBackStack()
+    {
+        return backwardUndoStack.Any();
+    }
+
+    public bool HasForStack()
+    {
+        return forwardUndoStack.Any();
+    }
+
+    public IEnumerator popForwards()
+    {
+        if (forwardUndoStack.Any())
+        {
+            var _ = forwardUndoStack.Pop();
+            yield return (_Transition(_.rule, _.TopSymbol));
+        }
+        else
+        {
+            Debug.Log("no moves available");
+        }
+    }
+
+    public IEnumerator Transition(ElimRule rule, LayoutTracker TopSymbol)
+    {
+        forwardUndoStack = new Stack<ForwardData>();
+
+        yield return _Transition(rule, TopSymbol);
+    }
+
+
+    public void pushForward(ElimRule rule, LayoutTracker TopSymbol)
+    {
+        Term term = currentTerm;
+        if (rule is CombinatorElim cElim)
+        {
+            var copy = Instantiate(AccessTransfrom(TopSymbol.transform, cElim.Target()).GetChild(0).gameObject,AccessTransfrom(TopSymbol.transform, cElim.Target()).GetChild(0).position,Quaternion.identity);
+            copy.transform.SetParent(GetComponentInParent<Canvas>().transform.GetChild(0),true);
+            copy.SetActive(false);
+            backwardUndoStack.Push(Sum<BackwardTermData, BackwardParenData>.Inl(new BackwardTermData(term
+                ,() => 
+                {
+                    copy.SetActive(true);
+                    copy.transform.SetParent(AccessTransfrom(TopSymbol.transform, cElim.Target()));
+                    copy.transform.localScale = Vector3.one;
+                    return copy.GetComponent<LayoutTracker>();
+                }
+                ,cElim.c,cElim.Target(),TopSymbol
+            )));
+        } else if (rule is ParenElim pElim)
+        {           
+            var copy = Instantiate(AccessTransfrom(TopSymbol.transform, pElim.Target()).gameObject);
+            copy.transform.SetParent(GetComponentInParent<Canvas>().transform.GetChild(0),true);
+            copy.SetActive(false);
+            int size = AccessTransfrom(TopSymbol.transform, pElim.Target()).childCount;
+            backwardUndoStack.Push(Sum<BackwardTermData, BackwardParenData>.Inr(new BackwardParenData(
+                pElim.Target(),size
+                ,() => 
+                {
+                    copy.SetActive(true);
+                    copy.transform.SetParent(AccessTransfrom(TopSymbol.transform, pElim.Target()));                    
+                    copy.transform.localScale = Vector3.one;
+                    return copy.GetComponent<LayoutTracker>();
+                },TopSymbol,pElim.evaluate(term)
+            )));
+        }
+    }
+    void IterateTransform(Transform t,Action<Transform> f)
+    {
+        foreach (Transform t2 in t)
+        {
+            f(t2);
+            IterateTransform(t2,f);
+        }
+    }
+
+
+    public IEnumerator UnTransition(Term newTerm, LayoutTracker lt, Combinator C, List<int> path, LayoutTracker TopSymbol)
+    {
+        backwardUndoStack = new Stack<Sum<BackwardTermData, BackwardParenData>>();
+        yield return _UnTransition(newTerm,lt,C,path,TopSymbol);
+    }
+
+    public IEnumerator BackApplyParens(List<int> path, int size, LayoutTracker paren, LayoutTracker TopSymbol, Term newTerm)
+    {
+        backwardUndoStack = new Stack<Sum<BackwardTermData, BackwardParenData>>();
+        
+        yield return _BackApplyParens(path,size,paren,TopSymbol,newTerm);
+    }
+    
+    private IEnumerator _Transition( ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
+    {
+        pushForward(rule,TopSymbol);
         var oldTerm = currentTerm;
         /********* replace skeleton ***********/
         Term newTerm = rule.evaluate(oldTerm);
@@ -219,15 +378,6 @@ public class SymbolManager : MonoBehaviour
         var affectedSymbol = AccessTransfrom(TopSymbol.transform, index).GetComponent<LayoutTracker>();
         var leftmostchild = affectedSymbol.transform.GetChild(0).position;
         
-        
-        void IterateTransform(Transform t,Action<Transform> f)
-        {
-            foreach (Transform t2 in t)
-            {
-                f(t2);
-                IterateTransform(t2,f);
-            }
-        }
 
         
         /********* case on the rule **********/
@@ -381,8 +531,9 @@ public class SymbolManager : MonoBehaviour
 
     }
 
-    public void UnTransition(Term newTerm, LayoutTracker lt, Combinator C, List<int> path, LayoutTracker TopSymbol)
+    public IEnumerator _UnTransition(Term newTerm, LayoutTracker lt, Combinator C, List<int> path, LayoutTracker TopSymbol)
     {
+        forwardUndoStack.Push(new ForwardData(new CombinatorElim(C,path), TopSymbol));
         /*
          * REMEMBER, you've already "typechecked" this operation, you can assume that everything fits
          * Get transform at path
@@ -391,7 +542,6 @@ public class SymbolManager : MonoBehaviour
          * spawn metavariables
          * order everything appropriately
          */
-        var oldTerm = currentTerm;
         
         Transform target = AccessTransfrom(TopSymbol.transform, path);
         (var debruijn, var arity) = Util.ParseCombinator(C)
@@ -459,11 +609,22 @@ public class SymbolManager : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
-        CreateSkeleton(newTerm,skeletonRoot);
+        CreateSkeleton(newTerm,skeletonRoot);        
+        yield return new WaitUntil(() =>
+        {
+            bool moving = false;
+            IterateTransform(TopSymbol.transform, t =>
+            {
+                if (t.GetComponent<LayoutTracker>())
+                    moving |= t.GetComponent<LayoutTracker>().Moving();
+            });
+            return !moving;
+        });
     }
 
-    public void backApplyParens(List<int> path, int size,LayoutTracker paren, LayoutTracker TopSymbol, Term newTerm)
+    public IEnumerator _BackApplyParens(List<int> path, int size,LayoutTracker paren, LayoutTracker TopSymbol, Term newTerm)
     {
+        forwardUndoStack.Push(new ForwardData(new ParenElim(path),TopSymbol));
         var target = AccessTransfrom(TopSymbol.transform, path);
 
 
@@ -472,7 +633,7 @@ public class SymbolManager : MonoBehaviour
             temp.Add(target.GetChild(i));
 
 
-        paren.transform.parent = target;//.SetParent(target,true); //this is the problem line
+        paren.transform.parent = target; //this is the problem line. SetParent(target,true) doesn't work and is oddly less effective, lateupdate?
         
         paren.transform.SetAsFirstSibling();
         
@@ -487,9 +648,22 @@ public class SymbolManager : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
-        CreateSkeleton(newTerm,skeletonRoot);
+        CreateSkeleton(newTerm,skeletonRoot);        
+        yield return new WaitUntil(() =>
+        {
+            bool moving = false;
+            IterateTransform(TopSymbol.transform, t =>
+            {
+                if (t.GetComponent<LayoutTracker>())
+                    moving |= t.GetComponent<LayoutTracker>().Moving();
+            });
+            return !moving;
+        });
+
 
     }
+    
+    
 
     //Figures out which Combinator Effect to play
     private void combinatorEffectPlay(CombinatorElim CElim)

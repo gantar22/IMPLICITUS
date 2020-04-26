@@ -25,6 +25,11 @@ namespace Lambda
     public class ParenElim : ElimRule
     {
         private readonly List<int> path;
+
+        public ParenElim(List<int> path)
+        {
+            this.path = path;
+        }
         
         public ParenElim(List<Term> term, List<Term> leftElement, List<int> path)
         {
@@ -72,6 +77,12 @@ namespace Lambda
             }
             this.c = c;
             this.path = path.ToList();
+        }
+
+        public CombinatorElim(Combinator c, List<int> path)
+        {
+            this.c = c;
+            this.path = path;
         }
 
         public List<int> Target()
