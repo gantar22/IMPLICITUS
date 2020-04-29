@@ -25,6 +25,7 @@ public class LevelLoader : ScriptableObject {
 	[HideInInspector] public int chapterIndex = -1;
 	[HideInInspector] public int levelIndex = -1;
 	[HideInInspector] public Level currentLevel;
+    [HideInInspector] public bool story = false;
 
 	//Debug event
 	[System.Serializable]
@@ -124,10 +125,17 @@ public class LevelLoader : ScriptableObject {
 		SceneManager.LoadSceneAsync(levelSceneBuildIndex).completed += onLevelLoaded(currentLevel);
 	}
 
-	
-	
-	// Once a level has been loaded, calls all the initialization events
-	private Action<AsyncOperation> onLevelLoaded(Level levelLoaded)
+    //Loads the next level and the accompanied story
+    public void loadNextLevelStory()
+    {
+        story = true;
+        loadNextLevel();
+    }
+
+
+
+    // Once a level has been loaded, calls all the initialization events
+    private Action<AsyncOperation> onLevelLoaded(Level levelLoaded)
 	{ //Curried to ensure that the loaded level is the one which was intended
 		return _ =>
 		{
