@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combinatorList:
   - {fileID: 11400000, guid: 8fe529e7735b8d94686b0ba9ef0f620e, type: 2}
+  - {fileID: 11400000, guid: 8fe529e7735b8d94686b0ba9ef0f620e, type: 2}
   - {fileID: 11400000, guid: 7918865ea04bf5145a6c53b3a971d1cb, type: 2}
   - {fileID: 11400000, guid: a28d8250d46052744b1b6167eb1398bd, type: 2}
   - {fileID: 11400000, guid: c64d4e93895518a47bcc88bf825869d6, type: 2}
@@ -228,6 +229,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 909b87b77a01745478fc55f2deebc24a, type: 2}
   - {fileID: 11400000, guid: da2ab3fce4cb69647b7dea6861f300d5, type: 2}
   triggerName:
+  - Default
   - B_T
   - B1_T
   - B2_T

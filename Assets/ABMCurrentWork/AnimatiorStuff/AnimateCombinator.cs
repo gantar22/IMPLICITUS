@@ -20,13 +20,20 @@ public class AnimateCombinator : MonoBehaviour
         //Get animator
         comb_animator = gameObject.GetComponent<Animator>();
 
+        //Sets the default combinator int value (if that animation has not been saved)
+        myCombInt = 0;
+
         //Goes through list of combinators to see which combinator corresponds to this
-        //current combinator object
-        for (int i = 0; i < combinatorList.Length; i++)
+        //current combinator object (0 is empty one, so we skip it)
+        for (int i = 1; i < combinatorList.Length; i++)
         {
-            if (combinatorList[i] == gameObject.GetComponent<DraggableSpell>().myCombinator)
-            {   
-                myCombInt = i;
+            //Does not check if combinator list doesn't have combinator in it
+            if (combinatorList[i] != null)
+            {
+                if (combinatorList[i] == gameObject.GetComponent<DraggableSpell>().myCombinator)
+                {
+                    myCombInt = i;
+                }
             }
          }
 

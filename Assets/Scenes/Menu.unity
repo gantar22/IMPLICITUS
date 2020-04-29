@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1867,7 +1867,6 @@ GameObject:
   m_Component:
   - component: {fileID: 559015617}
   - component: {fileID: 559015618}
-  - component: {fileID: 559015619}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1918,29 +1917,18 @@ MonoBehaviour:
   - {fileID: 8322947600288551174, guid: 6eeccb7c55505e945827f340090b0f31, type: 3}
   - {fileID: 4629983252339382396, guid: 9ca30c9095925064a9eac66dfa560b80, type: 3}
   - {fileID: 1268595779375966444, guid: 4027fcdc9ae11a34bb8326a39496fb8a, type: 3}
-  - {fileID: 2191008530690303075, guid: 1401a81aa9368834ca89d29c542537e7, type: 3}
+  - {fileID: 3980436382866968957, guid: 3274558c8dbe76d4796cf39a38dcb799, type: 3}
+  - {fileID: 9152555400412649454, guid: 684374f455432944393abd6751d377cd, type: 3}
   - {fileID: 111949006635634110, guid: dca92a87082eb8a46a0d5a68833b6bf6, type: 3}
+  - {fileID: 8272874286134177737, guid: 233fc4fc3ae3c2b4ea33f8a6605a0e63, type: 3}
+  - {fileID: 5697844396916057852, guid: 6a5d45085a0bb324ea19cd451352683f, type: 3}
+  - {fileID: 2191008530690303075, guid: 1401a81aa9368834ca89d29c542537e7, type: 3}
   songPrefabsList:
   - {fileID: 371156723115415678, guid: d34f9668ad8e7cb4bb493104d60d638d, type: 3}
   - {fileID: 6594083156655961500, guid: 971d134decde53d44b67213d723b2411, type: 3}
   - {fileID: 3586969927455321886, guid: 8909b33e342930148a3935008a0320e6, type: 3}
   - {fileID: 5764419092299656499, guid: 71f2615baadb31548a478362982b6346, type: 3}
   - {fileID: 3302017835913416430, guid: 9332cfa1240a57b44bcd98cfc670cb1d, type: 3}
---- !u!114 &559015619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559015616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7905369b31d6a3642be91d40bb405728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
-  songAudioEvent: {fileID: 11400000, guid: 551fdae84ee774a4ebdae3e4fe0941aa, type: 2}
-  completedPuzzle: {fileID: 11400000, guid: 42c9ce90e31a06649b48c6f7bfe7570d, type: 2}
 --- !u!1001 &566815148
 PrefabInstance:
   m_ObjectHideFlags: 0

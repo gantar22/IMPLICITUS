@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] GameObject[] effectPrefabsList;  //List of effect prefabs given by user
     [SerializeField] GameObject[] songPrefabsList;    //List of song prefabs given by user
 
+
+
     //Holds audio and their tag
     struct AudioObject
     {
@@ -63,8 +65,9 @@ public class AudioManager : MonoBehaviour
     
     }
 
-    //Used dby listener of effectEvent
-    //Plays event specified
+    //Used by listener of effectEvent
+    //Plays events specified, those that loop and one time loopers
+    //If is a looping effect that is playing, will stop rather than play event
     private void playEffect(int num)
     {
         //Verify effect exists in the effectPrefabList provided by user
@@ -74,7 +77,14 @@ public class AudioManager : MonoBehaviour
             foreach (AudioObject effect in effectPoolList)
             {
                 AudioSource sound = effect.audioPrefab.GetComponent<AudioSource>(); //Instance of audiosource
-                
+
+                //if effectPrefab being called is a LoopingEffect, and is Playing stop playing
+                if (effect.tag == num && (sound.isPlaying) && (sound.loop))
+                {
+                    sound.Stop();
+                    return;
+                }
+
                 //if effectPrefab being called is in our list and not playing, play it
                 if (effect.tag == num && !(sound.isPlaying))
                 {
@@ -82,6 +92,7 @@ public class AudioManager : MonoBehaviour
                     return;
                 }
             }
+
 			//Effect not found in list, so new one will be created and added
 			if (this && gameObject) {
 				AudioObject audioObject = new AudioObject(num, (GameObject)Instantiate(effectPrefabsList[num], gameObject.transform));
