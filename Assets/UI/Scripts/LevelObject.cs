@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class LevelObject : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class LevelObject : MonoBehaviour
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private TextMeshProUGUI numText;
     [SerializeField] private TextMeshProUGUI descriptionText;
+
+    [SerializeField] private float moveTime;
+    [SerializeField] private AnimationCurve moveCurve;
 
 #pragma warning restore 0649
 
@@ -46,5 +50,24 @@ public class LevelObject : MonoBehaviour
     {
         numText.text = "Level " + num;
         descriptionText.text = description;
+    }
+
+    public void MoveTo(Vector2 position)
+    {
+        StartCoroutine(AnimateMove(position));
+    }
+
+    private IEnumerator AnimateMove(Vector2 position)
+    {
+        RectTransform rt = GetComponent<RectTransform>();
+        float timer = 0;
+        Vector2 origPos = rt.anchoredPosition;
+        //Vector3 pos = new Vector3(position.x, position.y, transform.position.z);
+        while(timer < moveTime)
+        {
+            yield return new WaitForEndOfFrame();
+            timer += Time.deltaTime;
+            rt.anchoredPosition = Vector2.Lerp(origPos, position, moveCurve.Evaluate(timer / moveTime));
+        }
     }
 }
