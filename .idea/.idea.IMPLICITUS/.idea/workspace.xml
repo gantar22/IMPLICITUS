@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="" />
+    <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/BackwardSkip_Sound_AudioPrefab.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/BackwardSkip_Sound_AudioPrefab.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/ForwardSkip_Sound_AudioPrefab.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/ForwardSkip_Sound_AudioPrefab.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Redo_Sound_AudioPrefab.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Redo_Sound_AudioPrefab.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/CharL.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/CharL.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/CharR.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/CharR.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Dialogue-default.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Dialogue-default.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Dialogue-happy.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Dialogue-happy.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Dialogue-shock.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Dialogue-shock.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/DialogueR-default.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/DialogueR-default.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/DialogueR-happy.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/DialogueR-happy.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/DialogueR-shock.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/DialogueR-shock.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Dialouge_Sound_AudioPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Dialouge_Sound_AudioPrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Undo_Sound_AudioPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Undo_Sound_AudioPrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Combinator Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Combinator Symbol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialogue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialogue.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Level.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +64,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/fc/4b6d4421/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/OnDestroyTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/Undo/UndoManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/IntEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/Undo/UndoClickHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,6 +82,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/SetNameToSiblingIndex.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Objects/Spells/ALL SPELLS.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/Spell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/SetNameToSiblingIndex.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,6 +100,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/GoalUndoRedoButtons.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/Mode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/disable_button_on_bools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/SetVariablePrefab_Tester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../bsmod/CountersPlus/Counters+/Plugin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/Autosave.cs" root0="FORCE_HIGHLIGHTING" />
@@ -73,13 +114,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/UnitEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/StringEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/IntEventRetrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/adhoc_toggleImage.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../Brick Breaker/Assets/text_on_win.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/TempDrawTerm.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Spell.cs" />
         <option value="$PROJECT_DIR$/Assets/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/../../sklacc/stumbling_rhino/Assets/Scripts/Ball.cs" />
@@ -111,8 +151,6 @@
         <option value="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
-        <option value="$PROJECT_DIR$/Assets/UI/Scripts/Mode.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_toggleImage.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_copy_active.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/DimDuringEval.cs" />
@@ -124,10 +162,14 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/Assets/optionaltext.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/Autosave.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
+        <option value="$PROJECT_DIR$/Assets/disable_button_on_bools.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI/Scripts/Mode.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
@@ -203,7 +245,8 @@
       <workItem from="1586712766636" duration="14890000" />
       <workItem from="1587220783923" duration="136614000" />
       <workItem from="1588293528869" duration="8768000" />
-      <workItem from="1588306344375" duration="10602000" />
+      <workItem from="1588306344375" duration="16987000" />
+      <workItem from="1588358019607" duration="389000" />
     </task>
     <servers />
   </component>

@@ -10,13 +10,20 @@ public class Mode : MonoBehaviour
     [SerializeField] private CanvasGroup targetPane;
     //[SerializeField] private bool toggled = false;
     [SerializeField] private BoolRef forwardMode;
+    [SerializeField] private BoolRef noforward;
 #pragma warning restore 0649
 
     private void Awake()
     {
         forwardMode.val = false;
         Toggle();
+        if(noforward.val)
+            Toggle();
+        
+        
     }
+    
+    
 
     public void Toggle()
     {

@@ -138,6 +138,7 @@
             </e>
           </e>
         </e>
+        <e p="disable_button_on_bools.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="Autosave.cs" t="Include" />
         </e>
