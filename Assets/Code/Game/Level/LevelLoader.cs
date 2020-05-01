@@ -120,7 +120,6 @@ public class LevelLoader : ScriptableObject {
 	public void loadLevel(int chapter, int level) {
 
 		songAudioEvent.Invoke(3); //Puzzle Track
-		effectAudioEvent.Invoke(14); //Title Select Sound
 
 		if (chapter >= chapterList.Chapters.Length || chapter < 0 || level >= chapterList.Chapters[chapter].Levels.Length || level < 0) {
 			Debug.LogError($"Trying to load chapter {chapter}, level {level}, which does not exist. Defaulting to chapter 0 level 0.");

@@ -20,7 +20,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private IntEvent songPlay;
-    [SerializeField] private int songIdx;
     [SerializeField] private IntEvent effectPlay; //Event Calls audio sound
 #pragma warning restore 0649
 
@@ -35,6 +34,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+
+        songPlay.Invoke(-2); //Save the current Track Playing
+        songPlay.Invoke(2);  //Plays client discussion Track
+
         dim.alpha = 0;
         dim.blocksRaycasts = false;
         dialogueGroup.alpha = 0;
@@ -154,7 +157,7 @@ public class DialogueManager : MonoBehaviour
 
         //unload scene
         yield return StartCoroutine(FadeOut());
-        songPlay.Invoke(songIdx);
+        songPlay.Invoke(-3);                //Playing Saved Song
         LoadManager.instance.UnloadSceneAsync("Dialogue");
     }
 

@@ -126,1292 +126,125 @@ TextureImporter:
       213: 1567710709819064562
     second: E_Combinator_SpriteSheet_40
   - first:
-      213: -7834167027346625050
-    second: E_Combinator_SpriteSheet_41
+      213: 8974336034559358781
+    second: E_Combinator_SpriteSheet_0
   - first:
-      213: 1717476240665580553
-    second: E_Combinator_SpriteSheet_42
+      213: 3777106835650474529
+    second: E_Combinator_SpriteSheet_1
   - first:
-      213: 6525935475168946535
-    second: E_Combinator_SpriteSheet_43
+      213: 4689715232132444219
+    second: E_Combinator_SpriteSheet_2
   - first:
-      213: -760835229595543968
-    second: E_Combinator_SpriteSheet_44
+      213: 3336099183204625519
+    second: E_Combinator_SpriteSheet_3
   - first:
-      213: 5305642590223699166
-    second: E_Combinator_SpriteSheet_45
+      213: 691818318586852344
+    second: E_Combinator_SpriteSheet_4
   - first:
-      213: -7867154004012873890
-    second: E_Combinator_SpriteSheet_46
+      213: 7887543750729456441
+    second: E_Combinator_SpriteSheet_5
   - first:
-      213: -8232706001992484332
-    second: E_Combinator_SpriteSheet_47
+      213: -3245912001532744597
+    second: E_Combinator_SpriteSheet_6
   - first:
-      213: -2278939450638761046
-    second: E_Combinator_SpriteSheet_48
+      213: 4613823880944724591
+    second: E_Combinator_SpriteSheet_7
   - first:
-      213: 7223330746578881195
-    second: E_Combinator_SpriteSheet_49
+      213: 7245532521301241273
+    second: E_Combinator_SpriteSheet_8
   - first:
-      213: 7033426488359168514
-    second: E_Combinator_SpriteSheet_50
+      213: -7327159626297998245
+    second: E_Combinator_SpriteSheet_9
   - first:
-      213: 2498728679780899889
-    second: E_Combinator_SpriteSheet_51
+      213: -4855846424313040174
+    second: E_Combinator_SpriteSheet_10
   - first:
-      213: 972409962855629439
-    second: E_Combinator_SpriteSheet_52
+      213: -7842445761333225180
+    second: E_Combinator_SpriteSheet_11
   - first:
-      213: 3433889474210781582
-    second: E_Combinator_SpriteSheet_53
+      213: 582579020982620246
+    second: E_Combinator_SpriteSheet_12
   - first:
-      213: -2174109507489395033
-    second: E_Combinator_SpriteSheet_54
+      213: -1842471326572542574
+    second: E_Combinator_SpriteSheet_13
   - first:
-      213: -3198765656046941304
-    second: E_Combinator_SpriteSheet_55
+      213: -2968901717794338413
+    second: E_Combinator_SpriteSheet_14
   - first:
-      213: 2705058209995957183
-    second: E_Combinator_SpriteSheet_56
+      213: -1063121940665826227
+    second: E_Combinator_SpriteSheet_15
   - first:
-      213: 5934921046634615162
-    second: E_Combinator_SpriteSheet_57
+      213: -8016350569905967217
+    second: E_Combinator_SpriteSheet_16
   - first:
-      213: 5768816492064983438
-    second: E_Combinator_SpriteSheet_58
+      213: 503786216754421287
+    second: E_Combinator_SpriteSheet_17
   - first:
-      213: -8642423334092763688
-    second: E_Combinator_SpriteSheet_59
+      213: 2712172764983987598
+    second: E_Combinator_SpriteSheet_18
   - first:
-      213: -5258341957674699869
-    second: E_Combinator_SpriteSheet_60
+      213: 775446344830452283
+    second: E_Combinator_SpriteSheet_19
   - first:
-      213: -6607903148509314156
-    second: E_Combinator_SpriteSheet_61
+      213: 9078531141337913140
+    second: E_Combinator_SpriteSheet_20
   - first:
-      213: -7239469924372086904
-    second: E_Combinator_SpriteSheet_62
+      213: 6350199338152534205
+    second: E_Combinator_SpriteSheet_21
   - first:
-      213: 7146328647637120948
-    second: E_Combinator_SpriteSheet_63
+      213: -6514686076638307449
+    second: E_Combinator_SpriteSheet_22
   - first:
-      213: 1891541100950235366
-    second: E_Combinator_SpriteSheet_64
+      213: 8627654363779299005
+    second: E_Combinator_SpriteSheet_23
   - first:
-      213: 281672479318957555
-    second: E_Combinator_SpriteSheet_65
+      213: -1272452116923340736
+    second: E_Combinator_SpriteSheet_24
   - first:
-      213: -5394407856151070449
-    second: E_Combinator_SpriteSheet_66
+      213: -5695409190591602135
+    second: E_Combinator_SpriteSheet_25
   - first:
-      213: 8135082908414700335
-    second: E_Combinator_SpriteSheet_67
+      213: -3791472117320636080
+    second: E_Combinator_SpriteSheet_26
   - first:
-      213: -1950780504901476371
-    second: E_Combinator_SpriteSheet_68
+      213: -875814696226662122
+    second: E_Combinator_SpriteSheet_27
   - first:
-      213: 5416036960456236674
-    second: E_Combinator_SpriteSheet_69
+      213: -5144014855280546547
+    second: E_Combinator_SpriteSheet_28
   - first:
-      213: 1282411904693404661
-    second: E_Combinator_SpriteSheet_70
+      213: 418234299311841218
+    second: E_Combinator_SpriteSheet_29
   - first:
-      213: -1229323031646830301
-    second: E_Combinator_SpriteSheet_71
+      213: -3459958619859267142
+    second: E_Combinator_SpriteSheet_30
   - first:
-      213: -4679408833896450868
-    second: E_Combinator_SpriteSheet_72
+      213: -77436539956027665
+    second: E_Combinator_SpriteSheet_31
   - first:
-      213: -4092213080316151582
-    second: E_Combinator_SpriteSheet_73
+      213: 8238207816151047312
+    second: E_Combinator_SpriteSheet_32
   - first:
-      213: 2854528142265053974
-    second: E_Combinator_SpriteSheet_74
+      213: -141951036564950186
+    second: E_Combinator_SpriteSheet_33
   - first:
-      213: 9146090041572878289
-    second: E_Combinator_SpriteSheet_75
+      213: -6917249947988694834
+    second: E_Combinator_SpriteSheet_34
   - first:
-      213: 2258425558892658267
-    second: E_Combinator_SpriteSheet_76
+      213: 1361973277148577237
+    second: E_Combinator_SpriteSheet_35
   - first:
-      213: 589543752680530199
-    second: E_Combinator_SpriteSheet_77
+      213: -2876910404194355525
+    second: E_Combinator_SpriteSheet_36
   - first:
-      213: -5827778564969271193
-    second: E_Combinator_SpriteSheet_78
+      213: 5895701508721913596
+    second: E_Combinator_SpriteSheet_37
   - first:
-      213: 6614309028546836424
-    second: E_Combinator_SpriteSheet_79
+      213: 1604591202798453150
+    second: E_Combinator_SpriteSheet_38
   - first:
-      213: -5344148268335379212
-    second: E_Combinator_SpriteSheet_80
-  - first:
-      213: 222686588881901594
-    second: E_Combinator_SpriteSheet_81
-  - first:
-      213: -3342716577638573831
-    second: E_Combinator_SpriteSheet_82
-  - first:
-      213: 1424263139327637287
-    second: E_Combinator_SpriteSheet_83
-  - first:
-      213: -5115130399380342885
-    second: E_Combinator_SpriteSheet_84
-  - first:
-      213: 4785721758451988578
-    second: E_Combinator_SpriteSheet_85
-  - first:
-      213: 3225113378337109783
-    second: E_Combinator_SpriteSheet_86
-  - first:
-      213: -158431161268773964
-    second: E_Combinator_SpriteSheet_87
-  - first:
-      213: -2175046496715361581
-    second: E_Combinator_SpriteSheet_88
-  - first:
-      213: 7534910347984628449
-    second: E_Combinator_SpriteSheet_89
-  - first:
-      213: 2292254779763728380
-    second: E_Combinator_SpriteSheet_90
-  - first:
-      213: 4455256074603800459
-    second: E_Combinator_SpriteSheet_91
-  - first:
-      213: -5332405669717699688
-    second: E_Combinator_SpriteSheet_92
-  - first:
-      213: -6551456654625977349
-    second: E_Combinator_SpriteSheet_93
-  - first:
-      213: 8110167295793286810
-    second: E_Combinator_SpriteSheet_94
-  - first:
-      213: 6709412039893635211
-    second: E_Combinator_SpriteSheet_95
-  - first:
-      213: -9049907790880776770
-    second: E_Combinator_SpriteSheet_96
-  - first:
-      213: -6224782590663814300
-    second: E_Combinator_SpriteSheet_97
-  - first:
-      213: -6916727747038463706
-    second: E_Combinator_SpriteSheet_98
-  - first:
-      213: 1551061113425550181
-    second: E_Combinator_SpriteSheet_99
-  - first:
-      213: -6282055169526110273
-    second: E_Combinator_SpriteSheet_100
-  - first:
-      213: 5729748079970794628
-    second: E_Combinator_SpriteSheet_101
-  - first:
-      213: 7500385936572702307
-    second: E_Combinator_SpriteSheet_102
-  - first:
-      213: 2455614365735393320
-    second: E_Combinator_SpriteSheet_103
-  - first:
-      213: 2228142085343317020
-    second: E_Combinator_SpriteSheet_104
-  - first:
-      213: 5781451865955956704
-    second: E_Combinator_SpriteSheet_105
-  - first:
-      213: 3185768621512881624
-    second: E_Combinator_SpriteSheet_106
-  - first:
-      213: -8405785302817468569
-    second: E_Combinator_SpriteSheet_107
-  - first:
-      213: -4484954689240810865
-    second: E_Combinator_SpriteSheet_108
-  - first:
-      213: -4666393537156857480
-    second: E_Combinator_SpriteSheet_109
-  - first:
-      213: -642112851626718016
-    second: E_Combinator_SpriteSheet_110
-  - first:
-      213: 987879483043136148
-    second: E_Combinator_SpriteSheet_111
-  - first:
-      213: 1100859982014839255
-    second: E_Combinator_SpriteSheet_112
-  - first:
-      213: -8135600809357360756
-    second: E_Combinator_SpriteSheet_113
-  - first:
-      213: -8713345765659261893
-    second: E_Combinator_SpriteSheet_114
-  - first:
-      213: 3792991942110528621
-    second: E_Combinator_SpriteSheet_115
-  - first:
-      213: 6225146608458187907
-    second: E_Combinator_SpriteSheet_116
-  - first:
-      213: -4790242352545481010
-    second: E_Combinator_SpriteSheet_117
-  - first:
-      213: -6141485915088027576
-    second: E_Combinator_SpriteSheet_118
-  - first:
-      213: 4207035651502388689
-    second: E_Combinator_SpriteSheet_119
-  - first:
-      213: 7140980880088216044
-    second: E_Combinator_SpriteSheet_120
-  - first:
-      213: -1442091265830608415
-    second: E_Combinator_SpriteSheet_121
-  - first:
-      213: -5559375870468677006
-    second: E_Combinator_SpriteSheet_122
-  - first:
-      213: 8649579273617707809
-    second: E_Combinator_SpriteSheet_123
-  - first:
-      213: -2040646891071621189
-    second: E_Combinator_SpriteSheet_124
-  - first:
-      213: -1826213905973021724
-    second: E_Combinator_SpriteSheet_125
-  - first:
-      213: 2589427726694018227
-    second: E_Combinator_SpriteSheet_126
-  - first:
-      213: -1439734859279568559
-    second: E_Combinator_SpriteSheet_127
-  - first:
-      213: 5874055861143131741
-    second: E_Combinator_SpriteSheet_128
-  - first:
-      213: -8836116035643942056
-    second: E_Combinator_SpriteSheet_129
-  - first:
-      213: 7407464776826180711
-    second: E_Combinator_SpriteSheet_130
-  - first:
-      213: -4398047520540349355
-    second: E_Combinator_SpriteSheet_131
-  - first:
-      213: 6880509306997382001
-    second: E_Combinator_SpriteSheet_132
-  - first:
-      213: -168300192481463497
-    second: E_Combinator_SpriteSheet_133
-  - first:
-      213: -4349658094653137881
-    second: E_Combinator_SpriteSheet_134
-  - first:
-      213: 479193599912648691
-    second: E_Combinator_SpriteSheet_135
-  - first:
-      213: 2435956271967340309
-    second: E_Combinator_SpriteSheet_136
-  - first:
-      213: 3667154651965364562
-    second: E_Combinator_SpriteSheet_137
-  - first:
-      213: -6621885477139496522
-    second: E_Combinator_SpriteSheet_138
-  - first:
-      213: -1200262075890271999
-    second: E_Combinator_SpriteSheet_139
-  - first:
-      213: -2906204672302158503
-    second: E_Combinator_SpriteSheet_140
-  - first:
-      213: -2063599638186035515
-    second: E_Combinator_SpriteSheet_141
-  - first:
-      213: -760713500906063684
-    second: E_Combinator_SpriteSheet_142
-  - first:
-      213: 7693091275454052390
-    second: E_Combinator_SpriteSheet_143
-  - first:
-      213: 4384271240169666977
-    second: E_Combinator_SpriteSheet_144
-  - first:
-      213: 480619893423652251
-    second: E_Combinator_SpriteSheet_145
-  - first:
-      213: 7072978424680544910
-    second: E_Combinator_SpriteSheet_146
-  - first:
-      213: 5092700206015922410
-    second: E_Combinator_SpriteSheet_147
-  - first:
-      213: 2850911349964180609
-    second: E_Combinator_SpriteSheet_148
-  - first:
-      213: 3338969817903337052
-    second: E_Combinator_SpriteSheet_149
-  - first:
-      213: -7328536188515835695
-    second: E_Combinator_SpriteSheet_150
-  - first:
-      213: 6304289270667588387
-    second: E_Combinator_SpriteSheet_151
-  - first:
-      213: 372631747990339809
-    second: E_Combinator_SpriteSheet_152
-  - first:
-      213: 565036234911052632
-    second: E_Combinator_SpriteSheet_153
-  - first:
-      213: 7694519397042656651
-    second: E_Combinator_SpriteSheet_154
-  - first:
-      213: -197892526577443109
-    second: E_Combinator_SpriteSheet_155
-  - first:
-      213: -6780910545029857785
-    second: E_Combinator_SpriteSheet_156
-  - first:
-      213: -8783155005022510592
-    second: E_Combinator_SpriteSheet_157
-  - first:
-      213: 4666547498356307109
-    second: E_Combinator_SpriteSheet_158
-  - first:
-      213: 9053125423264370183
-    second: E_Combinator_SpriteSheet_159
-  - first:
-      213: -2832141935860381330
-    second: E_Combinator_SpriteSheet_160
-  - first:
-      213: 2239936345569191933
-    second: E_Combinator_SpriteSheet_161
-  - first:
-      213: -4084745099764027156
-    second: E_Combinator_SpriteSheet_162
-  - first:
-      213: 762390011793859889
-    second: E_Combinator_SpriteSheet_163
-  - first:
-      213: 5014946975997227951
-    second: E_Combinator_SpriteSheet_164
-  - first:
-      213: -7980518381123933162
-    second: E_Combinator_SpriteSheet_165
-  - first:
-      213: -7536942949364319543
-    second: E_Combinator_SpriteSheet_166
-  - first:
-      213: -8503904707030793800
-    second: E_Combinator_SpriteSheet_167
-  - first:
-      213: -6203013338764288586
-    second: E_Combinator_SpriteSheet_168
-  - first:
-      213: 7292642199063101232
-    second: E_Combinator_SpriteSheet_169
-  - first:
-      213: 4199873051813791353
-    second: E_Combinator_SpriteSheet_170
-  - first:
-      213: 3264964991804203934
-    second: E_Combinator_SpriteSheet_171
-  - first:
-      213: 4074129453584707970
-    second: E_Combinator_SpriteSheet_172
-  - first:
-      213: -8296928335767084037
-    second: E_Combinator_SpriteSheet_173
-  - first:
-      213: -1692343279462170079
-    second: E_Combinator_SpriteSheet_174
-  - first:
-      213: 3823253438974235842
-    second: E_Combinator_SpriteSheet_175
-  - first:
-      213: 4141137377619071751
-    second: E_Combinator_SpriteSheet_176
-  - first:
-      213: 6581970536747035850
-    second: E_Combinator_SpriteSheet_177
-  - first:
-      213: -1662826455807589335
-    second: E_Combinator_SpriteSheet_178
-  - first:
-      213: -8050896735867792045
-    second: E_Combinator_SpriteSheet_179
-  - first:
-      213: 8037544694180127965
-    second: E_Combinator_SpriteSheet_180
-  - first:
-      213: 4841358703253911616
-    second: E_Combinator_SpriteSheet_181
-  - first:
-      213: -3071060158362908648
-    second: E_Combinator_SpriteSheet_182
-  - first:
-      213: -8958390058805770779
-    second: E_Combinator_SpriteSheet_183
-  - first:
-      213: -517867786773019791
-    second: E_Combinator_SpriteSheet_184
-  - first:
-      213: -2882890391674482135
-    second: E_Combinator_SpriteSheet_185
-  - first:
-      213: 6713592075570716097
-    second: E_Combinator_SpriteSheet_186
-  - first:
-      213: 6533740247546797805
-    second: E_Combinator_SpriteSheet_187
-  - first:
-      213: -442982977254010537
-    second: E_Combinator_SpriteSheet_188
-  - first:
-      213: 2155933148409976794
-    second: E_Combinator_SpriteSheet_189
-  - first:
-      213: 8215224547052079123
-    second: E_Combinator_SpriteSheet_190
-  - first:
-      213: -8701437253127877737
-    second: E_Combinator_SpriteSheet_191
-  - first:
-      213: -175653970806146874
-    second: E_Combinator_SpriteSheet_192
-  - first:
-      213: -515292808269105875
-    second: E_Combinator_SpriteSheet_193
-  - first:
-      213: -2150279650918436836
-    second: E_Combinator_SpriteSheet_194
-  - first:
-      213: -6647941002046653222
-    second: E_Combinator_SpriteSheet_195
-  - first:
-      213: -8530128261934663884
-    second: E_Combinator_SpriteSheet_196
-  - first:
-      213: -1002701486113525198
-    second: E_Combinator_SpriteSheet_197
-  - first:
-      213: -3879387248702079335
-    second: E_Combinator_SpriteSheet_198
-  - first:
-      213: -5826445945359689444
-    second: E_Combinator_SpriteSheet_199
-  - first:
-      213: -787186397155269161
-    second: E_Combinator_SpriteSheet_200
-  - first:
-      213: 4012979915198443892
-    second: E_Combinator_SpriteSheet_201
-  - first:
-      213: 7308520233188412582
-    second: E_Combinator_SpriteSheet_202
-  - first:
-      213: 8100323280631967926
-    second: E_Combinator_SpriteSheet_203
-  - first:
-      213: -2605975003154191975
-    second: E_Combinator_SpriteSheet_204
-  - first:
-      213: -2128109046673501169
-    second: E_Combinator_SpriteSheet_205
-  - first:
-      213: 7946164519472091068
-    second: E_Combinator_SpriteSheet_206
-  - first:
-      213: -4431958132423977103
-    second: E_Combinator_SpriteSheet_207
-  - first:
-      213: -8362888545441670857
-    second: E_Combinator_SpriteSheet_208
-  - first:
-      213: 8431351531814447473
-    second: E_Combinator_SpriteSheet_209
-  - first:
-      213: 4525471543893640818
-    second: E_Combinator_SpriteSheet_210
-  - first:
-      213: 3508710365688161154
-    second: E_Combinator_SpriteSheet_211
-  - first:
-      213: -2979639547188690006
-    second: E_Combinator_SpriteSheet_212
-  - first:
-      213: -532535044320312849
-    second: E_Combinator_SpriteSheet_213
-  - first:
-      213: -5732910629220799256
-    second: E_Combinator_SpriteSheet_214
-  - first:
-      213: 3286626278550709896
-    second: E_Combinator_SpriteSheet_215
-  - first:
-      213: -940291205070316322
-    second: E_Combinator_SpriteSheet_216
-  - first:
-      213: 451125171515655575
-    second: E_Combinator_SpriteSheet_217
-  - first:
-      213: -7565269535363342550
-    second: E_Combinator_SpriteSheet_218
-  - first:
-      213: 2978570964299717773
-    second: E_Combinator_SpriteSheet_219
-  - first:
-      213: -7587070887183071491
-    second: E_Combinator_SpriteSheet_220
-  - first:
-      213: -8470278350668115937
-    second: E_Combinator_SpriteSheet_221
-  - first:
-      213: 4261969974022055881
-    second: E_Combinator_SpriteSheet_222
-  - first:
-      213: 2389262823413704711
-    second: E_Combinator_SpriteSheet_223
-  - first:
-      213: -8093123443057178319
-    second: E_Combinator_SpriteSheet_224
-  - first:
-      213: -5588592411896615491
-    second: E_Combinator_SpriteSheet_225
-  - first:
-      213: -4560762517299700475
-    second: E_Combinator_SpriteSheet_226
-  - first:
-      213: -5004526830041666346
-    second: E_Combinator_SpriteSheet_227
-  - first:
-      213: 7800913122546128307
-    second: E_Combinator_SpriteSheet_228
-  - first:
-      213: 1462384371714681236
-    second: E_Combinator_SpriteSheet_229
-  - first:
-      213: 468780279996179267
-    second: E_Combinator_SpriteSheet_230
-  - first:
-      213: -7302722637331416945
-    second: E_Combinator_SpriteSheet_231
-  - first:
-      213: -7391765477723560461
-    second: E_Combinator_SpriteSheet_232
-  - first:
-      213: 6440366315182189153
-    second: E_Combinator_SpriteSheet_233
-  - first:
-      213: -1576163504826673314
-    second: E_Combinator_SpriteSheet_234
-  - first:
-      213: 3174856522361720841
-    second: E_Combinator_SpriteSheet_235
-  - first:
-      213: 1159088034382970986
-    second: E_Combinator_SpriteSheet_236
-  - first:
-      213: 7377542856204612952
-    second: E_Combinator_SpriteSheet_237
-  - first:
-      213: -2505404035141539619
-    second: E_Combinator_SpriteSheet_238
-  - first:
-      213: -585273795639250794
-    second: E_Combinator_SpriteSheet_239
-  - first:
-      213: -1790087079761378879
-    second: E_Combinator_SpriteSheet_240
-  - first:
-      213: -1543415544038368490
-    second: E_Combinator_SpriteSheet_241
-  - first:
-      213: 6359284668183914458
-    second: E_Combinator_SpriteSheet_242
-  - first:
-      213: -1709246770490311010
-    second: E_Combinator_SpriteSheet_243
-  - first:
-      213: 5584808658731668333
-    second: E_Combinator_SpriteSheet_244
-  - first:
-      213: -9168766862651165512
-    second: E_Combinator_SpriteSheet_245
-  - first:
-      213: 4145874880459736354
-    second: E_Combinator_SpriteSheet_246
-  - first:
-      213: -6778013783801726710
-    second: E_Combinator_SpriteSheet_247
-  - first:
-      213: -665328902338847131
-    second: E_Combinator_SpriteSheet_248
-  - first:
-      213: 351304962129035031
-    second: E_Combinator_SpriteSheet_249
-  - first:
-      213: 6901532301876514853
-    second: E_Combinator_SpriteSheet_250
-  - first:
-      213: -1212727082462773967
-    second: E_Combinator_SpriteSheet_251
-  - first:
-      213: 795918814451968519
-    second: E_Combinator_SpriteSheet_252
-  - first:
-      213: -7891911664550534399
-    second: E_Combinator_SpriteSheet_253
-  - first:
-      213: -3407788119035019984
-    second: E_Combinator_SpriteSheet_254
-  - first:
-      213: -759911798956700931
-    second: E_Combinator_SpriteSheet_255
-  - first:
-      213: 2897278526049580178
-    second: E_Combinator_SpriteSheet_256
-  - first:
-      213: 6093957604031938907
-    second: E_Combinator_SpriteSheet_257
-  - first:
-      213: 2909035293207135008
-    second: E_Combinator_SpriteSheet_258
-  - first:
-      213: -3733382789285291339
-    second: E_Combinator_SpriteSheet_259
-  - first:
-      213: -3418324428308545465
-    second: E_Combinator_SpriteSheet_260
-  - first:
-      213: -7093064413275153276
-    second: E_Combinator_SpriteSheet_261
-  - first:
-      213: -8308697241054714584
-    second: E_Combinator_SpriteSheet_262
-  - first:
-      213: -3774436773104530271
-    second: E_Combinator_SpriteSheet_263
-  - first:
-      213: -815780355701273046
-    second: E_Combinator_SpriteSheet_264
-  - first:
-      213: -2013299933324283216
-    second: E_Combinator_SpriteSheet_265
-  - first:
-      213: -1859981065366579784
-    second: E_Combinator_SpriteSheet_266
-  - first:
-      213: -2098481674601470860
-    second: E_Combinator_SpriteSheet_267
-  - first:
-      213: -5199586382149333117
-    second: E_Combinator_SpriteSheet_268
-  - first:
-      213: -5589073859998142415
-    second: E_Combinator_SpriteSheet_269
-  - first:
-      213: -7175764418919840041
-    second: E_Combinator_SpriteSheet_270
-  - first:
-      213: -2520329025461720762
-    second: E_Combinator_SpriteSheet_271
-  - first:
-      213: 7439331471168149817
-    second: E_Combinator_SpriteSheet_272
-  - first:
-      213: -6936658639390895168
-    second: E_Combinator_SpriteSheet_273
-  - first:
-      213: -1123982876598956244
-    second: E_Combinator_SpriteSheet_274
-  - first:
-      213: -4379762976059276444
-    second: E_Combinator_SpriteSheet_275
-  - first:
-      213: -5749911535576393852
-    second: E_Combinator_SpriteSheet_276
-  - first:
-      213: 3397752617101286952
-    second: E_Combinator_SpriteSheet_277
-  - first:
-      213: -3291942258428682256
-    second: E_Combinator_SpriteSheet_278
-  - first:
-      213: 8151134771327311996
-    second: E_Combinator_SpriteSheet_279
-  - first:
-      213: -5996470343504042842
-    second: E_Combinator_SpriteSheet_280
-  - first:
-      213: -7425676048029305046
-    second: E_Combinator_SpriteSheet_281
-  - first:
-      213: -1948325055682709696
-    second: E_Combinator_SpriteSheet_282
-  - first:
-      213: 5572513039803730032
-    second: E_Combinator_SpriteSheet_283
-  - first:
-      213: -5253453355896798839
-    second: E_Combinator_SpriteSheet_284
-  - first:
-      213: 4606564580281564100
-    second: E_Combinator_SpriteSheet_285
-  - first:
-      213: 1895668993482078935
-    second: E_Combinator_SpriteSheet_286
-  - first:
-      213: -3320719862395014154
-    second: E_Combinator_SpriteSheet_287
-  - first:
-      213: 2870636777354129479
-    second: E_Combinator_SpriteSheet_288
-  - first:
-      213: -5623495875834706324
-    second: E_Combinator_SpriteSheet_289
-  - first:
-      213: -7061501775975734455
-    second: E_Combinator_SpriteSheet_290
-  - first:
-      213: -6513755453297076909
-    second: E_Combinator_SpriteSheet_291
-  - first:
-      213: 1745806158296802496
-    second: E_Combinator_SpriteSheet_292
-  - first:
-      213: -7106581184682417384
-    second: E_Combinator_SpriteSheet_293
-  - first:
-      213: 1679807444249966340
-    second: E_Combinator_SpriteSheet_294
-  - first:
-      213: -8603285324701334665
-    second: E_Combinator_SpriteSheet_295
-  - first:
-      213: -596495078743463350
-    second: E_Combinator_SpriteSheet_296
-  - first:
-      213: -5427620153012492668
-    second: E_Combinator_SpriteSheet_297
-  - first:
-      213: -90279879331299261
-    second: E_Combinator_SpriteSheet_298
-  - first:
-      213: 8774125203746579472
-    second: E_Combinator_SpriteSheet_299
-  - first:
-      213: -1893815749684906034
-    second: E_Combinator_SpriteSheet_300
-  - first:
-      213: 788657245498861506
-    second: E_Combinator_SpriteSheet_301
-  - first:
-      213: 1242825874539967693
-    second: E_Combinator_SpriteSheet_302
-  - first:
-      213: 5852900519982461646
-    second: E_Combinator_SpriteSheet_303
-  - first:
-      213: 6715494157092969005
-    second: E_Combinator_SpriteSheet_304
-  - first:
-      213: -3381976308011478196
-    second: E_Combinator_SpriteSheet_305
-  - first:
-      213: -7325211597100690566
-    second: E_Combinator_SpriteSheet_306
-  - first:
-      213: 3330351742193386940
-    second: E_Combinator_SpriteSheet_307
-  - first:
-      213: -2715570819629626462
-    second: E_Combinator_SpriteSheet_308
-  - first:
-      213: -4771186199593650576
-    second: E_Combinator_SpriteSheet_309
-  - first:
-      213: 1224762632952045325
-    second: E_Combinator_SpriteSheet_310
-  - first:
-      213: -6277229930856462382
-    second: E_Combinator_SpriteSheet_311
-  - first:
-      213: -1212146579212725415
-    second: E_Combinator_SpriteSheet_312
-  - first:
-      213: 3632947445446825745
-    second: E_Combinator_SpriteSheet_313
-  - first:
-      213: 7795313569986697731
-    second: E_Combinator_SpriteSheet_314
-  - first:
-      213: -8694312980663778760
-    second: E_Combinator_SpriteSheet_315
-  - first:
-      213: 2092646527463084587
-    second: E_Combinator_SpriteSheet_316
-  - first:
-      213: -7581648878151146029
-    second: E_Combinator_SpriteSheet_317
-  - first:
-      213: -5393601827054914371
-    second: E_Combinator_SpriteSheet_318
-  - first:
-      213: 5601971731159620132
-    second: E_Combinator_SpriteSheet_319
-  - first:
-      213: 1398153863129363753
-    second: E_Combinator_SpriteSheet_320
-  - first:
-      213: 8622649267313040904
-    second: E_Combinator_SpriteSheet_321
-  - first:
-      213: 2948968589611316630
-    second: E_Combinator_SpriteSheet_322
-  - first:
-      213: -403532129529612992
-    second: E_Combinator_SpriteSheet_323
-  - first:
-      213: 1229861998263714001
-    second: E_Combinator_SpriteSheet_324
-  - first:
-      213: 4796485779546842432
-    second: E_Combinator_SpriteSheet_325
-  - first:
-      213: -3551210952057546937
-    second: E_Combinator_SpriteSheet_326
-  - first:
-      213: -7140662280530645031
-    second: E_Combinator_SpriteSheet_327
-  - first:
-      213: 2312036965970904335
-    second: E_Combinator_SpriteSheet_328
-  - first:
-      213: 6207971217106827080
-    second: E_Combinator_SpriteSheet_329
-  - first:
-      213: -2749505040226587628
-    second: E_Combinator_SpriteSheet_330
-  - first:
-      213: 9196697077925944805
-    second: E_Combinator_SpriteSheet_331
-  - first:
-      213: -8404539204992220665
-    second: E_Combinator_SpriteSheet_332
-  - first:
-      213: -6343453916578786600
-    second: E_Combinator_SpriteSheet_333
-  - first:
-      213: 57155979252238327
-    second: E_Combinator_SpriteSheet_334
-  - first:
-      213: 5828115012660759110
-    second: E_Combinator_SpriteSheet_335
-  - first:
-      213: -6329686323869111440
-    second: E_Combinator_SpriteSheet_336
-  - first:
-      213: 5167909657396705886
-    second: E_Combinator_SpriteSheet_337
-  - first:
-      213: 4353260202908583822
-    second: E_Combinator_SpriteSheet_338
-  - first:
-      213: -2568514088451824987
-    second: E_Combinator_SpriteSheet_339
-  - first:
-      213: -2157138083616993934
-    second: E_Combinator_SpriteSheet_340
-  - first:
-      213: 2739622990616522538
-    second: E_Combinator_SpriteSheet_341
-  - first:
-      213: -5103124926679564704
-    second: E_Combinator_SpriteSheet_342
-  - first:
-      213: 4069366206326556544
-    second: E_Combinator_SpriteSheet_343
-  - first:
-      213: 7324974589269468822
-    second: E_Combinator_SpriteSheet_344
-  - first:
-      213: -2382632876216388113
-    second: E_Combinator_SpriteSheet_345
-  - first:
-      213: 8457895829613456358
-    second: E_Combinator_SpriteSheet_346
-  - first:
-      213: 7358292508890355018
-    second: E_Combinator_SpriteSheet_347
-  - first:
-      213: -7640340762611874246
-    second: E_Combinator_SpriteSheet_348
-  - first:
-      213: 2282384670889386555
-    second: E_Combinator_SpriteSheet_349
-  - first:
-      213: -4659837277347036682
-    second: E_Combinator_SpriteSheet_350
-  - first:
-      213: -2561533138542621981
-    second: E_Combinator_SpriteSheet_351
-  - first:
-      213: -6224539264417505022
-    second: E_Combinator_SpriteSheet_352
-  - first:
-      213: -5524562394937834019
-    second: E_Combinator_SpriteSheet_353
-  - first:
-      213: -5178233559627940453
-    second: E_Combinator_SpriteSheet_354
-  - first:
-      213: 324575629074615194
-    second: E_Combinator_SpriteSheet_355
-  - first:
-      213: 2937905804370338331
-    second: E_Combinator_SpriteSheet_356
-  - first:
-      213: -7107028081105635514
-    second: E_Combinator_SpriteSheet_357
-  - first:
-      213: -4984649392398678944
-    second: E_Combinator_SpriteSheet_358
-  - first:
-      213: 795206900694396857
-    second: E_Combinator_SpriteSheet_359
-  - first:
-      213: -3969274499978483675
-    second: E_Combinator_SpriteSheet_360
-  - first:
-      213: 7424517784854666497
-    second: E_Combinator_SpriteSheet_361
-  - first:
-      213: 1433277092627229987
-    second: E_Combinator_SpriteSheet_362
-  - first:
-      213: -1392633810412034291
-    second: E_Combinator_SpriteSheet_363
-  - first:
-      213: 1594370314311865281
-    second: E_Combinator_SpriteSheet_364
-  - first:
-      213: 8166261373737031893
-    second: E_Combinator_SpriteSheet_365
-  - first:
-      213: -5518737555464302586
-    second: E_Combinator_SpriteSheet_366
-  - first:
-      213: 3548600917906801244
-    second: E_Combinator_SpriteSheet_367
-  - first:
-      213: -952842870426291429
-    second: E_Combinator_SpriteSheet_368
-  - first:
-      213: 4386762214404088114
-    second: E_Combinator_SpriteSheet_369
-  - first:
-      213: 2913394624586388205
-    second: E_Combinator_SpriteSheet_370
-  - first:
-      213: 192051689488619192
-    second: E_Combinator_SpriteSheet_371
-  - first:
-      213: 7203471439283450346
-    second: E_Combinator_SpriteSheet_372
-  - first:
-      213: 1284626068255402314
-    second: E_Combinator_SpriteSheet_373
-  - first:
-      213: -8432917749579125467
-    second: E_Combinator_SpriteSheet_374
-  - first:
-      213: 6943465867533322511
-    second: E_Combinator_SpriteSheet_375
-  - first:
-      213: -3499069887196894820
-    second: E_Combinator_SpriteSheet_376
-  - first:
-      213: 1102734215008456488
-    second: E_Combinator_SpriteSheet_377
-  - first:
-      213: -8265993201852808425
-    second: E_Combinator_SpriteSheet_378
-  - first:
-      213: -7797654512640214167
-    second: E_Combinator_SpriteSheet_379
-  - first:
-      213: 2364747473850759457
-    second: E_Combinator_SpriteSheet_380
-  - first:
-      213: -6471867046919362907
-    second: E_Combinator_SpriteSheet_381
-  - first:
-      213: 8279148029916138189
-    second: E_Combinator_SpriteSheet_382
-  - first:
-      213: -4798107904702322116
-    second: E_Combinator_SpriteSheet_383
-  - first:
-      213: 6911523118543794888
-    second: E_Combinator_SpriteSheet_384
-  - first:
-      213: -8245638592929862342
-    second: E_Combinator_SpriteSheet_385
-  - first:
-      213: -3332702995997314962
-    second: E_Combinator_SpriteSheet_386
-  - first:
-      213: -5539940698267369937
-    second: E_Combinator_SpriteSheet_387
-  - first:
-      213: -7028653970520933064
-    second: E_Combinator_SpriteSheet_388
-  - first:
-      213: 3473340609587836491
-    second: E_Combinator_SpriteSheet_389
-  - first:
-      213: -1483405517012173543
-    second: E_Combinator_SpriteSheet_390
-  - first:
-      213: -6118923526868000453
-    second: E_Combinator_SpriteSheet_391
-  - first:
-      213: 4365857793615500222
-    second: E_Combinator_SpriteSheet_392
-  - first:
-      213: 6721317860267882580
-    second: E_Combinator_SpriteSheet_393
-  - first:
-      213: 5896493081272163631
-    second: E_Combinator_SpriteSheet_394
-  - first:
-      213: -497321378573048891
-    second: E_Combinator_SpriteSheet_395
-  - first:
-      213: -1316178395458123549
-    second: E_Combinator_SpriteSheet_396
-  - first:
-      213: 2254517076645925780
-    second: E_Combinator_SpriteSheet_397
-  - first:
-      213: -7611490234517396431
-    second: E_Combinator_SpriteSheet_398
-  - first:
-      213: 8596120881706299932
-    second: E_Combinator_SpriteSheet_399
-  - first:
-      213: 363109236860197539
-    second: E_Combinator_SpriteSheet_400
-  - first:
-      213: -8597201481288035546
-    second: E_Combinator_SpriteSheet_401
-  - first:
-      213: -8453656311874376187
-    second: E_Combinator_SpriteSheet_402
-  - first:
-      213: -4500172437730454570
-    second: E_Combinator_SpriteSheet_403
-  - first:
-      213: -6894843892593140009
-    second: E_Combinator_SpriteSheet_404
-  - first:
-      213: 4943506274610082696
-    second: E_Combinator_SpriteSheet_405
-  - first:
-      213: 5185959947010304210
-    second: E_Combinator_SpriteSheet_406
-  - first:
-      213: 8999193240199359840
-    second: E_Combinator_SpriteSheet_407
-  - first:
-      213: -1291048006918185803
-    second: E_Combinator_SpriteSheet_408
-  - first:
-      213: -9188926007829716174
-    second: E_Combinator_SpriteSheet_409
-  - first:
-      213: 2913654489681915882
-    second: E_Combinator_SpriteSheet_410
-  - first:
-      213: -5416607946331192683
-    second: E_Combinator_SpriteSheet_411
-  - first:
-      213: 6821689932168412585
-    second: E_Combinator_SpriteSheet_412
-  - first:
-      213: 7026189573515863859
-    second: E_Combinator_SpriteSheet_413
-  - first:
-      213: -3249971297678053218
-    second: E_Combinator_SpriteSheet_414
-  - first:
-      213: -5829972921808478333
-    second: E_Combinator_SpriteSheet_415
-  - first:
-      213: -8472888327786787326
-    second: E_Combinator_SpriteSheet_416
-  - first:
-      213: 1682928652186735557
-    second: E_Combinator_SpriteSheet_417
-  - first:
-      213: 7967344551198892566
-    second: E_Combinator_SpriteSheet_418
-  - first:
-      213: 5019286301742582064
-    second: E_Combinator_SpriteSheet_419
-  - first:
-      213: -795972963534824482
-    second: E_Combinator_SpriteSheet_420
-  - first:
-      213: 2387416234353480575
-    second: E_Combinator_SpriteSheet_421
-  - first:
-      213: 3044275198663533302
-    second: E_Combinator_SpriteSheet_422
-  - first:
-      213: 1915761333625600260
-    second: E_Combinator_SpriteSheet_423
-  - first:
-      213: -2319625846552398121
-    second: E_Combinator_SpriteSheet_424
-  - first:
-      213: -7620676554375672269
-    second: E_Combinator_SpriteSheet_425
-  - first:
-      213: -4940045055684393210
-    second: E_Combinator_SpriteSheet_426
-  - first:
-      213: 6958557588499975071
-    second: E_Combinator_SpriteSheet_427
-  - first:
-      213: -9098058870197815267
-    second: E_Combinator_SpriteSheet_428
-  - first:
-      213: -4411176498219946138
-    second: E_Combinator_SpriteSheet_429
-  - first:
-      213: -1478654182714655373
-    second: E_Combinator_SpriteSheet_430
-  - first:
-      213: 583313864563507495
-    second: E_Combinator_SpriteSheet_431
-  - first:
-      213: 1363472323156347578
-    second: E_Combinator_SpriteSheet_432
-  - first:
-      213: 9110021400024591484
-    second: E_Combinator_SpriteSheet_433
-  - first:
-      213: -573902835968390610
-    second: E_Combinator_SpriteSheet_434
-  - first:
-      213: -3284433261819631608
-    second: E_Combinator_SpriteSheet_435
-  - first:
-      213: -1941248109108606711
-    second: E_Combinator_SpriteSheet_436
-  - first:
-      213: 1276765136581092799
-    second: E_Combinator_SpriteSheet_437
-  - first:
-      213: -8993389939847410876
-    second: E_Combinator_SpriteSheet_438
-  - first:
-      213: 5908636674576135972
-    second: E_Combinator_SpriteSheet_439
-  - first:
-      213: -3985398744234299326
-    second: E_Combinator_SpriteSheet_440
-  - first:
-      213: 7067005515787323365
-    second: E_Combinator_SpriteSheet_441
-  - first:
-      213: -1016695718777129009
-    second: E_Combinator_SpriteSheet_442
-  - first:
-      213: -4202417262244989133
-    second: E_Combinator_SpriteSheet_443
-  - first:
-      213: -8433938907344487206
-    second: E_Combinator_SpriteSheet_444
-  - first:
-      213: 6409312517822803843
-    second: E_Combinator_SpriteSheet_445
-  - first:
-      213: -2160761700718797885
-    second: E_Combinator_SpriteSheet_446
-  - first:
-      213: -154241891011647486
-    second: E_Combinator_SpriteSheet_447
-  - first:
-      213: 552767702411228471
-    second: E_Combinator_SpriteSheet_448
-  - first:
-      213: -6359673053697812714
-    second: E_Combinator_SpriteSheet_449
-  - first:
-      213: 3174822028504364693
-    second: E_Combinator_SpriteSheet_450
-  - first:
-      213: -530607297048674382
-    second: E_Combinator_SpriteSheet_451
-  - first:
-      213: -3802922072004505879
-    second: E_Combinator_SpriteSheet_452
-  - first:
-      213: 5268264733585668137
-    second: E_Combinator_SpriteSheet_453
-  - first:
-      213: 639809508252038033
-    second: E_Combinator_SpriteSheet_454
-  - first:
-      213: -7986897568849810514
-    second: E_Combinator_SpriteSheet_455
-  - first:
-      213: -7075451877682209671
-    second: E_Combinator_SpriteSheet_456
-  - first:
-      213: -7813159819658581261
-    second: E_Combinator_SpriteSheet_457
-  - first:
-      213: 8807144680411291502
-    second: E_Combinator_SpriteSheet_458
-  - first:
-      213: -8863773513222364624
-    second: E_Combinator_SpriteSheet_459
-  - first:
-      213: 5262351085193263436
-    second: E_Combinator_SpriteSheet_460
-  - first:
-      213: 5449273640162308782
-    second: E_Combinator_SpriteSheet_461
-  - first:
-      213: -4287076997090717157
-    second: E_Combinator_SpriteSheet_462
-  - first:
-      213: -6895916921050846404
-    second: E_Combinator_SpriteSheet_463
-  - first:
-      213: 1782122121616015648
-    second: E_Combinator_SpriteSheet_464
-  - first:
-      213: -8972958197580544916
-    second: E_Combinator_SpriteSheet_465
-  - first:
-      213: 5726388947855279962
-    second: E_Combinator_SpriteSheet_466
-  - first:
-      213: -2682053564756584193
-    second: E_Combinator_SpriteSheet_467
-  - first:
-      213: -3403382199423786201
-    second: E_Combinator_SpriteSheet_468
-  - first:
-      213: 7192999671420533103
-    second: E_Combinator_SpriteSheet_469
+      213: 3032035035337673797
+    second: E_Combinator_SpriteSheet_39
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1535,19 +368,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4662
-        width: 1000
-        height: 518
+        x: 317
+        y: 4765
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e95a230b1d6c164e0800000000000000
-      internalID: -1990090956414474850
+      spriteID: d37f5ea431f3b8c70800000000000000
+      internalID: 8974336034559358781
       vertices: []
       indices: 
       edges: []
@@ -1556,19 +389,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 4662
-        width: 1000
-        height: 518
+        x: 1317
+        y: 4765
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aec281c0240115030800000000000000
-      internalID: 3481581862790900970
+      spriteID: 12275a1b7aafa6430800000000000000
+      internalID: 3777106835650474529
       vertices: []
       indices: 
       edges: []
@@ -1577,19 +410,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 4662
-        width: 1000
-        height: 518
+        x: 2317
+        y: 4765
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2ed6efb2bbfd5d00800000000000000
-      internalID: 963202640469483052
+      spriteID: b303efc0827351140800000000000000
+      internalID: 4689715232132444219
       vertices: []
       indices: 
       edges: []
@@ -1598,19 +431,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 4662
-        width: 1000
-        height: 518
+        x: 3317
+        y: 4765
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287cb584bf8c66640800000000000000
-      internalID: 5072963011855763330
+      spriteID: f6ce16e18843c4e20800000000000000
+      internalID: 3336099183204625519
       vertices: []
       indices: 
       edges: []
@@ -1619,19 +452,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 4662
-        width: 1000
-        height: 518
+        x: 4317
+        y: 4765
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0c7934777ac542e0800000000000000
-      internalID: -2142083433344959474
+      spriteID: 8f33a786815d99900800000000000000
+      internalID: 691818318586852344
       vertices: []
       indices: 
       edges: []
@@ -1640,19 +473,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4144
-        width: 1000
-        height: 518
+        x: 317
+        y: 4247
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb02112f087be7e20800000000000000
-      internalID: 3350316937255133371
+      spriteID: 93bd494504f267d60800000000000000
+      internalID: 7887543750729456441
       vertices: []
       indices: 
       edges: []
@@ -1661,19 +494,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 4144
-        width: 1000
-        height: 518
+        x: 1317
+        y: 4247
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81a2598d2abe98ee0800000000000000
-      internalID: -1258215536222459368
+      spriteID: b6ca6707b3434f2d0800000000000000
+      internalID: -3245912001532744597
       vertices: []
       indices: 
       edges: []
@@ -1682,19 +515,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 4144
-        width: 1000
-        height: 518
+        x: 2317
+        y: 4247
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4226f7c8318004360800000000000000
-      internalID: 7151725088318906916
+      spriteID: f6aace7ef58970040800000000000000
+      internalID: 4613823880944724591
       vertices: []
       indices: 
       edges: []
@@ -1703,19 +536,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 4144
-        width: 1000
-        height: 518
+        x: 3317
+        y: 4247
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52329aa1d1e10ee50800000000000000
-      internalID: 6836497344698589989
+      spriteID: 9bd63bc807d4d8460800000000000000
+      internalID: 7245532521301241273
       vertices: []
       indices: 
       edges: []
@@ -1724,19 +557,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 4144
-        width: 1000
-        height: 518
+        x: 4317
+        y: 4247
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 758aea064c373b500800000000000000
-      internalID: 410799278293690455
+      spriteID: b548ced0423b05a90800000000000000
+      internalID: -7327159626297998245
       vertices: []
       indices: 
       edges: []
@@ -1745,19 +578,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3626
-        width: 1000
-        height: 518
+        x: 317
+        y: 3729
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57eb6731039698b20800000000000000
-      internalID: 3137154270646156917
+      spriteID: 2d278fa87619c9cb0800000000000000
+      internalID: -4855846424313040174
       vertices: []
       indices: 
       edges: []
@@ -1766,19 +599,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 3626
-        width: 1000
-        height: 518
+        x: 1317
+        y: 3729
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3e7618e35a468990800000000000000
-      internalID: -7384132814790820293
+      spriteID: 429177191290a2390800000000000000
+      internalID: -7842445761333225180
       vertices: []
       indices: 
       edges: []
@@ -1787,19 +620,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 3626
-        width: 1000
-        height: 518
+        x: 2317
+        y: 3729
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33c39f413a01d3260800000000000000
-      internalID: 7078832481913879603
+      spriteID: 650934f688cb51800800000000000000
+      internalID: 582579020982620246
       vertices: []
       indices: 
       edges: []
@@ -1808,19 +641,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 3626
-        width: 1000
-        height: 518
+        x: 3317
+        y: 3729
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcf6f71a8cdd98840800000000000000
-      internalID: 5226952696312852429
+      spriteID: 2950dce171a3e66e0800000000000000
+      internalID: -1842471326572542574
       vertices: []
       indices: 
       edges: []
@@ -1829,19 +662,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 3626
-        width: 1000
-        height: 518
+        x: 4317
+        y: 3729
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a39891e5a7cfcf80800000000000000
-      internalID: -8084023290838346842
+      spriteID: 39942d91e975cc6d0800000000000000
+      internalID: -2968901717794338413
       vertices: []
       indices: 
       edges: []
@@ -1850,19 +683,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3108
-        width: 1000
-        height: 518
+        x: 317
+        y: 3211
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 808548bfc42d0e1a0800000000000000
-      internalID: -6782189810740865016
+      spriteID: d4480b54a380f31f0800000000000000
+      internalID: -1063121940665826227
       vertices: []
       indices: 
       edges: []
@@ -1871,19 +704,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 3108
-        width: 1000
-        height: 518
+        x: 1317
+        y: 3211
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2572c6d2326c098d0800000000000000
-      internalID: -2841553510482565294
+      spriteID: f8f21cd01a330c090800000000000000
+      internalID: -8016350569905967217
       vertices: []
       indices: 
       edges: []
@@ -1892,19 +725,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_17
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 3108
-        width: 1000
-        height: 518
+        x: 2317
+        y: 3211
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dd11f61ced92ea30800000000000000
-      internalID: 4243127436259171794
+      spriteID: 72e926c15eecdf600800000000000000
+      internalID: 503786216754421287
       vertices: []
       indices: 
       edges: []
@@ -1913,19 +746,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_18
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 3108
-        width: 1000
-        height: 518
+        x: 3317
+        y: 3211
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72ca98cbc2e6a4e40800000000000000
-      internalID: 5641442621655723047
+      spriteID: e8d0c5292c293a520800000000000000
+      internalID: 2712172764983987598
       vertices: []
       indices: 
       edges: []
@@ -1934,19 +767,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_19
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 3108
-        width: 1000
-        height: 518
+        x: 4317
+        y: 3211
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759b6c4823251d2b0800000000000000
-      internalID: -5561573687896393385
+      spriteID: b328ef59750f2ca00800000000000000
+      internalID: 775446344830452283
       vertices: []
       indices: 
       edges: []
@@ -1955,19 +788,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2590
-        width: 1000
-        height: 518
+        x: 317
+        y: 2693
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af91c583cf9d19170800000000000000
-      internalID: 8183561675209447930
+      spriteID: 43794c119fb6dfd70800000000000000
+      internalID: 9078531141337913140
       vertices: []
       indices: 
       edges: []
@@ -1976,19 +809,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_21
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 2590
-        width: 1000
-        height: 518
+        x: 1317
+        y: 2693
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a1931fdf7f931270800000000000000
-      internalID: 8220089116433551783
+      spriteID: db0a08b37a0702850800000000000000
+      internalID: 6350199338152534205
       vertices: []
       indices: 
       edges: []
@@ -1997,19 +830,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_22
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2590
-        width: 1000
-        height: 518
+        x: 2317
+        y: 2693
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c58feeb5b1f3e700800000000000000
-      internalID: 568563740873557442
+      spriteID: 78b5ac2978f2795a0800000000000000
+      internalID: -6514686076638307449
       vertices: []
       indices: 
       edges: []
@@ -2018,19 +851,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_23
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 2590
-        width: 1000
-        height: 518
+        x: 3317
+        y: 2693
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463366cf63956f370800000000000000
-      internalID: 8355964251330196324
+      spriteID: db6f9edbee59bb770800000000000000
+      internalID: 8627654363779299005
       vertices: []
       indices: 
       edges: []
@@ -2039,19 +872,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_24
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 2590
-        width: 1000
-        height: 518
+        x: 4317
+        y: 2693
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 264a128dabe773ca0800000000000000
-      internalID: -6037217434511760286
+      spriteID: 04827199a87575ee0800000000000000
+      internalID: -1272452116923340736
       vertices: []
       indices: 
       edges: []
@@ -2060,19 +893,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_25
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2072
-        width: 1000
-        height: 518
+        x: 317
+        y: 2175
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 125312d9e3c6623f0800000000000000
-      internalID: -925933657198086879
+      spriteID: 922ea484487d5f0b0800000000000000
+      internalID: -5695409190591602135
       vertices: []
       indices: 
       edges: []
@@ -2081,19 +914,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_26
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 2072
-        width: 1000
-        height: 518
+        x: 1317
+        y: 2175
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38c3d2fed770b6f30800000000000000
-      internalID: 4569754484362525827
+      spriteID: 0592e47823cf16bc0800000000000000
+      internalID: -3791472117320636080
       vertices: []
       indices: 
       edges: []
@@ -2102,19 +935,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_27
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2072
-        width: 1000
-        height: 518
+        x: 2317
+        y: 2175
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f97dd9f57e3acc10800000000000000
-      internalID: 2074539254781671924
+      spriteID: 619d75e8c2b78d3f0800000000000000
+      internalID: -875814696226662122
       vertices: []
       indices: 
       edges: []
@@ -2123,19 +956,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_28
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 2072
-        width: 1000
-        height: 518
+        x: 3317
+        y: 2175
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21c986845519e8c50800000000000000
-      internalID: 6669427893655346194
+      spriteID: d0daba74eb9cc98b0800000000000000
+      internalID: -5144014855280546547
       vertices: []
       indices: 
       edges: []
@@ -2144,19 +977,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_29
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 2072
-        width: 1000
-        height: 518
+        x: 4317
+        y: 2175
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e7cc4ad2bd463990800000000000000
-      internalID: -7406647106602219552
+      spriteID: 2cfdd5b11edddc500800000000000000
+      internalID: 418234299311841218
       vertices: []
       indices: 
       edges: []
@@ -2165,19 +998,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_30
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1554
-        width: 1000
-        height: 518
+        x: 317
+        y: 1657
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 446c567a19897d4e0800000000000000
-      internalID: -1956927761723046332
+      spriteID: ab1dcb587f1cbffc0800000000000000
+      internalID: -3459958619859267142
       vertices: []
       indices: 
       edges: []
@@ -2186,19 +1019,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_31
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1554
-        width: 1000
-        height: 518
+        x: 1317
+        y: 1657
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b708a2d1ab482de90800000000000000
-      internalID: -7002388535719591813
+      spriteID: fee194f80e3eceef0800000000000000
+      internalID: -77436539956027665
       vertices: []
       indices: 
       edges: []
@@ -2207,19 +1040,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_32
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 1554
-        width: 1000
-        height: 518
+        x: 2317
+        y: 1657
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f92c87857b1900c0800000000000000
-      internalID: -4609122552037758477
+      spriteID: 09c97836c5ef35270800000000000000
+      internalID: 8238207816151047312
       vertices: []
       indices: 
       edges: []
@@ -2228,19 +1061,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_33
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 1554
-        width: 1000
-        height: 518
+        x: 3317
+        y: 1657
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7f9d979b3d91dc10800000000000000
-      internalID: 2076613782466830204
+      spriteID: 6533c0ac840b70ef0800000000000000
+      internalID: -141951036564950186
       vertices: []
       indices: 
       edges: []
@@ -2249,19 +1082,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_34
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 1554
-        width: 1000
-        height: 518
+        x: 4317
+        y: 1657
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d282da3d1e579fe50800000000000000
-      internalID: 6843630721545611309
+      spriteID: ec86b8b42ddf000a0800000000000000
+      internalID: -6917249947988694834
       vertices: []
       indices: 
       edges: []
@@ -2270,19 +1103,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_35
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1036
-        width: 1000
-        height: 518
+        x: 317
+        y: 1139
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22db3ab48f33274a0800000000000000
-      internalID: -6597153362630427358
+      spriteID: 5ddf302ca73b6e210800000000000000
+      internalID: 1361973277148577237
       vertices: []
       indices: 
       edges: []
@@ -2291,19 +1124,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_36
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1036
-        width: 1000
-        height: 518
+        x: 1317
+        y: 1139
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb693434409468310800000000000000
-      internalID: 1406892216257058495
+      spriteID: bb6be5bda392318d0800000000000000
+      internalID: -2876910404194355525
       vertices: []
       indices: 
       edges: []
@@ -2312,19 +1145,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_37
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 1036
-        width: 1000
-        height: 518
+        x: 2317
+        y: 1139
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da966e31753903c80800000000000000
-      internalID: -8345008107312223827
+      spriteID: cfeaa11194db1d150800000000000000
+      internalID: 5895701508721913596
       vertices: []
       indices: 
       edges: []
@@ -2333,19 +1166,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_38
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 1036
-        width: 1000
-        height: 518
+        x: 3317
+        y: 1139
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44973107414957e0800000000000000
-      internalID: -1776316804802046897
+      spriteID: e91c48c8237a44610800000000000000
+      internalID: 1604591202798453150
       vertices: []
       indices: 
       edges: []
@@ -2354,19 +1187,19 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_39
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 1036
-        width: 1000
-        height: 518
+        x: 4317
+        y: 1139
+        width: 448
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37cbb996b470162e0800000000000000
-      internalID: -2134416727921148813
+      spriteID: 54c47dbdcc3f31a20800000000000000
+      internalID: 3032035035337673797
       vertices: []
       indices: 
       edges: []
@@ -2375,10 +1208,10 @@ TextureImporter:
       name: E_Combinator_SpriteSheet_40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 518
-        width: 1000
-        height: 518
+        x: 317
+        y: 621
+        width: 448
+        height: 307
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2392,136 +1225,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: E_Combinator_SpriteSheet_41
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 518
-        width: 1000
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ed2de78892774390800000000000000
-      internalID: -7834167027346625050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Combinator_SpriteSheet_42
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 518
-        width: 1000
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9049b039a83b5d710800000000000000
-      internalID: 1717476240665580553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Combinator_SpriteSheet_43
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 518
-        width: 1000
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 769a0902db7c09a50800000000000000
-      internalID: 6525935475168946535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Combinator_SpriteSheet_44
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 518
-        width: 1000
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 066da57c368f075f0800000000000000
-      internalID: -760835229595543968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Combinator_SpriteSheet_45
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edc877743dd61a940800000000000000
-      internalID: 5305642590223699166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Combinator_SpriteSheet_46
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 1000
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5745858d1142d290800000000000000
-      internalID: -7867154004012873890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: af01c36cc6f9c674d968b5a21e99ff3f
+    spriteID: d7b5065da4321644ab10f53675c34be3
     internalID: 0
     vertices: []
     indices: 
