@@ -23,6 +23,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private IntEvent effectPlay; //Event Calls audio sound
 #pragma warning restore 0649
 
+    private Animator animL;
+    private Animator animR;
+
     private string leftName = "";
     private string rightName = "";
 
@@ -52,6 +55,9 @@ public class DialogueManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        animL = charL.GetComponent<Animator>();
+        animR = charR.GetComponent<Animator>();
     }
 
     public void SetDialogue(string dialogue)
@@ -200,7 +206,7 @@ public class DialogueManager : MonoBehaviour
                     ChangeName(o.data, isLeft);
                     break;
                 case DialogueScriptAction.animation:
-                    //play animation
+                    PlayAnimation(o.data, isLeft);
                     break;
                 default:
                     Debug.LogError("Invalid DialogueScriptAction from dialogue script import!");
@@ -240,6 +246,18 @@ public class DialogueManager : MonoBehaviour
         else
         {
             rightName = name;
+        }
+    }
+
+    private void PlayAnimation(string anim, bool isLeft)
+    {
+        if (isLeft)
+        {
+            animL.SetTrigger(anim);
+        }
+        else
+        {
+            animR.SetTrigger(anim);
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class LevelSelect : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class LevelSelect : MonoBehaviour
 #pragma warning restore 0649
 
     private Coroutine routine;
+    private TextAsset saveFile;
 
     private void Awake()
     {
@@ -29,7 +31,38 @@ public class LevelSelect : MonoBehaviour
 
     private void Start()
     {
+        LoadSave();
         LoadLevels();
+    }
+
+    private void LoadSave()
+    {
+        string path = Application.dataPath + "/save.txt";
+
+        if (File.Exists(path))
+        {
+            StreamReader reader = new StreamReader(path);
+            string[] data = reader.ReadToEnd().Split(',');
+            unlockedChapter.val = int.Parse(data[0]);
+            unlockedLevel.val = int.Parse(data[1]);
+            reader.Close();
+        }
+        else
+        {
+            unlockedChapter.val = 0;
+            unlockedLevel.val = 0;
+            SaveToFile();
+        }
+        
+    }
+
+    private void SaveToFile()
+    {
+        string path = Application.dataPath + "/save.txt";
+
+        StreamWriter writer = new StreamWriter(path, false);
+        writer.Write(unlockedChapter.val + "," + unlockedLevel.val);
+        writer.Close();
     }
 
     private void UpdateProgress()
@@ -43,6 +76,7 @@ public class LevelSelect : MonoBehaviour
         {
             unlockedLevel.val = levelLoader.levelIndex;
         }
+        SaveToFile();
     }
 
     public void LoadLevels()
@@ -142,6 +176,7 @@ public class LevelSelect : MonoBehaviour
 
     private IEnumerator LoadStoryScene()
     {
+        if (chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text == null) yield break;
         LoadManager.instance.LoadSceneAsync("Dialogue");
         while(DialogueManager.instance == null)
         {

@@ -54,11 +54,22 @@ public class adhoc_cast_spell : MonoBehaviour
     {
         arityEvent.AddRemovableListener(i => arity = i, this);
         button.onClick.AddListener(Cast);
-        SkipButton.onClick.AddListener(() => StartCoroutine(Skip()));
+        SkipButton.onClick.AddListener(() =>
+        {
+            StartCoroutine(Skip());
+            effectAudioEvent.Invoke(15); //Forward Skip Sound
+        });
+
         StepBackButton.onClick.AddListener(StepBack);
-        SkipBackButton.onClick.AddListener(() => StartCoroutine(SkipBack()));
+        SkipBackButton.onClick.AddListener(() => 
+        {
+            StartCoroutine(SkipBack());
+            effectAudioEvent.Invoke(17); //Backward Skip Sound
+        });
         StopButton.onClick.AddListener(() =>
         {
+
+            effectAudioEvent.Invoke(0); //Button Press Sound
             UnCast();
             Destroy(variable_symbols_here.GetComponentInChildren<HighlightParen>().gameObject);
             arityEvent.Invoke(arity);
@@ -162,6 +173,7 @@ public class adhoc_cast_spell : MonoBehaviour
 
     public void Step()
     {
+        effectAudioEvent.Invoke(14); //Forward Step Sound
         IEnumerator succ()
         {
             yield return new WaitForSeconds(.15f);
@@ -175,6 +187,7 @@ public class adhoc_cast_spell : MonoBehaviour
     }
     IEnumerator StepRoutine(IEnumerator succ, Action fail)
     {
+
         var rules = Lambda.Util.CanEvaluate(term,new List<int>(),(v,rule) => rule);
         if (rules.Count == 0)
         {
@@ -215,6 +228,8 @@ public class adhoc_cast_spell : MonoBehaviour
     
     public void StepBack()
     {
+
+        effectAudioEvent.Invoke(16); //Back Step Sound
         IEnumerator succ()
         {
             yield return new WaitForSeconds(.15f);

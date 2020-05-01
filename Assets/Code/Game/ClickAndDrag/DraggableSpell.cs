@@ -38,6 +38,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private Vector2 mouseVel;
     
+    [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
+
     public struct PreviewRedundantParenInfo
     {// keep as long as your index is the same
         public List<int> path;
@@ -315,7 +317,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData) {
 		if (NoDragging())
             return;
-        
+        effectAudioEvent.Invoke(20); //Pick Up Sound Effect
+
         //create duplicate and do some sibling index stuff and layout element stuff
         if (myDraggableType == DraggableHolder.DraggableType.LeftPane)
         {
@@ -403,7 +406,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         {
             if (endDrag)
             {
-                //play fizzle
+                effectAudioEvent.Invoke(22); //Fizzle Sound Effect
             }
             print("no hits");
             DestroyMe();
@@ -412,7 +415,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         {
             if (endDrag)
             {
-                //play place sound effect
+                effectAudioEvent.Invoke(21); //Drop Sound Effect
             }
             /*      Insert yourself into the term       */
             if (oneTry)
