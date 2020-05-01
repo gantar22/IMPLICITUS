@@ -38,8 +38,10 @@ public class StartElementsPopulator : MonoBehaviour {
 			variables.Add(Term.Leaf(Sum<Combinator, Lambda.Variable>.Inr((Lambda.Variable)i)));
 		}
 
-		if(oldVariables)
-			Destroy(oldVariables.gameObject);
+		if (oldVariables)
+		{
+			Destroy(oldVariables.gameObject);		
+		}
 		oldVariables = symbolManager.Initialize(Term.Node(variables));
 
 		// Set the alpha of the oldVariables parens (top level parens) to 0

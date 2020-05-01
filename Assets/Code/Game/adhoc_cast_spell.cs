@@ -20,6 +20,7 @@ public class adhoc_cast_spell : MonoBehaviour
     [SerializeField] private Button SkipButton;
     [SerializeField] private Button SkipBackButton;
     [SerializeField] private Button StepBackButton;
+    [SerializeField] private Button StopButton;
     [SerializeField]
     private SymbolManager proposal;
     [FormerlySerializedAs("goal")] [SerializeField]
@@ -42,6 +43,8 @@ public class adhoc_cast_spell : MonoBehaviour
     Button button;
 
 
+    private Term oldterm;
+
     [SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
 
     private Term term;
@@ -54,6 +57,16 @@ public class adhoc_cast_spell : MonoBehaviour
         SkipButton.onClick.AddListener(() => StartCoroutine(Skip()));
         StepBackButton.onClick.AddListener(StepBack);
         SkipBackButton.onClick.AddListener(() => StartCoroutine(SkipBack()));
+        StopButton.onClick.AddListener(() =>
+        {
+            UnCast();
+            Destroy(variable_symbols_here.GetComponentInChildren<HighlightParen>().gameObject);
+            arityEvent.Invoke(arity);
+            
+            Destroy(proposal.GetComponentInChildren<LayoutTracker>().gameObject);
+            proposal.Initialize(oldterm);
+            
+        });
         evalmode.val = false;
     }
 
@@ -76,11 +89,13 @@ public class adhoc_cast_spell : MonoBehaviour
         SkipButton.gameObject.SetActive(false);
         SkipBackButton.gameObject.SetActive(false);
         StepBackButton.gameObject.SetActive(false);
+        StopButton.gameObject.SetActive(false);
         LayoutRebuilder.MarkLayoutForRebuild(transform.parent.GetComponent<RectTransform>());
     }
     
     public void Cast()
     {
+        oldterm = proposal.readTerm();
         evalmode.val = true;
         onApply.Invoke();
         effectAudioEvent.Invoke(7); //Cast Spell Sound
@@ -112,6 +127,8 @@ public class adhoc_cast_spell : MonoBehaviour
         SkipButton.gameObject.SetActive(true);
         SkipBackButton.gameObject.SetActive(true);
         StepBackButton.gameObject.SetActive(true);
+        StopButton.gameObject.SetActive(true);
+        refreshButtons();
         LayoutRebuilder.MarkLayoutForRebuild(transform.parent.GetComponent<RectTransform>());
         
         if (target.goal.Equal(term))
@@ -139,7 +156,8 @@ public class adhoc_cast_spell : MonoBehaviour
         }
 
         SkipButton.interactable = false;
-        yield return StepRoutine(succ(),() => {});
+        button.interactable = false;
+        yield return StepRoutine(succ(),refreshButtons);
     }
 
     public void Step()
@@ -152,6 +170,7 @@ public class adhoc_cast_spell : MonoBehaviour
         }
         
         button.interactable = false;
+        SkipButton.interactable = false;
         StartCoroutine(StepRoutine(succ(), refreshButtons));
     }
     IEnumerator StepRoutine(IEnumerator succ, Action fail)
@@ -168,9 +187,10 @@ public class adhoc_cast_spell : MonoBehaviour
             yield return proposal.Transition(rules[0], proposal.GetComponentInChildren<LayoutTracker>());
             term = rules[0].evaluate(term);
 
+            var success = target.goal.Equal(term);
 
             yield return succ;            
-            if (target.goal.Equal(term))
+            if (success)
             {
                 Success.Invoke();
             }
@@ -189,6 +209,7 @@ public class adhoc_cast_spell : MonoBehaviour
         }
 
         StepBackButton.interactable = false;
+        SkipBackButton.interactable = false;
         yield return StepBackRoutine(succ(), refreshButtons);
     }
     
@@ -201,6 +222,7 @@ public class adhoc_cast_spell : MonoBehaviour
         }
 
         StepBackButton.interactable = false;
+        SkipBackButton.interactable = false;
         StartCoroutine(StepBackRoutine(succ(), () => { }));
     }
 

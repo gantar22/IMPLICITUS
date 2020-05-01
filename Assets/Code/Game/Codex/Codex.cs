@@ -38,7 +38,7 @@ public class Codex : MonoBehaviour {
 		currentCombinator = combinator;
 		arrowImage.enabled = true;
 
-		nameTMP.text = combinator.info.nameInfo.spellName;
+		nameTMP.text = combinator.info.nameInfo.spellName + ":";
 
 		string lambda = combinator.lambdaTerm;
 		// From SpawnTarget:createTarget()

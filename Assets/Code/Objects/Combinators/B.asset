@@ -22,6 +22,6 @@ MonoBehaviour:
     nameInfo:
       name: 66
       birdName: Bluebird
-      spellName: Composio
+      spellName: Peng
       logicName: Composition
     extraInfo: 

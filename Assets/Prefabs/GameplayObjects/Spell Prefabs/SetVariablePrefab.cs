@@ -18,7 +18,7 @@ public class SetVariablePrefab : MonoBehaviour
 
     public void Update()
     {
-        GetComponent<UnityEngine.UI.Image>().color = forwardmode.val ? new Color(0.86f, 0.71f, 0.75f) : new Color(0.97f, 0.95f, 0.54f);
+        GetComponent<UnityEngine.UI.Image>().color = !forwardmode.val ? new Color(0.16f, 0.5f, 0.52f) : new Color(0.97f, 0.95f, 0.54f);
     }
 
     /* Prior Replaced Code \\CAN DELETE\\

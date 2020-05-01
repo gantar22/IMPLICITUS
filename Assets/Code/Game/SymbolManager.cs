@@ -113,6 +113,8 @@ public class SymbolManager : MonoBehaviour
     
     public LayoutTracker Initialize(Term term)
     {
+        forwardUndoStack = new Stack<ForwardData>();
+        backwardUndoStack  = new Stack<Sum<BackwardTermData, BackwardParenData>>();
         foreach (Transform t in skeletonRoot)
         {
             if(Application.isPlaying)

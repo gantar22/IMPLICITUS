@@ -138,6 +138,9 @@
             </e>
           </e>
         </e>
+        <e p="Editor" t="Include">
+          <e p="Autosave.cs" t="Include" />
+        </e>
         <e p="LWRP" t="Include">
           <e p="Scripts" t="Include">
             <e p="SimpleCameraController.cs" t="Include" />
@@ -151,6 +154,7 @@
             </e>
           </e>
         </e>
+        <e p="optionaltext.cs" t="Include" />
         <e p="Prefabs" t="Include">
           <e p="GameplayObjects" t="Include">
             <e p="Spell Prefabs" t="Include">

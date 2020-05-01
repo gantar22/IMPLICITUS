@@ -22,6 +22,7 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
     private Vector3 anchor;
     private Vector3 velocity;
 
+    private Transform oldRoot;
 
     private float height;
     
@@ -134,9 +135,11 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
             parents(transform).First(t => !t.GetComponent<LayoutTracker>()).hasChanged = false;
             
             //Carter's system just doesn't work and he's subverting it entirely
+            
 
-            if(dest == null || dest.hasChanged)
+            if(dest == null || dest.hasChanged || oldRoot != root)
             {
+                oldRoot = root;
                 recalcIndex();
                 dest = target(index);
                 dest.hasChanged = false;

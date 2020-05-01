@@ -19,6 +19,6 @@ MonoBehaviour:
   _goal: {fileID: 11400000, guid: 7918865ea04bf5145a6c53b3a971d1cb, type: 2}
   _restrictions:
     noParens: 0
-    noBackApp: 0
+    noBackApp: 1
     noForwardApp: 0
   _dialogueScript: {fileID: 4900000, guid: c10ce799eafd8dc42ade72d22f32c235, type: 3}

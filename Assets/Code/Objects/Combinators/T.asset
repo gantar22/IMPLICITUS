@@ -22,6 +22,6 @@ MonoBehaviour:
     nameInfo:
       name: 84
       birdName: Thrush
-      spellName: Reversio
+      spellName: Tam
       logicName: Exchange
     extraInfo: 

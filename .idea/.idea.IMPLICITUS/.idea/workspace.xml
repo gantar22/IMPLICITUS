@@ -2,112 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/AnimateCombinator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/B1_AnimationClip.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/B1_AnimationClip.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/B_AnimationClip.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/B_AnimationClip.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_Animator.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_Animator.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/B1_Combinator_SpriteSheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/B1_Combinator_SpriteSheet.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/B_Combinator_SpriteSheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/B_Combinator_SpriteSheet.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/D_Combinator_SpriteSheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/D_Combinator_SpriteSheet.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/E_Combinator_SpriteSheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/E_Combinator_SpriteSheet.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/T_Combinator_SpriteSheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder/T_Combinator_SpriteSheet.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/D_AnimationClip.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/D_AnimationClip.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Backward_to_Forward.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Backward_to_Forward.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Drop.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Drop.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Forward_to_Backward.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Forward_to_Backward.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Pickup.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/AudioFiles/Implicitus_Pickup.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/BackwardStep_Sound_AudioPrefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/BackwardStep_Sound_AudioPrefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Drop_Sound_AudioPrefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Drop_Sound_AudioPrefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/ForwardStep_Sound_AudioPrefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/ForwardStep_Sound_AudioPrefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Pickup_Sound_AudioPrefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Pickup_Sound_AudioPrefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/SpawnCleanTarget.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/SpawnCleanTarget.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/Undo/CombinatorEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Game/Undo/CombinatorEvent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Objects/Codex.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Objects/Codex/UpdateCodex.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Objects/Codex/UpdateCodex.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Codex/Codex.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Codex/Codex.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Level Select.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/Level Select.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/LevelSelectIn.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/LevelSelectIn.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/LevelSelectOut.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Animations/LevelSelectOut.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/B.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/B.gif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/T.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/T.gif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Dialouge_Sound_AudioPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioContents/Effects_Prefabs/Dialouge_Sound_AudioPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioPlayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/AudioPlayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/AnimateCombinator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABMCurrentWork/LevelCompleteScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/LevelCompleteScreen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/Parentheses.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/Parentheses.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var 7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var meta.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Combinators/variables/var meta.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Codex/CodexOnSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Codex/CodexOnSpell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Codex/SpellCodexTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Codex/SpellCodexTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Level/IgnoreLayoutAdjuster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Level/IgnoreLayoutAdjuster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Level/LevelLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Level/LevelLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Level/SpellDrawerPopulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Level/SpellDrawerPopulator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Undo/UndoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Undo/UndoManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Undo/Undoable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Undo/Undoable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Combinator Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Combinator Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Paren Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Paren Symbol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/B_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/B_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/B_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/B_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/B_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/B_3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/C.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/C.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Cstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Cstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Cstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Cstarstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/D.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/D.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/D_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/D_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/D_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/D_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/E.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/E.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/E^.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/E^.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/F.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/F.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Fstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Fstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Fstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Fstarstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/G.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/G.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/R.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/R.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Rstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Rstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Rstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Rstarstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/V.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/V.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Vstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Vstar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Vstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Vstarstar.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Variable Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Variable Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialogue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialogue.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/testing/Level Dom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/testing/Dom Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/testing/Level Dom.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/testing/Dom Level.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/testing/OLD ui-undo test2.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/testing/OLD ui-undo test2.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABMCurrentWork/AnimatiorStuff/Combinator_SpriteSheet_Folder.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Level.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/ChapterDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/ChapterDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/ChapterSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/ChapterSelect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,10 +99,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABMCurrentWork/SetVariablePrefab_Tester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../bsmod/CountersPlus/Counters+/Plugin.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/Autosave.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/adhoc_shade_bg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Game/DimDuringEval.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/Combinator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/optionaltext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Pure Logic/BinaryTree.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/boilerplate/UnitEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -183,7 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Combinator.cs" />
         <option value="$PROJECT_DIR$/../../Brick Breaker/Assets/text_on_win.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/TempDrawTerm.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Spell.cs" />
@@ -204,7 +135,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/SetNameToSiblingIndex.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Shrub.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/TermClickDelete.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/QuitGame.cs" />
@@ -222,16 +152,20 @@
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/Mode.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_toggleImage.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_copy_active.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/DimDuringEval.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/GoalUndoRedoButtons.cs" />
-        <option value="$PROJECT_DIR$/Assets/adhoc_arrow_flip_script.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_shade_bg.cs" />
+        <option value="$PROJECT_DIR$/Assets/adhoc_arrow_flip_script.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
+        <option value="$PROJECT_DIR$/Assets/optionaltext.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/Autosave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" />
       </list>
     </option>
   </component>
@@ -306,6 +240,7 @@
       <workItem from="1586712766636" duration="14890000" />
       <workItem from="1587220783923" duration="136614000" />
       <workItem from="1588293528869" duration="8768000" />
+      <workItem from="1588306344375" duration="9433000" />
     </task>
     <servers />
   </component>
