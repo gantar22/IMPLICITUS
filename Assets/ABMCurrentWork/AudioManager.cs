@@ -32,6 +32,8 @@ public class AudioManager : MonoBehaviour
     private List<AudioObject> effectPoolList; //Save all instances of effects 
     private Queue<AudioObject> songQueue;   //Will hold current song playing
 
+    private int savedSong; //Will hold the tag for the saved song called by 
+
     //used to ensure onlyone instance of AudioManager exists
     public static AudioManager instance;
 
@@ -54,6 +56,8 @@ public class AudioManager : MonoBehaviour
         //Create variables 
         effectPoolList = new List<AudioObject>();
         songQueue = new Queue<AudioObject>();
+
+        savedSong = -1; //Default saved song is mute
 
         //Listen for command to play audio
         songInt.AddListener(playSong);
@@ -102,14 +106,33 @@ public class AudioManager : MonoBehaviour
         
     //Used by listener of songInt Event
     //Plays song given by input, turning off song that is currently playing and destroying 
-    //If -1 is inputed, mutes current song
+    //If -1 is inputed, Stops playing all songs
+    //If -2 is inputed, saves the song tag currently playing (can only save one song at a time)
+    //If -3 is inputted, plays the saved song! (if none have been saved will mute songs)
     private void playSong(int num)
     {
         //Verify song exists in the songPrefabList provided by user,
         //and if input is -1
-        if (-1 <= num && num < songPrefabsList.Length)
+        if (-3 <= num && num < songPrefabsList.Length)
         {
             AudioObject song; //Holder for songs played or removed
+
+            //Save a song in savedSong value
+            if (num == -2)
+            {
+                song = songQueue.Dequeue(); //Remove song
+                savedSong = song.tag;       //Save tag
+                songQueue.Enqueue(song);    //Place song back
+                return;                     //End code
+            }
+            //Play the saved Song!
+            if (num == -3)
+            {
+                //Prevention for infinite loop (Impossible but percationart)
+                if (savedSong == -3) { return; }
+                playSong(savedSong);
+                return;                     //End code
+            }
 
 
             //Removing song, only if song is playing
@@ -120,7 +143,6 @@ public class AudioManager : MonoBehaviour
                 //If the song is already playing and is called again, leave alone
                 if (song.tag == num)
                 {
-                    Debug.Log("Song was already playing so we did nothing!");
                     songQueue.Enqueue(song);
                     return;
                 }
