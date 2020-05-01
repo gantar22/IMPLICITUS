@@ -355,11 +355,11 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void OnEndDrag(PointerEventData eventData)
     {        
         shouldMove = false;
-        Drop();
+        Drop(true);
     }
     
     
-    public void Drop()
+    public void Drop(bool endDrag = false)
     {
         if (!hasBeenDragged)
                 return;
@@ -374,11 +374,19 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         
         if (L.Count == 0)
         {
+            if (endDrag)
+            {
+                //play fizzle
+            }
             print("no hits");
             DestroyMe();
         }
         else
         {
+            if (endDrag)
+            {
+                //play place sound effect
+            }
             /*      Insert yourself into the term       */
             if (oneTry)
             {

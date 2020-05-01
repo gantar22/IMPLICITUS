@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/B_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/B_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/B_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/B_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/B_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/B_3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/C.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/C.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Cstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Cstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Cstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Cstarstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/D.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/D.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/D_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/D_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/D_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/D_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/E.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/E.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/E^.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/E^.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/F.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/F.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Fstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Fstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Fstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Fstarstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/G.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/G.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Q_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Q_4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/R.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/R.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Rstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Rstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Rstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Rstarstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/V.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/V.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Vstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Vstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Combinators/Vstarstar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Combinators/Vstarstar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Variable Symbol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/Variable Symbol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
-    </list>
+    <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,8 +127,8 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/Autosave.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
       </list>
     </option>
   </component>
@@ -240,7 +203,7 @@
       <workItem from="1586712766636" duration="14890000" />
       <workItem from="1587220783923" duration="136614000" />
       <workItem from="1588293528869" duration="8768000" />
-      <workItem from="1588306344375" duration="9433000" />
+      <workItem from="1588306344375" duration="10297000" />
     </task>
     <servers />
   </component>
