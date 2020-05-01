@@ -45,6 +45,7 @@ public class LevelSelect : MonoBehaviour
             string[] data = reader.ReadToEnd().Split(',');
             unlockedChapter.val = int.Parse(data[0]);
             unlockedLevel.val = int.Parse(data[1]);
+            reader.Close();
         }
         else
         {
@@ -61,7 +62,7 @@ public class LevelSelect : MonoBehaviour
 
         StreamWriter writer = new StreamWriter(path, false);
         writer.Write(unlockedChapter.val + "," + unlockedLevel.val);
-
+        writer.Close();
     }
 
     private void UpdateProgress()
