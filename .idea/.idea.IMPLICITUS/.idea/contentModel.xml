@@ -6,8 +6,10 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="ABMCurrentWork" t="Include">
+          <e p="AnimatiorStuff" t="Include">
+            <e p="AnimateCombinator.cs" t="Include" />
+          </e>
           <e p="AudioManager.cs" t="Include" />
-          <e p="AudioPlayer.cs" t="Include" />
           <e p="CompletedLevel.cs" t="Include" />
           <e p="SetVariablePrefab_Tester.cs" t="Include" />
           <e p="TextCreationABM" t="Include">
@@ -21,6 +23,8 @@
             <e p="SampleScrollingText.txt" t="Include" />
           </e>
         </e>
+        <e p="adhoc_arrow_flip_script.cs" t="Include" />
+        <e p="adhoc_shade_bg.cs" t="Include" />
         <e p="adhoc_toggleImage.cs" t="Include" />
         <e p="adhoc_visible_parens.cs" t="Include" />
         <e p="Code" t="Include">
@@ -70,6 +74,7 @@
               <e p="TermClickStep.cs" t="Include" />
             </e>
             <e p="Codex" t="Include">
+              <e p="Codex.cs" t="Include" />
               <e p="CodexOnSpell.cs" t="Include" />
               <e p="SpellCodexTab.cs" t="Include" />
             </e>
@@ -85,12 +90,14 @@
               <e p="StartElementsPopulator.cs" t="Include" />
             </e>
             <e p="SetNameToSiblingIndex.cs" t="Include" />
+            <e p="SpawnCleanTarget.cs" t="Include" />
             <e p="SpawnTarget.cs" t="Include" />
             <e p="Spell.cs" t="Include" />
             <e p="SpellList.cs" t="Include" />
             <e p="SymbolManager.cs" t="Include" />
             <e p="TempDrawTerm.cs" t="Include" />
             <e p="Undo" t="Include">
+              <e p="CombinatorEvent.cs" t="Include" />
               <e p="TermEvent.cs" t="Include" />
               <e p="Undoable.cs" t="Include" />
               <e p="UndoClickHandler.cs" t="Include" />
@@ -206,6 +213,7 @@
             <e p="LoadManager.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
             <e p="Mode.cs" t="Include" />
+            <e p="StoryLoader.cs" t="Include" />
           </e>
         </e>
       </e>

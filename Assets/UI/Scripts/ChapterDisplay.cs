@@ -14,7 +14,7 @@ public class ChapterDisplay : MonoBehaviour {
 		if (!textMeshProUGUI) {
 			textMeshProUGUI = GetComponent<TextMeshProUGUI>();
 		}
-		refreshText();
+		//refreshText();
 	}
 
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class ChapterDisplay : MonoBehaviour {
 	}
 
 	// Refreshes the text according to the chapter index
-	private void refreshText() {
+	public void refreshText() {
 		textMeshProUGUI.text = prefix + (levelLoader.chapterIndex + (zeroIndexed ? 0 : 1));
 	}
 }

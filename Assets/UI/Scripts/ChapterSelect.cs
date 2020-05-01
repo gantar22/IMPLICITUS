@@ -21,6 +21,6 @@ public class ChapterSelect : MonoBehaviour {
 	public void refreshButtons() {
 		leftButton.interactable = !levelLoader.atMinChapter();
 		rightButton.interactable = !levelLoader.atMaxChapter() && levelLoader.chapterIndex < unlockedChapter.val;
-        levelSelect.LoadLevels();
+        //levelSelect.LoadLevels();
 	}
 }

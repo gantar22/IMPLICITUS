@@ -1154,6 +1154,31 @@ MonoBehaviour:
   levelLoader: {fileID: 11400000, guid: 60b61e6852a32df45b4b42f54bcfbbd5, type: 2}
   numText: {fileID: 3100030916080669589}
   descriptionText: {fileID: 4102808596689630847}
+  moveTime: 0.5
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7259870367436733808
 GameObject:
   m_ObjectHideFlags: 0

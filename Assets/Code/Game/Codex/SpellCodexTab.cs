@@ -6,6 +6,9 @@ using TypeUtil;
 using System.Linq;
 using Term = TypeUtil.Shrub<TypeUtil.Sum<Combinator, Lambda.Variable>>;
 
+
+// DEPRECATED
+
 public class SpellCodexTab : MonoBehaviour {
 	[SerializeField]
 	private SymbolManagerTester startSMT;

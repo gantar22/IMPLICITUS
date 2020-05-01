@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8596429664668298900}
   - component: {fileID: 3703696252354867988}
-  - component: {fileID: 5145841829500452374}
+  - component: {fileID: 8275279515743000489}
   - component: {fileID: 5709629072322769283}
   - component: {fileID: 2751481487029469432}
   - component: {fileID: -5747932290929767337}
@@ -52,7 +52,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8513709824908824545}
   m_CullTransparentMesh: 0
---- !u!114 &5145841829500452374
+--- !u!114 &8275279515743000489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9339623, g: 0.91193485, b: 0.91193485, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

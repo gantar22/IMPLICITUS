@@ -12,15 +12,13 @@ public class SpellDrawerPopulator : MonoBehaviour {
 	public UnitEvent onUnapplyProposal;
 	public LayoutTracker parenPrefab;
 	public BoolRef noParens;
-	
-	private System.Action removeListener;
 
 
 	// ===== Functions =====
 
 	// Init
 	private void Awake() {
-		removeListener = onLevelLoad.AddRemovableListener(onLevelWasLoaded);
+		onLevelLoad.AddRemovableListener(onLevelWasLoaded, this);
 	}
 
 	// After the level has loaded, populate the spell drawer with all the spells in the basis.
@@ -38,9 +36,5 @@ public class SpellDrawerPopulator : MonoBehaviour {
 		newSpell.enabled = false;
 		newSpell.gameObject.AddComponent<LayoutElement>();
 
-	}
-	
-	private void OnDestroy() {
-		removeListener();
 	}
 }

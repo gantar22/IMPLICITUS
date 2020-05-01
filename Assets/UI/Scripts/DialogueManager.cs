@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private IntEvent songPlay;
     [SerializeField] private int songIdx;
+    [SerializeField] private IntEvent effectPlay; //Event Calls audio sound
 #pragma warning restore 0649
 
     private string leftName = "";
@@ -241,11 +242,17 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator PlayText(string txt)
     {
-        for(int i = 0; i < txt.Length; i++)
+
+        effectPlay.Invoke(5); // Play Dialouge Sound
+
+        for (int i = 0; i < txt.Length; i++)
         {
             dialogueText.text += txt[i];
             if(!pauseContinue) yield return new WaitForSeconds(textDelay);
         }
+
+        effectPlay.Invoke(5); // Stop Dialouge Sound
+
     }
 
     private IEnumerator FadeIn()

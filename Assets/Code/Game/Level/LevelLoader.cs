@@ -25,6 +25,11 @@ public class LevelLoader : ScriptableObject {
 	[HideInInspector] public int chapterIndex = -1;
 	[HideInInspector] public int levelIndex = -1;
 	[HideInInspector] public Level currentLevel;
+    [HideInInspector] public bool story = false;
+
+
+	[SerializeField] IntEvent effectAudioEvent; //Event Calls audio sound
+	[SerializeField] IntEvent songAudioEvent; //Event Calls audio sounds
 
 	//Debug event
 	[System.Serializable]
@@ -113,6 +118,10 @@ public class LevelLoader : ScriptableObject {
 
 	// Loads a particular level by chapter and level indices
 	public void loadLevel(int chapter, int level) {
+
+		songAudioEvent.Invoke(3); //Puzzle Track
+		effectAudioEvent.Invoke(14); //Title Select Sound
+
 		if (chapter >= chapterList.Chapters.Length || chapter < 0 || level >= chapterList.Chapters[chapter].Levels.Length || level < 0) {
 			Debug.LogError($"Trying to load chapter {chapter}, level {level}, which does not exist. Defaulting to chapter 0 level 0.");
 			loadLevel(0, 0);
@@ -124,10 +133,17 @@ public class LevelLoader : ScriptableObject {
 		SceneManager.LoadSceneAsync(levelSceneBuildIndex).completed += onLevelLoaded(currentLevel);
 	}
 
-	
-	
-	// Once a level has been loaded, calls all the initialization events
-	private Action<AsyncOperation> onLevelLoaded(Level levelLoaded)
+    //Loads the next level and the accompanied story
+    public void loadNextLevelStory()
+    {
+        story = true;
+        loadNextLevel();
+    }
+
+
+
+    // Once a level has been loaded, calls all the initialization events
+    private Action<AsyncOperation> onLevelLoaded(Level levelLoaded)
 	{ //Curried to ensure that the loaded level is the one which was intended
 		return _ =>
 		{

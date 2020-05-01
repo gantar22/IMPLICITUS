@@ -21,11 +21,11 @@ public class SpawnTarget : MonoBehaviour
     private int arrity;
     public IntEvent arrityEvent;
     
-    private Action onDestroy;
+
     // Start is called before the first frame update
     void Awake()
     {
-        onDestroy = lambda.AddRemovableListener(createTarget);
+        lambda.AddRemovableListener(createTarget, this);
         arrityEvent.AddRemovableListener(i => arrity = i,this);
     }
 
@@ -108,12 +108,6 @@ public class SpawnTarget : MonoBehaviour
                                v => v.Match(_ => false,x => (int)x == pi.i))); //the rest is just the variables in order
             //TODO verify off by ones
         }, x => x.Match(_ => false,i => (int)i == 0));
-    }
-
-    
-    private void OnDestroy()
-    {
-        onDestroy();
     }
 
 }

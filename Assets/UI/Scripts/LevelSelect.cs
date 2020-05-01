@@ -13,6 +13,7 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private LevelObject levelPrefab;
     [SerializeField] private CanvasGroup levelPopup;
+    [SerializeField] private ChapterDisplay chapterDisplay;
 #pragma warning restore 0649
 
     private Coroutine routine;
@@ -72,6 +73,61 @@ public class LevelSelect : MonoBehaviour
             temp.SetLevelSelect(this);
             temp.SetData(i + 1, currChap.Levels[i].Description);
         }
+
+        chapterDisplay.refreshText();
+    }
+
+    public void LoadLevelsAnimated(bool isLeft)
+    {
+        StartCoroutine(AnimateLoadLevels(isLeft));
+    }
+
+    private IEnumerator AnimateLoadLevels(bool isLeft)
+    {
+        CanvasGroup levelHolderCG = levelHolder.GetComponent<CanvasGroup>();
+        levelHolderCG.blocksRaycasts = false;
+
+        float distance = levelHolder.GetComponent<RectTransform>().rect.width * 1.5f;
+        if (!isLeft) distance *= -1;
+        GameObject oldChapter = Instantiate(levelHolder.gameObject, levelHolder.parent);
+        oldChapter.GetComponentInChildren<ChapterDisplay>().enabled = false;
+
+        LoadLevels();
+
+        levelHolderCG.alpha = 0;
+
+        yield return new WaitForEndOfFrame();
+
+        RectTransform newChapter = Instantiate(levelHolder.gameObject, levelHolder.parent).GetComponent<RectTransform>();
+        //newChapter.anchoredPosition = new Vector2(newChapter.anchoredPosition.x + distance, newChapter.anchoredPosition.y);
+        newChapter.anchoredPosition = new Vector2(newChapter.anchoredPosition.x + distance * -1, newChapter.anchoredPosition.y);
+        newChapter.GetComponent<CanvasGroup>().alpha = 1;
+
+        yield return new WaitForEndOfFrame();
+
+        StartCoroutine(AnimateMove(oldChapter, distance));
+        yield return new WaitForSeconds(0.02f);
+        yield return StartCoroutine(AnimateMove(newChapter.gameObject, distance));
+
+        levelHolderCG.alpha = 1;
+        levelHolderCG.blocksRaycasts = true;
+        Destroy(oldChapter);
+        Destroy(newChapter.gameObject);
+    }
+
+    private IEnumerator AnimateMove(GameObject parent, float xPosition)
+    {
+        parent.GetComponent<ContentSizeFitter>().enabled = false;
+        parent.GetComponent<LayoutGroup>().enabled = false;
+
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            LevelObject o = parent.transform.GetChild(i).GetComponent<LevelObject>();
+            RectTransform rt = o.GetComponent<RectTransform>();
+            o.MoveTo(new Vector2(rt.anchoredPosition.x + xPosition, rt.anchoredPosition.y));
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(0.5f);
     }
 
     public int GetMaxUnlockedChapter()

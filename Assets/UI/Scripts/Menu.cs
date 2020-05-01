@@ -22,6 +22,8 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
+
+        songAudioEvent.Invoke(0);   //Plays Title screen soundtrack
         animator = GetComponent<Animator>();
     }
 
@@ -47,17 +49,10 @@ public class Menu : MonoBehaviour
 
         effectAudioEvent.Invoke(3); //Title Select Sound
         songAudioEvent.Invoke(1);   //Plays Level Select Track
-
-        //=============================
-        //TODO: Animate this transition
-        //=============================
-        mainMenu.alpha = 0;
-        mainMenu.blocksRaycasts = false;
+        
         mainMenu.interactable = false;
         levelSelect.gameObject.SetActive(true);
-        levelSelect.alpha = 1;
-        levelSelect.blocksRaycasts = true;
-        levelSelect.interactable = true;
+        levelSelect.GetComponent<Animator>().SetBool("activated", true);
     }
 
     public void BackFromLevel()
@@ -66,15 +61,7 @@ public class Menu : MonoBehaviour
         effectAudioEvent.Invoke(0); //Button Press Sound
         songAudioEvent.Invoke(0);   //Play Title Screen Track
 
-        //=============================
-        //TODO: Animate this transition
-        //=============================
-        levelSelect.alpha = 0;
-        levelSelect.blocksRaycasts = false;
-        levelSelect.interactable = false;
-        levelSelect.gameObject.SetActive(false);
-        mainMenu.alpha = 1;
-        mainMenu.blocksRaycasts = true;
+        levelSelect.GetComponent<Animator>().SetBool("activated", false);
         mainMenu.interactable = true;
         
     }

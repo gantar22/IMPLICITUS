@@ -13,13 +13,12 @@ public class UndoManager : MonoBehaviour {
 	private SymbolManager symbolManager;
 	private LayoutTracker currentLayoutTracker;
 	private Stack<Term> stack = new Stack<Term>();
-	private System.Action removeUndoTermListener;
 
 
 	// Init
 	private void Awake() {
 		symbolManager = GetComponent<SymbolManager>();
-		removeUndoTermListener = pushUndoTermEvent.AddRemovableListener(pushTerm);
+		pushUndoTermEvent.AddRemovableListener(pushTerm, this);
 	}
 
 	// Push a new term onto the undo stack
@@ -54,10 +53,5 @@ public class UndoManager : MonoBehaviour {
 		// Place the next undo term
 		Term nextUndoTerm = stack.Peek();
 		currentLayoutTracker = symbolManager.Initialize(nextUndoTerm);
-	}
-
-	// When this is destroyed, remove itself as a listener
-	private void OnDestroy() {
-		removeUndoTermListener();
 	}
 }

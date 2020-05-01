@@ -9,22 +9,14 @@ public class Undoable : MonoBehaviour {
 	public TermEvent undoTermEvent;
 	public SymbolManagerTester symbolManagerTester;
 
-	// Private fields
-	private System.Action removeUndoToTermListener;
-
 
 	// init
 	private void Awake() {
-		removeUndoToTermListener = undoTermEvent.AddRemovableListener(undoToTerm);
+		undoTermEvent.AddRemovableListener(undoToTerm, this);
 	}
 
 	// When the undo term event triggers, update to the new term
 	private void undoToTerm(Term term) {
 		symbolManagerTester.CreateTerm(term);
-	}
-
-	// When this is destroyed, remove itself as a listener
-	private void OnDestroy() {
-		removeUndoToTermListener();
 	}
 }

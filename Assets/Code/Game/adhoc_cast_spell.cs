@@ -27,7 +27,6 @@ public class adhoc_cast_spell : MonoBehaviour
     [SerializeField]
     private IntEvent arityEvent;
     private int arity;
-    private Action cleanup;
     [SerializeField]
     private TMP_Text button_name;
 	[SerializeField]
@@ -50,7 +49,7 @@ public class adhoc_cast_spell : MonoBehaviour
     
     private void Awake()
     {
-        cleanup = arityEvent.AddRemovableListener(i => arity = i);
+        arityEvent.AddRemovableListener(i => arity = i, this);
         button.onClick.AddListener(Cast);
         SkipButton.onClick.AddListener(() => StartCoroutine(Skip()));
         StepBackButton.onClick.AddListener(StepBack);
@@ -222,10 +221,5 @@ public class adhoc_cast_spell : MonoBehaviour
         SkipBackButton.interactable = proposal.HasBackStack();
         button.interactable = Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any();
         SkipButton.interactable = Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any();
-    }
-
-    private void OnDestroy()
-    {
-        cleanup();
     }
 }
