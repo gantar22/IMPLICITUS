@@ -129,6 +129,7 @@ MonoBehaviour:
   evaluationMode: {fileID: 11400000, guid: a041f7488fc1e404d9be7c0d19bd0177, type: 2}
   hasBeenDragged: 0
   NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
+  effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
 --- !u!114 &2564106021122486996
 MonoBehaviour:
   m_ObjectHideFlags: 0
