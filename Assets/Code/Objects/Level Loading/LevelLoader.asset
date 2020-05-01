@@ -21,8 +21,8 @@ MonoBehaviour:
   NoBackApp: {fileID: 11400000, guid: 207a4f6be8fac8546868187720b2f53d, type: 2}
   NoForwardApp: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
   chapterIndex: 1
-  levelIndex: 0
-  currentLevel: {fileID: 11400000, guid: 792f5765bc8af31428c2f673f12f399a, type: 2}
+  levelIndex: 1
+  currentLevel: {fileID: 11400000, guid: 933e488c90581e54fbdcf6417e91c939, type: 2}
   story: 0
   effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
   songAudioEvent: {fileID: 11400000, guid: 551fdae84ee774a4ebdae3e4fe0941aa, type: 2}
@@ -36,7 +36,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

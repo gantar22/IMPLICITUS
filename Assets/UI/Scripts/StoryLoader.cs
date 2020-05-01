@@ -32,7 +32,12 @@ public class StoryLoader : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
-        DialogueManager.instance.PlayDialogue(chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text);
+
+        var dialogue = chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript;
+        if(dialogue)
+            DialogueManager.instance.PlayDialogue(dialogue.text);
+        else
+            DialogueManager.instance.PlayDialogue(" ");
         routine = null;
     }
 }

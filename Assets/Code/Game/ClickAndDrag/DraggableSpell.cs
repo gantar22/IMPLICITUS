@@ -35,6 +35,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
 	private CodexOnSpell codexOnSpell;
 	private Sum<PreviewInfo,Unit> previewState = Sum<PreviewInfo,Unit>.Inr(new Unit());
+
+    private Vector2 mouseVel;
     
     public struct PreviewRedundantParenInfo
     {// keep as long as your index is the same
@@ -118,6 +120,8 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         gr = GetComponentInParent<GraphicRaycaster>();
         es = GetComponentInParent<EventSystem>();
 
+        StartCoroutine(calcVel());
+        
         if (false && myDraggableType != DraggableHolder.DraggableType.RedundantParens)
         {
             onApply.AddRemovableListener(_ => { enabled = false; }, this);
@@ -125,6 +129,16 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
 
         
+    }
+
+    IEnumerator calcVel()
+    {
+        while (true)
+        {
+            var pos = Input.mousePosition;
+            yield return null;
+            mouseVel = Vector2.Lerp(mouseVel, (Input.mousePosition - pos) / Time.deltaTime, Time.deltaTime * 100);
+        }
     }
 
     private bool NoDragging()
@@ -263,7 +277,17 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 {
                     /* highlight*/
                     backward.highlight();
-                }, redundant => redundant.place()),
+                }, redundant =>
+                {
+                    if(mouseVel.magnitude < 5f)
+                        redundant.place();
+                    else
+                    {
+                        previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
+                        move();
+                    }
+                    
+                }),
                 _ =>
                 { //no preview from last frame, no preview for next frame
                     move();
@@ -331,6 +355,9 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         lt.root = lt.GetComponentInParent<SymbolManager>().skeletonRoot;
         lt.enabled = true;
         LayoutRebuilder.MarkLayoutForRebuild(lt.GetComponentInParent<Canvas>().GetComponent<RectTransform>());
+        
+        SpawnTarget sp = GetComponentInParent<SpawnTarget>();
+        sp?.CheckSuccess();
     }
     void UnPlace()
     {
@@ -390,7 +417,12 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             /*      Insert yourself into the term       */
             if (oneTry)
             {
-                MakeDrop(spawnTarget, L[0]).Match(f => f(), s => s.Match(x => x.place(),x => x.place(),x => previewState = Sum<PreviewInfo, Unit>.Inr(new Unit())));
+                MakeDrop(spawnTarget, L[0]).Match(f => f(), s => s.Match(x => x.place(),x => x.place(),x =>
+                {
+                    previewState =
+                        Sum<PreviewInfo, Unit>.Inr(new Unit());
+                    DestroyMe();
+                }));
                 return;
             }
 

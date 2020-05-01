@@ -65,7 +65,7 @@ public class SpawnTarget : MonoBehaviour
 
     public void CheckSuccess()
     {
-        
+        print("checking");
         if (isFinished())
             success.Invoke();
     }
@@ -100,7 +100,7 @@ public class SpawnTarget : MonoBehaviour
         });
         return goal.Match<bool>(l =>
         {
-            var ll = l.SkipWhile(s => s.Preorder().TrueForAll(v => v.Match(_ => true, x => false))); //ignore combinators at the start
+            var ll = l.SkipWhile(s => s.Preorder().TrueForAll(v => v.Match(_ => true, x => (int)x == -1))); //ignore combinators at the start
             
             return ll.Select((s, i) => (s, i)).ToList()
                 .TrueForAll(pi => 

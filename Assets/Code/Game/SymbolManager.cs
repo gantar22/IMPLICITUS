@@ -650,7 +650,10 @@ public class SymbolManager : MonoBehaviour
         foreach (var child in children)
         {
             if (!child)
-                Instantiate(GetSymbol(Sum<Combinator, Variable>.Inr((Variable) (-1))),target);
+            {
+                var meta = Instantiate(GetSymbol(Sum<Combinator, Variable>.Inr((Variable) (-1))), target);
+                meta.root = skeletonRoot;
+            }
             else
                 child.SetParent(target,true);
         }
