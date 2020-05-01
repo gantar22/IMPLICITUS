@@ -72,9 +72,21 @@ public class AudioManager : MonoBehaviour
     //If is a looping effect that is playing, will stop rather than play event
     private void playEffect(int num)
     {
-        //Verify effect exists in the effectPrefabList provided by user
-        if (0 <= num && num < effectPrefabsList.Length)
+        //Verify effect exists in the effectPrefabList provided by user\
+        //-1 turns off all of the audio effects
+        if (-1 <= num && num < effectPrefabsList.Length)
         {
+            //Check if object is in list *Note: Could probably be more efficient, may edit
+            if (num == -1)
+            {
+                foreach (AudioObject effect in effectPoolList)
+                {
+                    AudioSource sound = effect.audioPrefab.GetComponent<AudioSource>(); //Instance of audiosource
+                    sound.Stop(); //Turn sound off
+                }
+
+                return;
+            }
             //Check if object is in list *Note: Could probably be more efficient, may edit
             foreach (AudioObject effect in effectPoolList)
             {
