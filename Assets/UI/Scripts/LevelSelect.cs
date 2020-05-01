@@ -37,7 +37,7 @@ public class LevelSelect : MonoBehaviour
 
     private void LoadSave()
     {
-        string path = Application.dataPath + "/save.txt";
+        string path = Application.persistentDataPath + "/save.txt";
 
         if (File.Exists(path))
         {
@@ -58,7 +58,7 @@ public class LevelSelect : MonoBehaviour
 
     private void SaveToFile()
     {
-        string path = Application.dataPath + "/save.txt";
+        string path = Application.persistentDataPath + "/save.txt";
 
         StreamWriter writer = new StreamWriter(path, false);
         writer.Write(unlockedChapter.val + "," + unlockedLevel.val);
