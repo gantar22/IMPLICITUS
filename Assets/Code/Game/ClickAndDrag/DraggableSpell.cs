@@ -575,7 +575,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         bool GoodTarget(GameObject g)
         {
             char[] c = {'>'};
-            if (myCombinator == null || myCombinator.lambdaTerm.Split(c)[1].SkipWhile(char.IsWhiteSpace).Count() > 1)
+            if (myCombinator == null || myCombinator.lambdaTerm.Split(c)[1].SkipWhile(char.IsWhiteSpace).Count() >= 1)
                 return g.CompareTag("ParenSymbol") && (g != gameObject || includeSelf);
 
             return g.GetComponent<LayoutTracker>() && g.GetComponentInParent<SpawnTarget>();
