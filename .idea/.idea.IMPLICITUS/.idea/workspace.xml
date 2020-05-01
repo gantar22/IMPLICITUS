@@ -129,11 +129,11 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/SpawnTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/Mode.cs" />
         <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
-        <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
       </list>
     </option>
   </component>
@@ -209,7 +209,7 @@
       <workItem from="1587220783923" duration="136614000" />
       <workItem from="1588293528869" duration="8768000" />
       <workItem from="1588306344375" duration="16987000" />
-      <workItem from="1588358019607" duration="5777000" />
+      <workItem from="1588358019607" duration="6690000" />
     </task>
     <servers />
   </component>

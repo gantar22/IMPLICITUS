@@ -16,10 +16,11 @@ MonoBehaviour:
   _description: 
   _basis:
   - {fileID: 11400000, guid: 62c2ce3298a61f44f9f0c61da05ec3ba, type: 2}
-  - {fileID: 11400000, guid: dc4c9287b56a9c44d91d849bb163ef98, type: 2}
+  - {fileID: 11400000, guid: c81c0dcf099731e41b0b1dc80945f282, type: 2}
   _goal: {fileID: 11400000, guid: 04770ed3014a03a4997a3b0e00cf3085, type: 2}
   _restrictions:
     noParens: 0
     noBackApp: 0
     noForwardApp: 0
   _dialogueScript: {fileID: 0}
+  hint: 
