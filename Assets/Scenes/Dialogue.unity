@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.5
-  textDelay: 0.05
+  textDelay: 0.02
   deselectedColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0.5882353}
   dim: {fileID: 1845603100}
   dialogueGroup: {fileID: 505677801}
