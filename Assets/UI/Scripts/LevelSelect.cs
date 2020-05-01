@@ -175,6 +175,7 @@ public class LevelSelect : MonoBehaviour
 
     private IEnumerator LoadStoryScene()
     {
+        if (chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text == null) yield break;
         LoadManager.instance.LoadSceneAsync("Dialogue");
         while(DialogueManager.instance == null)
         {
