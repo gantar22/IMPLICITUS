@@ -65,18 +65,18 @@ public class DialogueManager : MonoBehaviour
         dialogueScript = dialogue;
     }
 
-    public void PlayDialogue()
+    public void PlayDialogue(string hint)
     {
         if(routine == null)
         {
-            routine = StartCoroutine(ProcessDialogue());
+            routine = StartCoroutine(ProcessDialogue(hint));
         }
     }
 
-    public void PlayDialogue(string dialogue)
+    public void PlayDialogue(string dialogue, string hint)
     {
         SetDialogue(dialogue);
-        PlayDialogue();
+        PlayDialogue(hint);
     }
 
     public void PlayerInput()
@@ -104,10 +104,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ProcessDialogue()
+    private IEnumerator ProcessDialogue(string hint)
     {
         yield return StartCoroutine(FadeIn());
         string[] lines = dialogueScript.Split(';');
+        string[] hints = hint.Split(';');
         for(int i = 0; i < lines.Length - 1; i++)
         {
             string[] data = lines[i].Split(':');
@@ -158,9 +159,32 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
+
             yield return StartCoroutine(PlayLine(dialogueQueue, isLeft));
         }
 
+        
+        //hint
+        Queue<DialogueScriptObject> q = new Queue<DialogueScriptObject>();
+        
+        if (0 < hints.Length)
+        {
+            print("here");
+            q.Enqueue(new DialogueScriptObject(DialogueScriptAction.name,"hint"));
+            //q.Enqueue(new DialogueScriptObject(DialogueScriptAction.sprite,"hint"));
+            
+            foreach (string text in hints)
+            {
+                q.Enqueue(new DialogueScriptObject(DialogueScriptAction.dialogue,text));
+            }
+        }
+
+        charL.sprite = null;
+        charR.sprite = null;
+        yield return StartCoroutine(PlayLine(q, true));
+        
+        
+        
         //unload scene
         yield return StartCoroutine(FadeOut());
         songPlay.Invoke(-3);                //Playing Saved Song

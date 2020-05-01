@@ -475,7 +475,7 @@ public class SymbolManager : MonoBehaviour
                     {
                        IterateTransform(symbols[ind+1].transform,
                             t => t.GetComponent<LayoutTracker>().index = path.Concat(t.GetComponent<LayoutTracker>().index.Skip(index.Count + 2)).ToList());
-                        var newSymbol = Instantiate(symbols[ind + 1]);
+                        var newSymbol = Instantiate(symbols[ind + 1],GetComponentInChildren<LayoutTracker>().transform.position,Quaternion.identity,transform);
                         newSymbol.index = path;
                         return newSymbol;
                     }

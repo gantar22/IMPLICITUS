@@ -10,15 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
-  m_Name: Tutorial3
+  m_Name: T
   m_EditorClassIdentifier: 
   _name: 
   _description: 
   _basis:
-  - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
-  _goal: {fileID: 11400000, guid: 2c054a39c96fe8f418de393d2bfe374f, type: 2}
+  - {fileID: 11400000, guid: 5d33b40ccb870b848a0965a386fd236f, type: 2}
+  _goal: {fileID: 11400000, guid: ed1b2cd5db35db242aab4ee08ddda238, type: 2}
   _restrictions:
     noParens: 1
     noBackApp: 1
     noForwardApp: 0
-  _dialogueScript: {fileID: 4900000, guid: fc33c23b6a8411d44bac616e78512870, type: 3}
+  _dialogueScript: {fileID: 4900000, guid: 40017b57c71248147ad9be21df63505c, type: 3}
+  hint: 'This is where you work.;
+
+    At the top is written the formula of the potion
+    that you must make.;
+
+    Drag components from the left panel into creation area
+    to create the potion.;'

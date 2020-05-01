@@ -10,22 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
-  m_Name: Level 13
+  m_Name: B
   m_EditorClassIdentifier: 
   _name: 
   _description: 
   _basis:
   - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
-  _goal: {fileID: 11400000, guid: 31ab6ac1a6734344083793b0cbb00d71, type: 2}
+  _goal: {fileID: 11400000, guid: 8fe529e7735b8d94686b0ba9ef0f620e, type: 2}
   _restrictions:
-    noParens: 0
-    noBackApp: 0
+    noParens: 1
+    noBackApp: 1
     noForwardApp: 0
   _dialogueScript: {fileID: 0}
-  hint: 'Remember, that you could derive Eng from Peng?;
-
-    And you could derive
-    this potion from Eng and Peng.;
-
-    Now do it without Eng. It will help to review
-    your previous solutions.'
+  hint: When two components are surrounded in a grouping, they act as one component
+    when being consumed.

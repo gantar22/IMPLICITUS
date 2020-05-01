@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
-  m_Name: Level 13
+  m_Name: K
   m_EditorClassIdentifier: 
   _name: 
   _description: 
   _basis:
+  - {fileID: 11400000, guid: 62c2ce3298a61f44f9f0c61da05ec3ba, type: 2}
   - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
-  _goal: {fileID: 11400000, guid: 31ab6ac1a6734344083793b0cbb00d71, type: 2}
+  _goal: {fileID: 11400000, guid: 5146c29473ebbad44a4e0de349f1dc46, type: 2}
   _restrictions:
-    noParens: 0
-    noBackApp: 0
+    noParens: 1
+    noBackApp: 1
     noForwardApp: 0
   _dialogueScript: {fileID: 0}
-  hint: 'Remember, that you could derive Eng from Peng?;
-
-    And you could derive
-    this potion from Eng and Peng.;
-
-    Now do it without Eng. It will help to review
-    your previous solutions.'
+  hint: 'You can read a formula as saying: this potion will take what is to the left
+    of the arrow and turn it into what is on the right of the arrow.;'

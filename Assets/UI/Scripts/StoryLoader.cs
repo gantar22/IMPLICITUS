@@ -27,18 +27,20 @@ public class StoryLoader : MonoBehaviour
 
     private IEnumerator LoadStoryScene()
     {
-        if (chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text == null) yield break;
+        
+        var level = chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex];
+        var dialogue = level.DialogueScript;
+        if (dialogue && dialogue.text == null) yield break;
         LoadManager.instance.LoadSceneAsync("Dialogue");
         while (DialogueManager.instance == null)
         {
             yield return new WaitForEndOfFrame();
         }
 
-        var dialogue = chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript;
         if(dialogue)
-            DialogueManager.instance.PlayDialogue(dialogue.text);
+            DialogueManager.instance.PlayDialogue(dialogue.text,level.hint);
         else
-            DialogueManager.instance.PlayDialogue(" ");
+            DialogueManager.instance.PlayDialogue(" ",level.hint);
         routine = null;
     }
 }
