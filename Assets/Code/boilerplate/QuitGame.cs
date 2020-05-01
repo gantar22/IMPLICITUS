@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class QuitGame : MonoBehaviour
 {
-    public static void Quit()
+    public void Quit()
     {
-        Application.Quit();
+        LoadManager.instance.LoadScene("Menu");
     }
 }
