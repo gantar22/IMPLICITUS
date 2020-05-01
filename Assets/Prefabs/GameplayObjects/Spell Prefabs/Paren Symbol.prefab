@@ -125,9 +125,11 @@ MonoBehaviour:
   pushUndoGoalTerm: {fileID: 0}
   pushUndoProposalTerm: {fileID: 11400000, guid: 9d1081ad5f64e96459c6b07cfd18133d,
     type: 2}
+  updateCodexEvent: {fileID: 0}
   evaluationMode: {fileID: 11400000, guid: a041f7488fc1e404d9be7c0d19bd0177, type: 2}
   hasBeenDragged: 0
   NoForwardMode: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
+  effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
 --- !u!114 &-4863420347137907815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellCodexTabPrefab: {fileID: 0}
+  updateCodexEvent: {fileID: 0}
 --- !u!114 &3489860294374924336
 MonoBehaviour:
   m_ObjectHideFlags: 0
