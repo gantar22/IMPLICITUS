@@ -96,6 +96,7 @@ public class SymbolManager : MonoBehaviour
     
 
     
+    
     private Term currentTerm;
 
     public void Awake()
