@@ -163,6 +163,7 @@
             </e>
           </e>
         </e>
+        <e p="save.txt" t="Include" />
         <e p="Spline Editor" t="Include">
           <e p="Editor" t="Include">
             <e p="BezierCurveInspector.cs" t="Include" />

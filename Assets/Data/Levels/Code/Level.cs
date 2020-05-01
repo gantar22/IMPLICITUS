@@ -13,6 +13,8 @@ public class Level : ScriptableObject
     [SerializeField] private Combinator _goal;
     [SerializeField] private LevelRestrictions _restrictions;
     [SerializeField] private TextAsset _dialogueScript;
+
+    [TextArea] public string hint;
     
     public string Name
     {

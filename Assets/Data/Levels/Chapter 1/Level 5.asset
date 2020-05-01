@@ -23,3 +23,7 @@ MonoBehaviour:
     noBackApp: 1
     noForwardApp: 0
   _dialogueScript: {fileID: 4900000, guid: c1756d057a7d7d14e86b4aa06d486cf1, type: 3}
+  hint: 'You can add groupings directly to your potion now.;
+
+    Place it in the
+    potion, then drag other components onto it.'

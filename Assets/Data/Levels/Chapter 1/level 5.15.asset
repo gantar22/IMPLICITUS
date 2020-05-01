@@ -23,3 +23,8 @@ MonoBehaviour:
     noBackApp: 0
     noForwardApp: 1
   _dialogueScript: {fileID: 0}
+  hint: 'Remember that groupings act as one component when acted upon.;
+
+    Use
+    this to your advantage to several componets into the correct form which matches
+    the right side of Peng''s definition.'

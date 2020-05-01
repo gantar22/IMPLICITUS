@@ -176,13 +176,29 @@ public class LevelSelect : MonoBehaviour
 
     private IEnumerator LoadStoryScene()
     {
-        if (chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text == null) yield break;
-        LoadManager.instance.LoadSceneAsync("Dialogue");
-        while(DialogueManager.instance == null)
+        var lvl = chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex];
+        var dialogue = lvl.DialogueScript;
+        if (dialogue)
         {
-            yield return new WaitForEndOfFrame();
+            if (dialogue.text == null) yield break;
+            LoadManager.instance.LoadSceneAsync("Dialogue");
+            while(DialogueManager.instance == null)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        
+            DialogueManager.instance.PlayDialogue(dialogue.text,lvl.hint);
         }
-        DialogueManager.instance.PlayDialogue(chapters.Chapters[levelLoader.chapterIndex].Levels[levelLoader.levelIndex].DialogueScript.text);
+        else
+        {
+            LoadManager.instance.LoadSceneAsync("Dialogue");
+            while(DialogueManager.instance == null)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            DialogueManager.instance.PlayDialogue(" ",lvl.hint);
+            
+        }
         routine = null;
     }
 

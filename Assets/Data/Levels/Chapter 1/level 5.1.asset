@@ -22,3 +22,11 @@ MonoBehaviour:
     noBackApp: 0
     noForwardApp: 1
   _dialogueScript: {fileID: 0}
+  hint: 'It is often much easier to solve these problems by working backwards from
+    the desired result to a viable starting state.;
+
+    Drag a component onto a
+    grouping to imagine how that state could have been reached.;
+
+    Add parenthesis,
+    when they would have otherwise dissolved on the left.;'

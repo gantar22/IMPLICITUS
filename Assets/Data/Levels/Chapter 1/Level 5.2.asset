@@ -22,3 +22,4 @@ MonoBehaviour:
     noBackApp: 0
     noForwardApp: 1
   _dialogueScript: {fileID: 0}
+  hint: 

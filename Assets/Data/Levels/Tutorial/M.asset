@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084f709004e6f9d4a858cb7d062e6ce3, type: 3}
-  m_Name: Tutorial1
+  m_Name: M
   m_EditorClassIdentifier: 
   _name: 
   _description: 
   _basis:
-  - {fileID: 11400000, guid: 5066f6fdd5e3b4442bccb7a439be57c3, type: 2}
-  _goal: {fileID: 11400000, guid: 8fe529e7735b8d94686b0ba9ef0f620e, type: 2}
+  - {fileID: 11400000, guid: 586212a154b7c05419b7ecebeecf30e4, type: 2}
+  _goal: {fileID: 11400000, guid: 04770ed3014a03a4997a3b0e00cf3085, type: 2}
   _restrictions:
     noParens: 1
     noBackApp: 1
     noForwardApp: 0
-  _dialogueScript: {fileID: 4900000, guid: 40017b57c71248147ad9be21df63505c, type: 3}
+  _dialogueScript: {fileID: 0}
+  hint: To see the formula for the component you are using, select it on the left
+    and look at the bottom of the screen.;
