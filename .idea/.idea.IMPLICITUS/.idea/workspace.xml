@@ -117,7 +117,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_copy_active.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/DimDuringEval.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Pure Logic/Lambda.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/GoalUndoRedoButtons.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_shade_bg.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_arrow_flip_script.cs" />
@@ -129,6 +128,7 @@
         <option value="$PROJECT_DIR$/Assets/Editor/Autosave.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Codex/Codex.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_cast_spell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
   </component>
@@ -203,7 +203,7 @@
       <workItem from="1586712766636" duration="14890000" />
       <workItem from="1587220783923" duration="136614000" />
       <workItem from="1588293528869" duration="8768000" />
-      <workItem from="1588306344375" duration="10297000" />
+      <workItem from="1588306344375" duration="10602000" />
     </task>
     <servers />
   </component>
