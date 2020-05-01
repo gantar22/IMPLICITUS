@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,16 @@ public class LevelSelect : MonoBehaviour
     {
         LoadSave();
         LoadLevels();
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.P))
+        {
+            unlockedChapter.val = GetMaxUnlockedChapter();
+            unlockedLevel.val = chapters.Chapters[unlockedChapter.val].Num;
+        }
     }
 
     private void LoadSave()
