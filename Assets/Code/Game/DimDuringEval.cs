@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DimDuringEval : MonoBehaviour
 {
+    [SerializeField] private BoolRef forwardMode;
     [SerializeField] private BoolRef evalmode;
 
     [SerializeField] private CanvasGroup canvasGroup;
@@ -12,7 +13,8 @@ public class DimDuringEval : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, evalmode.val ? .33f : 1, Time.deltaTime * 2);
-        canvasGroup.interactable = !evalmode.val;
+        bool hide = (evalmode.val && forwardMode.val);
+        canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, hide ? .33f : 1, Time.deltaTime * 2);
+        canvasGroup.interactable = !hide;
     }
 }

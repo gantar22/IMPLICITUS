@@ -15,12 +15,25 @@ using UnityEngine.UI;
 [RequireComponent(typeof(TermClickHandler))]
 public class SymbolManager : MonoBehaviour
 {
+    private struct AddParenRule
+    {
+        public List<int> path;
+        public int size;
+        public Term oldTerm;
+        
+        public AddParenRule(List<int> path, int size, Term oldTerm)
+        {
+            this.path = path;
+            this.size = size;
+            this.oldTerm = oldTerm;
+        }
+    }
     private struct ForwardData
     {
-        public ElimRule rule;
+        public Sum<ElimRule,AddParenRule> rule;
         public LayoutTracker TopSymbol;
 
-        public ForwardData(ElimRule rule, LayoutTracker topSymbol)
+        public ForwardData(Sum<ElimRule,AddParenRule> rule, LayoutTracker topSymbol)
         {
             this.rule = rule;
             TopSymbol = topSymbol;
@@ -216,12 +229,17 @@ public class SymbolManager : MonoBehaviour
             if(Application.isPlaying)
                 Destroy(t.gameObject);
         }
-        CreateSkeleton(new_term,skeletonRoot); //sets new term
         var Paren = AccessTransfrom(root.transform, path);
 
         var Removed = Paren.GetChild(index);
-        
+        if (0 < Removed.childCount)
+        {
+            backwardUndoStack = new Stack<Sum<BackwardTermData, BackwardParenData>>();
+            //forwardUndoStack.Push(new ForwardData(Sum<ElimRule, AddParenRule>.Inl(new ParenElim(path)), root));
+            forwardUndoStack.Push(new ForwardData(Sum<ElimRule,AddParenRule>.Inr(new AddParenRule(path,Removed.childCount,currentTerm)),root));
+        }
        
+        CreateSkeleton(new_term,skeletonRoot); //sets new term
         List<Transform> ts = new List<Transform>();
         foreach (Transform t in Removed.transform)
             ts.Add(t);
@@ -254,7 +272,7 @@ public class SymbolManager : MonoBehaviour
     }
 
 
-    public IEnumerator popBackwards()
+    public IEnumerator popBackwards(Action<Term> k)
     {
         if (backwardUndoStack.Any())
         {
@@ -265,6 +283,7 @@ public class SymbolManager : MonoBehaviour
         {
             Debug.Log("no moves available");
         }
+        k(currentTerm);
     }
 
     public bool HasBackStack()
@@ -282,7 +301,7 @@ public class SymbolManager : MonoBehaviour
         if (forwardUndoStack.Any())
         {
             var _ = forwardUndoStack.Pop();
-            yield return (_Transition(_.rule, _.TopSymbol));
+            yield return _.rule.Match(elim => _Transition(elim, _.TopSymbol),paren => addParen(paren,_.TopSymbol));
         }
         else
         {
@@ -290,6 +309,30 @@ public class SymbolManager : MonoBehaviour
         }
     }
 
+    private IEnumerator addParen(AddParenRule rule, LayoutTracker TopSymbol)
+    {
+        var parent = AccessTransfrom(TopSymbol.transform, rule.path);
+        var lt = Instantiate(parenSymbol, parent);
+        lt.root = skeletonRoot;
+        List<Transform> children = new List<Transform>();
+        for (int i = 0; i < rule.size; i++)
+        {
+            children.Add(parent.GetChild(i));
+        }
+        lt.transform.SetAsFirstSibling();
+        foreach (Transform transform in children)
+        {
+            transform.SetParent(lt.transform,true);
+        }
+
+        foreach (Transform child in skeletonRoot)
+        {
+            Destroy(child.gameObject);
+        }
+        CreateSkeleton(rule.oldTerm,skeletonRoot);
+        yield return new WaitUntil(() => !lt.Moving());
+    }
+    
     public IEnumerator Transition(ElimRule rule, LayoutTracker TopSymbol)
     {
         forwardUndoStack = new Stack<ForwardData>();
@@ -326,13 +369,12 @@ public class SymbolManager : MonoBehaviour
             }
             copy.transform.SetParent(GetComponentInParent<Canvas>().transform.GetChild(0),true);
             copy.SetActive(false);
-            int size = AccessTransfrom(TopSymbol.transform, pElim.Target()).childCount;
+            int size = AccessTransfrom(TopSymbol.transform, pElim.Target()).GetChild(0).childCount;
             backwardUndoStack.Push(Sum<BackwardTermData, BackwardParenData>.Inr(new BackwardParenData(
                 pElim.Target(),size
                 ,() => 
                 {
                     copy.SetActive(true);
-                    copy.transform.SetParent(AccessTransfrom(TopSymbol.transform, pElim.Target()));                    
                     copy.transform.localScale = Vector3.one;
                     return copy.GetComponent<LayoutTracker>();
                 },TopSymbol,term
@@ -361,8 +403,8 @@ public class SymbolManager : MonoBehaviour
         
         yield return _BackApplyParens(path,size,paren,TopSymbol,newTerm);
     }
-    
-    private IEnumerator _Transition( ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
+
+    private IEnumerator _Transition(ElimRule rule, LayoutTracker TopSymbol) //no moving in topsymbol
     {
         pushForward(rule,TopSymbol);
         var oldTerm = currentTerm;
@@ -538,7 +580,7 @@ public class SymbolManager : MonoBehaviour
 
     public IEnumerator _UnTransition(Term newTerm, LayoutTracker lt, Combinator C, List<int> path, LayoutTracker TopSymbol)
     {
-        forwardUndoStack.Push(new ForwardData(new CombinatorElim(C,path), TopSymbol));
+        forwardUndoStack.Push(new ForwardData(Sum<ElimRule, AddParenRule>.Inl(new CombinatorElim(C,path)), TopSymbol));
         /*
          * REMEMBER, you've already "typechecked" this operation, you can assume that everything fits
          * Get transform at path
@@ -629,7 +671,7 @@ public class SymbolManager : MonoBehaviour
 
     public IEnumerator _BackApplyParens(List<int> path, int size,LayoutTracker paren, LayoutTracker TopSymbol, Term newTerm)
     {
-        forwardUndoStack.Push(new ForwardData(new ParenElim(path),TopSymbol));
+        forwardUndoStack.Push(new ForwardData(Sum<ElimRule, AddParenRule>.Inl(new ParenElim(path)),TopSymbol));
         var target = AccessTransfrom(TopSymbol.transform, path);
 
 

@@ -132,7 +132,7 @@ public class adhoc_cast_spell : MonoBehaviour
     {  
         IEnumerator succ()
         {
-            yield return new WaitForSeconds(.6f);
+            yield return new WaitForSeconds(.66f);
             if (Util.CanEvaluate(term, new List<int>(), (v, rule) => rule).Any())
                 yield return Skip();
             else
@@ -182,7 +182,7 @@ public class adhoc_cast_spell : MonoBehaviour
     {
         IEnumerator succ()
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.66f);
             if (proposal.HasBackStack())
                 yield return SkipBack();
             else
@@ -212,7 +212,7 @@ public class adhoc_cast_spell : MonoBehaviour
             fail();
             yield break;
         }
-        yield return proposal.popBackwards();
+        yield return proposal.popBackwards(t => term = t);
         yield return succ;
     }
 

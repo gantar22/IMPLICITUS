@@ -332,7 +332,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         List<int> index = GetComponent<LayoutTracker>().index;
         SymbolManager sm = GetComponentInParent<SymbolManager>();
         SpawnTarget sp = GetComponentInParent<SpawnTarget>();
-        var lt = sm.RemoveAtAndReturn(index.Skip(1).ToList(),sm.GetComponentInChildren<LayoutTracker>());
+        var lt = sm.RemoveAtAndReturn(index.Skip(1).ToList(), sm.GetComponentInChildren<LayoutTracker>());
         lt.transform.SetParent(GetComponentInParent<Canvas>().transform,true);
         lt.transform.SetAsLastSibling();
         lt.enabled = false;
