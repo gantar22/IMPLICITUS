@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
 
     //Variables to hold audio objects
     private List<AudioObject> effectPoolList; //Save all instances of effects 
-    private Queue<GameObject> songQueue;   //Will hold current song playing
+    private Queue<AudioObject> songQueue;   //Will hold current song playing
 
     //used to ensure onlyone instance of AudioManager exists
     public static AudioManager instance;
@@ -53,13 +53,11 @@ public class AudioManager : MonoBehaviour
         
         //Create variables 
         effectPoolList = new List<AudioObject>();
-        songQueue = new Queue<GameObject>();
+        songQueue = new Queue<AudioObject>();
 
         //Listen for command to play audio
         songInt.AddListener(playSong);
         effectInt.AddListener(playEffect);
-
-        songInt.Invoke(0); //Plays Title Screen Track
     
         
     
@@ -111,31 +109,37 @@ public class AudioManager : MonoBehaviour
         //and if input is -1
         if (-1 <= num && num < songPrefabsList.Length)
         {
-            GameObject song; //Holder for songs played or removed
+            AudioObject song; //Holder for songs played or removed
 
-            //If playing song, create new GameObject for song and add to the queue
-            if (num >= 0)
-            {
-                song = (GameObject)Instantiate(songPrefabsList[num], gameObject.transform);
-                song.GetComponent<AudioSource>().Play();
-                songQueue.Enqueue(song);
-
-                //If only one song is in queue, do not remove the song
-                if (songQueue.Count == 1) { return; }
-            }
 
             //Removing song, only if song is playing
             if (songQueue.Count > 0)
             {
                 //Remove song previously playing, stop and destroy
                 song = songQueue.Dequeue();
-				if (song) {
-					song.GetComponent<AudioSource>().Stop();
-				}
-                Destroy(song);
+                //If the song is already playing and is called again, leave alone
+                if (song.tag == num)
+                {
+                    Debug.Log("Song was already playing so we did nothing!");
+                    songQueue.Enqueue(song);
+                    return;
+                }
+                song.audioPrefab.GetComponent<AudioSource>().Stop();
+                Destroy(song.audioPrefab);
 
                 //Clears effectsPoolList (assummed some scene change occurs with song change)
                 clearEffectPrefabs();
+            }
+
+            //If playing song, create new GameObject for song and add to the queue
+            if (num >= 0)
+            {
+                song = new AudioObject(num, (GameObject)Instantiate(songPrefabsList[num], gameObject.transform));
+                song.audioPrefab.GetComponent<AudioSource>().Play();
+                songQueue.Enqueue(song);
+
+                //If only one song is in queue, do not remove the song
+                if (songQueue.Count == 1) { return; }
             }
         }
         else

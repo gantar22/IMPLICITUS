@@ -22,6 +22,8 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
+
+        songAudioEvent.Invoke(0);   //Plays Title screen soundtrack
         animator = GetComponent<Animator>();
     }
 

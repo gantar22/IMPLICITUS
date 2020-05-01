@@ -681,8 +681,6 @@ public class SymbolManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Is Running Combinator Effect Play");
-
         //Getting name of combinator to reference
         char comb_name = CElim.c.info.nameInfo.name;
 
