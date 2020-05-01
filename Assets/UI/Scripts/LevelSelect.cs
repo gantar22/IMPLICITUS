@@ -51,6 +51,8 @@ public class LevelSelect : MonoBehaviour
         {
             unlockedChapter.val = 0;
             unlockedLevel.val = 0;
+            levelLoader.chapterIndex = 0;
+            levelLoader.levelIndex = 0;
             SaveToFile();
         }
         
