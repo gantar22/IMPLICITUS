@@ -97,9 +97,9 @@ public class LevelSelect : MonoBehaviour
 
         int maxLevels = currChap.Levels.Length;
 
-        if(unlockedChapter.val == currChap.Num)
+        if(unlockedChapter.val == currChap.Num && maxLevels > unlockedLevel.val)
         {
-            maxLevels = unlockedLevel.val;
+            maxLevels = unlockedLevel.val + 1;
         }
 
         for(int i = 0; i < maxLevels; i++)
