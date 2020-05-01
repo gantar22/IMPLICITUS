@@ -59,11 +59,14 @@ public class Codex : MonoBehaviour {
 		startSMT.reset();
 		startSMT.CreateTerm(startTerm);
 		startSMT.Variables = tmpStartVariables;
+		
+		// Destroy the previous target if it exists
+		LayoutTracker prev = targetSMT.GetComponentInChildren<LayoutTracker>();
+		if (prev) {
+			Destroy(prev.gameObject);
+		}
 
 		// Create Target
-		//targetSMT.reset();
-		// TODO - use ParseCombinator, or find another way, so that a new parens aren't created each time, or so you can destroy the previous ones
-		//Util.ParseCombinator(combinator);
 		targetSMT.Variables = split[0].Skip(1).Where(char.IsLetter).ToList();
 		goalTerm = targetSMT.CreateTerm(split[1]);
 		targetSMT.CreateTerm(goalTerm);
