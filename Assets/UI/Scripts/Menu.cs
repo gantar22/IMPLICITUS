@@ -77,7 +77,27 @@ public class Menu : MonoBehaviour
     {
         effectAudioEvent.Invoke(0); //Button Press Sound
 
+        animator.enabled = false;
         //switch to credits
+        credits.alpha = 1;
+        credits.interactable = true;
+        credits.blocksRaycasts = true;
+        mainMenu.alpha = 0;
+        mainMenu.interactable = false;
+        mainMenu.blocksRaycasts = false;
+    }
+
+    public void BackFromCredits()
+    {
+        effectAudioEvent.Invoke(0); //Button Press Sound
+
+        //switch back from credits
+        credits.alpha = 0;
+        credits.interactable = false;
+        credits.blocksRaycasts = false;
+        mainMenu.alpha = 1;
+        mainMenu.interactable = true;
+        mainMenu.blocksRaycasts = true;
     }
 
 
