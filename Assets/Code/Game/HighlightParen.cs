@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 [RequireComponent(typeof(Image))]
-public class HighlightParen : MonoBehaviour
+public class HighlightParen : MonoBehaviour, IHighlightable
 {
     private float power;
     private Image im;
@@ -64,12 +64,12 @@ public class HighlightParen : MonoBehaviour
         }
     }
 
-    public void toggleOn()
+    public void select()
     {
         power = 1;
     }
 
-    public void toggleOff()
+    public void unselect()
     {
         power = 0;
     }

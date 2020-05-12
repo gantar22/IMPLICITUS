@@ -44,21 +44,17 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     {// keep as long as your index is the same
         public List<int> path;
         public int my_index;
-        public SpawnTarget spawnTarget;
-        public float timeFound;
-        public Vector2 mousePositionWhenFound;
         public Action place;
-        public Action unplace;
+        public Action highlight;
+        public Action unhighlight;
 
-        public PreviewRedundantParenInfo(List<int> path, int myIndex, SpawnTarget spawnTarget, Action place, Action unplace, float timeFound, Vector2 mousePositionWhenFound)
+        public PreviewRedundantParenInfo(List<int> path, int myIndex, Action place, Action highlight, Action unhighlight)
         {
-            this.mousePositionWhenFound = mousePositionWhenFound;
-            this.timeFound = timeFound;
             this.path = path;
             my_index = myIndex;
-            this.spawnTarget = spawnTarget;
             this.place = place;
-            this.unplace = unplace;
+            this.highlight = highlight;
+            this.unhighlight = unhighlight;
         }
     }
 
@@ -484,16 +480,31 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 if (my_index != target.childCount)
                     return Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
                     {
-                        PreviewRedundantParenInfo prp = new PreviewRedundantParenInfo(index,my_index,spawnTarget, () =>
+                        List<IHighlightable> selected = new List<IHighlightable>();
+                        for (int i = 0; i < my_index; i++)
                         {
-
-                            
-                            
+                            selected = selected.Concat(target.GetChild(i).GetComponentsInChildren<IHighlightable>()).ToList();
+                        }
+                        PreviewRedundantParenInfo prp = new PreviewRedundantParenInfo(index,my_index, () =>
+                        {
                             spawnTarget.addParens(index.Skip(1).ToList(), my_index, GetComponent<LayoutTracker>(), t);
 
                             PlaceMe();
                             myDraggableType = DraggableHolder.DraggableType.RedundantParens;
-                        },UnPlace,Time.time,Input.mousePosition);
+                        }, () =>
+                        {
+                            foreach (IHighlightable highlightable in selected)
+                            {
+                                highlightable.select();
+                            }
+                            
+                        }, () =>
+                        {
+                            foreach (IHighlightable highlightable in selected)
+                            {
+                                highlightable.unselect();
+                            }
+                        });
                         return Sum<Action,PreviewInfo>.Inr(PreviewInfo.In2(prp));
                         
                     }, _ =>
@@ -516,10 +527,10 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         spawnTarget.unApply(t, GetComponent<LayoutTracker>(), myCombinator, index.Skip(1).ToList());
 
                         PlaceMe();
-                        hightligher.toggleOff();
+                        hightligher.unselect();
                         myDraggableType = DraggableHolder.DraggableType.NoDragging;
 
-                    },hightligher.toggleOn, hightligher.toggleOff)))    
+                    },hightligher.select, hightligher.unselect)))    
                    
                 , _ => Sum<Action, PreviewInfo>.Inl(DestroyMe));
             }

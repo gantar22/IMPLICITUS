@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="" />
+    <list default="true" id="8027d68e-dcbb-480c-bedb-a3a3a083b7b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IMPLICITUS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +114,6 @@
         <option value="$PROJECT_DIR$/Assets/ABMCurrentWork/CompletedLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/boilerplate/Sum.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_visible_parens.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Test/SymbolManagerTester.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_toggleImage.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/adhoc_copy_active.cs" />
@@ -118,7 +122,6 @@
         <option value="$PROJECT_DIR$/Assets/Code/Game/GoalUndoRedoButtons.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_shade_bg.cs" />
         <option value="$PROJECT_DIR$/Assets/adhoc_arrow_flip_script.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/LayoutTracker.cs" />
         <option value="$PROJECT_DIR$/Assets/optionaltext.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/Level/StartElementsPopulator.cs" />
@@ -131,9 +134,11 @@
         <option value="$PROJECT_DIR$/Assets/Data/Levels/Code/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/DialogueManager.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/StoryLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Game/SymbolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/LevelSelect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/HighlightParen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/GameplayObjects/Spell Prefabs/SetVariablePrefab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/Game/ClickAndDrag/DraggableSpell.cs" />
       </list>
     </option>
   </component>
@@ -209,7 +214,8 @@
       <workItem from="1587220783923" duration="136614000" />
       <workItem from="1588293528869" duration="8768000" />
       <workItem from="1588306344375" duration="16987000" />
-      <workItem from="1588358019607" duration="6690000" />
+      <workItem from="1588358019607" duration="12797000" />
+      <workItem from="1589210541564" duration="2006000" />
     </task>
     <servers />
   </component>
