@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9b7e34cfa710c74b96902dd8f741700, type: 3}
-  m_Name: T
+  m_Name: CombinatorRandom
   m_EditorClassIdentifier: 
-  lambdaTerm: T x y => y x
+  lambdaTerm: R z y x w v u => ( y ( x w v ) u )
   info:
     duplicator: 0
     associator: 0
-    permutor: 1
+    permutor: 0
     recursive: 0
     annihilator: 0
     nameInfo:
-      name: 84
-      birdName: Thrush
-      spellName: Tam
-      logicName: Exchange
+      name: 82
+      birdName: 
+      spellName: Ren
+      logicName: 
     extraInfo: 

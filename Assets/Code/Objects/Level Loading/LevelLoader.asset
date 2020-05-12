@@ -14,15 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterList: {fileID: 11400000, guid: f2a3354bf08212746b6bad3e3f7e9ded, type: 2}
   levelSceneBuildIndex: 3
+  levelRandom: {fileID: 11400000, guid: 60f3cbf21f4bd604f89132e94dc160d2, type: 2}
+  allSpells: {fileID: 11400000, guid: 149681613cb89654da3cc6fba9f0b569, type: 2}
+  levelRandomExclusions: {fileID: 11400000, guid: bc20932d7c003d54790ce4745a6ef623,
+    type: 2}
   onLevelLoad: {fileID: 11400000, guid: 76f275bb9fc8b2f48800fe5e25a1caf3, type: 2}
   onLevelLoadLambda: {fileID: 11400000, guid: 85fa393545e43544cb7ab4b9680bce18, type: 2}
   onLevelLoadArity: {fileID: 11400000, guid: a89c1a605264eb44698c40e455580033, type: 2}
   NoParens: {fileID: 11400000, guid: 5ad4d7e2d060db6409302c7919674f74, type: 2}
   NoBackApp: {fileID: 11400000, guid: 207a4f6be8fac8546868187720b2f53d, type: 2}
   NoForwardApp: {fileID: 11400000, guid: 9cdca0845f0cbec459cbdb870731a15f, type: 2}
-  chapterIndex: 1
-  levelIndex: 1
-  currentLevel: {fileID: 11400000, guid: 933e488c90581e54fbdcf6417e91c939, type: 2}
+  chapterIndex: 0
+  levelIndex: 0
+  currentLevel: {fileID: 11400000, guid: 60f3cbf21f4bd604f89132e94dc160d2, type: 2}
   story: 0
   effectAudioEvent: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
   songAudioEvent: {fileID: 11400000, guid: 551fdae84ee774a4ebdae3e4fe0941aa, type: 2}
