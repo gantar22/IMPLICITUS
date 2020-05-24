@@ -59,4 +59,9 @@ public class Level : ScriptableObject
         public bool noBackApp;
         public bool noForwardApp;
     }
+
+	// Shhhh I just need to edit the basis, don't look Carter
+	public void secretlySetBasis(Spell[] newBasis) {
+		_basis = newBasis;
+	}
 }
