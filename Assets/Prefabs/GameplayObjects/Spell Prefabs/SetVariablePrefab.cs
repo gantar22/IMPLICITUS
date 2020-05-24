@@ -22,6 +22,12 @@ public class SetVariablePrefab : MonoBehaviour, IHighlightable
     private Color backwardColor = new Color(0.97f, 0.95f, 0.54f);
     private bool selected = false;
     private Image im;
+
+    private void Awake()
+    {
+        im = GetComponent<Image>();
+    }
+
     public void Set(int i)
     {
         index = i;
@@ -44,8 +50,8 @@ public class SetVariablePrefab : MonoBehaviour, IHighlightable
     {
         var c =  !forwardmode.val ? forwardColor : backwardColor;
         if(selected)
-            c = Color.red;;
-        im.color = Color.Lerp(im.color, c, Time.time);
+            c = new Color(0.97f, 0.66f, 0.95f);;
+        im.color = Color.Lerp(im.color, c, Time.deltaTime * 10);
 
     }
 

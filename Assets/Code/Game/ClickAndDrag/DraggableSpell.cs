@@ -182,6 +182,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 void Fail()
                 {
                     backward.unHighlight();
+                    previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());// TODO verify
                 }
                 (var spawnTarget, var targets) = getTargets();
                 FreshPreview(spawnTarget, targets).Match(preview => preview.Match(forward => Fail(), newBackward =>
@@ -195,18 +196,14 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 },redundant => Fail()), _ => Fail());
             }, redundant =>
             {
+                move();
                 void Fail()
                 {
-                    redundant.unplace();
+                    redundant.unhighlight();
                     previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
                 }
-//call unplace then reverse it TODO
-                if (Time.time - redundant.timeFound < .5f && Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 150)
-                    return;
-                if (Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound) < 20)
-                    return;
                 
-                (var spawnTarget, var targets) = getTargets(includeSelf:true);
+                (var spawnTarget, var targets) = getTargets();
                 
                 /* path has changed or index != 0 */
                 FreshPreview(spawnTarget,targets).Match(preview => preview.Match(_ =>
@@ -221,7 +218,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 {
                     if (state.path.Count == redundant.path.Count && state.path.Select((x, i) => x == redundant.path[i]).All(x => x))
                     {//the path is the same
-                        if (state.my_index == 0)
+                        if (state.my_index == redundant.my_index)
                         {
                             print("same path");
                             /* do nothing */
@@ -231,40 +228,12 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                             print("path same length, but differs");
                             Fail();
                         }
-                    } else if (state.path.Count == redundant.path.Count + 1 &&
-                        redundant.path.Select((x, i) => state.path[i] == x).All(x => x))// the new path is one lower
-                    {
-                        if (state.path.Last() == 0 && state.my_index == targets[0].childCount)//its directly to the right of the last child
-                        {
-                            print("far right");
-                            /* do nothing */
-                        }
-                        else
-                        {
-                            print("path is longer, but it's not directly to the left of the right paren");
-                            Fail();
-                        }
                     } else
                     {
                         print("path is just different");
                         Fail();
                     }
-                }), _ =>
-                {
-                    print("wouldn't count as a placement");
-                    if (GetComponent<RectTransform>().rect.max.x + 50 < Input.mousePosition.x)
-                        Fail();
-                    else if(possibleTargets().Any() && 15 < Mathf.Abs(Input.mousePosition.x - redundant.mousePositionWhenFound.x))
-                        Fail();
-                    else if (!possibleTargets().Any() &&
-                             25 < Vector2.Distance(Input.mousePosition, redundant.mousePositionWhenFound))
-                        Fail();
-                    else
-                    {
-                        print("hasn't moved far enough");
-                        /* do nothing */
-                    }
-                });
+                }), _ => Fail());
             })
             , __ =>
         {
@@ -275,17 +244,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 {
                     /* highlight*/
                     backward.highlight();
-                }, redundant =>
-                {
-                    if(mouseVel.magnitude < 5f)
-                        redundant.place();
-                    else
-                    {
-                        previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
-                        move();
-                    }
-                    
-                }),
+                }, redundant => { redundant.highlight(); }),
                 _ =>
                 { //no preview from last frame, no preview for next frame
                     move();
@@ -393,11 +352,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 return;
         hasBeenDragged = false;
 
-        if (previewState.Match(sum => sum.Match(_ => false, _ => false, redundant => true), _ => false))
-        {
-            previewState = Sum<PreviewInfo, Unit>.Inr(new Unit());
-            return;
-        }
+        
         (var spawnTarget,var L) = getTargets();
         
         if (L.Count == 0)
@@ -420,12 +375,7 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             /*      Insert yourself into the term       */
             if (oneTry)
             {
-                MakeDrop(spawnTarget, L[0]).Match(f => f(), s => s.Match(x => x.place(),x => x.place(),x =>
-                {
-                    previewState =
-                        Sum<PreviewInfo, Unit>.Inr(new Unit());
-                    DestroyMe();
-                }));
+                MakeDrop(spawnTarget, L[0]).Match(f => f(), s => s.Match(x => x.place(),x => x.place(),x => x.place()));
                 return;
             }
 
@@ -470,14 +420,14 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 int my_index;
                 for (my_index = 0; my_index < target.childCount; my_index++)
                 {
-                    if (transform.position.x < target.GetChild(my_index).position.x)
+                    if (transform.position.x < target.GetChild(my_index).position.x - target.GetChild(my_index).localScale.x / 4f)
                     {
                         break;
                     }
                 }
 
 
-                if (my_index != target.childCount)
+                if (true/*my_index != target.childCount*/)
                     return Util.BackApplyParen(spawnTarget.goal, index.Skip(1).ToList(), my_index).Match(t =>
                     {
                         List<IHighlightable> selected = new List<IHighlightable>();
@@ -489,6 +439,10 @@ public class DraggableSpell : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         {
                             spawnTarget.addParens(index.Skip(1).ToList(), my_index, GetComponent<LayoutTracker>(), t);
 
+                            foreach (IHighlightable highlightable in selected)
+                            {
+                                highlightable.unselect();
+                            }
                             PlaceMe();
                             myDraggableType = DraggableHolder.DraggableType.RedundantParens;
                         }, () =>

@@ -162,7 +162,7 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
             
             if(!scrolling && parentMoving)
                 rt.position = anchor;
-            if(delt.magnitude > .001f)
+            if(delt.magnitude > .001f) //or vibrate
                 rt.position = Vector3.SmoothDamp(rt.position, dest.position, ref velocity, .2f, 35);
 
 
@@ -183,6 +183,8 @@ public class LayoutTracker : MonoBehaviour, IPointerClickHandler
         } 
         return .25f < (transform.position - dest.position).magnitude;
     }
+    
+    //vibrate function
 
 
     public void LockDown(float t)

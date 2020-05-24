@@ -17,10 +17,16 @@ public class Mode : MonoBehaviour
     {
         forwardMode.val = false;
         Toggle();
-        if(noforward.val)
+    }
+
+    private void Start()
+    {
+        
+        if (noforward.val)
+        {
             Toggle();
-        
-        
+            print("no forward mode");           
+        }
     }
     
     
