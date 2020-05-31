@@ -113,12 +113,13 @@ public class LevelSelect : MonoBehaviour
             maxLevels = unlockedLevel.val + 1;
         }
 
-        for(int i = 0; i < maxLevels; i++)
+        for(int i = 0; i < currChap.Levels.Length; i++)
         {
             LevelObject temp = Instantiate(levelPrefab, levelHolder);
             temp.SetLevelNum(i);
             temp.SetLevelSelect(this);
             temp.SetData(i + 1, currChap.Levels[i].Description);
+            if (i < maxLevels) temp.SetEnabled(true);
         }
 
         chapterDisplay.refreshText();

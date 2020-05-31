@@ -11,6 +11,7 @@ public class LevelObject : MonoBehaviour
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private TextMeshProUGUI numText;
     [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private GameObject disabledOverlay;
 
     [SerializeField] private float moveTime;
     [SerializeField] private AnimationCurve moveCurve;
@@ -18,6 +19,12 @@ public class LevelObject : MonoBehaviour
 #pragma warning restore 0649
 
     private LevelSelect levelSelect;
+    private CanvasGroup cg;
+
+    private void Awake()
+    {
+        cg = GetComponent<CanvasGroup>();
+    }
 
     public void SetLevelSelect(LevelSelect ls)
     {
@@ -50,6 +57,20 @@ public class LevelObject : MonoBehaviour
     {
         numText.text = "Level " + num;
         descriptionText.text = description;
+    }
+
+    public void SetEnabled(bool _enabled)
+    {
+        if (_enabled)
+        {
+            disabledOverlay.SetActive(false);
+            cg.alpha = 1;
+        }
+        else
+        {
+            disabledOverlay.SetActive(true);
+            cg.alpha = 0.5f;
+        }
     }
 
     public void MoveTo(Vector2 position)

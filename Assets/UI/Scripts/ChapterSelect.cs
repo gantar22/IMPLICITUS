@@ -13,7 +13,7 @@ public class ChapterSelect : MonoBehaviour {
 #pragma warning restore 0649
 
     // Init
-    void Awake() {
+    void Start() {
 		refreshButtons();
 	}
 
