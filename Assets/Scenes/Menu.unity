@@ -1452,6 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectInt: {fileID: 11400000, guid: 117f3c880c38a5043b76ea001edaaa76, type: 2}
   songInt: {fileID: 11400000, guid: 551fdae84ee774a4ebdae3e4fe0941aa, type: 2}
+  effectDoneInt: {fileID: 0}
   effectPrefabsList:
   - {fileID: 4434826262092083971, guid: 832764ce388d1e740867cd012d562ca4, type: 3}
   - {fileID: 1356119633114973422, guid: 5e333be3f3240b144aedcb054dfc9fe8, type: 3}
@@ -1476,12 +1477,36 @@ MonoBehaviour:
   - {fileID: 8272874286134177737, guid: 233fc4fc3ae3c2b4ea33f8a6605a0e63, type: 3}
   - {fileID: 5697844396916057852, guid: 6a5d45085a0bb324ea19cd451352683f, type: 3}
   - {fileID: 2191008530690303075, guid: 1401a81aa9368834ca89d29c542537e7, type: 3}
-  songPrefabsList:
-  - {fileID: 371156723115415678, guid: d34f9668ad8e7cb4bb493104d60d638d, type: 3}
-  - {fileID: 6594083156655961500, guid: 971d134decde53d44b67213d723b2411, type: 3}
-  - {fileID: 3586969927455321886, guid: 8909b33e342930148a3935008a0320e6, type: 3}
-  - {fileID: 5764419092299656499, guid: 71f2615baadb31548a478362982b6346, type: 3}
-  - {fileID: 3302017835913416430, guid: 9332cfa1240a57b44bcd98cfc670cb1d, type: 3}
+  effectClipList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  songClipList:
+  - {fileID: 8300000, guid: 279fa78101cbd244ba633fe072dacfa7, type: 3}
+  - {fileID: 8300000, guid: ff2afbbf66ffbd342914237342db48f9, type: 3}
+  - {fileID: 8300000, guid: 18f8a5f9c42902b46a8fea8da2580de7, type: 3}
+  - {fileID: 8300000, guid: 836413242d58414418f27e1e00f2f090, type: 3}
+  - {fileID: 8300000, guid: 2e496360d52e7974a9a9a407cf7eef5c, type: 3}
 --- !u!1 &735090813
 GameObject:
   m_ObjectHideFlags: 0
