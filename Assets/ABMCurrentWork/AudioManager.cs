@@ -30,8 +30,9 @@ public class AudioManager : MonoBehaviour
 
     //Song Var.
     [SerializeField] AudioClip[] songClipList;    //List of Song Clips
-    
+
     AudioSource[] songList; //Holder of audioSource's with respective clips
+    float[] songVolume; //Holder of desired audio level of songs
     private int currentSong; //Save index of current song playing
     private int savedSong; //Will hold the tag for the saved song called by 
 
@@ -51,30 +52,37 @@ public class AudioManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
-			return;
+            return;
         }
         DontDestroyOnLoad(gameObject);
 
         //Create variables 
         effectPoolList = new List<AudioObject>();
-        
+
 
         //Create the songlist Array with songClipList
         songList = new AudioSource[songClipList.Length];
+        songVolume = new float[songClipList.Length];
         for (int i = 0; i < songClipList.Length; i++)
         {
+            //Create audioSource, attaching to game object
             songList[i] = gameObject.AddComponent<AudioSource>();
             songList[i].clip = songClipList[i];
             songList[i].loop = true;
+            songList[i].volume = 0f;
+
+            //Set default volume as off
+            songVolume[i] = 0f;
         }
         //Set currentSong and savedSong to mute
         currentSong = -1;
         savedSong = -1;
 
-
         //Listeners to play audio
         songInt.AddListener(playSelectSong);
         effectInt.AddListener(playEffect);
+
+       // StartCoroutine(modifySongVolume()); //Begings modifying Volume
     }
 
     //Used by listener of effectEvent
@@ -92,14 +100,14 @@ public class AudioManager : MonoBehaviour
                       "Stop all Effects: -1;");
             return;
         }
- 
+
         //turns off all the sounds
         if (num == -1)
-         {
+        {
             foreach (AudioObject effect in effectPoolList)
                 effect.audioPrefab.GetComponent<AudioSource>().Stop(); //Stop all audioSources
             return;
-         }
+        }
 
         //Check if object is in list *Note: Could probably be more efficient, may edit
         foreach (AudioObject effect in effectPoolList)
@@ -122,15 +130,15 @@ public class AudioManager : MonoBehaviour
         }
 
         //Effect not found in list, so new one will be created and added
-		if (this && gameObject) {
-			AudioObject audioObject = new AudioObject(num, (GameObject)Instantiate(effectPrefabsList[num], gameObject.transform));
-			effectPoolList.Add(audioObject);
-			audioObject.audioPrefab.GetComponent<AudioSource>().Play();
-		}
-	}
+        if (this && gameObject)
+        {
+            AudioObject audioObject = new AudioObject(num, (GameObject)Instantiate(effectPrefabsList[num], gameObject.transform));
+            effectPoolList.Add(audioObject);
+            audioObject.audioPrefab.GetComponent<AudioSource>().Play();
+        }
+    }
 
-
-    //Clears all effects prefab Objects 
+    //Clears all effects prefab Objects that are not playing
     private void clearEffectPrefabs()
     {
         //Saves effects that happen to still be playing when effects cleared!
@@ -165,96 +173,83 @@ public class AudioManager : MonoBehaviour
     // -1: Stop all songs playing
     // -2: Saves currently playing song tag (only one save at a time)
     // -3: Plays saved song (if none, mutes all songs)
-    private void playSelectSong(int num)
+    private void playSelectSong(int inputNum)
     {
         //If given input is incorrect return error!
-        if(num < -3 && songList.Length <= num)
+        if (inputNum < -3 && songList.Length <= inputNum)
         {
             Debug.Log("Incorrect input for playSong! \n" +
-                      "Valid inputs are: Tracks: 0 -" + (songList.Length - 1) + "\n" + 
+                      "Valid inputs are: Tracks: 0 -" + (songList.Length - 1) + "\n" +
                       "Stop Music: -1; Save Song: -2; Play Saved Song: -3");
             return;
         }
 
         //Play savedSong
-        if (num == -3)
+        if (inputNum == -3)
         {
             //Prevention for infinite loop (Impossible but percation)
             if (savedSong == -3) { Debug.Log("Broke playSong b/c infinite loop"); return; }
-            
+
             playSelectSong(savedSong);
             return;                     //End code
         }
 
         //Save current song to savedSong value
-        if (num == -2)
-        {      
+        if (inputNum == -2)
+        {
             savedSong = currentSong;       //Save song
             return;                     //End code
         }
 
         //If song being called is already playing, do nothing
-        if (currentSong == num) { return; }
+        if (currentSong == inputNum) { return; }
 
         //Muting all the music
-        if (num == -1)
+        if (inputNum == -1)
         {
-            StartCoroutine(stopSong(songList[currentSong])); // Stop the current song
+            //stop song
+            songVolume[currentSong] = 0f;
             currentSong = -1;
         }
-        
+
         //New track is going to be played
-        if (num >= 0)
+        if (inputNum >= 0)
         {
+            songList[inputNum].Play();
             //Play if no song is currently playing
             if (currentSong == -1)
-                StartCoroutine(playSong(songList[num]));
+            {
+                songVolume[inputNum] = 1f;
+                //StartCoroutine(playSong(songList[num]));
+            }
             //Transition to the new song
             else
-                StartCoroutine(transitionSong(songList[num], songList[currentSong]));
-
-            currentSong = num; //Set it to the new current song
+            {
+                songVolume[inputNum] = 1f;
+                songVolume[currentSong] = 0f;
+                //StartCoroutine(transitionSong(songList[num], songList[currentSong]));
+            }
+            currentSong = inputNum; //Set it to the new current song
         }
     }
 
-    //Plays song when backgorund is mute with added effects
-    IEnumerator playSong(AudioSource source)
-    {
-        source.volume = .25f;
-        source.Play();
-        while(source.volume < 1)
-        {
-            source.volume += .1f;
-            yield return new WaitForSeconds(.1f);
-        }
-        source.volume = 1;
-    }
+    //Continuously modifies volume of audiosources to reflect way is present
+    //in the array songVolume
+    //IEnumerator modifySongVolume()
 
-    //Stop playing music with any added effects
-    IEnumerator stopSong(AudioSource source)
-    {
-        while (source.volume > 0)
-        {
-            source.volume -= .05f;
-            yield return new WaitForSeconds(.1f);
-        }
-        source.Stop();
-        source.volume = 1;
-    }
 
-    //Transitions between songs playing with any added effects
-    //sourcePlay is song being played, sourceStop is song being stoped
-    IEnumerator transitionSong(AudioSource sourcePlay, AudioSource sourceStop)
+    void Update()
     {
-        sourcePlay.volume = 0;
-        sourcePlay.Play();
-        while (sourceStop.volume > 0 && sourcePlay.volume < 1)
+        for (int i = 0; i < songClipList.Length; i++)
         {
-            sourcePlay.volume += .05f;
-            sourceStop.volume -= .05f;
-            yield return new WaitForSeconds(.1f);
+            songList[i].volume = Mathf.Lerp(songList[i].volume, songVolume[i], 0.01f);
+
+            if (songList[i].volume < .01f) { songList[i].volume = 0f; } //Set to min
+
+            if (songList[i].volume > .99f) { songList[i].volume = 1f; } //Set to max
+
+            if (songList[i].volume == 0f)
+                songList[i].Stop();
         }
-        sourceStop.volume = 0;
-        sourceStop.Stop();
     }
 }
